@@ -1,0 +1,77 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="http://www.360buy.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/base.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/common.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/page.css')"/>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/main.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqModal.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqBtnSelect.js')"></script>
+</head>
+<body style='overflow-x: hidden; overflow-y: auto;'>
+
+<div id="container" class="w-menu clearfix">
+    <div id="menu">
+		<!--
+        <ul class="menu_lev1">
+            <li><a href="javascript:void(0);" class="tit_lev1" target="main">第一个</a>
+            <ul class="menu_lev2">
+                <li><a href="javascript:void(0);" class="tit_lev2" target="main">第二个</a>
+                <ul class="menu_lev3">
+                    <li><a href="javascript:void(0);" class="tit_lev3" target="main">第三个</a></li>
+                </ul>
+                </li>
+            </ul>
+            </li>
+        </ul>
+		-->
+	   
+		#foreach($permissionResource in ${menuList})
+			<ul class="menu_lev1">
+                <li>
+                    <a href="$!permissionResource.resourceUrl" class="tit_lev1" target="main">$!permissionResource.resourceName</a>
+                    #if($permissionResource.childResourceList)
+                    <ul class="menu_lev2">
+                        #foreach($childResource in $permissionResource.childResourceList)
+                            <li>
+                                <a href="#springUrl('')/$!childResource.resourceUrl" class="tit_lev2" target="main">$!childResource.resourceName</a>
+                            </li>
+                        #end
+                    </ul>
+                    #end
+                </li>
+            </ul>
+		#end
+		#if($!permissionMenu=="true")
+        <ul class="menu_lev1">
+            <li><a href="javascript:void(0);" class="tit_lev1" target="main">权限管理</a>
+                <ul class="menu_lev2">
+                    <li><a href="http://las.core.jd.com/permission/accountactive?sys=LAS_PERMISSION,LAS_DHC,LAS_CHS" class="tit_lev2" target="main">用户管理</a>
+                    </li>
+                    <li><a href="http://las.core.jd.com/permission/out_user?sys=LAS_PERMISSION" class="tit_lev2" target="main">外部用户管理</a>
+                    </li>
+                    <li><a href="http://las.core.jd.com/permission/accountdelete?sys=LAS_PERMISSION,LAS_DHC,LAS_CHS" class="tit_lev2" target="main">角色管理</a>
+                    </li>
+                    <li><a href="http://las.core.jd.com/permission/resourceassign?sys=LAS_PERMISSION" class="tit_lev2" target="main">资源管理</a>
+                    </li>
+                    <li><a href="http://las.core.jd.com/permission/systemmanager?sys=LAS_PERMISSION" class="tit_lev2" target="main">系统管理</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+		#end
+
+    </div>
+</div>
+
+</body>
+</html>
+

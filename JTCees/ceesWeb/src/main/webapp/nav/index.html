@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>导航</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="responsive/css/responsive-nav.css">
+    <link rel="stylesheet" href="responsive/css/styles.css">
+    <script src="responsive/js/responsive-nav.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="../static/logo.jpeg" class="img-responsive" width="30px;">
+        </a>
+      </div>
+    </div>
+  </nav>
+    <div role="navigation" id="foo" class="nav-collapse">
+      <!--<ul>-->
+        <!--<li class="active"><a href="#three">-->
+        <!--</a></li>-->
+        <!--<li><a href="#one">耗材</a></li>-->
+        <!--<li><a href="#two">质监站</a></li>-->
+      <!--</ul>-->
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" aria-controls="home" role="tab" data-toggle="tab" id="btn_hntky">混凝土抗压试验</a></li>
+        <li role="presentation"><a href="#" aria-controls="profile" role="tab" data-toggle="tab" id="btn_hntkz">混凝土抗折试验</a></li>
+        <li role="presentation"><a href="#" aria-controls="messages" role="tab" data-toggle="tab">砂浆抗压试验</a></li>
+        <li role="presentation"><a href="#" aria-controls="settings" role="tab" data-toggle="tab">净浆强度试验</a></li>
+        <li role="presentation"><a href="#" aria-controls="profile" role="tab" data-toggle="tab">钢筋原材试验</a></li>
+        <li role="presentation"><a href="#" aria-controls="messages" role="tab" data-toggle="tab">钢筋焊接接头</a></li>
+        <li role="presentation"><a href="#" aria-controls="settings" role="tab" data-toggle="tab">钢筋链接接头</a></li>
+        <li role="presentation"><a href="#" aria-controls="messages" role="tab" data-toggle="tab">马歇尔稳定度</a></li>
+        <li role="presentation"><a href="#" aria-controls="settings" role="tab" data-toggle="tab">无侧限抗压强度</a></li>
+      </ul>
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class=""><a href="#" aria-controls="home" role="tab" data-toggle="tab">工程项目设置</a></li>
+        <li role="presentation"><a href="#" aria-controls="profile" role="tab" data-toggle="tab">混凝土单位</a></li>
+      </ul>
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class=""><a href="#" aria-controls="home" role="tab" data-toggle="tab">用户设置</a></li>
+      </ul>
+
+    </div>
+    <div role="main" class="main" style="margin-top: 30px;">
+      <a href="#nav" class="nav-toggle"></a>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home"></div>
+        </div>
+      </div>
+
+    <script>
+      var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
+
+      $(document).ready(function(){
+          $("#btn_hntky").click(function(){
+              $.ajax({
+                  type: "POST",
+                  url: '/hntky/index',
+                  success: function(data) {
+                      $('#home').html(data);
+                  }
+
+              });
+          });
+          $("#btn_hntkz").click(function(){
+              $.ajax({
+                  type: "POST",
+                  url: '../static/index_hntkz.html',
+                  success: function(data) {
+                      $('#home').html(data);
+                  }
+
+              });
+          });
+      });
+
+    </script>
+  </body>
+</html>

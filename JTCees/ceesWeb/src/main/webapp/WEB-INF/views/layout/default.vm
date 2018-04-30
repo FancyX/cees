@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="http://www.360buy.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/base.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/common.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/skin/page.css')"/>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/js/json2.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/main.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqModal.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqBtnSelect.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/common/commons.js')"></script>
+    <!-- easyui -->
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/css/easyui.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/css/icon.css')"/>
+
+    #if($cssblock)$cssblock#end
+##    <!-- 暂时屏蔽jquery-1.7.1.min.js，否则验证框架无效，具体需要与北京确认。 by zhanyong@360buy.com 2012-10-05
+##       <script type="text/javascript" src="#springUrl('/static/js/jquery-1.7.1.min.js')"></script>
+##	   -->
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.easyui.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqModal.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/locale/easyui-lang-zh_CN.js')"></script>
+    #if($jsblock)$jsblock#end
+    <!-- 时间控件 start-->
+    <script type="text/javascript" src="#springUrl('/static/js/My97DatePicker/WdatePicker.js')"></script>
+    <!-- 时间控件 end-->
+</head>
+<body>
+<div id="container" class="w-frame clearfix">
+    <div id="content-frame">
+        $screen_content
+    </div>
+</div>
+</body>
+</html>
+

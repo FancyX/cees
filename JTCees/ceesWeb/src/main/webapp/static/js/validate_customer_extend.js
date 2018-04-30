@@ -1,0 +1,31 @@
+function errorShow(error, element) {
+	$(element).next('.errorCon').find('.w1000').append(error);
+	error.css('width','auto');
+	var _width= error.outerWidth()+10;
+	error.css('width',0);
+	error.cluetip({
+		cluetipClass: 'mtip',
+		titleAttribute:'errorText',
+		width:_width, 
+		arrows: true, 
+		showTitle:false,
+		dropShadow: false,
+		hoverIntent: false,
+		cluezIndex: 3097,
+		splitTitle: '|'
+   });
+}
+
+var formValidator = {
+	//C.��ʾ��Ϣ�Ķ�λelementΪ�ؼ���errorΪ���Ӧ�ĳ�����ʾ��Ϣ,
+	errorCon:'errorCon',
+	success:function(label){
+		$(label).css('margin-left','20px').remove();
+	},
+	unsuccess: function(error, element){
+		errorShow(error, element);
+	},
+	errorPlacement: function(error, element){
+		errorShow(error, element)
+	}
+};

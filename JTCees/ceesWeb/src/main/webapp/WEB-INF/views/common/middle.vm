@@ -1,0 +1,22 @@
+<script type="text/javascript">
+ function ShowHideLeft(objtd){
+  if (parent.document.getElementById('frameindex').cols=="280,14,*")
+  {
+  parent.document.getElementById('frameindex').cols="0,14,*";
+  $('#middleDiv').attr('class','middleDiv-off');
+  }
+  else{
+  parent.document.getElementById('frameindex').cols="280,14,*";
+  $('#middleDiv').attr('class','middleDiv-show');
+  }
+ }
+ </script>
+<body>
+<table border="0" cellpadding="0" cellpadding="0" height="100%">
+ <tr>
+ <td valign="middle" title="显示隐藏左菜单" height="100%"><div id="middleDiv" class="middleDiv-show" onClick="ShowHideLeft(this);">&nbsp;&nbsp;&nbsp;</div></td>
+ </tr>
+ </table>
+</body>
+</html>
+

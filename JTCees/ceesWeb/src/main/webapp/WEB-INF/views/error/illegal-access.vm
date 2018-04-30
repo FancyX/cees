@@ -1,0 +1,15 @@
+##<h1 >
+##		自定义处理异常!<br />
+##</h1>
+##信息如下:$!{exception.localizedMessage}
+##<!-- $!{exception.messageStack} -->
+
+#set($layout = "layout/null.vm")
+<script type="text/javascript">
+
+</script>
+
+
+$!exception.printMessage<br/>
+##$!exception.requestUrl<br/>
+<a href="/relogin?url=$!exception.requestUrl" class="btn btnM mr20"><b><span>重新登录</span></b></a>

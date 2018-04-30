@@ -1,0 +1,108 @@
+#######################
+##货架规格管理页面
+#######################
+##日期控件
+<script type="text/javascript" src="#springUrl('')/static/js/My97DatePicker/WdatePicker.js"></script>
+##验证控件
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.cluetip.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.validate_msg_cn.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/validate_customer_extend.js"></script>
+##页面js
+<script type="text/javascript" src="#springUrl('')/js/msjs/loc/shelf-specificating.js"></script>
+
+<div id="content">
+    <div class="crumbs mb10">
+        <ol>
+            <li class="pre"><a href="#">中小件<i></i></a></li>
+            <li class="pre"><a href="#">货架规格管理<i></i></a></li>
+        </ol>
+    </div>
+    <div class="search mb15">
+        <form id="searchForm" action="" method="post">
+            <table>
+                <tbody>
+                <tr>
+                    <td class="textR"><label class="necessaryL">货架编码：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="shelfNo" name="shelfNo" class="textField18 {maxlength:20}"  />
+                    </td>
+                    <td class="textR"><label class="necessaryL">货架类型：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="shelfType" name="shelfType" class="textField18 {maxlength:20}"  />
+                    </td>
+                    <td class="textL">
+                        <span class="btn"><s><b><span style="width:80px;text-align:center;" onclick="query();">查询</span></b></s></span>
+                    </td>
+                    <td class="textL">
+                        <span class="btn"><s><b><span style="width:80px;text-align:center;" onclick="addShelfType();">添加</span></b></s></span>
+                    </td>
+                    <td class="textL">
+                        <span class="btn"><s><b><span style="width:80px;text-align:center;" onclick="downloadShelfTypeMsg();">全仓下发</span></b></s></span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div id="ordertable"></div>
+</div>
+
+
+<div id="addWindow" class="modal w500">
+    <h1 class="tl">
+        <div class="tr">
+            <span class="tit">添加</span>
+            <span class="modalClose jqmClose">关闭</span>
+        </div>
+    </h1>
+    <form id="addForm" name="addForm" action="" method="post" enctype="multipart/form-data">
+        <div class="moadalCon">
+            <table class="table-0" align="center">
+                <tr>
+
+                    <td class="textR"><label class="necessaryL">货架编码：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="shelfCode1" name="shelfNo" class="{required:true,maxlength:20,messages: {required:'货架编码不能为空'}} textField18" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="textR"><label class="necessaryL">货架类型：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="shelfType1" name="shelfType" class="{required:true,maxlength:20,messages: {required:'货架类型不能为空'}} textField18"   />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="textR"><label class="necessaryL">长(mm):</label></td>
+                    <td class="textL" >
+                        <input type="text" id="length" name="length" onchange="validateNum(this.value)" class="{required:true,maxlength:20,messages: {required:'长不能为空'}} textField18"   />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="textR"><label class="necessaryL">深(mm)：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="depth" name="depth" onchange="validateNum(this.value)" class="{required:true,maxlength:20,messages: {required:'深不能为空'}} textField18"   />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="textR"><label class="necessaryL">高(mm)：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="height" name="height" onchange="validateNum(this.value)"  class="{required:true,maxlength:20,messages: {required:'高不能为空'}} textField18"   />
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" id="saveOrEditType" name="saveOrEditType" />
+        </div>
+
+        <div class="modalFooter pb20">
+            <button type="button" id="saveShelfSpecification" class="btn btnM"><s><b><span>保存</span></b></s></button>
+            <button type="button" id="cancelOE" class="btn jqmClose"><s><b><span>取消</span></b></s></button>
+        </div>
+    </form>
+    <div class="bl">
+        <div class="br">
+        </div>
+    </div>
+</div>
