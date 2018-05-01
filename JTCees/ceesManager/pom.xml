@@ -10,14 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>JTCees</groupId>
-    <name>ceesService</name>
-    <artifactId>ceesService</artifactId>
+    <name>ceesManager</name>
+    <artifactId>ceesManager</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>JTCees</groupId>
-            <artifactId>ceesManager</artifactId>
+            <artifactId>ceesDao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

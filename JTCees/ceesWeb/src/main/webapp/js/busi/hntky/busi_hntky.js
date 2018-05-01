@@ -90,7 +90,7 @@ function query(){
     var validator=$('#searchForm').validate(formValidator);
     if(validator.form()) {
         var queryParams = $('#ordertable').datagrid('options').queryParams;
-        $('#ordertable').datagrid('options').url = '/shelfSpecification/search.json';
+        $('#ordertable').datagrid('options').url = '/hntky/search.json';
         queryParams.shelfNo = $('#shelfNo').val();
         queryParams.shelfType = $('#shelfType').val();
         $("#ordertable").datagrid('clearSelections');

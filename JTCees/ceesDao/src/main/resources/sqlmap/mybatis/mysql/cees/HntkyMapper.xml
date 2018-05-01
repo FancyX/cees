@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.hntky">
+    <resultMap id="BaseResultMap" type="com.fancyx.cees.domain.busi.Hntky">
+        <!--自增id-->
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <!--货架编号-->
+        <result column="SHELF_NO" property="shelfNo" jdbcType="VARCHAR"/>
+        <!--货架类型-->
+        <result column="SHELF_TYPE" property="shelfType" jdbcType="VARCHAR"/>
+        <!--长-->
+        <result column="LENGTH" property="length" jdbcType="DECIMAL"/>
+        <!--深-->
+        <result column="DEPTH" property="depth" jdbcType="DECIMAL"/>
+        <!--高-->
+        <result column="HEIGHT" property="height" jdbcType="DECIMAL"/>
+        <!--状态-->
+        <result column="STATUS" property="status" jdbcType="INTEGER"/>
+        <!--创建时间-->
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <!--创建人-->
+        <result column="create_user" property="createPin" jdbcType="VARCHAR"/>
+        <!--更新时间-->
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <!--更新人-->
+        <result column="update_user" property="updatePin" jdbcType="VARCHAR"/>
+        <!--删除标记-->
+        <result column="yn" property="yn" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <select id="selectByBean" resultMap="BaseResultMap"
+            parameterType="com.fancyx.cees.domain.busi.Hntky">
+        SELECT
+        ID,SHELF_NO,SHELF_TYPE,LENGTH,DEPTH,HEIGHT,STATUS,create_time,create_user,update_time,update_user,yn
+        FROM
+        ms_loc_shelf_specification
+        <where>
+            yn = 1
+            <if test="shelfNo != null and shelfNo != ''">
+                AND SHELF_NO = #{shelfNo,jdbcType=VARCHAR} /* 与ms_task_info表的wms_task_id关联 */
+            </if>
+            <if test="shelfType != null and shelfType != ''">
+                AND SHELF_TYPE = #{shelfType,jdbcType=VARCHAR} /* 与ms_task_info表的wms_task_id关联 */
+            </if>
+        </where>
+        ORDER BY STATUS DESC , id ASC
+    </select>
+
+    <!-- 根据条件查询数量 -->
+    <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        SELECT
+        COUNT(1)
+        FROM
+        ms_loc_shelf_specification
+        <where>
+            yn = 1       /* 成功标识 0 未成功 1 成功 */
+            <if test="shelfNo != null and shelfNo != '' " >
+                AND SHELF_NO =  #{shelfNo,jdbcType=VARCHAR}
+            </if>
+            <if test="shelfType != null and shelfType != ''" >
+                AND SHELF_TYPE =  #{shelfType,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBeanByCode" resultType="com.fancyx.cees.domain.busi.Hntky">
+        SELECT
+        ID,SHELF_NO,SHELF_TYPE,LENGTH,DEPTH,HEIGHT,STATUS,create_time,create_user,update_time,update_user,yn
+        FROM
+        ms_loc_shelf_specification
+        WHERE  yn = 1 AND SHELF_NO = #{shelfNo,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 根据主键查询 -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        SELECT
+        ID,SHELF_NO,SHELF_TYPE,LENGTH,DEPTH,HEIGHT,STATUS,create_time,create_user,update_time,update_user,yn
+        FROM
+        ms_loc_shelf_specification
+        <where>
+            yn = 1
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据条件查询 -->
+    <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        SELECT
+        ID,SHELF_NO,SHELF_TYPE,LENGTH,DEPTH,HEIGHT,STATUS,create_time,create_user,update_time,update_user,yn
+        FROM
+        ms_loc_shelf_specification
+        <where>
+            yn = 1
+            <if test="shelfNo != null and shelfNo != '' " >
+                AND SHELF_NO =  #{shelfNo,jdbcType=VARCHAR}
+            </if>
+            <if test="shelfType != null and shelfType != ''" >
+                AND SHELF_TYPE =  #{shelfType,jdbcType=VARCHAR}
+            </if>
+            <if test="createPin != null and createPin != ''" >
+                AND create_user = #{createPin,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null" >
+                AND create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updatePin != null and updatePin != ''" >
+                AND update_user = #{updatePin,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null" >
+                AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null and status != '' " >
+                AND STATUS =  #{status,jdbcType=INTEGER}
+            </if>
+
+            order by update_time DESC
+        </where>
+    </select>
+
+
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        INSERT INTO ms_loc_shelf_specification (
+         SHELF_NO,SHELF_TYPE,LENGTH,DEPTH,HEIGHT,STATUS,create_time,create_user,update_time,update_user,yn
+        )
+        VALUES (
+        #{shelfNo,jdbcType=VARCHAR},
+        #{shelfType,jdbcType=VARCHAR},
+        #{length,jdbcType=DECIMAL},
+        #{depth,jdbcType=DECIMAL},
+        #{height,jdbcType=DECIMAL},
+        1,
+        now(),
+        #{createPin,jdbcType=VARCHAR},
+        now(),
+        #{createPin,jdbcType=VARCHAR},
+        1
+        )
+    </insert>
+
+    <!-- 修改货架类型（动态SQL） -->
+    <update id="updateByPrimaryKey" parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        <if test="_parameter != null">
+            UPDATE ms_loc_shelf_specification
+            <set>
+                <if test="shelfNo != null and shelfNo != ''" >
+                    SHELF_NO = #{shelfNo,jdbcType=VARCHAR},
+                </if>
+
+                <if test="shelfType != null and shelfType != ''" >
+                    SHELF_TYPE = #{shelfType,jdbcType=VARCHAR},
+                </if>
+
+                <if test="length != null" >
+                    LENGTH = #{length,jdbcType=INTEGER},
+                </if>
+
+                <if test="depth != null" >
+                    DEPTH = #{depth,jdbcType=INTEGER},
+                </if>
+
+                <if test="height != null" >
+                    HEIGHT = #{height,jdbcType=INTEGER},
+                </if>
+
+                <if test="updatePin != null and updatePin != ''" >
+                    update_user = #{updatePin,jdbcType=VARCHAR},
+                </if>
+                update_time = now()
+
+            </set>
+            <where>
+                id = #{id,jdbcType=BIGINT}
+            </where>
+        </if>
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="com.fancyx.cees.domain.busi.Hntky" >
+        <if test="_parameter != null">
+            UPDATE ms_loc_shelf_specification
+            SET STATUS = #{status,,jdbcType=VARCHAR}
+            WHERE
+            id = #{id,jdbcType=BIGINT}
+        </if>
+    </delete>
+
+</mapper>

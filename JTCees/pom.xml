@@ -11,6 +11,9 @@
   <modules>
     <module>ceesWeb</module>
     <module>ceesService</module>
+      <module>ceesDomain</module>
+    <module>ceesDao</module>
+    <module>ceesManager</module>
   </modules>
   <packaging>pom</packaging>
 

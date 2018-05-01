@@ -10,13 +10,13 @@
 <script type="text/javascript" src="#springUrl('')/static/js/jquery.validate_msg_cn.js"></script>
 <script type="text/javascript" src="#springUrl('')/static/js/validate_customer_extend.js"></script>
 ##页面js
-<script type="text/javascript" src="#springUrl('')/js/msjs/loc/shelf-specificating.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/busi/hntky/busi_hntky.js"></script>
 
 <div id="content">
     <div class="crumbs mb10">
         <ol>
-            <li class="pre"><a href="#">中小件1<i></i></a></li>
-            <li class="pre"><a href="#">货架规格管理<i></i></a></li>
+            <li class="pre"><a href="#">试验项目<i></i></a></li>
+            <li class="pre"><a href="#">混凝土抗压试验<i></i></a></li>
         </ol>
     </div>
     <div class="search mb15">
