@@ -37,12 +37,11 @@ class HNTKYController {
      */
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     @ResponseBody
-    public Model search(Hntky shelfSpecification, @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-                        @RequestParam(value = "rows", required = false, defaultValue = "10") int pageSize, Model model){
+    public Model search(Hntky shelfSpecification, @RequestParam(value = "page", required = false, defaultValue = "1") int page, @RequestParam(value = "rows", required = false, defaultValue = "10") int pageSize, Model model){
         try {
             PageBean pageBean = new PageBean<Hntky>(page, pageSize);
             PageBean<Hntky> result = shelfSpecificationService.pageQuery(pageBean,shelfSpecification);
-
+            System.out.println("result = " + result);
             model.addAttribute("rows", result.getUnderly());
             model.addAttribute("total", result.getItemCount());
         }catch (Exception e){

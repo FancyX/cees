@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.HunNingTuKangYaDao">
+
+
+
+    <select id="selectByBean" resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
+            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
+        select * from CEES_Hntky
+    </select>
+    <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa" >
+        SELECT
+        COUNT(1)
+        FROM
+        CEES_Hntky
+    </select>
+
+</mapper>

@@ -11,7 +11,11 @@ public class HntkyDaoImpl extends BaseDao<Hntky> implements HntkyDao{
     public static final String NAME_SPACE = "com.fancyx.cees.dao.busi.hntky";
     @Override
     public PageBean<Hntky> pageQuery(PageBean pageBean, Hntky hntky) {
-        PageBean<Hntky> hntkys = this.pageQuery(this.getNamespace("selectByBean"),this.getNamespace("selectByBeanCount"),pageBean,hntky);
+        PageBean<Hntky> hntkys = this.pageQuery(
+                this.getNamespace("selectByBean"),
+                this.getNamespace("selectByBeanCount"),
+                pageBean,
+                hntky);
         return hntkys;
     }
     /**
