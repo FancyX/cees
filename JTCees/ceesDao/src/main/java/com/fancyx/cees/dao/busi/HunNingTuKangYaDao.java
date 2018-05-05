@@ -2,6 +2,7 @@ package com.fancyx.cees.dao.busi;
 
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
+import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 
 /**
  * Created by 啊Q on 2018-05-02.
@@ -15,5 +16,5 @@ public interface HunNingTuKangYaDao {
      * @param hunNingTuKangYa
      * @return
      */
-    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYa hunNingTuKangYa);
+    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hunNingTuKangYa);
 }

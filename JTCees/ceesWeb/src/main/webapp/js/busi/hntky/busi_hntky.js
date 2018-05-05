@@ -34,23 +34,32 @@ function loadGrid() {
         remoteSort: true,
         loadMsg: '数据加载中......',
         columns: [[
-            {field: 'shelfNo', title: '货架编码', width: 80},
-            {field: 'shelfType', title: '货架类型', width: 75},
-            {field: 'length', title: '长(mm)', width: 60},
-            {field: 'depth', title: '深(mm)', width: 60},
-            {field: 'height', title: '高(mm)', width: 60},
-            {field: 'createPin', title: '创建人', width: 90},
+            {field: 'projectnumber', title: '工程编号', width: 80},
+            {field: 'gcmc', title: '工程名称', width: 75},
+            {field: 'sn_project', title: '工程抗压序号', width: 60},
+            {field: 'testnumber', title: '送检编号', width: 60},
+            {field: 'sn_test', title: '提交序号', width: 60},
+            {field: 'state', title: '状态', width: 90},
+            {field: 'sgbw', title: '施工部位', width: 90},
+            {field: 'sjqd', title: '设计强度', width: 90},
+            {field: 'npqd', title: '拟配强度', width: 90},
+            {field: 'yqtld', title: '要求塌落度', width: 90},
+            {field: 'sctld', title: '实测塌落度', width: 90},
+            {field: 'shb', title: '水灰比', width: 90},
+            {field: 'sl', title: '砂率', width: 90},
             {
-                field: 'createTime', title: '创建时间', width: 130, formatter: function (value, rowData, rowIndex) {
-                    return new Date(rowData.createTime).format("yyyy-MM-dd hh:mm:ss");
+                field: 'zmrq', title: '制模日期', width: 130, formatter: function (value, rowData, rowIndex) {
+                    return new Date(rowData.zmrq).format("yyyy-MM-dd");
                 }
             },
-            {field: 'updatePin', title: '更新人', width: 90},
+            {field: 'yqlq', title: '要求龄期', width: 90},
             {
-                field: 'updateTime', title: '更新时间', width: 130, formatter: function (value, rowData, rowIndex) {
-                    return new Date(rowData.updateTime).format("yyyy-MM-dd hh:mm:ss");
+                field: 'yqsyrq', title: '要求试验日期', width: 130, formatter: function (value, rowData, rowIndex) {
+                    return new Date(rowData.yqsyrq).format("yyyy-MM-dd");
                 }
             },
+            {field: 'sjbh', title: '试件编号', width: 90},
+            {field: 'sjcc', title: '试件尺寸', width: 90},
             {
                 field: 'status', title: '状态', width: 60,
                 formatter: function (value, rowData, rowIndex) {
@@ -63,17 +72,12 @@ function loadGrid() {
                 }
             },
             {
-                field: 'yn', title: '操作', width: 100,
+                field: 'handle', title: '操作', width: 100,
                 formatter: function (value, rowData, rowIndex) {
-                    if(rowData.status == 1){
+
                         return '<a href="javascript:" onclick="editShelfTypeShow(' + rowIndex + ')">' + "修改" + '</a>' +
                             '<a>' + "   " + '</a>' +
-                            '<a href="javascript:" onclick="delShelfType(' + rowIndex + ')">' + "禁用" + '</a>';
-                    }else{
-                        return '<a href="javascript:" onclick="editShelfTypeShow(' + rowIndex + ')">' + "修改" + '</a>' +
-                            '<a>' + "   " + '</a>' +
-                            '<a href="javascript:" onclick="delShelfType(' + rowIndex + ')">' + "启用" + '</a>';
-                    }
+                            '<a href="javascript:" onclick="delShelfType(' + rowIndex + ')">' + "删除" + '</a>';
 
                 }
             }
@@ -92,8 +96,10 @@ function query(){
         var queryParams = $('#ordertable').datagrid('options').queryParams;
         $('#ordertable').datagrid('options').url = '/hunNingTuKangYa/search.json';
         // $('#ordertable').datagrid('options').url = '/hntky/search.json';
-        queryParams.shelfNo = $('#shelfNo').val();
-        queryParams.shelfType = $('#shelfType').val();
+        queryParams.projectnumber = $('#projectnumber').val();
+        queryParams.state = $('#state').val();
+        queryParams.zmrqstart = $('#zmsj_s').val();
+        queryParams.zmrqend = $('#zmsj_e').val();
         $("#ordertable").datagrid('clearSelections');
         $("#ordertable").datagrid('load');
     }

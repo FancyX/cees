@@ -7,7 +7,7 @@
 
 
     <select id="selectByBean" resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
-            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
+            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
       select
         kyid,cid,cnumber,pid,projectnumber,client,ccid,kynumber,testnumber,sn,sn_project,sn_test,state,
 	    remarks,edittime,edituser,readmark,readtime,HNTDW,JSFZRBH,CHLYL,HZ3,SHASYBH,PZJMC,CHLMC,QFBZ,
@@ -19,12 +19,43 @@
 	    HGBZ,NPQD,SKYHTJ,PZJYL
       from
           CEES_Hntky
+        <where>
+            1 = 1
+            <if test="projectnumber != null and projectnumber != ''">
+                AND projectnumber = #{projectnumber,jdbcType=VARCHAR}
+            </if>
+            <if test="state != null and state != ''">
+                AND state = #{state,jdbcType=VARCHAR}
+            </if>
+            <if test="zmrqstart != null and zmrqstart != ''">
+                AND zmrq >= #{zmrqstart,jdbcType=VARCHAR}
+            </if>
+            <if test="zmrqend != null and zmrqend != ''">
+                AND #{zmrqend,jdbcType=VARCHAR} >= zmrq
+            </if>
+        </where>
+        ORDER BY kyid DESC
     </select>
-    <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa" >
+    <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO" >
         SELECT
         COUNT(1)
         FROM
         CEES_Hntky
+        <where>
+            1 = 1
+            <if test="projectnumber != null and projectnumber != ''">
+                AND projectnumber = #{projectnumber,jdbcType=VARCHAR}
+            </if>
+            <if test="state != null and state != ''">
+                AND state = #{state,jdbcType=VARCHAR}
+            </if>
+            <if test="zmrqstart != null and zmrqstart != ''">
+                AND zmrq >= #{zmrqstart,jdbcType=VARCHAR}
+            </if>
+            <if test="zmrqend != null and zmrqend != ''">
+                AND #{zmrqend,jdbcType=VARCHAR} >= zmrq
+            </if>
+        </where>
     </select>
 
 </mapper>

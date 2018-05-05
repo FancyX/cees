@@ -2,6 +2,7 @@ package com.fancyx.cees.web.busi;
 
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
+import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,13 +31,14 @@ public class HunNingTuKangYaController {
 
     @RequestMapping(value = "/index")
     public String index() {
-        return "busi/hunNingtukangYa/hunNingtukangYa_index";
+        //return "busi/hunNingtukangYa/hunNingtukangYa_index";
+        return "busi/hntky/hntky_index";
     }
 
     /**
      * 加载货架规格
      *
-     * @param shelfSpecification
+     * @param hunNingTuKangYaDTO
      * @param page
      * @param pageSize
      * @param model
@@ -44,13 +46,13 @@ public class HunNingTuKangYaController {
      */
     @RequestMapping(value = "/search")
     @ResponseBody
-    public Model search(HunNingTuKangYa shelfSpecification,
+    public Model search(HunNingTuKangYaDTO hunNingTuKangYaDTO,
                         @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                         @RequestParam(value = "rows", required = false, defaultValue = "10") int pageSize,
                         Model model) {
         try {
             PageBean pageBean = new PageBean<HunNingTuKangYa>(page, pageSize);
-            PageBean<HunNingTuKangYa> result = hunNingTuKangYaService.pageQuery(pageBean, shelfSpecification);
+            PageBean<HunNingTuKangYa> result = hunNingTuKangYaService.pageQuery(pageBean, hunNingTuKangYaDTO);
 
             model.addAttribute("rows", result.getUnderly());
             model.addAttribute("total", result.getItemCount());

@@ -74,6 +74,7 @@ public class HunNingTuKangYa implements Serializable {
     private String ZXBZ;
     //施工部位
     private String SGBW;
+    //要求试验日期
     private Date YQSYRQ;
     private String WTDWBH;
     private String SHIHNL;
@@ -98,6 +99,7 @@ public class HunNingTuKangYa implements Serializable {
     private String CHLCD;
     private String QFYJ;
     private String SJLQ;
+    //水灰比
     private String SHB;
     private String CLYJ;
     private String SHIYBH;
@@ -110,7 +112,9 @@ public class HunNingTuKangYa implements Serializable {
     private String SNCB;
     private String WJJMC;
     private String ZXGC;
+    //试件尺寸
     private String SJCC;
+    //砂率
     private String SL;
     private Date SKSDRQ;
     private String SYXMDM;
@@ -119,7 +123,7 @@ public class HunNingTuKangYa implements Serializable {
     private String SHAHNL;
     private String SYR;
     private String PZJCD;
-    //送检编号
+    //试件编号
     private String SJBH;
     private String SYMC;
     //实测坍落度
@@ -129,6 +133,7 @@ public class HunNingTuKangYa implements Serializable {
     private String WJJZYSNL;
     private int DWDM;
     private String SNYL;
+    //制模日期
     private Date ZMRQ;
     private String WTDWMC;
     private String KYQD;
@@ -141,6 +146,7 @@ public class HunNingTuKangYa implements Serializable {
     //水泥品种
     private String SNPZ;
     private String SHAPZ;
+    //要求龄期
     private String YQLQ;
     private int WTZH;
     //实验编号

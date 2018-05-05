@@ -4,6 +4,7 @@ import com.fancyx.cees.dao.BaseDao;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.dao.busi.HunNingTuKangYaDao;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
+import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,7 +15,7 @@ public class HunNingTuKangYaDaoImpl extends BaseDao<HunNingTuKangYa> implements 
     public static final String NAME_SPACE = "com.fancyx.cees.dao.busi.HunNingTuKangYaDao";
 
     @Override
-    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYa hunNingTuKangYa) {
+    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hunNingTuKangYa) {
         PageBean<HunNingTuKangYa> hntkys = this.pageQuery(
                 this.getNamespace("selectByBean"),
                 this.getNamespace("selectByBeanCount"),

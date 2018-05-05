@@ -2,6 +2,7 @@ package com.fancyx.cees.manager.busi;
 
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
+import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 
 public interface HunNingTuKangYaManager {
     /**
@@ -10,6 +11,6 @@ public interface HunNingTuKangYaManager {
      * @param hntky
      * @return
      */
-    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYa hntky);
+    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky);
 
 }
