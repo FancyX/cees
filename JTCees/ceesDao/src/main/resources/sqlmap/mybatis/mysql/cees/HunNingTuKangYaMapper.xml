@@ -8,7 +8,17 @@
 
     <select id="selectByBean" resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
             parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
-        select * from CEES_Hntky
+      select
+        kyid,cid,cnumber,pid,projectnumber,client,ccid,kynumber,testnumber,sn,sn_project,sn_test,state,
+	    remarks,edittime,edituser,readmark,readtime,HNTDW,JSFZRBH,CHLYL,HZ3,SHASYBH,PZJMC,CHLMC,QFBZ,
+	    SYJG,YQTLD,GCBH,WJJYL,SYXMMC,SHIZDLJ,SYL,ZHQD,JLBBH,XHR,FMHMC,SNBH,PZJZYSNL,SYMJ,ZXBZ,SGBW,YQSYRQ,
+	    WTDWBH,SHIHNL,SHAYL,DDQD,SYRBH,SHAXDMS,FMHCD,SYWTR,JZBZ,WJJCL,SNSYBH,HZ1,WTDBH,SJQD,PHBBH,FMHYL,HZPJ,
+	    SHICD,JL,CHLCD,QFYJ,SJLQ,SHB,CLYJ,SHIYBH,GCMC,BGBBH,SHIPZ,XHBZ,SNCB,WJJMC,ZXGC,SJCC,SL,SKSDRQ,SYXMDM,
+	    SHISYBH,JSFZR,SHAHNL,SYR,PZJCD,SJBH,SYMC,SCTLD,SHACD,HZ2,WJJZYSNL,DWDM,SNYL,ZMRQ,WTDWMC,KYQD,BGRQ,
+	    CHLZYSNL,XHRBH,SYRQ,PZJCL,SGPHB,SNPZ,SHAPZ,YQLQ,WTZH,SYBH,YQBH,SHIYL,BZ,FMHZYSNL,XHYJ,WJJCD,SNCCRQ,
+	    HGBZ,NPQD,SKYHTJ,PZJYL
+      from
+          CEES_Hntky
     </select>
     <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa" >
         SELECT
