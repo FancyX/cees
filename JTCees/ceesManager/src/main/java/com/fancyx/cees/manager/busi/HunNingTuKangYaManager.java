@@ -13,4 +13,13 @@ public interface HunNingTuKangYaManager {
      */
     PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky);
 
+
+    /**
+     * 添加一条混凝土抗压信息
+     *
+     * @param hunNingTuKangYa
+     * @return
+     */
+    void insert(HunNingTuKangYa hunNingTuKangYa);
+
 }

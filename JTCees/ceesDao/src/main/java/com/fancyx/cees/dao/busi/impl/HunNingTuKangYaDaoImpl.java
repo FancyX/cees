@@ -24,6 +24,11 @@ public class HunNingTuKangYaDaoImpl extends BaseDao<HunNingTuKangYa> implements 
         return hntkys;
     }
 
+    @Override
+    public void insert(HunNingTuKangYa hunNingTuKangYa) {
+        this.insert(this.getNamespace("insert"), hunNingTuKangYa);
+    }
+
 
     /**
      * mybatis的namespace

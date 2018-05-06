@@ -5,20 +5,19 @@
 <mapper namespace="com.fancyx.cees.dao.busi.HunNingTuKangYaDao">
 
 
-
     <select id="selectByBean" resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
             parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
-      select
+        select
         kyid,cid,cnumber,pid,projectnumber,client,ccid,kynumber,testnumber,sn,sn_project,sn_test,state,
-	    remarks,edittime,edituser,readmark,readtime,HNTDW,JSFZRBH,CHLYL,HZ3,SHASYBH,PZJMC,CHLMC,QFBZ,
-	    SYJG,YQTLD,GCBH,WJJYL,SYXMMC,SHIZDLJ,SYL,ZHQD,JLBBH,XHR,FMHMC,SNBH,PZJZYSNL,SYMJ,ZXBZ,SGBW,YQSYRQ,
-	    WTDWBH,SHIHNL,SHAYL,DDQD,SYRBH,SHAXDMS,FMHCD,SYWTR,JZBZ,WJJCL,SNSYBH,HZ1,WTDBH,SJQD,PHBBH,FMHYL,HZPJ,
-	    SHICD,JL,CHLCD,QFYJ,SJLQ,SHB,CLYJ,SHIYBH,GCMC,BGBBH,SHIPZ,XHBZ,SNCB,WJJMC,ZXGC,SJCC,SL,SKSDRQ,SYXMDM,
-	    SHISYBH,JSFZR,SHAHNL,SYR,PZJCD,SJBH,SYMC,SCTLD,SHACD,HZ2,WJJZYSNL,DWDM,SNYL,ZMRQ,WTDWMC,KYQD,BGRQ,
-	    CHLZYSNL,XHRBH,SYRQ,PZJCL,SGPHB,SNPZ,SHAPZ,YQLQ,WTZH,SYBH,YQBH,SHIYL,BZ,FMHZYSNL,XHYJ,WJJCD,SNCCRQ,
-	    HGBZ,NPQD,SKYHTJ,PZJYL
-      from
-          CEES_Hntky
+        remarks,edittime,edituser,readmark,readtime,HNTDW,JSFZRBH,CHLYL,HZ3,SHASYBH,PZJMC,CHLMC,QFBZ,
+        SYJG,YQTLD,GCBH,WJJYL,SYXMMC,SHIZDLJ,SYL,ZHQD,JLBBH,XHR,FMHMC,SNBH,PZJZYSNL,SYMJ,ZXBZ,SGBW,YQSYRQ,
+        WTDWBH,SHIHNL,SHAYL,DDQD,SYRBH,SHAXDMS,FMHCD,SYWTR,JZBZ,WJJCL,SNSYBH,HZ1,WTDBH,SJQD,PHBBH,FMHYL,HZPJ,
+        SHICD,JL,CHLCD,QFYJ,SJLQ,SHB,CLYJ,SHIYBH,GCMC,BGBBH,SHIPZ,XHBZ,SNCB,WJJMC,ZXGC,SJCC,SL,SKSDRQ,SYXMDM,
+        SHISYBH,JSFZR,SHAHNL,SYR,PZJCD,SJBH,SYMC,SCTLD,SHACD,HZ2,WJJZYSNL,DWDM,SNYL,ZMRQ,WTDWMC,KYQD,BGRQ,
+        CHLZYSNL,XHRBH,SYRQ,PZJCL,SGPHB,SNPZ,SHAPZ,YQLQ,WTZH,SYBH,YQBH,SHIYL,BZ,FMHZYSNL,XHYJ,WJJCD,SNCCRQ,
+        HGBZ,NPQD,SKYHTJ,PZJYL
+        from
+        CEES_Hntky
         <where>
             1 = 1
             <if test="projectnumber != null and projectnumber != ''">
@@ -36,7 +35,8 @@
         </where>
         ORDER BY kyid DESC
     </select>
-    <select id="selectByBeanCount" resultType="java.lang.Integer"  parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO" >
+    <select id="selectByBeanCount" resultType="java.lang.Integer"
+            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
         SELECT
         COUNT(1)
         FROM
@@ -57,5 +57,58 @@
             </if>
         </where>
     </select>
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa" >
+        INSERT  INTO CEES_Hntky
+        (
+          cid,cnumber,pid,projectnumber,client,ccid,kynumber,testnumber,sn,sn_project,sn_test,state,
+          remarks,edittime,edituser,readmark,readtime,
+
+          WTDBH,DWDM,SYBH,SHIYBH,SYXMDM,SYXMMC,WTDWBH,WTDWMC,GCBH,GCMC,YQBH,SGBW,SJQD,NPQD,YQTLD,SCTLD,
+          SNPZ,SNBH,SNCB,SNCCRQ,SNSYBH,SHACD,SHAPZ,SHAXDMS,SHAHNL,SHASYBH,SHICD,SHIPZ,SHIZDLJ,SHIHNL,
+          SHISYBH,CHLMC,CHLCD,CHLZYSNL,FMHMC,FMHCD,FMHZYSNL,PZJMC,PZJCD,PZJCL,PZJZYSNL,WJJMC,WJJCD,
+          WJJCL,WJJZYSNL,SGPHB,SHB,SL,HNTDW,PHBBH,SNYL,SYL,SHAYL,SHIYL,CHLYL,FMHYL,PZJYL,WJJYL,ZMRQ,
+          YQLQ,YQSYRQ,SKSDRQ,SKYHTJ,SYWTR,SJBH,SYRQ,SJLQ,SJCC,SYMJ,HZ1,HZ2,HZ3,HZPJ,KYQD,ZHQD,DDQD,BZ,
+          JSFZRBH,JSFZR,XHRBH,XHR,XHBZ,XHYJ,SYRBH,SYR,BGRQ,JL,SYMC,QFBZ,QFYJ,ZXGC,ZXBZ,JZBZ,HGBZ,SYJG,
+          CLYJ,WTZH,JLBBH,BGBBH)
+        VALUES
+        (
+          #{cid,jdbcType=int},#{cnumber,jdbcType=varchar},#{pid,jdbcType=int},
+          #{projectnumber,jdbcType=varchar},#{client,jdbcType=varchar},#{ccid,jdbcType=int},
+          #{kynumber,jdbcType=varchar},#{testnumber,jdbcType=varchar},#{sn,jdbcType=int},
+          #{sn_project,jdbcType=int},#{sn_test,jdbcType=int},#{state,jdbcType=varchar},
+          #{remarks,jdbcType=varchar},#{edittime,jdbcType=varchar},
+          #{edituser,jdbcType=varchar},#{readmark,jdbcType=bit},#{readtime,jdbcType=varchar},
+
+          #{WTDBH,jdbcType=varchar},#{DWDM,jdbcType=smallint},#{SYBH,jdbcType=varchar},#{SHIYBH,jdbcType=varchar},
+          #{SYXMDM,jdbcType=varchar},#{SYXMMC,jdbcType=varchar},#{WTDWBH,jdbcType=varchar},
+          #{WTDWMC,jdbcType=varchar},#{GCBH,jdbcType=varchar},#{GCMC,jdbcType=varchar},#{YQBH,jdbcType=varchar},
+          #{SGBW,jdbcType=varchar},#{SJQD,jdbcType=varchar},#{NPQD,jdbcType=varchar},
+          #{YQTLD,jdbcType=varchar},#{SCTLD,jdbcType=varchar},#{SNPZ,jdbcType=varchar},
+          #{SNBH,jdbcType=varchar},#{SNCB,jdbcType=varchar},#{SNCCRQ,jdbcType=varchar},
+          #{SNSYBH,jdbcType=varchar},#{SHACD,jdbcType=varchar},#{SHAPZ,jdbcType=varchar},
+          #{SHAXDMS,jdbcType=varchar},#{SHAHNL,jdbcType=varchar},#{SHASYBH,jdbcType=varchar},
+          #{SHICD,jdbcType=varchar},#{SHIPZ,jdbcType=varchar},#{SHIZDLJ,jdbcType=varchar},
+          #{SHIHNL,jdbcType=varchar},#{SHISYBH,jdbcType=varchar},#{CHLMC,jdbcType=varchar},
+          #{CHLCD,jdbcType=varchar},#{CHLZYSNL,jdbcType=varchar},#{FMHMC,jdbcType=varchar},#{FMHCD,jdbcType=varchar},
+          #{FMHZYSNL,jdbcType=varchar},#{PZJMC,jdbcType=varchar},#{PZJCD,jdbcType=varchar},#{PZJCL,jdbcType=varchar},
+          #{PZJZYSNL,jdbcType=varchar},#{WJJMC,jdbcType=varchar},#{WJJCD,jdbcType=varchar},
+          #{WJJCL,jdbcType=varchar},#{WJJZYSNL,jdbcType=varchar},#{SGPHB,jdbcType=varchar},
+          #{SHB,jdbcType=varchar},#{SL,jdbcType=varchar},#{HNTDW,jdbcType=varchar},#{PHBBH,jdbcType=varchar},
+          #{SNYL,jdbcType=varchar},#{SYL,jdbcType=varchar},#{SHAYL,jdbcType=varchar},#{SHIYL,jdbcType=varchar},
+          #{CHLYL,jdbcType=varchar},#{FMHYL,jdbcType=varchar},#{PZJYL,jdbcType=varchar},#{WJJYL,jdbcType=varchar},
+          #{ZMRQ,jdbcType=smalldatetime},#{YQLQ,jdbcType=varchar},#{YQSYRQ,jdbcType=smalldatetime},
+          #{SKSDRQ,jdbcType=smalldatetime},#{SKYHTJ,jdbcType=varchar},#{SYWTR,jdbcType=varchar},
+          #{SJBH,jdbcType=varchar},#{SYRQ,jdbcType=smalldatetime},#{SJLQ,jdbcType=varchar},#{SJCC,jdbcType=varchar},
+          #{SYMJ,jdbcType=varchar},#{HZ1,jdbcType=varchar},#{HZ2,jdbcType=varchar},#{HZ3,jdbcType=varchar},
+          #{HZPJ,jdbcType=varchar},#{KYQD,jdbcType=varchar},#{ZHQD,jdbcType=varchar},#{DDQD,jdbcType=varchar},
+          #{BZ,jdbcType=varchar},#{JSFZRBH,jdbcType=smallint},#{JSFZR,jdbcType=varchar},#{XHRBH,jdbcType=smallint},
+          #{XHR,jdbcType=varchar},#{XHBZ,jdbcType=varchar},#{XHYJ,jdbcType=varchar},#{SYRBH,jdbcType=smallint},
+          #{SYR,jdbcType=varchar},#{BGRQ,jdbcType=smalldatetime},#{JL,jdbcType=varchar},#{SYMC,jdbcType=varchar},
+          #{QFBZ,jdbcType=varchar},#{QFYJ,jdbcType=varchar},#{ZXGC,jdbcType=varchar},#{ZXBZ,jdbcType=varchar},
+          #{JZBZ,jdbcType=varchar},#{HGBZ,jdbcType=varchar},#{SYJG,jdbcType=varchar},#{CLYJ,jdbcType=varchar},
+          #{WTZH,jdbcType=smallint},#{JLBBH,jdbcType=varchar},#{BGBBH,jdbcType=varchar},
+        )
+    </insert>
 
 </mapper>

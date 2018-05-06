@@ -21,4 +21,9 @@ public class HunNingTuKangYaManagerImpl implements HunNingTuKangYaManager{
     public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky) {
         return dao.pageQuery(pageBean,hntky);
     }
+
+    @Override
+    public void insert(HunNingTuKangYa hunNingTuKangYa) {
+        dao.insert(hunNingTuKangYa);
+    }
 }
