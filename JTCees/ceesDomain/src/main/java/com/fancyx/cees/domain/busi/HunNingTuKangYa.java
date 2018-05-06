@@ -23,9 +23,7 @@ public class HunNingTuKangYa implements Serializable {
     private String client;
     //混凝土单位id
     private int ccid;
-    //抗压编号
     private String kynumber;
-    //送检编号
     private String testnumber;
     //序号
     private int sn;
@@ -45,124 +43,203 @@ public class HunNingTuKangYa implements Serializable {
     private int readmark;
     //已读时间
     private String readtime;
-    //混凝土单位
-    private String HNTDW;
-
-    private int JSFZRBH;
-    private String CHLYL;
-    private String HZ3;
-    private String SHASYBH;
-    private String PZJMC;
-    private String CHLMC;
-    private String QFBZ;
-    private String SYJG;
-    //要求坍落度
-    private String YQTLD;
-    private String GCBH;
-    private String WJJYL;
-    private String SYXMMC;
-    private String SHIZDLJ;
-    private String SYL;
-    private String ZHQD;
-    private String JLBBH;
-    private String XHR;
-    private String FMHMC;
-    //水泥标号
-    private String SNBH;
-    private String PZJZYSNL;
-    private String SYMJ;
-    private String ZXBZ;
-    //施工部位
-    private String SGBW;
-    //要求试验日期
-    private Date YQSYRQ;
-    private String WTDWBH;
-    private String SHIHNL;
-    private String SHAYL;
-    private String DDQD;
-    private int SYRBH;
-    private String SHAXDMS;
-    private String FMHCD;
-    private String SYWTR;
-    private String JZBZ;
-    private String WJJCL;
-    private String SNSYBH;
-    private String HZ1;
+    //委托单编号
     private String WTDBH;
-    //设计强度
-    private String SJQD;
-    private String PHBBH;
-    private String FMHYL;
-    private String HZPJ;
-    private String SHICD;
-    private String JL;
-    private String CHLCD;
-    private String QFYJ;
-    private String SJLQ;
-    //水灰比
-    private String SHB;
-    private String CLYJ;
+    //单位代码
+    private int DWDM;
+    //试验编号
+    private String SYBH;
+    //试样编号
     private String SHIYBH;
+    //试验项目代码
+    private String SYXMDM;
+    //试验项目名称
+    private String SYXMMC;
+    //委托单位编号
+    private String WTDWBH;
+    //委托单位名称
+    private String WTDWMC;
+    //工程编号
+    private String GCBH;
     //工程名称
     private String GCMC;
-    private String BGBBH;
-    private String SHIPZ;
-    private String XHBZ;
-    //水泥厂别
-    private String SNCB;
-    private String WJJMC;
-    private String ZXGC;
-    //试件尺寸
-    private String SJCC;
-    //砂率
-    private String SL;
-    private Date SKSDRQ;
-    private String SYXMDM;
-    private String SHISYBH;
-    private String JSFZR;
-    private String SHAHNL;
-    private String SYR;
-    private String PZJCD;
-    //试件编号
-    private String SJBH;
-    private String SYMC;
-    //实测坍落度
-    private String SCTLD;
-    private String SHACD;
-    private String HZ2;
-    private String WJJZYSNL;
-    private int DWDM;
-    private String SNYL;
-    //制模日期
-    private Date ZMRQ;
-    private String WTDWMC;
-    private String KYQD;
-    private Date BGRQ;
-    private String CHLZYSNL;
-    private int XHRBH;
-    private Date SYRQ;
-    private String PZJCL;
-    private String SGPHB;
-    //水泥品种
-    private String SNPZ;
-    private String SHAPZ;
-    //要求龄期
-    private String YQLQ;
-    private int WTZH;
-    //实验编号
-    private String SYBH;
+    //仪器编号
     private String YQBH;
-    private String SHIYL;
-    private String BZ;
-    private String FMHZYSNL;
-    private String XHYJ;
-    private String WJJCD;
-    private String SNCCRQ;
-    private String HGBZ;
+    //施工部位
+    private String SGBW;
+    //设计强度
+    private String SJQD;
     //拟配强度
     private String NPQD;
-    private String SKYHTJ;
+    //要求坍落度
+    private String YQTLD;
+    //实测坍落度
+    private String SCTLD;
+    //水泥品种
+    private String SNPZ;
+    //水泥标号
+    private String SNBH;
+    //水泥厂别
+    private String SNCB;
+    //水泥出厂日期
+    private String SNCCRQ;
+    //水泥试验编号
+    private String SNSYBH;
+    //砂子产地
+    private String SHACD;
+    //砂子品种
+    private String SHAPZ;
+    //砂子细度模数
+    private String SHAXDMS;
+    //砂子含泥量
+    private String SHAHNL;
+    //砂子试验编号
+    private String SHASYBH;
+    //石子产地
+    private String SHICD;
+    //石子品种
+    private String SHIPZ;
+    //石子最大粒径
+    private String SHIZDLJ;
+    //石子含泥量
+    private String SHIHNL;
+    //石子试验编号
+    private String SHISYBH;
+    //掺合料名称
+    private String CHLMC;
+    //掺合料产地
+    private String CHLCD;
+    //掺合料占水泥用量
+    private String CHLZYSNL;
+    //粉煤灰名称
+    private String FMHMC;
+    //粉煤灰产地
+    private String FMHCD;
+    //粉煤灰占水泥用量
+    private String FMHZYSNL;
+    //外加剂2名称
+    private String PZJMC;
+    //外加剂2产地
+    private String PZJCD;
+    //外加剂2掺量
+    private String PZJCL;
+    //外加剂2占水泥用量
+    private String PZJZYSNL;
+    //外加剂名称
+    private String WJJMC;
+    //外加剂产地
+    private String WJJCD;
+    //外加剂掺量
+    private String WJJCL;
+    //外加剂占水泥用量
+    private String WJJZYSNL;
+    private String SGPHB;
+    //水灰比
+    private String SHB;
+    //砂滤
+    private String SL;
+    //混凝土单位
+    private String HNTDW;
+    //配合比编号
+    private String PHBBH;
+    //水泥用量
+    private String SNYL;
+    //水用量
+    private String SYL;
+    //砂子用量
+    private String SHAYL;
+    //石子用量
+    private String SHIYL;
+    //掺和料用量
+    private String CHLYL;
+    //粉煤灰用量
+    private String FMHYL;
+    //外加剂2用量
     private String PZJYL;
+    //外加剂用量
+    private String WJJYL;
+    //制模日期
+    private Date ZMRQ;
+    //要求龄期
+    private String YQLQ;
+    //要求试验日期
+    private Date YQSYRQ;
+    //试块收到日期
+    private Date SKSDRQ;
+    //试块养护条件
+    private String SKYHTJ;
+    //委托人
+    private String SYWTR;
+    //试件编号
+    private String SJBH;
+    //试验日期
+    private Date SYRQ;
+    //实际龄期
+    private String SJLQ;
+    //试件尺寸
+    private String SJCC;
+    //受压面积
+    private String SYMJ;
+    //单块1
+    private String HZ1;
+    //单块2
+    private String HZ2;
+    //单块3
+    private String HZ3;
+    //单块平均
+    private String HZPJ;
+    //抗压强度
+    private String KYQD;
+    //折合强度
+    private String ZHQD;
+    //达到强度
+    private String DDQD;
+    //备注
+    private String BZ;
+    //技术负责人编号
+    private int JSFZRBH;
+    //技术负责人
+    private String JSFZR;
+    //校核人编号
+    private int XHRBH;
+    //校核人
+    private String XHR;
+    //校核备注
+    private String XHBZ;
+    //校核意见
+    private String XHYJ;
+    //试验人编号
+    private int SYRBH;
+    //试验人
+    private String SYR;
+    //报告日期
+    private Date BGRQ;
+    //结论
+    private String JL;
+    //试验名称
+    private String SYMC;
+    //签发备注
+    private String QFBZ;
+    //签发意见
+    private String QFYJ;
+    //执行规程
+    private String ZXGC;
+    //执行标准
+    private String ZXBZ;
+    //见证标志
+    private String JZBZ;
+    //合格标志
+    private String HGBZ;
+    //试验结果
+    private String SYJG;
+    //处理意见
+    private String CLYJ;
+    //委托组号
+    private int WTZH;
+    //记录表编号
+    private String JLBBH;
+    //报告表编号
+    private String BGBBH;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
