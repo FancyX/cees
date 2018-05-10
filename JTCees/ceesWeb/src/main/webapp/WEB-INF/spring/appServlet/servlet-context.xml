@@ -27,6 +27,7 @@
     <!-- template view -->
     <beans:bean id="velocityConfig"
           class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!-- view模板路径映射 -->
         <beans:property name="resourceLoaderPath" value="/WEB-INF/views/"/>
         <beans:property name="velocityProperties">
             <beans:props>
@@ -38,7 +39,8 @@
     </beans:bean>
     <beans:bean id="velocityViewResolver"
           class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
-        <beans:property name="layoutUrl" value="layout/default.vm"/>
+        <!--<beans:property name="layoutUrl" value="layout/default.vm"/>-->
+        <beans:property name="layoutUrl" value="layout/default-null.vm"/>
         <beans:property name="cache" value="false"/>
         <beans:property name="suffix" value=".vm"/>
         <beans:property name="exposeSpringMacroHelpers" value="true"/>

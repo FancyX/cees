@@ -1,0 +1,48 @@
+#######################
+##混凝土抗压
+#######################
+##日期控件
+<script type="text/javascript" src="#springUrl('')/static/js/My97DatePicker/WdatePicker.js"></script>
+##验证控件
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.cluetip.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/jquery.validate_msg_cn.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/js/validate_customer_extend.js"></script>
+
+##页面js
+<script type="text/javascript" src="#springUrl('')/js/busi/hunNingTuKangYa/busi_hunNingTuKangYa.js"></script>
+<div id="content">
+    <div class="crumbs mb10">
+        <ol>
+            <li class="pre"><a href="#">试验项目<i></i></a></li>
+            <li class="pre"><a href="#">混凝土抗压试验<i></i></a></li>
+        </ol>
+    </div>
+
+    ##查询
+    <div class="search mb15">
+        <form id="searchForm" action="" method="post">
+            <table>
+                <tbody>
+                <tr>
+                    <td class="textR"><label class="necessaryL">制模日期：</label></td>
+                    <td class="textL" >
+                        <input type="text" id="zhiMoRiQiKaiShi" name="zhiMoRiQiKaiShi" class="textField18 {maxlength:20}"  />
+                        至
+                    </td>
+                    <td class="textL" >
+                        <input type="text" id="zhiMoRiQiJieShu" name="zhiMoRiQiJieShu" class="textField18 {maxlength:20}"  />
+                    </td>
+
+                    <td class="textL">
+                        <span class="btn"><s><b><span style="width:80px;text-align:center;" onclick="query();">查询</span></b></s></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    ##表
+    <div id="ordertable"></div>
+</div>

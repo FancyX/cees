@@ -12,86 +12,119 @@
 /**
  * @subsection Grid表格样式
  */
-.grid{
-	width:100%; clear: both; background-color: #fff;
-	table-layout:fixed;
-	border-top: 1px solid #d7d7d7;
-	border-right: 1px solid #d7d7d7;
+.grid {
+    width: 100%;
+    clear: both;
+    background-color: #fff;
+    table-layout: fixed;
+    border-top: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
 }
+
 .grid th,
-.grid td{
-	height:34px;
-	border-left: 1px solid #d7d7d7;
-	border-bottom: 1px solid #d7d7d7;
-	padding:0 3px
+.grid td {
+    height: 34px;
+    border-left: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    padding: 0 3px
 }
-.grid thead{
-	background:url(i/img-w-1px.png) 0 -40px repeat-x #ececec;
+
+.grid thead {
+    background: url(i/img-w-1px.png) 0 -40px repeat-x #ececec;
 }
-.grid thead th,.grid thead td{
-	height:40px;
+
+.grid thead th, .grid thead td {
+    height: 40px;
 }
+
 .grid tbody td,
-.grid tbody th{
-	word-wrap : break-word;
+.grid tbody th {
+    word-wrap: break-word;
 }
-.grid tr.trOdd{background: #f5f5f6;}
-.grid tr.selected{background: #fcdf98;}
-.grid tr.trHover{background: #eef6fc;}
-.grid td.trHover{border-left: 3px solid #347dbb;padding-left:2px;}
+
+.grid tr.trOdd {
+    background: #f5f5f6;
+}
+
+.grid tr.selected {
+    background: #fcdf98;
+}
+
+.grid tr.trHover {
+    background: #eef6fc;
+}
+
+.grid td.trHover {
+    border-left: 3px solid #347dbb;
+    padding-left: 2px;
+}
+
 /**
  * @subsection page 分页
  */
-.page{
-	height:28px;
-	line-height:28px;
-	background-color:#f3f3f3;
-	border:1px solid #d7d7d7;
-	border-top:0;
-	padding:5px 0;
+.page {
+    height: 28px;
+    line-height: 28px;
+    background-color: #f3f3f3;
+    border: 1px solid #d7d7d7;
+    border-top: 0;
+    padding: 5px 0;
 }
-.page a{
-	float: left;
-	height: 26px;
+
+.page a {
+    float: left;
+    height: 26px;
     line-height: 26px;
     display: inline-block;
     padding: 0 10px;
     text-decoration: none;
     vertical-align: middle;
-    border:1px solid #d7d7d7;
-    margin-left:-1px;
-    color:#0095cd;
-    background:url(i/img-w-1px.png) 0 -80px repeat-x;
+    border: 1px solid #d7d7d7;
+    margin-left: -1px;
+    color: #0095cd;
+    background: url(i/img-w-1px.png) 0 -80px repeat-x;
 }
-.page a:hover{
-	text-decoration: none;
+
+.page a:hover {
+    text-decoration: none;
 }
-.page .apostrophe{
-	float:left;
-	padding:0 3px;
+
+.page .apostrophe {
+    float: left;
+    padding: 0 3px;
 }
-.page a.current{
-	color:#ff6600;
-	background:url(i/img-w-1px.png) 0 -106px repeat-x;
+
+.page a.current {
+    color: #ff6600;
+    background: url(i/img-w-1px.png) 0 -106px repeat-x;
 }
+
 /**
  * @subsection ico 图标
  */
-.ico{
-	height:18px;
-	vertical-align: middle;
-	width:24px;
-	display:inline-block;
-	background-image:url(i/ico.png);
-	background-repeat: no-repeat;;
-	background-position: 0 0;
+.ico {
+    height: 18px;
+    vertical-align: middle;
+    width: 24px;
+    display: inline-block;
+    background-image: url(i/ico.png);
+    background-repeat: no-repeat;;
+    background-position: 0 0;
 }
-.ico.ico-key{
-	background-position: -4px -90px;
+
+.ico.ico-key {
+    background-position: -4px -90px;
 }
-.ico.ico-logoff{
-	background-position: -32px -90px;
+
+.ico.ico-logoff {
+    background-position: -32px -90px;
 }
+
+.none {
+    display: none;
+    width: 0;
+}
+
 /**
  * 输入框
  * 
@@ -107,40 +140,100 @@
 .textField7,
 .textField4,
 .textField2,
-.textField{ height: 22px; line-height: 22px; padding: 0 3px;  background-color: #fff; font-size: 12px; border:1px solid #cbcbcb;}
-.textField46 { width: 278px }
-.textField28 { width: 169px }
-.textField18 { width: 114px }
-.textField12 { width: 78px }
-.textField8 { width: 49px }
-.textField7 { width: 44px }
-.textField4 { width: 22px }
-.textField2 { width: 14px }
-
-.dateSet,.timeSet,.YMSet,.dateTimeSet{
-    background:url("i/calendar.png") no-repeat scroll right 2px #fff;
+.textField {
+    height: 22px;
+    line-height: 22px;
+    padding: 0 3px;
+    background-color: #fff;
+    font-size: 12px;
+    border: 1px solid #cbcbcb;
 }
+
+.textField46 {
+    width: 278px
+}
+
+.textField28 {
+    width: 169px
+}
+
+.textField18 {
+    width: 114px
+}
+
+.textField12 {
+    width: 78px
+}
+
+.textField8 {
+    width: 49px
+}
+
+.textField7 {
+    width: 44px
+}
+
+.textField4 {
+    width: 22px
+}
+
+.textField2 {
+    width: 14px
+}
+
+.dateSet, .timeSet, .YMSet, .dateTimeSet {
+    background: url("i/calendar.png") no-repeat scroll right 2px #fff;
+}
+
 /**
  * 文本域
  * 
  * 根据文本域宽度分类，370 400 460 564为px宽度
  * @section 文本域
  */
-textarea{
-	1px solid #cbcbcb;
-	font-size: 12px;
-	padding:3px;
-	resize:none; 
-	color: #555555;
+textarea {
+    1px solid #cbcbcb;
+    font-size: 12px;
+    padding: 3px;
+    resize: none;
+    color: #555555;
 }
-.textarea370 { width: 371px; height: 48px; }
-.textarea400 { width: 394px; height: 79px; }
-.textarea460 { width: 454px; height: 54px; }
-.textarea525X50 { width: 525px; height: 50px; }
-.textarea290X235 { width: 290px; height: 28px; }
-.textarea564 { width: 558px; height: 106px; }
-.textarea116X114 {height: 116px;width: 114px;
+
+.textarea370 {
+    width: 371px;
+    height: 48px;
 }
+
+.textarea400 {
+    width: 394px;
+    height: 79px;
+}
+
+.textarea460 {
+    width: 454px;
+    height: 54px;
+}
+
+.textarea525X50 {
+    width: 525px;
+    height: 50px;
+}
+
+.textarea290X235 {
+    width: 290px;
+    height: 28px;
+}
+
+.textarea564 {
+    width: 558px;
+    height: 106px;
+}
+
+.textarea116X114 {
+    height: 116px;
+    width: 114px;
+}
+
 /**
  * 下拉框
  * 
@@ -153,12 +246,33 @@ textarea{
 .select18,
 .select12,
 .select8,
-.select { height: 24px;line-height:22px;padding: 2px 0;border:1px solid #cbcbcb;vertical-align: middle;}
-.select46 { width: 286px }
-.select28 { width: 177px }
-.select18 { width: 122px }
-.select12 { width: 86px }
-.select8 { width: 57px }
+.select {
+    height: 24px;
+    line-height: 22px;
+    padding: 2px 0;
+    border: 1px solid #cbcbcb;
+    vertical-align: middle;
+}
+
+.select46 {
+    width: 286px
+}
+
+.select28 {
+    width: 177px
+}
+
+.select18 {
+    width: 122px
+}
+
+.select12 {
+    width: 86px
+}
+
+.select8 {
+    width: 57px
+}
 
 /**
  * @subsection 自适应小按钮
@@ -167,35 +281,113 @@ textarea{
  * 
  * @section 通用按钮
  */
- /*各个按钮兼容*/
-button::-moz-focus-inner { padding: 0 !important; border: 0 none !important; }
-button {padding:0;margin:0;background-color:transparent;overflow: visible;vertical-align:middle;}
-.btn {hide-focus:expression(this.hideFocus=true);cursor: pointer;}/* for IE7.0及以下版本 */
-.btn:focus{ outline-style:none; }/* for Firefox，IE8.0等 */
-.btn{display: inline-block;height: 28px;vertical-align:middle;}
+/*各个按钮兼容*/
+button::-moz-focus-inner {
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    overflow: visible;
+    vertical-align: middle;
+}
+
+.btn {
+    hide-focus: expression(this.hideFocus=true);
+    cursor: pointer;
+}
+
+/* for IE7.0及以下版本 */
+.btn:focus {
+    outline-style: none;
+}
+
+/* for Firefox，IE8.0等 */
+.btn {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+}
+
 .btn s,
 .btn b,
 .btn span,
-.btn i{ display: inline-block;height: 28px;line-height:28px;cursor: pointer;vertical-align:baseline;white-space: nowrap;font-style:normal;text-decoration: none;}
+.btn i {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    vertical-align: baseline;
+    white-space: nowrap;
+    font-style: normal;
+    text-decoration: none;
+}
 
 a.btn:link,
 a.btn:visited,
 a.btn:hover,
-a.btn:active{ text-decoration: none }
+a.btn:active {
+    text-decoration: none
+}
 
-.btn s{padding-left:8px;background: url(i/btn.gif) no-repeat 0 0; }
-.btn s b{padding-right: 8px;background: url(i/btn.gif) no-repeat right 0;}
-.btn s b span{background: url(i/btn.gif) repeat 0 -28px; color:#555;font-size: 12px;font-weight: normal;padding: 0 7px;}
+.btn s {
+    padding-left: 8px;
+    background: url(i/btn.gif) no-repeat 0 0;
+}
 
-.btn.btnM s{padding-left:8px;background: url(i/btn.gif) no-repeat 0 -56px; }
-.btn.btnM s b{padding-right: 8px;background: url(i/btn.gif) no-repeat right -56px;}
-.btn.btnM s b span{background: url(i/btn.gif) repeat 0 -84px; color:#fff;font-size:14px;font-style: normal;}
+.btn s b {
+    padding-right: 8px;
+    background: url(i/btn.gif) no-repeat right 0;
+}
 
-.btn.btnL s{padding-left:8px;background: url(i/btn.gif) no-repeat 0 -168px; }
-.btn.btnL s b{padding-right: 8px;background: url(i/btn.gif) no-repeat right -168px;}
-.btn.btnL s b span{background: url(i/btn.gif) repeat 0 -196px;font-size:12px;font-style: normal;}
+.btn s b span {
+    background: url(i/btn.gif) repeat 0 -28px;
+    color: #555;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 7px;
+}
 
-.btn i{width:18px;}
+.btn.btnM s {
+    padding-left: 8px;
+    background: url(i/btn.gif) no-repeat 0 -56px;
+}
+
+.btn.btnM s b {
+    padding-right: 8px;
+    background: url(i/btn.gif) no-repeat right -56px;
+}
+
+.btn.btnM s b span {
+    background: url(i/btn.gif) repeat 0 -84px;
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.btn.btnL s {
+    padding-left: 8px;
+    background: url(i/btn.gif) no-repeat 0 -168px;
+}
+
+.btn.btnL s b {
+    padding-right: 8px;
+    background: url(i/btn.gif) no-repeat right -168px;
+}
+
+.btn.btnL s b span {
+    background: url(i/btn.gif) repeat 0 -196px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.btn i {
+    width: 18px;
+}
+
 /**
  * @subsection jModal
  * 
@@ -203,79 +395,101 @@ a.btn:active{ text-decoration: none }
  * 
  */
 .whiteOverlay {
-    background-color:#ccc;
+    background-color: #ccc;
 }
+
 .jqDrag {
     cursor: move;
 }
+
+.whiteOverlay {
+    z-index: 5 !important;
+}
+
+.modal {
+    z-index: 999!important;
+}
+
 .modal,
-.jqmLoading{
-	display:none;
+.jqmLoading {
+    display: none;
     _left: 50%;
     position: fixed;
-	/*box-shadow: 2px 2px 4px #333;
-	border-radius: 5px 5px 5px 5px;*/
-    top: 17%;}
-.loading_64,.loading_55,.loading_48,.loading_32, .loading_24, .loading_16 {
+    /*box-shadow: 2px 2px 4px #333;
+    border-radius: 5px 5px 5px 5px;*/
+    top: 17%;
+}
+
+.loading_64, .loading_55, .loading_48, .loading_32, .loading_24, .loading_16 {
     background-repeat: no-repeat;
     display: inline-block;
     vertical-align: middle;
 }
+
 .loading_64 {
     height: 64px;
     width: 64px;
     background-image: url("i/loading_64.gif");
 }
+
 .loading_55 {
     height: 55px;
     width: 55px;
     background-image: url("i/loading_55.gif");
 }
+
 .loading_48 {
     height: 48px;
     width: 48px;
     background-image: url("i/loading_48.gif");
 }
+
 .loading_32 {
     height: 32px;
     width: 32px;
     background-image: url("i/loading_32.gif");
 }
+
 .loading_24 {
     height: 24px;
     width: 24px;
     background-image: url("i/loading_24.gif");
 }
+
 .loading_16 {
     height: 16px;
     width: 16px;
     background-image: url("i/loading_16.gif");
 }
+
 * html .modal,
-* html .jqmLoading{
+* html .jqmLoading {
     position: absolute;
 }
 
-.modal .tl{
-	background: url(i/jModal.png) repeat-x 0 0 #4290c1;
-	height:33px;
-	line-height: 33px;
-	color:#fff;
-	line-height: 31px;
-	margin-right:10px;
-	padding-left:10px;
+.modal .tl {
+    background: url(i/jModal.png) repeat-x 0 0 #4290c1;
+    height: 33px;
+    line-height: 33px;
+    color: #fff;
+    line-height: 31px;
+    margin-right: 10px;
+    padding-left: 10px;
 }
-.modal .tr{
-	background: url(i/jModal.png) repeat-x 0 0 #4290c1;
-	height:33px;
-	line-height: 33px;
-	margin-right:-10px;
-	padding-right:10px;
-	display:block;
+
+.modal .tr {
+    background: url(i/jModal.png) repeat-x 0 0 #4290c1;
+    height: 33px;
+    line-height: 33px;
+    margin-right: -10px;
+    padding-right: 10px;
+    display: block;
 }
+
 .modal .tit {
-	float:left;
+    float: left;
 }
+
 .modal .modalClose {
     background: url("i/jModal.png") no-repeat scroll 3px -33px transparent;
     cursor: pointer;
@@ -286,117 +500,141 @@ a.btn:active{ text-decoration: none }
     text-indent: -9999px;
     width: 18px;
 }
+
 .modal .moadalCon,
-.modal .modalFooter{
-	border-left: 1px solid #4290c1;
-	border-right: 1px solid #4290c1;
-	background-color:#fff;
+.modal .modalFooter {
+    border-left: 1px solid #4290c1;
+    border-right: 1px solid #4290c1;
+    background-color: #fff;
 }
-.modal .moadalCon{
-	padding:10px;
+
+.modal .moadalCon {
+    padding: 10px;
 }
-.modal .h400{
-	max-height:400px;
-	overflow-y:auto;
-	overflow-x:hidden;
+
+.modal .h400 {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-.modal .modalFooter{
-	text-align:center;
+
+.modal .modalFooter {
+    text-align: center;
 }
-.modal .bl{
-	border-bottom: 1px solid #4290c1;
+
+.modal .bl {
+    border-bottom: 1px solid #4290c1;
 }
+
 /**
  * @subsection msg
  * 
  * 提示信息样式
  * 
  */
-.modal .fakeMsg{
-	padding: 8px 0;
-	zoom:1;
-}
-.modal .fakeMsg .ico{
-	float:left;
-	width:24px;
-	height:24px;
-	margin: 0 10px 0 6px;
-}
-.modal .fakeMsg .conText{
-	float:left;
-	display:inline-block;
-	color:#666;
-	line-height: 20px;
+.modal .fakeMsg {
+    padding: 8px 0;
+    zoom: 1;
 }
 
-.modal .alert .ico{
-	background:url(i/msgIco24.png) 0px -49px no-repeat;
+.modal .fakeMsg .ico {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 6px;
 }
-.modal .attention .ico{
-	background:url(i/msgIco24.png) 0px -25px no-repeat;
+
+.modal .fakeMsg .conText {
+    float: left;
+    display: inline-block;
+    color: #666;
+    line-height: 20px;
 }
-.modal .success .ico{
-	background:url(i/msgIco24.png) 0px 0px no-repeat;
+
+.modal .alert .ico {
+    background: url(i/msgIco24.png) 0px -49px no-repeat;
 }
-.modal .error .ico{
-	background:url(i/msgIco24.png) 0px -74px no-repeat;
+
+.modal .attention .ico {
+    background: url(i/msgIco24.png) 0px -25px no-repeat;
 }
-.modal .fakeMsg.error{
-	/*border:1px solid #cc6666;*/
-	/*background-color:#ffeaea;*/
+
+.modal .success .ico {
+    background: url(i/msgIco24.png) 0px 0px no-repeat;
 }
-.modal .fakeMsg.success{
-	/*border:1px solid #9cca0f;*/
-	/*background-color:#effeb9;*/
+
+.modal .error .ico {
+    background: url(i/msgIco24.png) 0px -74px no-repeat;
 }
+
+.modal .fakeMsg.error {
+    /*border:1px solid #cc6666;*/
+    /*background-color:#ffeaea;*/
+}
+
+.modal .fakeMsg.success {
+    /*border:1px solid #9cca0f;*/
+    /*background-color:#effeb9;*/
+}
+
 /**
  * @subsection tab tab页
  */
-.tab{
-	border-bottom:1px solid #90c0e9;
-	height:26px;	
+.tab {
+    border-bottom: 1px solid #90c0e9;
+    height: 26px;
 }
-.tab ul{
-	margin-bottom: -1px;
+
+.tab ul {
+    margin-bottom: -1px;
 }
-.tab ul li{
-	float:left;
-	height:27px;
-	line-height:27px;
+
+.tab ul li {
+    float: left;
+    height: 27px;
+    line-height: 27px;
 }
+
 .tab ul li a,
-.tab ul li span{
-	display:inline-block;
-	height:27px;
-	line-height:27px;
+.tab ul li span {
+    display: inline-block;
+    height: 27px;
+    line-height: 27px;
 }
-.tab ul li a{
-	position:relative;
-	padding-left:15px;
-	margin-right:2px;
-	background:url(i/tab-bg.png) no-repeat left -0px;	
-	text-decoration: none;
-	cursor: pointer;
+
+.tab ul li a {
+    position: relative;
+    padding-left: 15px;
+    margin-right: 2px;
+    background: url(i/tab-bg.png) no-repeat left -0px;
+    text-decoration: none;
+    cursor: pointer;
 }
-.tab ul li span{
-	padding-right:15px;
-	background:url(i/tab-bg.png) no-repeat right -28px;	
-	color:#347dbb;
+
+.tab ul li span {
+    padding-right: 15px;
+    background: url(i/tab-bg.png) no-repeat right -28px;
+    color: #347dbb;
 }
-.tab ul li a:hover{
-	background:url(i/tab-bg.png) no-repeat left -112px;
+
+.tab ul li a:hover {
+    background: url(i/tab-bg.png) no-repeat left -112px;
 }
-.tab ul li a:hover span{
-	background:url(i/tab-bg.png) no-repeat right -140px;
+
+.tab ul li a:hover span {
+    background: url(i/tab-bg.png) no-repeat right -140px;
 }
-.tab ul li a.selected{
-	background:url(i/tab-bg.png) no-repeat left -56px;
+
+.tab ul li a.selected {
+    background: url(i/tab-bg.png) no-repeat left -56px;
 }
-.tab ul li a.selected span{
-	background:url(i/tab-bg.png) no-repeat right -84px;
+
+.tab ul li a.selected span {
+    background: url(i/tab-bg.png) no-repeat right -84px;
 }
-.tabCon{
-	padding:10px;
-	border:1px solid #d7d7d7;
-	border-top:0;
+
+.tabCon {
+    padding: 10px;
+    border: 1px solid #d7d7d7;
+    border-top: 0;
 }

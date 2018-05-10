@@ -68,61 +68,39 @@
 </div>
 
 
-<div id="addWindow" class="modal w500">
+<div id="addWindow" class="modal w900">
     <h1 class="tl">
         <div class="tr">
-            <span class="tit">添加</span>
+            <span class="tit">添加-混凝土抗压试验报告</span>
             <span class="modalClose jqmClose">关闭</span>
         </div>
     </h1>
-    <form id="addForm" name="addForm" action="" method="post" enctype="multipart/form-data">
-        <div class="moadalCon">
-            <table class="table-0" align="center">
-                <tr>
+##    <form id="addForm" name="addForm" action="" method="post" >
+    <div class="moadalCon ">
+        <table style="width: 100%">
+            <tr>
+                <td width="40%" style="padding-left: 15px;float: left">
+                    <label style="float: left">工程抗压序号：</label>
+                    <input type="text" style="margin-left: 0" id="hunNingTuKangYa.sn_project"
+                           name="hunNingTuKangYa.sn_project" class="textField18"/>
+                </td>
+                <td width="60" style="padding-left: 15px;float: left">
+                    <label style="float: left">施工单位：</label>
+                    <input type="text" id="hunNingTuKangYa.cid"
+                           name="hunNingTuKangYa.cid" class="none"/>##施工单位ID
+                    <input type="text" id=""
+                           name="" class="textField"/>##施工单位名称
+                </td>
+            </tr>
+        </table>
+    </div>
 
-                    <td class="textR"><label class="necessaryL">货架编码：</label></td>
-                    <td class="textL">
-                        <input type="text" id="shelfCode1" name="shelfNo"
-                               class="{required:true,maxlength:20,messages: {required:'货架编码不能为空'}} textField18"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="textR"><label class="necessaryL">货架类型：</label></td>
-                    <td class="textL">
-                        <input type="text" id="shelfType1" name="shelfType"
-                               class="{required:true,maxlength:20,messages: {required:'货架类型不能为空'}} textField18"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="textR"><label class="necessaryL">长(mm):</label></td>
-                    <td class="textL">
-                        <input type="text" id="length" name="length" onchange="validateNum(this.value)"
-                               class="{required:true,maxlength:20,messages: {required:'长不能为空'}} textField18"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="textR"><label class="necessaryL">深(mm)：</label></td>
-                    <td class="textL">
-                        <input type="text" id="depth" name="depth" onchange="validateNum(this.value)"
-                               class="{required:true,maxlength:20,messages: {required:'深不能为空'}} textField18"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="textR"><label class="necessaryL">高(mm)：</label></td>
-                    <td class="textL">
-                        <input type="text" id="height" name="height" onchange="validateNum(this.value)"
-                               class="{required:true,maxlength:20,messages: {required:'高不能为空'}} textField18"/>
-                    </td>
-                </tr>
-            </table>
-            <input type="hidden" id="saveOrEditType" name="saveOrEditType"/>
-        </div>
-
-        <div class="modalFooter pb20">
-            <button type="button" id="saveShelfSpecification" class="btn btnM"><s><b><span>保存</span></b></s></button>
-            <button type="button" id="cancelOE" class="btn jqmClose"><s><b><span>取消</span></b></s></button>
-        </div>
-    </form>
+    <div class="modalFooter pb20">
+        <button type="button" id="saveShelfSpecification" class="btn btnM" onclick="alert('1')">
+            <s><b><span>保存</span></b></s></button>
+        <button type="button" id="cancelOE" class="btn jqmClose"><s><b><span>取消</span></b></s></button>
+    </div>
+##    </form>
     <div class="bl">
         <div class="br">
         </div>
