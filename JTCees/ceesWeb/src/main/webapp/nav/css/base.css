@@ -13,5 +13,6 @@
 
 .content-bar .layui-input {
     width: 150px;
+    /*我找到这个font-size用了两个多小时啊*/
     font-size: 15px;
 }
