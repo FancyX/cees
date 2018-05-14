@@ -20,6 +20,7 @@ public class HunNingTuKangYaDTO extends BaseQuery implements Serializable{
     //制模日期结束
     private String zmrqend;
 
+
     public String getProjectnumber() {
         return projectnumber;
     }

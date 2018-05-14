@@ -25,8 +25,8 @@ import java.util.*;
 
 @Controller
 @RequestMapping(value = "/hunNingTuKangYa")
-public class HunNingTuKangYaController {
-    private static final Logger log = Logger.getLogger(HunNingTuKangYaController.class);
+public class HunNingTuKangYaController_ {
+    private static final Logger log = Logger.getLogger(HunNingTuKangYaController_.class);
 
     @Resource
     private HunNingTuKangYaService hunNingTuKangYaService;

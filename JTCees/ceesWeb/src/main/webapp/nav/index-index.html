@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui后台管理模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/nav/layui-v2.2.6/layui/css/layui.css">
+    <script src="/nav/layui-v2.2.6/layui/layui.js"></script>
+
+    <link rel="stylesheet" href="/nav/css/base.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">layui 后台布局</div>
+
+        <!--头部右侧-->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    贤心
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">试验项目</a>
+                    <dl class="layui-nav-child">
+                        <dd data-url="/shiYanXiangMu/hunNIngTuKangYa/page">
+                            <a href="javascript:;">混凝土抗压试验</a
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">混凝土抗折试验</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">砂浆抗压试验</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">净浆强度试验</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">钢筋原材试验</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">钢筋焊接接头</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">钢筋连接接头</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">马歇尔稳定度</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">钢筋焊接接头</a>
+                        </dd>
+                        <dd data-url="/layui/table">
+                            <a href="javascript:;">无侧限抗压强度</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">提交</a>
+                    <dl class="layui-nav-child">
+                        <dd data-url="/layui/table"><a href="javascript:;">提交列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">工程信息</a>
+                    <dl class="layui-nav-child">
+                        <dd data-url="/layui/table"><a href="javascript:;">工程项目设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">单位信息</a>
+                    <dl class="layui-nav-child">
+                        <dd data-url="/layui/table"><a href="javascript:;">混凝土单位</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">用户设置</a>
+                    <dl class="layui-nav-child">
+                        <dd data-url="/layui/table"><a href="javascript:;">用户设置</a></dd>
+                        <dd data-url="/layui/table"><a href="javascript:;">关于</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body" style="">
+        <!-- 内容主体区域 -->
+        <div id="context">
+            <iframe id="contextIframe" class="iframe"></iframe>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        北京市公路工程质量检测中心 & 北京天地时代信息技术有限责任公司
+        技术支持：010-87502225-8208
+        13901086046
+    </div>
+</div>
+
+<script>
+    //JavaScript代码区域
+    layui.use(['layer', 'element', 'form', "jquery"], function () {
+        var element = layui.element;
+        var $ = layui.jquery, //由于layer弹层依赖jQuery，所以可以直接得到
+            layer = layui.layer;
+        $("body").on("click", ".layui-nav-child dd", function () {
+
+            var url = $(this).attr("data-url");
+            $("#contextIframe").attr('src', url);
+        });
+    });
+</script>
+</body>
+</html>

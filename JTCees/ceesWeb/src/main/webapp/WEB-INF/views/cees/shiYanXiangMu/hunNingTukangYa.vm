@@ -1,0 +1,117 @@
+##表格
+<div>
+    <div class="content-bar">
+        <div class="layui-btn-group demoTable">
+            <div class="layui-inline">
+                制模日期
+            </div>
+            <div class="layui-inline">
+                <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+            </div>
+            <div class="layui-inline">
+                至
+            </div>
+            <div class="layui-inline">
+                <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn">查询</button>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn layui-btn-danger" data-type="getCheckData">删除选中</button>
+            </div>
+
+        ##            暂时不使用
+            <div class="layui-inline">
+                <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" data-type="isAll">验证是否全选</button>
+            </div>
+        </div>
+    </div>
+
+    <table id="tableData" lay-filter="test"></table>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+
+
+<script>
+
+    window.onload = function () {
+        init();
+    };
+
+    function init() {
+        initTable();
+    };
+
+    //初始化table表格
+    function initTable() {
+
+        layui.use(['jquery', 'layer'], function () {
+            var jquery = layui.$ //重点处
+                    , layer = layui.layer;
+
+
+            jquery.ajax({
+                type: 'post',
+                url: "/shiYanXiangMu/hunNIngTuKangYa/getShowCol.action",
+                dataType: 'json',
+                data: {},
+                async: false,
+                success: function (json) {
+                    console.log(json);
+                },
+                err: function (err) {
+                }
+            });
+        });
+
+        var tableOptions = {
+            elem: '#tableData',
+            height: 480,
+            url: '/layui/tableData', //数据接口
+            page: true,//开启分页
+            request: {
+                pageName: 'page', //页码的参数名称，默认：page
+                limitName: 'limit' //每页数据量的参数名，默认：limit
+            },
+            response: {
+                statusName: 'code',//数据状态的字段名称，默认：code
+                statusCode: 0,//成功的状态码，默认：0
+                msgName: 'msg',//状态信息的字段名称，默认：msg
+                countName: 'count', //数据总数的字段名称，默认：count
+                dataName: 'data' //数据列表的字段名称，默认：data
+            },
+            where: {
+                zmrqstart: $("#beginTime").val(), //制模日期开始
+                zmrqend: $("#endTime").val()  //制模日期结束
+            },
+            skin: {
+                size: 'lg'
+            },
+            cols: [[ //表头
+                {field: 'checkbox', type: 'checkbox', title: '全选'},
+                {field: 'numbers', type: 'numbers', title: '序号'},
+                {field: 'username', title: '用户名'},
+                {field: 'sex', title: '性别', sort: true},
+                {field: 'city', title: '城市'},
+                {field: 'sign', title: '签名'},
+                {field: 'experience', title: '积分', sort: true},
+                {field: 'score', title: '评分', sort: true},
+                {field: 'classify', title: '职业'},
+                {field: 'wealth', title: '财富', sort: true},
+                {fixed: 'right', align: 'center', toolbar: '#barDemo', width: 200}//加载操作列
+            ]]
+        };
+
+    }
+</script>

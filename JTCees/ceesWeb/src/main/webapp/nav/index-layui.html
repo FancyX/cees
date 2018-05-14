@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui后台管理模板</title>
+    <title>导航</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -13,37 +13,25 @@
     <link rel="stylesheet" href="/nav/layui-v2.2.6/layui/css/layui.css">
     <script src="/nav/layui-v2.2.6/layui/layui.js"></script>
 
-    <!--<link rel="stylesheet" href="/nav/layui-v2.2.5/layui/css/layui.css">-->
-    <!--<script src="/nav/layui-v2.2.5/layui/layui.js"></script>-->
-
-    <!--<link href="/nav/layui-v2.2.2/layui/css/layui.css" rel="stylesheet">-->
-    <!--<script src="/nav/layui-v2.2.2/layui/layui.js"></script>-->
-
-    <!--<link href="/nav/layui-v2.3.0-rc1/layui/css/layui.css" rel="stylesheet">-->
-    <!--<script src="/nav/layui-v2.3.0-rc1/layui/layui.js"></script>-->
-
-
     <link rel="stylesheet" href="/nav/css/base.css">
-
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">工程管理系统</div>
 
         <!--头部右侧-->
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
+                    用户
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
+            <li class="layui-nav-item"><a href="">退出</a></li>
         </ul>
     </div>
 
@@ -66,9 +54,10 @@
         </div>
     </div>
 
-    <div class="layui-body">
+    <div class="layui-body" style="">
         <!-- 内容主体区域 -->
-        <div id="context" style="padding: 15px;">
+        <div id="context">
+            <iframe id="contextIframe" class="iframe"></iframe>
         </div>
     </div>
 
@@ -88,27 +77,70 @@
         $("body").on("click", ".layui-nav-child dd", function () {
 
             var url = $(this).attr("data-url");
+            $("#contextIframe").attr('src', url);
 
-            var loadLayer = layer.load(1, {time: 10 * 1000});
-            $.ajax({
-                type: 'post',
-                url: url,
-                dataType: 'text',
-                data: {},
-                async: false,
-                success: function (text) {
-                    $("#context").html(text);
-                    layer.close(loadLayer);
-                },
-                err: function (err) {
-                    layer.alert('连接服务器失败！', {
-                        skin: 'layui-layer-lan'
-                        , closeBtn: 0
-                    });
-                }
-            });
+//            var loadLayer = layer.load(1, {time: 10 * 1000});
+//            $.ajax({
+//                type: 'post',
+//                url: url,
+//                dataType: 'text',
+//                data: {},
+//                async: false,
+//                success: function (text) {
+//                    $("#context").html(text);
+//                    layer.close(loadLayer);
+//                },
+//                err: function (err) {
+//                    layer.alert('连接服务器失败！', {
+//                        skin: 'layui-layer-lan'
+//                        , closeBtn: 0
+//                    });
+//                }
+//            });
+
         });
     });
+
+
+</script>
+<script>
+    //        window.onload= function () {
+    //            $.ajax({
+    //                type: 'post',
+    //                url: "/",
+    //                dataType: 'json',
+    //                data: data,
+    //                async: false,
+    //                success: function (json) {
+    //
+    //
+    //                },
+    //                err: function (err) {
+    //                }
+    //            });
+    //        };
+    //
+    //        window.onbeforeunload = function () {
+    //            var selected = $(".layui-nav-child dd layui-this");
+    //            if (selected != null && selected != undefined) {
+    //
+    //                var data = {
+    //                    selectedUrl: $(selected).attr("data-url")
+    //                };
+    //                $.ajax({
+    //                    type: 'post',
+    //                    url: "/",
+    //                    dataType: 'json',
+    //                    data: data,
+    //                    async: false,
+    //                    success: function (json) {
+    //
+    //                    },
+    //                    err: function (err) {
+    //                    }
+    //                });
+    //            }
+    //        };
 </script>
 </body>
 </html>
