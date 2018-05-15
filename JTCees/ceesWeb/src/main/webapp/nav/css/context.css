@@ -1,5 +1,5 @@
 .content-bar {
-    padding: 10px 10px;
+    padding: 0 0 0 10px;
     margin-bottom: 10px;
     line-height: 22px;
     border-left: 5px solid #009688;
@@ -9,10 +9,29 @@
 
 .content-bar .layui-inline {
     margin: 5px 5px 5px 0;
+
+}
+
+.content-bar .layui-form-label {
+
+    padding-left: 0 !important;
+    font-size: 15px !important;
 }
 
 .content-bar .layui-input {
     width: 150px;
     /*我找到这个font-size用了两个多小时啊*/
-    font-size: 15px;
+
+}
+
+.none {
+    display: none;
+}
+
+.my-layer-modal {
+    padding: 10px;
+}
+
+.my-layer-modal .layui-form-label {
+    width: 100px !important;
 }

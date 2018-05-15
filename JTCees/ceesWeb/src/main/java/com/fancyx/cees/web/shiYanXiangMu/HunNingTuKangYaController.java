@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
 /**
@@ -77,8 +76,7 @@ public class HunNingTuKangYaController {
         try {
             PageBean pageBean = new PageBean<HunNingTuKangYa>(page, pageSize);
             PageBean<HunNingTuKangYa> result = hunNingTuKangYaService.pageQuery(pageBean, hunNingTuKangYaDTO);
-
-            return new PageResultBean(result.getUnderly());
+            return  new PageResultBean(result.getUnderly(),result.getItemCount());
         } catch (Exception ex) {
             log.error("混凝土抗压分页查询异常", ex);
             return new PageResultBean(ex);

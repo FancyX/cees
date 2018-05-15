@@ -1,4 +1,7 @@
 
+html, body {
+    font-size: 15px;
+}
 
 #context {
     box-sizing: border-box;

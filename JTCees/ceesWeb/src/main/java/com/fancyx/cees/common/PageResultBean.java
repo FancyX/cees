@@ -14,12 +14,10 @@ public class PageResultBean<T> {
     private List<T> data;
 
 
-    public PageResultBean(List<T> data) {
+    public PageResultBean(List<T> data, int count) {
         super();
         this.data = data;
-        if (data != null) {
-            this.count = data.size();
-        }
+        this.count = count;
     }
 
     public PageResultBean(Throwable e) {
