@@ -30,8 +30,34 @@
 
 .my-layer-modal {
     padding: 10px;
+
 }
 
-.my-layer-modal .layui-form-label {
+.my-layer-modal .blue-font {
+    color: #0B0BFE;
+}
+
+.my-layer-modal .layui-table tbody tr {
+    color: black ;
+}
+
+.my-layer-modal .layui-table tbody tr:hover {
+    background: #FFFFFF !important;
+}
+
+.my-w-150 {
+    width: 150px !important;
+}
+.my-w-100 {
     width: 100px !important;
 }
+
+.my-w-200 {
+    width: 200px !important;
+}
+
+.my-w-510 {
+    width: 510px !important;
+}
+
+
