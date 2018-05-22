@@ -42,4 +42,11 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
+
+    <!--&lt;!&ndash; 配置全局日期转换器 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+        <!--<property name="webBindingInitializer">-->
+            <!--<bean class="com.fancyx.cees.config.CustomDateEdtor"/>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>

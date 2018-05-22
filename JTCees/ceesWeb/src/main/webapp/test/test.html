@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script rel="stylesheet" src="jquery.min.js"></script>
+    <style>
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background: #CCCCC;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <select id="s" style="width: 200px;">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <button onclick="a()">123</button>
+</div>
+<script>
+    function a() {
+        jQuery("#s").val("2");
+    }
+</script>
+</body>
+</html>

@@ -14,7 +14,12 @@
     <mappers>
         <!-- cees -->
         <mapper resource="sqlmap/mybatis/mysql/cees/HntkyMapper.xml"/>
-        <mapper resource="sqlmap/mybatis/mysql/cees/HunNingTuKangYaMapper.xml"/><mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkyMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/HunNingTuKangYaMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkyMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ConcreteMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_UserMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ConstructionMapper.xml"/>
     </mappers>
 
 </configuration>

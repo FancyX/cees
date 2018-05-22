@@ -635,7 +635,7 @@
                         }
                     }
 
-                    // A special, fast, case for the most common use of each
+                    // A special, fast, case for the most baseBeans use of each
                 } else {
                     if ( isObj ) {
                         for ( name in object ) {
@@ -5677,7 +5677,7 @@
         }
     });
 
-// Attach a bunch of functions for handling common AJAX events
+// Attach a bunch of functions for handling baseBeans AJAX events
     jQuery.each( "ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend".split(" "), function( i, o ) {
         jQuery.fn[o] = function( f ) {
             return this.bind(o, f);

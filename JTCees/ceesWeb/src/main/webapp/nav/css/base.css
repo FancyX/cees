@@ -28,3 +28,7 @@ html, body {
     min-width: 320px;
 }
 
+.none {
+    display: none !important;
+}
+

@@ -3,7 +3,7 @@ package com.fancyx.cees.service.busi.impl;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
-import com.fancyx.cees.domain.common.ResultBean;
+import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import com.fancyx.cees.manager.busi.HunNingTuKangYaManager;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.springframework.stereotype.Service;
@@ -23,14 +23,26 @@ public class HunNingTuKangYaServiceImpl implements HunNingTuKangYaService {
 
     //todo - 处理异常的方式是单次捕捉，还是设置一个异常处理器
     @Override
-    public ResultBean insert(HunNingTuKangYa hunNingTuKangYa) {
+    public boolean insert(HunNingTuKangYa hunNingTuKangYa) {
 
-        try {
-            manager.insert(hunNingTuKangYa);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return new ResultBean(ex);
-        }
-        return new ResultBean();
+        manager.insert(hunNingTuKangYa);
+        return true;
     }
+
+    @Override
+    public void delete(Integer id) {
+        manager.delete(id);
+    }
+
+    @Override
+    public void update(HunNingTuKangYaVO hunNingTuKangYaVO) {
+        manager.update(hunNingTuKangYaVO);
+    }
+
+    @Override
+    public Integer getMax_sn_project() {
+        return manager.getMax_sn_project();
+    }
+
+
 }

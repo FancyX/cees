@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui后台管理模板</title>
+    <title>施工单位委托系统</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -14,14 +14,16 @@
     <script src="/nav/layui-v2.2.6/layui/layui.js"></script>
 
     <link rel="stylesheet" href="/nav/css/base.css">
+    <script src="/nav/jquery/jquery.min.js"></script>
+
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">施工单位委托系统</div>
 
         <!--头部右侧-->
-        <ul class="layui-nav layui-layout-right">
+        <ul class="layui-nav layui-layout-right none">
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
@@ -38,7 +40,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <ul id="leftMenu" class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">试验项目</a>
                     <dl class="layui-nav-child">
@@ -119,6 +121,8 @@
 </div>
 
 <script>
+
+    var baseData = null;
     //JavaScript代码区域
     layui.use(['layer', 'element', 'form', "jquery"], function () {
         var element = layui.element;
@@ -129,7 +133,41 @@
             var url = $(this).attr("data-url");
             $("#contextIframe").attr('src', url);
         });
+
+        jQuery.ajax({
+            type: 'post',
+            url: "/getBaseData",
+            dataType: 'json',
+            data: {},
+            async: false,
+            success: function (json) {
+                console.log(json);
+                if (json.code == 0) {//没有错误将选择左侧列表第一条
+                    baseData = json.data;
+                    jQuery("#leftMenu dd:first").click();
+                    jQuery("#leftMenu dd").removeClass('layui-this');
+                    jQuery("#leftMenu dd:first").addClass('layui-this');
+
+                } else {//获取数据失败
+                    layer.confirm('获取基础数据失败,请重新登录！', {
+
+                        icon: 2,
+                        skin: 'layer-ext-moon',
+                        closeBtn: 0,
+                        btn: ['确定'],//可以无限个按钮
+                        btn1: function (index, layero) {
+                            location.href = '/nav/login.html';
+                        }
+                    });
+                }
+            },
+            err: function (err) {
+                failAlert("连接服务器失败,无法获取数据，请重新登录！");
+            }
+        });
     });
+
+
 </script>
 </body>
 </html>

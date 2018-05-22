@@ -1,26 +1,18 @@
-package com.fancyx.cees.domain.common;
+package com.fancyx.cees.baseBeans;
+
+import java.io.Serializable;
 
 /**
- * Created by 啊Q on 2018-05-06.
+ * Created by 啊Q on 2018-05-14.
  */
-public class ResultBean<T> {
+public class ResultBean<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    public static final int NO_LOGIN = -1;
-
-    public static final int SUCCESS = 0;
-
-    public static final int CHECK_FAIL = 1;
-
-    public static final int NO_PERMISSION = 2;
-
-    public static final int UNKNOWN_EXCEPTION = -99;
 
 
     /**
      * 返回的信息(主要出错的时候使用)
      */
-    private String msg = "success";
+    private String msg = "成功！";
 
     /**
      * 接口返回码, 0表示成功, 其他看对应的定义
@@ -29,7 +21,7 @@ public class ResultBean<T> {
      * >0 : 表示已知的异常(例如提示错误等, 需要调用地方单独处理)
      * <0 : 表示未知的异常(不需要单独处理, 调用方统一处理)
      */
-    private int errNo = SUCCESS;
+    private int code = ResultErrNo.SUCCESS;
 
     /**
      * 返回的数据
@@ -48,7 +40,30 @@ public class ResultBean<T> {
     public ResultBean(Throwable e) {
         super();
         this.msg = e.toString();
-        this.errNo = UNKNOWN_EXCEPTION;
+        this.code = ResultErrNo.UNKNOWN_EXCEPTION;
     }
 
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

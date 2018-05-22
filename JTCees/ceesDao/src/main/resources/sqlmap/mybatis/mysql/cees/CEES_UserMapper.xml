@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_UserDao">
+    <select id="login"
+            parameterType="com.fancyx.cees.domain.vo.CEES_UserVO"
+            resultType="com.fancyx.cees.domain.busi.CEES_User">
+SELECT [uid]
+      ,[cid]
+      ,[sn]
+      ,[loginuser]
+      ,[password]
+      ,[name]
+      ,[post]
+      ,[tel]
+      ,[part]
+      ,[state]
+      ,[remarks]
+      ,[edittime]
+      ,[edituser]
+  FROM [CEES_User]
+
+where
+	loginuser = #{loginuser,jdbcType=VARCHAR} and
+	password = #{password,jdbcType=VARCHAR}
+
+    </select>
+</mapper>

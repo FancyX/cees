@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="/nav/css/login.css">
+    <link rel="stylesheet" href="/nav/layui-v2.2.6/layui/css/layui.css">
+    <script src="/nav/layui-v2.2.6/layui/layui.js"></script>
+    <script src="/nav/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/nav/jquery/jquery.form.js"></script>
+</head>
+<body>
+<div class="login-box">
+    <div class="title">
+        用户登录
+    </div>
+    <div class="input-box layui-form">
+        <form id="loginForm" class="layui-form layui-form-pane" action="">
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">工程</label>
+                <div class="layui-input-block">
+                    <select id="projectId" name="projectId" lay-verify="required|number">
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" id="loginuser" name="loginuser"
+                           lay-verify="required|username"
+                           autocomplete="off" placeholder="请输入用户名"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input id="password" name="password" type="password"
+                           autocomplete="off"
+                           lay-verify="required|pass"
+                           placeholder="请输入密码"
+                           class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <div style="float: right;margin-top: 12px">
+                        <button class="layui-btn" lay-submit lay-filter="*">登录</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form
+            , layer = layui.layer
+            , layedit = layui.layedit
+            , laydate = layui.laydate;
+
+        //各种基于事件的操作，下面会有进一步介绍
+
+
+        form.on('submit(*)', function (data) {
+//            console.log(data.elem); //被执行事件的元素DOM对象，一般为button对象
+//            console.log(data.form); //被执行提交的form对象，一般在存在form标签时才会返回
+//            console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+            $('#loginForm').ajaxSubmit({      //ajax方式提交表单
+
+                url: '/login',
+                type: 'post',
+                dataType: 'json',
+                beforeSubmit: function () {
+                },
+                success: function (json) {
+                    console.log(json);
+
+                    if (json.code == 0) {//登录成功
+//                        http://localhost:8080/nav/index-index.html
+                        window.location.href = '/nav/index-index.html';
+                    } else {//登录失败
+                        failAlert(json.msg);
+                    }
+                },
+                clearForm: false,//禁止清楚表单
+                resetForm: false //禁止重置表单
+            });
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+    });
+
+    jQuery.ajax({
+        type: 'post',
+        url: "/getAllProject",
+        dataType: 'json',
+        data: {},
+        async: false,
+        success: function (json) {
+
+            var strDom = ' <option value=""></option>';
+            for (var i = 0; i < json.data.length; i++) {
+                var project = json.data[i];
+                strDom += '<option value="' + project.pid + '">' + project.project + '</option>';
+            }
+            jQuery("#projectId").append(strDom)
+        },
+        err: function (err) {
+            failAlert("连接服务器失败,无法登录，请重试！");
+        }
+    });
+    //弹出失败信息
+    function failAlert(msg) {
+        layer.alert(msg, {
+            icon: 2,
+            skin: 'layer-ext-moon'
+        });
+    }
+
+
+</script>
+</body>
+</html>

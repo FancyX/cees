@@ -5,13 +5,16 @@ import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.dao.busi.HunNingTuKangYaDao;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
+import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import org.springframework.stereotype.Repository;
+
+import java.util.Map;
 
 /**
  * Created by 啊Q on 2018-05-02.
  */
 @Repository
-public class HunNingTuKangYaDaoImpl extends BaseDao<HunNingTuKangYa> implements HunNingTuKangYaDao {
+public class HunNingTuKangYaDaoImpl extends BaseDao implements HunNingTuKangYaDao {
     public static final String NAME_SPACE = "com.fancyx.cees.dao.busi.HunNingTuKangYaDao";
 
     @Override
@@ -27,6 +30,23 @@ public class HunNingTuKangYaDaoImpl extends BaseDao<HunNingTuKangYa> implements 
     @Override
     public void insert(HunNingTuKangYa hunNingTuKangYa) {
         this.insert(this.getNamespace("insert"), hunNingTuKangYa);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        this.delete(this.getNamespace("delete"), id);
+    }
+
+    @Override
+    public void update(HunNingTuKangYaVO hunNingTuKangYaVO) {
+        this.update(this.getNamespace("update"), hunNingTuKangYaVO);
+    }
+
+    @Override
+    public Integer getMax_sn_project() {
+        Map map =   this.queryForMap(this.getNamespace("maxSnProject"),"SnProject");
+        return (Integer)map.get("SnProject");
+
     }
 
 

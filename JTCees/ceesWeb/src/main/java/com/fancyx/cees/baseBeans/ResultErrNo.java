@@ -1,4 +1,4 @@
-package com.fancyx.cees.common;
+package com.fancyx.cees.baseBeans;
 
 /**
  * Created by 啊Q on 2018-05-14.

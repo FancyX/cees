@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_ProjectDao">
+    <select id="getProject"
+            parameterType="int"
+            resultType="com.fancyx.cees.domain.busi.CEES_Project">
+
+        SELECT [pid]
+      ,[cid]
+      ,[sn]
+      ,[classification]
+      ,[projectnumber]
+      ,[project]
+      ,[projectsimple]
+      ,[bid]
+      ,[address]
+      ,[tel]
+      ,[state]
+      ,[remarks]
+      ,[edittime]
+      ,[edituser]
+  FROM [CEES_Project]
+  where
+	cid =  #{cid,jdbcType=INTEGER} AND
+	pid =  #{pid,jdbcType=INTEGER}
+    </select>
+
+
+
+  <select id="getAllProject"
+          resultType="com.fancyx.cees.domain.busi.CEES_Project">
+
+    SELECT [pid]
+    ,[cid]
+    ,[sn]
+    ,[classification]
+    ,[projectnumber]
+    ,[project]
+    ,[projectsimple]
+    ,[bid]
+    ,[address]
+    ,[tel]
+    ,[state]
+    ,[remarks]
+    ,[edittime]
+    ,[edituser]
+    FROM [CEES_Project]
+  </select>
+
+</mapper>

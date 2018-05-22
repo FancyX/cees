@@ -598,7 +598,7 @@ jQuery.extend({
 				}
 			}
 
-		// A special, fast, case for the most common use of each
+		// A special, fast, case for the most baseBeans use of each
 		} else {
 			if ( isObj ) {
 				for ( name in obj ) {
@@ -2159,7 +2159,7 @@ jQuery.fn.extend({
 				ret = elem.value;
 
 				return typeof ret === "string" ?
-					// handle most common string cases
+					// handle most baseBeans string cases
 					ret.replace(rreturn, "") :
 					// handle cases where value is null/undef or number
 					ret == null ? "" : ret;
@@ -7476,7 +7476,7 @@ jQuery.fn.load = function( url, params, callback ) {
 	return this;
 };
 
-// Attach a bunch of functions for handling common AJAX events
+// Attach a bunch of functions for handling baseBeans AJAX events
 jQuery.each( "ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend".split( " " ), function( i, o ){
 	jQuery.fn[ o ] = function( f ){
 		return this.on( o, f );

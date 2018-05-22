@@ -136,7 +136,7 @@ public class HunNingTuKangYa implements Serializable {
     private String SGPHB;
     //水灰比
     private String SHB;
-    //砂滤
+    //砂率
     private String SL;
     //混凝土单位
     private String HNTDW;

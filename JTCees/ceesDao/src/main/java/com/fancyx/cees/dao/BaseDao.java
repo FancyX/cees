@@ -94,6 +94,27 @@ public abstract class BaseDao<T extends Object> extends SqlSessionDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
+	public T queryForObject(String classMethod) throws DataAccessException {
+		T result = null;
+		try {
+			result = (T) this.getSqlSession().selectOne(classMethod);
+		} catch (DataAccessException e) {
+			throw e;
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	public Map queryForMap(String classMethod,String mapKey) throws DataAccessException {
+		Map result = null;
+		try {
+			result = this.getSqlSession().selectMap(classMethod,mapKey);
+		} catch (DataAccessException e) {
+			throw e;
+		}
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
 	public T queryForObject(String classMethod, T entity) throws DataAccessException {
 		T result = null;
 		try {
@@ -103,6 +124,8 @@ public abstract class BaseDao<T extends Object> extends SqlSessionDaoSupport {
 		}
 		return result;
 	}
+
+
 
 	/**
 	 * 支持排序、分页的列表查询
@@ -150,7 +173,7 @@ public abstract class BaseDao<T extends Object> extends SqlSessionDaoSupport {
 		if (entity != null) {
 			filter.putAll(entity);
 		}
-		//_sorts名固定写法，与com.jd.las.im.common.dao.interceptor.PaginationInterceptor中进行映射
+		//_sorts名固定写法，与com.jd.las.im.baseBeans.dao.interceptor.PaginationInterceptor中进行映射
 		filter.put("_sorts", pageRequest.getSortItemMap());
 
 		List<T> list = this.getSqlSession().selectList(statementName, filter,

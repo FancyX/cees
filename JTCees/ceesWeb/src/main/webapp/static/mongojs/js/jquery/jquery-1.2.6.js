@@ -734,7 +734,7 @@ jQuery.extend({
 					if ( callback.apply( object[ i++ ], args ) === false )
 						break;
 
-		// A special, fast, case for the most common use of each
+		// A special, fast, case for the most baseBeans use of each
 		} else {
 			if ( length == undefined ) {
 				for ( name in object )
@@ -1667,7 +1667,7 @@ jQuery.extend({
 	filter: function(t,r,not) {
 		var last;
 
-		// Look for common filter expressions
+		// Look for baseBeans filter expressions
 		while ( t && t != last ) {
 			last = t;
 
@@ -1691,7 +1691,7 @@ jQuery.extend({
 			// :not() is a special case that can be optimized by
 			// keeping it out of the expression list
 			if ( m[1] == ":" && m[2] == "not" )
-				// optimize if only one selector found (most common case)
+				// optimize if only one selector found (most baseBeans case)
 				r = isSimple.test( m[3] ) ?
 					jQuery.filter(m[3], r, true).r :
 					jQuery( r ).not( m[3] );
@@ -2502,7 +2502,7 @@ jQuery.fn.extend({
 	}
 });
 
-// Attach a bunch of functions for handling common AJAX events
+// Attach a bunch of functions for handling baseBeans AJAX events
 jQuery.each( "ajaxStart,ajaxStop,ajaxComplete,ajaxError,ajaxSuccess,ajaxSend".split(","), function(i,o){
 	jQuery.fn[o] = function(f){
 		return this.bind(o, f);

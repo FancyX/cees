@@ -3,14 +3,12 @@ package com.fancyx.cees.web.busi;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
-import com.fancyx.cees.domain.common.ResultBean;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,84 +64,7 @@ public class HunNingTuKangYaController_ {
     }
 
 
-    /**
-     * 添加一条混凝土抗压
-     *
-     * @param hunNingTuKangYa
-     * @return 返回ResultBean类型的结果说明
-     */
-    @ResponseBody
-    @RequestMapping(value = "/add")
-    public ResultBean add(HttpSession session, HunNingTuKangYa hunNingTuKangYa) {
 
-        //施工单位id
-        int cId = 1;
-        hunNingTuKangYa.setCid(cId);
-        //施工单位编号
-        String cnumber = "12312";
-        hunNingTuKangYa.setCnumber(cnumber);
-        //送检人
-        String client = "暂时送检人";
-        hunNingTuKangYa.setClient(client);
-        //试块收到日期
-        Date SKSDRQ = new Date("1992-8-8");
-        hunNingTuKangYa.setSKSDRQ(SKSDRQ);
-        //要求试验日期
-        Date YQSYRQ = new Date("1992-8-8");
-        hunNingTuKangYa.setYQSYRQ(YQSYRQ);
-        //试验日期
-        Date SYRQ = new Date("1992-8-8");
-        hunNingTuKangYa.setSYRQ(SYRQ);
-        //受压面积
-        String SYMJ = "10000";
-        hunNingTuKangYa.setSYMJ(SYMJ);
-        //单块1
-        String HZ1 = "";
-        hunNingTuKangYa.setHZ1(HZ1);
-        //单块2
-        String HZ2 = "";
-        hunNingTuKangYa.setHZ1(HZ2);
-        //单块3
-        String HZ3 = "";
-        hunNingTuKangYa.setHZ1(HZ3);
-        //单块平均
-        String HZPJ = "";
-        hunNingTuKangYa.setHZPJ(HZPJ);
-        //抗压强度
-        String KYQD = "";
-        hunNingTuKangYa.setKYQD(KYQD);
-        //折合强度
-        String ZHQD = "";
-        hunNingTuKangYa.setZHQD(ZHQD);
-        //达到强度
-        String DDQD = "";
-        hunNingTuKangYa.setDDQD(DDQD);
-        //技术负责人编号
-        int JSFZRBH = 1;
-        hunNingTuKangYa.setJSFZRBH(JSFZRBH);
-        //技术负责人
-        String JSFZR = "";
-        hunNingTuKangYa.setJSFZR(JSFZR);
-        //校核人编号
-        int XHRBH = 1;
-        hunNingTuKangYa.setXHRBH(XHRBH);
-        //校核人
-        String XHR = "";
-        hunNingTuKangYa.setXHR(XHR);
-
-        //试验人编号
-        int SYRBH = 1;
-        hunNingTuKangYa.setSYRBH(SYRBH);
-        //试验人
-        String SYR = "";
-        hunNingTuKangYa.setSYR(SYR);
-        //报告日期
-        Date BGRQ = new Date("1992-8-8");
-        hunNingTuKangYa.setBGRQ(BGRQ);
-
-
-        return hunNingTuKangYaService.insert(hunNingTuKangYa);
-    }
 
 
     //todo 暂时返回各种一些字段的类型基本信息，

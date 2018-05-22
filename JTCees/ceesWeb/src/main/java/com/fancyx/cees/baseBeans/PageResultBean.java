@@ -1,4 +1,4 @@
-package com.fancyx.cees.common;
+package com.fancyx.cees.baseBeans;
 
 import java.util.List;
 

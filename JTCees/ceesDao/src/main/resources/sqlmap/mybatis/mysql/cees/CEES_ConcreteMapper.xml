@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_ConcreteDao">
+    <select id="selectByConstructionId"   parameterType="int"  resultType="com.fancyx.cees.domain.busi.CEES_Concrete">
+       SELECT [ccid]
+        ,[cid]
+        ,[sn]
+        ,[concrete]
+        ,[address]
+        ,[tel]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+    FROM
+      CEES_Concrete
+    where
+	  cid  = #{id,jdbcType=INTEGER}
+
+    </select>
+
+    <select id="getConcrete"   parameterType="int"  resultType="com.fancyx.cees.domain.busi.CEES_Concrete">
+        SELECT [ccid]
+        ,[cid]
+        ,[sn]
+        ,[concrete]
+        ,[address]
+        ,[tel]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        FROM
+        CEES_Concrete
+        where
+        ccid  = #{id,jdbcType=INTEGER}
+
+    </select>
+</mapper>

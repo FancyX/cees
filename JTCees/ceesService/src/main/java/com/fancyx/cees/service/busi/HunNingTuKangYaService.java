@@ -3,7 +3,8 @@ package com.fancyx.cees.service.busi;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
-import com.fancyx.cees.domain.common.ResultBean;
+import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
+
 
 public interface HunNingTuKangYaService {
     /**
@@ -21,5 +22,18 @@ public interface HunNingTuKangYaService {
      * @param hunNingTuKangYa
      * @return
      */
-    ResultBean insert(HunNingTuKangYa hunNingTuKangYa);
+    boolean insert(HunNingTuKangYa hunNingTuKangYa);
+
+    /**
+     * 删除一条混凝土抗压信息
+     *
+     * @param id
+     * @return
+     */
+    void delete(Integer id);
+
+    void update(HunNingTuKangYaVO hunNingTuKangYaVO);
+
+    Integer getMax_sn_project();
+
 }
