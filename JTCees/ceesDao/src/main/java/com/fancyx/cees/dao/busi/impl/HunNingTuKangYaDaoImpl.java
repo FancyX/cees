@@ -8,8 +8,6 @@ import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import org.springframework.stereotype.Repository;
 
-import java.util.Map;
-
 /**
  * Created by 啊Q on 2018-05-02.
  */
@@ -44,9 +42,7 @@ public class HunNingTuKangYaDaoImpl extends BaseDao implements HunNingTuKangYaDa
 
     @Override
     public Integer getMax_sn_project() {
-        Map map =   this.queryForMap(this.getNamespace("maxSnProject"),"SnProject");
-        return (Integer)map.get("SnProject");
-
+        return (Integer) this.queryForObject(this.getNamespace("maxSnProject"));
     }
 
 

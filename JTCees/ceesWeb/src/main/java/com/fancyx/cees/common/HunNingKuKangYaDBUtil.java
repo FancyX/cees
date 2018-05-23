@@ -1,27 +1,19 @@
 package com.fancyx.cees.common;
 
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ *
+ * 默认单例
  * Created by 啊Q on 2018-05-22.
  */
+
+@Component
 public class HunNingKuKangYaDBUtil {
-
-    private static HunNingKuKangYaDBUtil hunNingKuKangYaDbUtilSinge = null;
-
-    public static HunNingKuKangYaDBUtil getInstance() {
-        if (hunNingKuKangYaDbUtilSinge == null) {
-            synchronized (HunNingKuKangYaDBUtil.class) {
-                if (hunNingKuKangYaDbUtilSinge == null) {
-                    hunNingKuKangYaDbUtilSinge = new HunNingKuKangYaDBUtil();
-                }
-            }
-        }
-        return hunNingKuKangYaDbUtilSinge;
-    }
 
     @Resource
     private HunNingTuKangYaService hunNingTuKangYaService;

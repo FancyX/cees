@@ -11,6 +11,7 @@ import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import com.fancyx.cees.service.busi.Display_HntkyService;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -41,6 +42,9 @@ public class HunNingTuKangYaController {
 
     @Resource
     private Display_HntkyService display_hntkyService;
+
+    @Autowired
+    private HunNingKuKangYaDBUtil hunNingKuKangYaDBUtil;
 
     /*
     * 返回混凝土抗压页面
@@ -142,7 +146,7 @@ public class HunNingTuKangYaController {
     public ResultBean add(HunNingTuKangYaVO hunNingTuKangYaVO) {
 
         try {
-            hunNingTuKangYaVO.setSn_project(HunNingKuKangYaDBUtil.getInstance().getSn_project());
+            hunNingTuKangYaVO.setSn_project(hunNingKuKangYaDBUtil.getSn_project());
             hunNingTuKangYaService.insert(hunNingTuKangYaVO);
             return new ResultBean();
         } catch (Exception ex) {
