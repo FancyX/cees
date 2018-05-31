@@ -13,13 +13,22 @@
 
     <mappers>
         <!-- cees -->
+        <!--混凝土抗压-->
         <mapper resource="sqlmap/mybatis/mysql/cees/HntkyMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/HunNingTuKangYaMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkyMapper.xml"/>
-        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ConcreteMapper.xml"/>
-        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_UserMapper.xml"/>
+        <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_ProjectMapper.xml"/>
+        <!--施工单位-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ConstructionMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_ConstructionMapper.xml"/>
+        <!--用户-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_UserMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_UserMapper.xml"/>
+        <!--混凝土单位-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ConcreteMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/DisPlay_ConcreteMapper.xml"/>
     </mappers>
 
 </configuration>

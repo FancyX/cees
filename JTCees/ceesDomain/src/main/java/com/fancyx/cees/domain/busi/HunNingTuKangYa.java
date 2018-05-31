@@ -32,7 +32,7 @@ public class HunNingTuKangYa implements Serializable {
     //送检单明细序号/提交序号
     private int sn_test;
     //状态
-    private String state;
+    private String state = "录入";
     //备注
     private String remarks;
     //编辑时间

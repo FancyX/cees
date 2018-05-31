@@ -10,25 +10,25 @@ public class CEES_Concrete implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //混凝土单位id
-    private  int  ccid;
+    private int ccid;
     //施工单位id
-    private  int  cid;
+    private int cid;
     //序号
-    private  int  sn;
+    private int sn;
     //混凝土单位名称
-    private  String  concrete;
+    private String concrete;
     //地址
-    private  String  address;
+    private String address;
     //电话
-    private  String  tel;
+    private String tel;
     //状态
-    private  int  state;
+    private int state;
     //备注
-    private  String  remarks;
+    private String remarks;
     //编辑时间
-    private  String  edittime;
+    private String edittime;
     //用户名
-    private  String  edituser;
+    private String edituser;
 
     public int getCcid() {
         return ccid;

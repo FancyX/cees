@@ -26,6 +26,13 @@ public class PageResultBean<T> {
         this.code = ResultErrNo.UNKNOWN_EXCEPTION;
     }
 
+    public PageResultBean(Throwable e,Integer errNo) {
+        super();
+        this.msg = e.toString();
+        this.code = errNo;
+    }
+
+
     public int getCode() {
         return code;
     }

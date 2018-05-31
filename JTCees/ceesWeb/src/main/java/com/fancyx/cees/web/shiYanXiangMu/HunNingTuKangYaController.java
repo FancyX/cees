@@ -4,10 +4,13 @@ package com.fancyx.cees.web.shiYanXiangMu;
 import com.fancyx.cees.baseBeans.PageResultBean;
 import com.fancyx.cees.baseBeans.ResultBean;
 import com.fancyx.cees.common.HunNingKuKangYaDBUtil;
+import com.fancyx.cees.common.TimeUtil;
+import com.fancyx.cees.config.BaseConfig;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
 import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
+import com.fancyx.cees.domain.vo.SessionVO;
 import com.fancyx.cees.service.busi.Display_HntkyService;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.apache.log4j.Logger;
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -143,10 +147,31 @@ public class HunNingTuKangYaController {
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public ResultBean add(HunNingTuKangYaVO hunNingTuKangYaVO) {
+    public ResultBean add(HttpSession session, HunNingTuKangYaVO hunNingTuKangYaVO) {
 
         try {
-            hunNingTuKangYaVO.setSn_project(hunNingKuKangYaDBUtil.getSn_project());
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            if (sessionVO == null) {
+                throw new Exception("请重新登录！");
+            }
+
+            //用户
+            hunNingTuKangYaVO.setEdituser(sessionVO.getCees_user().getLoginuser());
+            //状态
+            hunNingTuKangYaVO.setState("录入");
+            //时间
+            hunNingTuKangYaVO.setEdittime(TimeUtil.getCurrentTime());
+            //sn_project
+            hunNingTuKangYaVO.setSn_project(hunNingKuKangYaDBUtil.getSnProject());
+            //cnumber
+            hunNingTuKangYaVO.setCnumber(hunNingKuKangYaDBUtil.getCnumber());
+            //projectnumber
+            hunNingTuKangYaVO.setProjectnumber(hunNingKuKangYaDBUtil.getProjectnumber());
+            //kynumber
+            hunNingTuKangYaVO.setKynumber(hunNingKuKangYaDBUtil.getKynumber());
+            //client
+            hunNingTuKangYaVO.setClient(sessionVO.getCees_construction().getClient());
+
             hunNingTuKangYaService.insert(hunNingTuKangYaVO);
             return new ResultBean();
         } catch (Exception ex) {

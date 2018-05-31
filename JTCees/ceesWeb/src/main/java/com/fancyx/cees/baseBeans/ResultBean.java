@@ -43,6 +43,12 @@ public class ResultBean<T> implements Serializable {
         this.code = ResultErrNo.UNKNOWN_EXCEPTION;
     }
 
+    public ResultBean(Throwable e,Integer errNo) {
+        super();
+        this.msg = e.toString();
+        this.code = errNo;
+    }
+
     public String getMsg() {
         return msg;
     }

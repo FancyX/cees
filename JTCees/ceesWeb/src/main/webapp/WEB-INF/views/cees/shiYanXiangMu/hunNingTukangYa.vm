@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="layui-input-inline" style="width: 64px">
-                    <button class="layui-btn " onclick="showAddModal()">新增</button>
+                    <button class="layui-btn" lay-event="add" onclick="showAddModal()">新增</button>
                 </div>
 
             ##                <div class="layui-input-inline" style="width: 64px">
@@ -36,7 +36,7 @@
     <table id="tableData" lay-filter="test"></table>
 ##表格的工具条
     <script type="text/html" id="barDemo">
-        ##<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
@@ -45,7 +45,7 @@
 ##弹窗
 
 ##添加弹窗
-<form id="addModal" class="layui-form my-layer-modal none" lay-filter="updateModal" action="">
+<form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
     <div class="layui-form-item">
 
         <table class="layui-table">
@@ -57,13 +57,15 @@
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label ">工程抗压序号</label>
                                 <div class="layui-input-inline my-w-200">
-                                    <input type="text" name="sn_project" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="sn_project" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label">施工单位</label>
                                 <div class="layui-input-inline my-w-510">
-                                    <input type="text" name="construction" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="construction" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +87,8 @@
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label">送检编号</label>
                                 <div class="layui-input-inline my-w-200">
-                                    <input type="text" name="testnumber" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="testnumber" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -624,7 +627,8 @@
                             <div class="layui-inline">
                                 <div class="layui-form-mid blue-font">报告日期</div>
                                 <div class="layui-input-inline my-w-150">
-                                    <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                                    <input type="text" name="BGRQ" disabled class="layui-input"
+                                           placeholder="yyyy-MM-dd">
                                 </div>
                             </div>
 
@@ -637,7 +641,7 @@
     </div>
 </form>
 
-##查看和修改 - 只有查看权限时将所有按钮输入框变成不可使用
+##修改
 <form id="updateModal" class="layui-form my-layer-modal none" lay-filter="updateModal" action="">
     <div class="layui-form-item none">
         <div class="layui-form-item">
@@ -660,13 +664,15 @@
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label ">工程抗压序号</label>
                                 <div class="layui-input-inline my-w-200">
-                                    <input type="text" name="sn_project" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="sn_project" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label">施工单位</label>
                                 <div class="layui-input-inline my-w-510">
-                                    <input type="text" name="construction" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="construction" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                         </div>
@@ -688,7 +694,8 @@
                             <div class="layui-inline blue-font">
                                 <label class="layui-form-label">送检编号</label>
                                 <div class="layui-input-inline my-w-200">
-                                    <input type="text" name="testnumber" disabled autocomplete="off" class="layui-input">
+                                    <input type="text" name="testnumber" disabled autocomplete="off"
+                                           class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -1227,7 +1234,8 @@
                             <div class="layui-inline">
                                 <div class="layui-form-mid blue-font">报告日期</div>
                                 <div class="layui-input-inline my-w-150">
-                                    <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                                    <input type="text" name="BGRQ" disabled class="layui-input"
+                                           placeholder="yyyy-MM-dd">
                                 </div>
                             </div>
 
@@ -1239,11 +1247,15 @@
         </div>
     </div>
 </form>
+##查看
+<form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action="">
 
+</form>
 
 <script>
 
     var initSelect = false;
+    var baseData;
 
     window.onload = function () {
         init();
@@ -1253,7 +1265,7 @@
     function init() {
         //加载模块插件
         initModels();
-        //初始化用户权限限制
+        //初始化用户权数据
         initUserData();
         //初始化表格
         initTable();
@@ -1284,10 +1296,20 @@
     //初始化-用户数据
     function initUserData() {
         //todo - 从父页面获取用户用户权限数据根据本页面情况隐藏或者不隐藏
-        var baseData = window.parent.baseData;
+        baseData = window.parent.baseData;
         initConstruction(baseData.cees_construction);//施工单位
         initConcrete(baseData.cees_concreteList);//混凝土单位
         initProject(baseData.cees_project);//工程
+    }
+
+
+    //不是所需权限
+    function isNotPower(ceces_user) {
+        if (ceces_user.part == "查询用户") {
+            failAlert("您的权限等级不足！");
+            return true;
+        }
+        return false;
     }
 
     //初始化-混凝土单位
@@ -1386,6 +1408,8 @@
                     } else if (layEvent === 'edit') {
 //                        layer.msg('编辑操作');
                         showUpdateModal(obj, data);
+                    } else if (layEvent === 'detail') {
+                        showDetailModal(obj, data);
                     }
                 });
 
@@ -1408,6 +1432,7 @@
                     var type = $(this).data('type');
                     active[type] ? active[type].call(this) : '';
                 });
+
             });
 
 
@@ -1443,71 +1468,11 @@
 
     //显示修改弹窗
     function showUpdateModal(obj, data) {
-        //初始化下拉选
-        if (initSelect == false) {
-            jQuery('.layui-form-select input').unbind("blur").on("blur", function () {
-                var select = $(this).parent().parent().siblings("select")
 
-                var optionStr = '<option value="' + $(this).val() + '">' + $(this).val() + '</option>';
-                select.append(optionStr);
-                select.val($(this).val());
-            });
-            initSelect = true;
+        if (isNotPower(baseData.cees_user)) {
+            return false
         }
-
-        for (var key in data) {
-            var value = data[key];
-            if (value == null || value == undefined || value == "") {
-                continue;
-            }
-
-            var dom = jQuery("#updateModal [name='" + key + "']");
-
-            if (dom.length == 0) {
-                dom = jQuery("#updateModal [name='" + key.toLocaleUpperCase() + "']");
-            }
-
-
-            //判断文本框类型
-            if (dom.is('input')) {
-
-                //判断为时间
-                if (dom.attr('placeholder') == "yyyy-MM-dd") {
-                    layui.use(['laydate'], function () {
-                        var laydate = layui.laydate;//日期
-                        laydate.render({
-                            elem: dom[0],
-                            value: new Date(value),
-                            isInitValue: true //允许填充初始值
-                        });
-                    });
-                } else {//普通输入框
-                    dom.val(value);
-                }
-            } else if (dom.is('select')) {//选择框
-                if (typeof(dom.attr("lay-search")) == "undefined") {
-
-                    layui.use('form', function () {
-                        var form = layui.form; //表单
-                        dom.val(value);
-                        form.render();
-                    });
-                } else {
-                    var dl = dom.next().find("dl");
-
-                    if (dom.find("option[value='" + value + "']").length == 0) {
-                        var optionStr = '<option value="' + value + '">' + value + '</option>';
-                        dom.append(optionStr);
-
-                        var ddStr = '<dd lay-value="' + value + '" class>' + value + '</dd>';
-                        dl.append(ddStr);
-                    }
-                    dom.val(value);
-                    dom.next().find("input").val(value);
-                }
-            }
-        }
-
+        initModal(data, "updateModal");
         layer.open({
             title: "修改",
             type: 1,
@@ -1562,9 +1527,111 @@
         });
     }
 
-    //显示修改弹窗
-    function showAddModal() {
+    //初始化弹窗
+    function initModal(data, formID) {
+        //初始化下拉选
+        if (initSelect == false) {
+            jQuery('.layui-form-select input').unbind("blur").on("blur", function () {
+                var select = $(this).parent().parent().siblings("select")
 
+                var optionStr = '<option value="' + $(this).val() + '">' + $(this).val() + '</option>';
+                select.append(optionStr);
+                select.val($(this).val());
+            });
+            initSelect = true;
+        }
+
+        for (var key in data) {
+            var value = data[key];
+            if (value == null || value == undefined || value == "") {
+                continue;
+            }
+
+            var dom = jQuery("#" + formID + " [name='" + key + "']");
+
+            if (dom.length == 0) {
+                dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
+            }
+
+
+            //判断文本框类型
+            if (dom.is('input')) {
+
+                //判断为时间
+                if (dom.attr('placeholder') == "yyyy-MM-dd") {
+                    layui.use(['laydate'], function () {
+                        var laydate = layui.laydate;//日期
+                        laydate.render({
+                            elem: dom[0],
+                            value: new Date(value),
+                            isInitValue: true //允许填充初始值
+                        });
+                    });
+                } else {//普通输入框
+                    dom.val(value);
+                }
+            } else if (dom.is('select')) {//选择框
+                if (typeof(dom.attr("lay-search")) == "undefined") {
+
+                    layui.use('form', function () {
+                        var form = layui.form; //表单
+                        dom.val(value);
+                        form.render();
+                    });
+                } else {
+                    var dl = dom.next().find("dl");
+
+                    if (dom.find("option[value='" + value + "']").length == 0) {
+                        var optionStr = '<option value="' + value + '">' + value + '</option>';
+                        dom.append(optionStr);
+
+                        var ddStr = '<dd lay-value="' + value + '" class>' + value + '</dd>';
+                        dl.append(ddStr);
+                    }
+                    dom.val(value);
+                    dom.next().find("input").val(value);
+                }
+            }
+        }
+    }
+
+    //显示查看弹窗
+    function showDetailModal(obj, data) {
+
+
+        var domStr = jQuery("#updateModal").html();
+        jQuery("#detailModal").html(domStr);
+
+        initModal(data, "detailModal");
+
+        jQuery("#detailModal input,select").attr("disabled", "disabled");
+        layer.open({
+            title: "查看",
+            type: 1,
+            area: ['1240px', '620px'], //宽高
+            content: jQuery('#detailModal'),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+
+                layer.close(index);
+            }
+        });
+    }
+
+    //显示添加弹窗
+    function showAddModal() {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
         layer.open({
             title: "添加",
             type: 1,
@@ -1621,7 +1688,9 @@
 
     //删除一行
     function deleteRow(obj, data) {
-        console.log(data);
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
 
         if (data.state == "提交") {
             failAlert("不能删除已提交数据！");

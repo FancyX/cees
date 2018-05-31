@@ -24,4 +24,111 @@ SELECT [cid]
 	 cid  = #{id,jdbcType=INTEGER}
 
     </select>
+
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.CEES_Construction">
+  SELECT [cid]
+      ,[sn]
+      ,[cnumber]
+      ,[construction]
+      ,[address]
+      ,[client]
+      ,[tel]
+      ,[anumber]
+      ,[part]
+      ,[state]
+      ,[remarks]
+      ,[edittime]
+      ,[edituser]
+  FROM [CEES_Construction]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+        CEES_Construction
+    </select>
+
+    <delete id="delete" parameterType="int">
+      DELETE FROM [CEES_Construction]
+      where
+	  cid =  #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_ConstructionVo">
+        INSERT INTO [CEES].[dbo].[CEES_Construction]
+        ([sn]
+        ,[cnumber]
+        ,[construction]
+        ,[address]
+        ,[client]
+        ,[tel]
+        ,[anumber]
+        ,[part]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser])
+        VALUES
+        (#{sn}
+        ,#{cnumber}
+        ,#{construction}
+        ,#{address}
+        ,#{client}
+        ,#{tel}
+        ,#{anumber}
+        ,#{part}
+        ,#{state}
+        ,#{remarks}
+        ,#{edittime}
+        ,#{edituser})
+    </insert>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_ConstructionVo">
+        UPDATE [CEES_Construction]
+        SET
+        [construction] = #{construction},
+        [address] = #{address},
+        [client] = #{client},
+        [tel] = #{tel},
+        [anumber] = #{anumber},
+        [part] = #{part},
+        [state] = #{state},
+        [remarks] = #{remarks},
+        [edittime] = #{edittime},
+        [edituser] = #{edituser}
+        WHERE
+          cid = #{cid}
+    </update>
+
+    <select id="getAll"  resultType="com.fancyx.cees.domain.vo.CEES_ConstructionVo">
+       SELECT [cid]
+          ,[sn]
+          ,[cnumber]
+          ,[construction]
+          ,[address]
+          ,[client]
+          ,[tel]
+          ,[anumber]
+          ,[part]
+          ,[state]
+          ,[remarks]
+          ,[edittime]
+          ,[edituser]
+      FROM [CEES_Construction]
+    </select>
+
+
+    <select id="maxSn" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from CEES_Construction
+    </select>
+    <select id="maxCnumber" resultType="java.lang.Integer">
+     SELECT
+      ISNULL( max(cast(cnumber  as int)),0)
+     FROM [CEES_Construction]
+    </select>
 </mapper>

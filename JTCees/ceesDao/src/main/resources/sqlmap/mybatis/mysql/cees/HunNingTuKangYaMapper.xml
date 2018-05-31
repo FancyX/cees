@@ -303,19 +303,12 @@
         kyid =  #{id,jdbcType=INTEGER}
     </delete>
 
-    <update id="update">
+    <update id="update" parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
         UPDATE [CEES_Hntky]
         SET [cid] =#{cid}
-        ,[cnumber] =#{cnumber}
         ,[pid] =#{pid}
-        ,[projectnumber] =#{projectnumber}
-        ,[client] =#{client}
         ,[ccid] =#{ccid}
-        ,[kynumber] =#{kynumber}
-        ,[testnumber] =#{testnumber}
         ,[sn] =#{sn}
-        ,[sn_project] =#{sn_project}
-        ,[sn_test] =#{sn_test}
         ,[state] =#{state}
         ,[remarks] =#{remarks}
         ,[edittime] =#{edittime}
@@ -427,7 +420,25 @@
 
     <select id="maxSnProject" resultType="java.lang.Integer">
       select
-         ISNULL(MAX(sn_project),0) as SnProject
+         ISNULL(MAX(sn_project),0)
       from CEES_Hntky
+    </select>
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+      select
+         ISNULL(MAX((cast(cnumber  as int))),0)
+      from CEES_Hntky
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+      select
+         ISNULL(MAX((cast(projectnumber  as int))),0)
+      from CEES_Hntky
+    </select>
+
+    <select id="maxKynumber" resultType="String">
+        select
+          ISNULL(MAX((kynumber )),0)
+        from CEES_Hntky
     </select>
 </mapper>

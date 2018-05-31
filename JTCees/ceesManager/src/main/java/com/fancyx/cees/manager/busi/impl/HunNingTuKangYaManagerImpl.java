@@ -42,4 +42,19 @@ public class HunNingTuKangYaManagerImpl implements HunNingTuKangYaManager{
     public Integer getMax_sn_project() {
         return dao.getMax_sn_project();
     }
+
+    @Override
+    public Integer getCnumber() {
+        return dao.getCnumber();
+    }
+
+    @Override
+    public Integer getProjectnumber() {
+        return dao.getProjectnumber();
+    }
+
+    @Override
+    public String getKynumber() {
+        return dao.getKynumber();
+    }
 }

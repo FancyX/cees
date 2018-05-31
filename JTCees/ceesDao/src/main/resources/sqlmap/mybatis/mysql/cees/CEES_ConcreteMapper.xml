@@ -38,4 +38,66 @@
         ccid  = #{id,jdbcType=INTEGER}
 
     </select>
+
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.vo.CEES_ConcreteVo">
+        SELECT
+                [ccid],
+                [cid],
+                [sn],
+                [concrete],
+                [address],
+                [tel],
+                [state],
+                [remarks],
+                [edittime],
+                [edituser]
+        FROM
+            [CEES_Concrete]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+          COUNT(1)
+        FROM
+          CEES_Concrete
+    </select>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_ConcreteVo">
+        UPDATE
+            [CEES_Concrete]
+        SET
+            [cid]=#{cid},
+            [concrete]=#{concrete},
+            [address]=#{address},
+            [tel]=#{tel},
+            [state]=#{state},
+            [remarks]=#{remarks},
+            [edittime]=#{edittime},
+            [edituser]=#{edituser}
+        WHERE
+            ccid = #{ccid}
+    </update>
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_ConcreteVo">
+        INSERT INTO
+            [CEES_Concrete]
+            ([cid], [sn], [concrete], [address], [tel], [state], [remarks], [edittime], [edituser])
+        VALUES
+            (#{cid}, #{sn}, #{concrete}, #{address}, #{tel}, #{state}, #{remarks}, #{edittime}, #{edituser});
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM [CEES_Concrete]
+        where
+        ccid =  #{id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="maxSn" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from CEES_Concrete
+    </select>
+
 </mapper>

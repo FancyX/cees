@@ -1,0 +1,699 @@
+##显示在右侧侧内容
+<div>
+##工具条
+    <div class="content-bar">
+        <div class="layui-form-item">
+
+        ##            <div class="layui-inline">
+        ##                <label class="layui-form-label" style="width: 60px;">制模日期</label>
+        ##                <div class="layui-input-inline" style="width: 150px;">
+        ##                    <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+        ##                </div>
+        ##
+        ##                <label class="layui-form-label" style="width: 20px;">至</label>
+        ##
+        ##                <div class="layui-input-inline" style="width: 150px;">
+        ##                    <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+        ##                </div>
+        ##                <div class="layui-input-inline" style="width: 64px">
+        ##                    <button class="layui-btn " onclick="initTable()">查询</button>
+        ##                </div>
+
+            <div class="layui-input-inline" style="width: 64px">
+                <button class="layui-btn" lay-event="add" onclick="showAddModal()">新增</button>
+            </div>
+
+        ##                <div class="layui-input-inline" style="width: 64px">
+        ##                    <button id="deleteSelected" class="layui-btn layui-btn-danger" data-type="getCheckData">删除选中
+        ##                    </button>
+        ##                </div>
+        </div>
+    </div>
+</div>
+##表格
+<table id="tableData" lay-filter="test"></table>
+##表格的工具条
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+##弹窗
+
+##添加弹窗
+<form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
+    <div class="layui-form-item">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">登录用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="loginuser" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">职务</label>
+            <div class="layui-input-block">
+                <input type="text" name="post" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">电话</label>
+            <div class="layui-input-block">
+                <input type="text" name="tel" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色</label>
+            <div class="layui-input-block">
+                <select name="part">
+                    <option value="管理员">管理员</option>
+                    <option value="操作员">操作员</option>
+                    <option value="查询用户">查询用户</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item none">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="text" name="state" value="1" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">施工单位</label>
+            <div class="layui-input-block">
+                <select name="cid">
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remarks" class="layui-input">
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+##修改
+<form id="updateModal" class="layui-form my-layer-modal none" lay-filter="updateModal" action="">
+    <div class="layui-form-item none">
+        <div class="layui-form-item">
+            <div class="layui-inline blue-font">
+                <label class="layui-form-label ">ID</label>
+                <div class="layui-input-inline my-w-200">
+                    <input type="text" name="uid" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">登录用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="loginuser" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">职务</label>
+            <div class="layui-input-block">
+                <input type="text" name="post" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">电话</label>
+            <div class="layui-input-block">
+                <input type="text" name="tel" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色</label>
+            <div class="layui-input-block">
+                <select name="part">
+                    <option value="管理员">管理员</option>
+                    <option value="操作员">操作员</option>
+                    <option value="查询用户">查询用户</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item none">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="text" name="state" value="1" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">施工单位</label>
+            <div class="layui-input-block">
+                <select name="cid">
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remarks" class="layui-input">
+            </div>
+        </div>
+
+
+    </div>
+</form>
+##查看
+<form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action="">
+
+</form>
+
+<script>
+
+    var initSelect = false;
+    var baseData;
+
+    window.onload = function () {
+        init();
+    };
+
+    //初始化集合方法
+    function init() {
+        //加载模块插件
+        initModels();
+        //初始化用户权数据
+        initUserData();
+        //初始化表格
+        initTable();
+    };
+
+    //初始化固定模块
+    function initModels() {
+        layui.use(['form', 'laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element'], function () {
+            var laydate = layui.laydate,//日期
+                    laypage = layui.laypage,//分页
+                    layer = layui.layer, //弹层
+                    table = layui.table,//表格
+                    carousel = layui.carousel, //轮播
+                    upload = layui.upload,//上传
+                    element = layui.element, //元素操作
+                    form = layui.form; //表单
+
+            //绑定所有时间组件
+            var arr = jQuery("input[placeholder='yyyy-MM-dd']")
+            for (var i = 0; i < arr.length; i++) {
+                laydate.render({
+                    elem: arr[i]
+                });
+            }
+        });
+    }
+
+    //初始化-用户数据
+    function initUserData() {
+        //todo - 从父页面获取用户用户权限数据根据本页面情况隐藏或者不隐藏
+        baseData = window.parent.baseData;
+        //获取施工单位信息
+
+        //请求列数据-成功后请求表数据
+        jQuery.ajax({
+            type: 'post',
+            url: "/yongHuDanWeiSheZhi/ShiGongDanWei/getAll",
+            dataType: 'json',
+            data: {},
+            async: false,
+            success: function (json) {
+                var initSelect = function (data) {
+//                    cid
+                    var domStr = '';
+                    for (var i = 0; i < data.data.length && data.data != undefined; i++) {
+
+                        var bean = data.data[i];
+                        var checked = "";
+                        if (i == 0) {
+                            checked = "checked";
+                        }
+
+                        domStr += '<option value="' + bean.cid + '" ' + checked + '>' + bean.construction + '</option>';
+                    }
+                    jQuery("select[name='cid']").html(domStr);
+                };
+
+                checkResult(json, initSelect);
+            },
+            err: function (err) {
+                failAlert("连接服务器失败！");
+            }
+        });
+    }
+
+
+    //不是所需权限
+    function isNotPower(ceces_user) {
+        if (ceces_user.part == "查询用户") {
+            failAlert("您的权限等级不足！");
+            return true;
+        }
+        return false;
+    }
+
+    //初始化表格-并绑定基础事件
+    function initTable() {
+        //初始化table表格
+        var loadTable = function (json) {
+
+            if (json == null || json == undefined) {
+                return;
+            }
+
+            //获取表头
+            var getCols = function (json) {
+
+                var data = json.data;
+                var cols = [[]];
+                cols[0][0] = {field: 'numbers', type: 'numbers', title: '序号'};
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var row = data[i];
+                    var gridmc = row['gridmc'];
+                    var zw = row['zw'];
+                    var col = {field: gridmc, title: zw};
+                    cols[0].push(col);
+                }
+
+                var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', width: 200};
+                cols[0].push(toolbar);
+
+                return cols;
+            }
+
+            //table表格初始化参数
+            var tableOptions = {
+                elem: '#tableData',
+                height: 510,
+                url: '/yongHuDanWeiSheZhi/user/search', //数据接口
+                page: true,//开启分页
+                request: {
+                    pageName: 'page', //页码的参数名称，默认：page
+                    limitName: 'limit' //每页数据量的参数名，默认：limit
+                },
+                response: {
+                    statusName: 'code',//数据状态的字段名称，默认：code
+                    statusCode: 0,//成功的状态码，默认：0
+                    msgName: 'msg',//状态信息的字段名称，默认：msg
+                    countName: 'count', //数据总数的字段名称，默认：count
+                    dataName: 'data' //数据列表的字段名称，默认：data
+                },
+                where: {
+                    zmrqstart: jQuery("#beginTime").val(), //制模日期开始
+                    zmrqend: jQuery("#endTime").val()  //制模日期结束
+                },
+                skin: {
+                    size: 'lg'
+                },
+                cols: getCols(json)
+            };
+
+            //执行一个 table 实例
+            layui.use(['table'], function () {
+                var table = layui.table;//表格
+                table.render(tableOptions);
+
+                //监听工具条
+                //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                table.on('tool(test)', function (obj) {
+                    var data = obj.data //获得当前行数据
+                            , layEvent = obj.event; //获得 lay-event 对应的值
+                    if (layEvent === 'del') {
+                        deleteRow(obj, data);
+                    } else if (layEvent === 'edit') {
+//                        layer.msg('编辑操作');
+                        showUpdateModal(obj, data);
+                    } else if (layEvent === 'detail') {
+                        showDetailModal(obj, data);
+                    }
+                });
+
+                var active = {
+                    getCheckData: function () { //获取选中数据
+                        var checkStatus = table.checkStatus('tableData')
+                                , data = checkStatus.data;
+                        layer.alert(JSON.stringify(data));
+                    }, getCheckLength: function () { //获取选中数目
+                        var checkStatus = table.checkStatus('tableData')
+                                , data = checkStatus.data;
+                        layer.msg('选中了：' + data.length + ' 个');
+                    }, isAll: function () { //验证是否全选
+                        var checkStatus = table.checkStatus('tableData');
+                        layer.msg(checkStatus.isAll ? '全选' : '未全选')
+                    }
+                };
+
+                $('#deleteSelected').on('click', function () {
+                    var type = $(this).data('type');
+                    active[type] ? active[type].call(this) : '';
+                });
+
+            });
+
+
+        }
+
+
+        //请求列数据-成功后请求表数据
+        jQuery.ajax({
+            type: 'post',
+            url: "/yongHuDanWeiSheZhi/user/getShowCol.action",
+            dataType: 'json',
+            data: {},
+            async: false,
+            success: function (json) {
+                checkResult(json, loadTable);
+            },
+            err: function (err) {
+                failAlert("连接服务器失败！");
+            }
+        });
+    }
+
+    //显示修改弹窗
+    function showUpdateModal(obj, data) {
+
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+        initModal(data, "updateModal");
+        layer.open({
+            title: "修改",
+            type: 1,
+            area: ['840px', '460px'], //宽高
+            content: jQuery('#updateModal'),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['保存', '取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+                if (!check("updateModal")) {
+                    return false;
+                }
+                jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
+
+                    url: '/yongHuDanWeiSheZhi/user/update',
+                    type: 'post',
+                    dataType: 'json',
+                    beforeSubmit: function () {
+                    },
+                    success: function (json) {
+
+                        if (json.code == 0) {
+                            var tips = layer.alert(json.msg, {
+                                icon: 1,
+                                skin: 'layer-ext-moon',
+                                closeBtn: 0
+
+                            }, function (thisIndex, layero) {
+                                initTable();
+                                layer.close(index);
+                                layer.close(thisIndex);
+                            });
+                        } else {
+                            failAlert(json.msg);
+                        }
+                    },
+                    clearForm: false,//禁止清楚表单
+                    resetForm: false //禁止重置表单
+                });
+                return false; //开启该代码可禁止点击该按钮关闭
+            },
+            btn2: function (index, layero) {//取消回调
+                layer.close(index);
+            }
+        });
+    }
+
+    //弹窗显示前为其赋值
+    function initModal(data, formID) {
+        //初始化下拉选
+        if (initSelect == false) {
+            jQuery('.layui-form-select input').unbind("blur").on("blur", function () {
+                var select = $(this).parent().parent().siblings("select")
+
+                var optionStr = '<option value="' + $(this).val() + '">' + $(this).val() + '</option>';
+                select.append(optionStr);
+                select.val($(this).val());
+            });
+            initSelect = true;
+        }
+
+        for (var key in data) {
+            var value = data[key];
+            if (value == null || value == undefined || value == "") {
+                continue;
+            }
+
+            var dom = jQuery("#" + formID + " [name='" + key + "']");
+
+            if (dom.length == 0) {
+                dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
+            }
+
+
+            //判断文本框类型
+            if (dom.is('input')) {
+
+                //判断为时间
+                if (dom.attr('placeholder') == "yyyy-MM-dd") {
+                    layui.use(['laydate'], function () {
+                        var laydate = layui.laydate;//日期
+                        laydate.render({
+                            elem: dom[0],
+                            value: new Date(value),
+                            isInitValue: true //允许填充初始值
+                        });
+                    });
+                } else {//普通输入框
+                    dom.val(value);
+                }
+            } else if (dom.is('select')) {//选择框
+                if (typeof(dom.attr("lay-search")) == "undefined") {
+
+                    layui.use('form', function () {
+                        var form = layui.form; //表单
+                        dom.val(value);
+                        form.render();
+                    });
+                } else {
+                    var dl = dom.next().find("dl");
+
+                    if (dom.find("option[value='" + value + "']").length == 0) {
+                        var optionStr = '<option value="' + value + '">' + value + '</option>';
+                        dom.append(optionStr);
+
+                        var ddStr = '<dd lay-value="' + value + '" class>' + value + '</dd>';
+                        dl.append(ddStr);
+                    }
+                    dom.val(value);
+                    dom.next().find("input").val(value);
+                }
+            }
+        }
+    }
+
+    //显示查看弹窗
+    function showDetailModal(obj, data) {
+
+
+        var domStr = jQuery("#updateModal").html();
+        jQuery("#detailModal").html(domStr);
+
+        initModal(data, "detailModal");
+
+        jQuery("#detailModal input").attr("disabled", "disabled");
+        jQuery("#detailModal select").attr("disabled", "disabled");
+        layer.open({
+            title: "查看",
+            type: 1,
+            area: ['840px', '460px'], //宽高
+            content: jQuery('#detailModal'),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+
+                layer.close(index);
+            }
+        });
+    }
+
+    //显示添加弹窗
+    function showAddModal() {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+        layer.open({
+            title: "添加",
+            type: 1,
+            area: ['840px', '460px'], //宽高
+            content: jQuery('#addModal'),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['保存', '取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+                if (!check("addModal")) {
+                    return false;
+                }
+                jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
+
+                    url: '/yongHuDanWeiSheZhi/user/add',
+                    type: 'post',
+                    dataType: 'json',
+                    beforeSubmit: function () {
+                    },
+                    success: function (json) {
+
+                        if (json.code == 0) {
+                            var tips = layer.alert(json.msg, {
+                                icon: 1,
+                                skin: 'layer-ext-moon',
+                                closeBtn: 0
+
+                            }, function (thisIndex, layero) {
+                                initTable();
+                                layer.close(index);
+                                layer.close(thisIndex);
+                            });
+                        } else {
+                            failAlert(json.msg);
+                        }
+                    },
+                    clearForm: false,//禁止清楚表单
+                    resetForm: false //禁止重置表单
+                });
+                return false; //开启该代码可禁止点击该按钮关闭
+            },
+            btn2: function (index, layero) {//取消回调
+                layer.close(index);
+            }
+        });
+    }
+
+    //删除一行
+    function deleteRow(obj, data) {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+
+        if (data.state == "提交") {
+            failAlert("不能删除已提交数据！");
+            return;
+        }
+
+        layer.confirm('真的删除行么', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+
+            jQuery.ajax({
+                type: 'post',
+                url: "/yongHuDanWeiSheZhi/user/delete",
+                dataType: 'json',
+                data: {'id': data.cid},
+                async: false,
+                success: function (json) {
+                    if (json.code == 0) {
+                        successAlert(json.msg);
+                    } else {
+                        failAlert(json.msg);
+                    }
+                },
+                err: function (err) {
+                    failAlert("连接服务器失败,请重试！");
+                }
+            });
+
+            obj.del();
+            layer.close(index);
+        });
+    }
+
+    //校验参数通过返回true
+    function check(formId) {
+
+        return true;
+    }
+
+</script>
+##公用方法
+<script>
+    //检查返回值并执行回调
+    function checkResult(resultJson, callback) {
+        if (resultJson == null || resultJson == undefined) {
+            failAlert("获取数据失败！");
+            return;
+        } else {
+            if (resultJson.code == 0) {
+                callback(resultJson);
+            }
+        }
+    };
+
+    //判断是否为null
+    function isNull(para) {
+        if (para == null || para == undefined || para == '') {
+            return true;
+        }
+        return false;
+    }
+
+    //弹出失败信息
+    function failAlert(msg) {
+        layer.alert(msg, {
+            icon: 2,
+            skin: 'layer-ext-moon'
+        });
+    }
+
+    //弹出成功信息
+    function successAlert(msg) {
+        layer.alert(msg, {
+            icon: 1,
+            skin: 'layer-ext-moon'
+        });
+    }
+</script>

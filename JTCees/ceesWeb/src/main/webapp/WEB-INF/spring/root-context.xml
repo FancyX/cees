@@ -13,19 +13,19 @@
           p:username="root"
           p:password="root" />-->
 
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
-          <!--destroy-method="close"-->
-          <!--p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
-          <!--p:url="jdbc:sqlserver://ms8404417.xincache1.cn;DatabaseName=ms8404417"-->
-          <!--p:username="ms8404417"-->
-          <!--p:password="R8T5k8n7" />-->
-
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          p:url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=CEES"
-          p:username="sa"
-          p:password="123" />
+          p:url="jdbc:sqlserver://ms8404417.xincache1.cn;DatabaseName=ms8404417"
+          p:username="ms8404417"
+          p:password="R8T5k8n7" />
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+          <!--destroy-method="close"-->
+          <!--p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+          <!--p:url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=CEES"-->
+          <!--p:username="sa"-->
+          <!--p:password="123" />-->
 
     <!-- 配置Jdbc模板  -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"

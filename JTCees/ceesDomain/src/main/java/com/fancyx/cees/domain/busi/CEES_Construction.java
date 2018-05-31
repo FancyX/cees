@@ -10,31 +10,31 @@ public class CEES_Construction implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //施工单位id
-    private  int  cid;
+    private int cid;
     //序号
-    private  int  sn;
+    private int sn;
     //施工单位编号
-    private  String  cnumber;
+    private String cnumber;
     //施工单位名称(委托单位)
-    private  String  construction;
+    private String construction;
     //地址
-    private  String  address;
+    private String address;
     //送检人(委托人)
-    private  String  client;
+    private String client;
     //电话
-    private  String  tel;
+    private String tel;
     //授权编号
-    private  String  anumber;
+    private String anumber;
     //角色
-    private  String  part;
+    private String part = "施工单位";
     //状态
-    private  int  state;
+    private boolean state;
     //备注
-    private  String  remarks;
+    private String remarks;
     //编辑时间
-    private  String  edittime;
+    private String edittime;
     //用户名
-    private  String  edituser;
+    private String edituser;
 
     public int getCid() {
         return cid;
@@ -108,11 +108,11 @@ public class CEES_Construction implements Serializable {
         this.part = part;
     }
 
-    public int getState() {
+    public boolean getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(boolean state) {
         this.state = state;
     }
 

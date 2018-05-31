@@ -6,24 +6,115 @@
     <select id="login"
             parameterType="com.fancyx.cees.domain.vo.CEES_UserVO"
             resultType="com.fancyx.cees.domain.busi.CEES_User">
-SELECT [uid]
-      ,[cid]
-      ,[sn]
-      ,[loginuser]
-      ,[password]
-      ,[name]
-      ,[post]
-      ,[tel]
-      ,[part]
-      ,[state]
-      ,[remarks]
-      ,[edittime]
-      ,[edituser]
-  FROM [CEES_User]
-
-where
-	loginuser = #{loginuser,jdbcType=VARCHAR} and
-	password = #{password,jdbcType=VARCHAR}
-
+        SELECT [uid]
+              ,[cid]
+              ,[sn]
+              ,[loginuser]
+              ,[password]
+              ,[name]
+              ,[post]
+              ,[tel]
+              ,[part]
+              ,[state]
+              ,[remarks]
+              ,[edittime]
+              ,[edituser]
+          FROM [CEES_User]
+        where
+            loginuser = #{loginuser,jdbcType=VARCHAR} and
+            password = #{password,jdbcType=VARCHAR}
     </select>
+
+
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.vo.CEES_UserVO">
+        SELECT
+            [uid],
+            [CEES_User].[cid],
+            [CEES_User].[sn],
+            [loginuser],
+            [password],
+            [name],
+            [post],
+            [CEES_User].[tel],
+            [CEES_User].[part],
+            [CEES_User].[state],
+            [CEES_User].[remarks],
+            [CEES_User].[edittime],
+            [CEES_User].[edituser],
+            construction.[construction]
+        FROM
+            [CEES_User]
+        left join [CEES_Construction] construction  on  construction.cid = [CEES_User].cid
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+          COUNT(1)
+        FROM
+          CEES_User
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM
+          [CEES_User]
+        where
+          [uid] =  #{id,jdbcType=INTEGER}
+    </delete>
+
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_UserVO">
+        UPDATE
+          [CEES_User]
+        SET
+           [cid] = #{cid}
+          ,[name] = #{name}
+          ,[post] = #{post}
+          ,[tel] = #{tel}
+          ,[part] = #{part}
+          ,[state] = #{state}
+          ,[remarks] = #{remarks}
+          ,[edittime] = #{edittime}
+          ,[edituser] = #{edituser}
+        WHERE
+          [uid] = #{uid}
+    </update>
+
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_UserVO">
+        INSERT INTO [CEES_User]
+        ([cid]
+        ,[sn]
+        ,[loginuser]
+        ,[password]
+        ,[name]
+        ,[post]
+        ,[tel]
+        ,[part]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser])
+        VALUES
+        (#{cid}
+        ,#{sn}
+        ,#{loginuser}
+        ,#{password}
+        ,#{name}
+        ,#{post}
+        ,#{tel}
+        ,#{part}
+        ,#{state}
+        ,#{remarks}
+        ,#{edittime}
+        ,#{edituser})
+    </insert>
+
+    <select id="maxSn" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from CEES_User
+    </select>
+
 </mapper>

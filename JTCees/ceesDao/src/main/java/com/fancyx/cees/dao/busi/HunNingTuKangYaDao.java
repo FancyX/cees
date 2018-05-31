@@ -39,4 +39,9 @@ public interface HunNingTuKangYaDao {
 
     Integer getMax_sn_project();
 
+    Integer getCnumber();
+
+    Integer getProjectnumber();
+
+    String getKynumber();
 }

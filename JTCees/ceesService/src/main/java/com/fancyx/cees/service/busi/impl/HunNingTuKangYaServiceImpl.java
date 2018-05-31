@@ -44,5 +44,20 @@ public class HunNingTuKangYaServiceImpl implements HunNingTuKangYaService {
         return manager.getMax_sn_project();
     }
 
+    @Override
+    public Integer getCnumber() {
+        return manager.getCnumber() ;
+    }
+
+    @Override
+    public Integer getProjectnumber() {
+        return manager.getProjectnumber();
+    }
+
+    @Override
+    public String getKynumber() {
+        return manager.getKynumber();
+    }
+
 
 }

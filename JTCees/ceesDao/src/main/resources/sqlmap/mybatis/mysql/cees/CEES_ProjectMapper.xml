@@ -49,4 +49,91 @@
     FROM [CEES_Project]
   </select>
 
+  <select id="selectByBean"
+          resultType="com.fancyx.cees.domain.vo.CEES_ProjectVo">
+      SELECT [pid]
+        ,[cid]
+        ,[sn]
+        ,[classification]
+        ,[projectnumber]
+        ,[project]
+        ,[projectsimple]
+        ,[bid]
+        ,[address]
+        ,[tel]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+    FROM [CEES_Project]
+  </select>
+
+  <select id="selectByBeanCount" resultType="java.lang.Integer">
+    SELECT
+      COUNT(1)
+    FROM
+      CEES_Project
+  </select>
+
+  <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_ProjectVo">
+    UPDATE [CEES_Project]
+    SET [cid] = #{cid}
+    ,[classification] = #{classification}
+    ,[projectnumber] = #{projectnumber}
+    ,[project] = #{project}
+    ,[projectsimple] = #{projectsimple}
+    ,[address] = #{address}
+    ,[tel] = #{tel}
+    ,[remarks] = #{remarks}
+    ,[edittime] = #{edittime}
+    ,[edituser] = #{edituser}
+    WHERE
+      pid = #{pid}
+  </update>
+
+  <insert id="insert"  parameterType="com.fancyx.cees.domain.vo.CEES_ProjectVo">
+
+    INSERT INTO [CEES_Project]
+    ([cid]
+    ,[sn]
+    ,[classification]
+    ,[projectnumber]
+    ,[project]
+    ,[projectsimple]
+    ,[bid]
+    ,[address]
+    ,[tel]
+    ,[state]
+    ,[remarks]
+    ,[edittime]
+    ,[edituser])
+    VALUES
+    (#{cid}
+    ,#{sn}
+    ,#{classification}
+    ,#{projectnumber}
+    ,#{project}
+    ,#{projectsimple}
+    ,#{bid}
+    ,#{address}
+    ,#{tel}
+    ,#{state}
+    ,#{remarks}
+    ,#{edittime}
+    ,#{edituser})
+  </insert>
+
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM [CEES_Project]
+    WHERE
+      pid = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="maxSn" resultType="java.lang.Integer">
+    select
+    ISNULL(MAX(sn),0)
+    from CEES_Project
+  </select>
+
 </mapper>

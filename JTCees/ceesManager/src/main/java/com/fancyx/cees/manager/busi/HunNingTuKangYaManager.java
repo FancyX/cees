@@ -35,4 +35,10 @@ public interface HunNingTuKangYaManager {
 
     Integer getMax_sn_project();
 
+    Integer getCnumber();
+
+    Integer getProjectnumber();
+
+    String getKynumber();
+
 }
