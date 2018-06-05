@@ -19,4 +19,6 @@ public interface CEES_UserDao {
     void insert(CEES_UserVO ceesUserVO);
 
     Integer getMaxSn();
+
+    Integer getMaxUid();
 }

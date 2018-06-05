@@ -27,4 +27,6 @@ public interface CEES_ConstructionDao {
     Integer getMaxCnumber();
 
     List<CEES_ConstructionVo> getAll();
+
+    Integer getMaxCid();
 }

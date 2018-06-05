@@ -21,4 +21,11 @@ public class UserDbUtil {
             return db_sn_project + 1;
         }
     }
+
+    public int getUid() {
+        synchronized (this) {
+            Integer id = userService.getMaxUid();
+            return id + 1;
+        }
+    }
 }

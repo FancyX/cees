@@ -99,5 +99,10 @@
         ISNULL(MAX(sn),0)
         from CEES_Concrete
     </select>
+    <select id="maxCcid" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(ccid),0)
+        from CEES_Concrete
+    </select>
 
 </mapper>

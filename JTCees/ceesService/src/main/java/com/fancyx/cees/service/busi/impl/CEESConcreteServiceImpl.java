@@ -54,4 +54,9 @@ public class CEESConcreteServiceImpl implements CEESConcreteService {
     public void delete(Integer id) {
         cees_concreteManager.delete(id);
     }
+
+    @Override
+    public int getMaxCcid() {
+        return  cees_concreteManager.getMaxCcid();
+    }
 }

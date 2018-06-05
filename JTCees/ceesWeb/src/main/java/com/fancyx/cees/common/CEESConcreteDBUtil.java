@@ -16,4 +16,10 @@ public class CEESConcreteDBUtil {
             return cees_concreteService.getMaxSn() + 1;
         }
     }
+
+    public int getCcid() {
+        synchronized (this) {
+            return cees_concreteService.getMaxCcid() + 1;
+        }
+    }
 }

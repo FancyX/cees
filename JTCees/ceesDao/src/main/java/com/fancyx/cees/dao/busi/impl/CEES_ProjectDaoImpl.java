@@ -69,4 +69,9 @@ public class CEES_ProjectDaoImpl extends BaseDao implements CEES_ProjectDao {
     public void delete(Integer id) {
         this.delete(this.getNamespace("delete"), id);
     }
+
+    @Override
+    public int getMaxPid() {
+        return (Integer) this.queryForObject(this.getNamespace("maxPid"));
+    }
 }

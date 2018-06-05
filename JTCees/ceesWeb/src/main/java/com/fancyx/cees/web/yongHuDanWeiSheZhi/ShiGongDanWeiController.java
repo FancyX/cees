@@ -168,9 +168,10 @@ public class ShiGongDanWeiController {
 
         try {
             int sn = ceesConstructionDBUtil.getSn();
+            ceesConstructionVo.setCid(ceesConstructionDBUtil.getCid());
             ceesConstructionVo.setSn(sn);
-            String cnumber = ceesConstructionDBUtil.getCnumber();
-            ceesConstructionVo.setCnumber(cnumber);
+
+            ceesConstructionVo.setCnumber(ceesConstructionDBUtil.getCnumber());
             ceesConstructionVo.setEdituser("授权");
             ceesConstructionVo.setEdittime(TimeUtil.getCurrentTime());
             ceesConstructionService.insert(ceesConstructionVo);

@@ -54,4 +54,9 @@ public class CEES_ProjectServiceImpl implements CEES_ProjectService {
     public void delete(Integer id) {
         cees_projectManager.delete(id);
     }
+
+    @Override
+    public int getMaxPid() {
+        return cees_projectManager.getMaxPid();
+    }
 }

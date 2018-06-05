@@ -654,7 +654,19 @@
 
     //校验参数通过返回true
     function check(formId) {
+        if (isNull($("#" + formId + " input[name='project']").val())) {
+            failAlert("请填写工程名称！");
+            return false;
+        }
 
+        if (isNull($("#" + formId + " input[name='address']").val())) {
+            failAlert("请填写地址！");
+            return false;
+        }
+        if (isNull($("#" + formId + " input[name='tel']").val())) {
+            failAlert("请填写电话！");
+            return false;
+        }
         return true;
     }
 

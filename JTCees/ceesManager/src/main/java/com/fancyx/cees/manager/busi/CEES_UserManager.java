@@ -20,6 +20,8 @@ public interface CEES_UserManager {
     void insert(CEES_UserVO ceesUserVO);
 
     Integer getMaxSn();
+
+    Integer getMaxUid();
 }
 
 

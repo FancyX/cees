@@ -47,4 +47,9 @@ public class CEES_UserManagerImpl implements CEES_UserManager {
     public Integer getMaxSn() {
         return cees_userDao.getMaxSn();
     }
+
+    @Override
+    public Integer getMaxUid() {
+        return cees_userDao.getMaxUid();
+    }
 }

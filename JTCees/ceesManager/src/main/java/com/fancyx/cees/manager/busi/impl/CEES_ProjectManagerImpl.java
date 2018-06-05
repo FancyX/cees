@@ -54,4 +54,9 @@ public class CEES_ProjectManagerImpl implements CEES_ProjectManager {
     public void delete(Integer id) {
         cees_projectDao . delete( id);
     }
+
+    @Override
+    public int getMaxPid()  {
+        return cees_projectDao.getMaxPid();
+    }
 }

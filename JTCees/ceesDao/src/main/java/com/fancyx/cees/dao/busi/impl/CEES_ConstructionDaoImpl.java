@@ -74,4 +74,9 @@ public class CEES_ConstructionDaoImpl extends BaseDao implements CEES_Constructi
     public List<CEES_ConstructionVo> getAll() {
         return this.queryForList( this.getNamespace("getAll"));
     }
+
+    @Override
+    public Integer getMaxCid() {
+        return (Integer) this.queryForObject(this.getNamespace("maxCid"));
+    }
 }

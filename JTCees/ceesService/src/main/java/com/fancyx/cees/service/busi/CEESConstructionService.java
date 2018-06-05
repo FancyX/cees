@@ -24,6 +24,8 @@ public interface CEESConstructionService {
     Integer getMaxCnumber();
 
     List<CEES_ConstructionVo> getAll();
+
+    Integer getMaxCid();
 }
 
 

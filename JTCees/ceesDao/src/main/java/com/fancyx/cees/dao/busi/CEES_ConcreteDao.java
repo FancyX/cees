@@ -24,4 +24,7 @@ public interface CEES_ConcreteDao {
     void insert(CEES_ConcreteVo cees_concreteVo);
 
     void delete(Integer id);
+
+    int getMaxCcid();
+
 }

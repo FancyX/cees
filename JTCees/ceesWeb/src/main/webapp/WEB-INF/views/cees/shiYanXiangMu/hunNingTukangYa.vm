@@ -1249,7 +1249,12 @@
 </form>
 ##查看
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action="">
+</form>
 
+<form id="printModal" class="layui-container none">
+    <div class="layui-row">
+
+    </div>
 </form>
 
 <script>
@@ -1617,11 +1622,13 @@
                 //这是我定位的第一个按钮的代码
                 //var btn0 = layer[0].childNodes[3].childNodes[0];
             },
-            btn: ['取消'],
+            btn: ['打印','取消'],
             btnAlign: 'r', //按钮居右
             //shade: 0 ,//不显示遮罩
-            btn1: function (index, layero) {//保存回调
-
+            btn1: function (index, layero) {
+                
+            },
+            btn2: function (index, layero) {
                 layer.close(index);
             }
         });

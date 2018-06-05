@@ -64,10 +64,15 @@ public class CEES_ConcreteDaoImpl extends BaseDao implements CEES_ConcreteDao {
         this.delete(this.getNamespace("delete"), id);
     }
 
+
+
     @Override
     public int getMaxSn() {
         return (Integer) this.queryForObject(this.getNamespace("maxSn"));
     }
 
-
+    @Override
+    public int getMaxCcid() {
+        return (Integer) this.queryForObject(this.getNamespace("maxCcid"));
+    }
 }

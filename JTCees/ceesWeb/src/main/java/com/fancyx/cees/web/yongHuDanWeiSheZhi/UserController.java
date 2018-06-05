@@ -147,6 +147,8 @@ public class UserController {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+
+            ceesUserVO.setUid(userDbUtil.getUid());
             ceesUserVO.setEdituser(sessionVO.getCees_user().getLoginuser());
             ceesUserVO.setEdittime(TimeUtil.getCurrentTime());
             ceesUserVO.setSn(userDbUtil.getSn());

@@ -52,6 +52,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
                 <input type="text" name="name" class="layui-input">
@@ -654,7 +660,19 @@
 
     //校验参数通过返回true
     function check(formId) {
+        if (isNull($("#" + formId + " input[name='loginuser']").val())) {
+            failAlert("请填写用户名！");
+            return false;
+        }
 
+        if (isNull($("#" + formId + " input[name='password']").val())) {
+            failAlert("请填写密码！");
+            return false;
+        }
+        if (isNull($("#" + formId + " input[name='name']").val())) {
+            failAlert("请填写姓名！");
+            return false;
+        }
         return true;
     }
 

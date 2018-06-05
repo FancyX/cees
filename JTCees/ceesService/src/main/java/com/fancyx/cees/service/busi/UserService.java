@@ -17,4 +17,6 @@ public interface UserService {
     void insert(CEES_UserVO ceesUserVO);
 
     Integer getMaxSn();
+
+    Integer getMaxUid();
 }

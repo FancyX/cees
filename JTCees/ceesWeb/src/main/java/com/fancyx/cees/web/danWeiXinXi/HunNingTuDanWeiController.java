@@ -146,6 +146,7 @@ public class HunNingTuDanWeiController {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            cees_concreteVo.setCcid(ceesConcreteDBUtil.getCcid());
             cees_concreteVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_concreteVo.setEdittime(TimeUtil.getCurrentTime());
             cees_concreteVo.setSn(ceesConcreteDBUtil.getSn());

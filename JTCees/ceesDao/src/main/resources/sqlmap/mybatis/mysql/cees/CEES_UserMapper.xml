@@ -116,5 +116,10 @@
         ISNULL(MAX(sn),0)
         from CEES_User
     </select>
+    <select id="maxUid" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(uid),0)
+        from CEES_User
+    </select>
 
 </mapper>

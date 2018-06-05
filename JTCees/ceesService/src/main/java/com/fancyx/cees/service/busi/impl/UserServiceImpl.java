@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
     public Integer getMaxSn() {
         return cees_userManager.getMaxSn();
     }
+
+    @Override
+    public Integer getMaxUid() {
+        return cees_userManager.getMaxUid();
+    }
 }

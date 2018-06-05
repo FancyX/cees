@@ -62,4 +62,9 @@ public class CEES_UserDaoImpl extends BaseDao implements CEES_UserDao {
     public Integer getMaxSn() {
         return (Integer) this.queryForObject(this.getNamespace("maxSn"));
     }
+
+    @Override
+    public Integer getMaxUid() {
+        return (Integer) this.queryForObject(this.getNamespace("maxUid"));
+    }
 }

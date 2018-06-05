@@ -26,4 +26,7 @@ public interface CEES_ProjectService {
     void insert(CEES_ProjectVo cees_projectVo);
 
     void delete(Integer id);
+
+    int getMaxPid();
+
 }

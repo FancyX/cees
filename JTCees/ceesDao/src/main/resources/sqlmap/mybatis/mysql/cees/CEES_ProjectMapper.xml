@@ -135,5 +135,10 @@
     ISNULL(MAX(sn),0)
     from CEES_Project
   </select>
+  <select id="maxPid" resultType="java.lang.Integer">
+    select
+    ISNULL(MAX(pid),0)
+    from CEES_Project
+  </select>
 
 </mapper>

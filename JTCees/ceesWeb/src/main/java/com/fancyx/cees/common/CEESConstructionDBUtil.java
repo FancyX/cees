@@ -43,4 +43,12 @@ public class CEESConstructionDBUtil {
             return year + String.format("%04d", cnumber);//其中0表示补零而不是补空格，6表示至少6位
         }
     }
+
+    public int getCid() {
+        //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
+        synchronized (this) {
+            Integer db_sn_project = ceesConstructionService.getMaxCid();
+            return db_sn_project + 1;
+        }
+    }
 }

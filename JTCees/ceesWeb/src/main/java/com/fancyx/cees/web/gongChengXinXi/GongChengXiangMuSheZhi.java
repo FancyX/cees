@@ -126,6 +126,7 @@ public class GongChengXiangMuSheZhi {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            cees_projectVo.setPid(projectDbUtil.getPid());
             cees_projectVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_projectVo.setEdittime(TimeUtil.getCurrentTime());
             cees_projectVo.setSn(projectDbUtil.getSn());

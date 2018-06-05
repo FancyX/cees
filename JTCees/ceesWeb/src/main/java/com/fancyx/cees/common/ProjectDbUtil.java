@@ -28,4 +28,11 @@ public class ProjectDbUtil {
             return db_sn_project + 1;
         }
     }
+
+    public int getPid() {
+        //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
+        synchronized (this) {
+            return  cees_projectService.getMaxPid()+1;
+        }
+    }
 }

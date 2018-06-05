@@ -60,4 +60,9 @@ public class CEES_ConstructionManagerImpl implements CEES_ConstructionManager {
     public List<CEES_ConstructionVo> getAll() {
         return cees_constructionDao.getAll();
     }
+
+    @Override
+    public Integer getMaxCid() {
+        return cees_constructionDao.getMaxCid();
+    }
 }

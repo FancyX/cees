@@ -55,4 +55,9 @@ public class CEESConstructionServiceImpl implements CEESConstructionService {
     public List<CEES_ConstructionVo> getAll() {
         return cees_constructionManager.getAll();
     }
+
+    @Override
+    public Integer getMaxCid() {
+        return cees_constructionManager.getMaxCid();
+    }
 }

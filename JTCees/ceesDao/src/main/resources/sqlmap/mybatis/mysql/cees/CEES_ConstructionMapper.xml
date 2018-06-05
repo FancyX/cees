@@ -131,4 +131,9 @@ SELECT [cid]
       ISNULL( max(cast(cnumber  as int)),0)
      FROM [CEES_Construction]
     </select>
+    <select id="maxCid" resultType="java.lang.Integer">
+      SELECT
+	    ISNULL( max(cast(cid  as int)),0)
+      FROM [CEES_Construction]
+    </select>
 </mapper>

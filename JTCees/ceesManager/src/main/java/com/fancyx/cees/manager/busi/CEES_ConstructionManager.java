@@ -28,4 +28,5 @@ public interface CEES_ConstructionManager {
 
     List<CEES_ConstructionVo> getAll();
 
+    Integer getMaxCid();
 }
