@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYa.css">
+<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
+<script src="/nav/jquery/jQuery.print.js"></script>
 
 ##显示在右侧侧内容
 <div>
@@ -1250,10 +1252,258 @@
 ##查看
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action="">
 </form>
-
+##打印
 <form id="printModal" class="layui-container none">
     <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="left">
+                记录表编号：JL-002-212
+            </div>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md12  text-center ">
+            北京市公路质量检测中心
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md12 text-center ">
+            <h3> 混凝土抗压强度试验报告</h3>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="right">
+                编号：试表30-07
+            </div>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md12">
+        ##          委托编号 - 工程名称
+            <table class="table">
+                <tr>
+                    <td class="my-w-180">委托编号</td>
+                    <td name=""></td>
+                    <td class="my-w-180">试验编号</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">施工单位</td>
+                    <td colspan="3" name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">工程名称及施工部位</td>
+                    <td colspan="3" name=""></td>
+                </tr>
+            </table>
+        ##          设计强度 - 要求坍落度
+            <table class="table">
+                <tr class="none-td-border">
+                    <td class="my-w-50">设计强度</td>
+                    <td name=""></td>
+                    <td class="my-w-50">拟配强度</td>
+                    <td name=""></td>
+                    <td class="my-w-50">实测坍落度</td>
+                    <td name=""></td>
+                    <td class="my-w-50">要求坍落度</td>
+                    <td name=""></td>
+                </tr>
+            </table>
+        ##          水泥品种及标号 - 石产地及品种
+            <table class="table">
+                <tr class="none-td-border">
+                    <td class="my-w-180">水泥品种及标号</td>
+                    <td style="width: 372px;" name=""></td>
+                    <td class="my-w-60">出厂日期</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">水泥厂别</td>
+                    <td name=""></td>
+                    <td class="my-w-50">试验编号</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">砂产地及品种</td>
+                    <td name=""></td>
+                    <td class="my-w-50">试验编号</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">石产地及品种</td>
+                    <td name=""></td>
+                    <td class="my-w-50">试验编号</td>
+                    <td name=""></td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr class="none-td-border">
+                    <td class="my-w-180">粉煤灰名称及产地</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">掺合料名称及产地</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">外加剂1名称及产地</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td class="my-w-180">外加剂2名称及产地</td>
+                    <td name=""></td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr class="none-td-border">
+                    <td class="my-w-180">石子最大粒径</td>
+                    <td name=""></td>
+                    <td class="my-w-50">水灰比</td>
+                    <td name=""></td>
+                    <td class="my-w-50">砂率</td>
+                    <td name=""></td>
+                    <td>检测依据</td>
+                    <td name=""></td>
+                </tr>
 
+            </table>
+        </div>
+    </div>
+
+    <div class="layui-row top20">
+        <div class="layui-col-md12">
+            <table class="table ">
+                <tbody>
+                <tr>
+                    <td class="my-w-100">配合比编号</td>
+                    <td>材料名称</td>
+                    <td>水泥</td>
+                    <td>水</td>
+                    <td>砂</td>
+                    <td>石</td>
+                    <td>粉煤灰</td>
+                    <td>掺合料</td>
+                    <td>外加剂1</td>
+                    <td>外加剂2</td>
+                </tr>
+                <tr>
+                    <td name=""></td>
+                    <td>用量(kg/m3)</td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                    <td name=""></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="layui-row top20">
+        <div class="layui-col-md12">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td class="my-w-100">制模日期</td>
+                    <td style="width: 135px" name=""></td>
+                    <td style="width: 135px">要求期龄</td>
+                    <td style="width:63px;" name=""></td>
+                    <td>要求试验日期</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td>试块收到日期</td>
+                    <td name=""></td>
+                    <td>试块养护条件</td>
+                    <td name=""></td>
+                    <td>试验委托人</td>
+                    <td name=""></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="layui-row top20">
+        <div class="layui-col-md12">
+            <table class="table">
+                <tbody>
+                ##头
+                <tr>
+                    <td rowspan="2">试件编号</td>
+                    <td rowspan="2">试验日期</td>
+                    <td rowspan="2">实际期龄</td>
+                    <td rowspan="2">试件尺寸</td>
+                    <td rowspan="2">受压面积</td>
+                    <td colspan="2">荷载</td>
+                    <td rowspan="2">抗压强度</td>
+                    <td rowspan="2">折合150mm立方强度</td>
+                    <td rowspan="2">达到设计强度</td>
+                </tr>
+                <tr>
+                    <td class="blue-font">单块</td>
+                    <td class="blue-font">平均</td>
+                </tr>
+
+                ##内容
+                <tr>
+                ##试件编号
+                    <td rowspan="3" name="SJBH"></td>
+                ##试验日期
+                    <td rowspan="3" name="SYRQ"></td>
+                ##实际期龄
+                    <td rowspan="3" name="SJLQ"></td>
+                ##试件尺寸
+                    <td rowspan="3" name="SJCC"></td>
+                ##受压面积
+                    <td rowspan="3" name="SYMJ"></td>
+                ##荷载-单块-1
+                    <td name="HZ1"></td>
+                ##荷载-平均
+                    <td rowspan="3" name="HZPJ"></td>
+                ##抗压强度
+                    <td rowspan="3" name="KYQD"></td rowspan="3">
+                ##折合150mm立方强度
+                    <td rowspan="3" name="ZHQD"></td>
+                ##达到设计强度
+                    <td rowspan="3" name="DDQD"></td>
+                </tr>
+                ##荷载-单块-2,3
+                <tr>
+                    <td name="HZ2"></td>
+                </tr>
+                <tr>
+                    <td name="HZ3"></td>
+                </tr>
+                <tr>
+                    <td colspan="1" style="height: 45px;">备注</td>
+                    <td colspan="9" name="BZ"></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table">
+                <tr class="none-td-border">
+                    <td>技术负责人</td>
+                    <td name=""></td>
+                    <td>审核人</td>
+                    <td name=""></td>
+                    <td>试验人</td>
+                    <td name=""></td>
+                </tr>
+                <tr>
+                    <td>报告日期</td>
+                    <td colspan="5" name=""></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </form>
 
@@ -1622,11 +1872,12 @@
                 //这是我定位的第一个按钮的代码
                 //var btn0 = layer[0].childNodes[3].childNodes[0];
             },
-            btn: ['打印','取消'],
+            btn: ['打印', '取消'],
             btnAlign: 'r', //按钮居右
             //shade: 0 ,//不显示遮罩
             btn1: function (index, layero) {
-                
+                jQuery('#printModal').removeClass("none");
+                jQuery('#printModal').print();
             },
             btn2: function (index, layero) {
                 layer.close(index);

@@ -1,8 +1,27 @@
+
+.my-w-50 {
+    width: 50px !important;
+}
+
+
+.my-w-60 {
+    width: 50px !important;
+}
+
+.my-w-100 {
+    width: 100px !important;
+}
+
+.my-w-130 {
+    width: 130px !important;
+}
+
 .my-w-150 {
     width: 150px !important;
 }
-.my-w-100 {
-    width: 100px !important;
+
+.my-w-180 {
+    width: 181px !important;
 }
 
 .my-w-200 {

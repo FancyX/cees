@@ -1,0 +1,48 @@
+
+.text-center {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/*去掉打印的页眉页脚*/
+@page {
+    size: auto;  /* auto is the initial value */
+    margin: 0mm; /* this affects the margin in the printer settings */
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed !important;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.table tr {
+    width: 100%;
+}
+
+.table tr td {
+    padding: 4px;
+    border: 1px solid #0c0c0c;
+    min-height: 24px !important;
+}
+
+.none-td-border td {
+    border-top: 0 !important;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+#printModal
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
