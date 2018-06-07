@@ -1291,11 +1291,11 @@
                 </tr>
                 <tr>
                     <td class="my-w-180">施工单位</td>
-                    <td colspan="3" name=""></td>
+                    <td colspan="3" name="construction"></td>
                 </tr>
                 <tr>
                     <td class="my-w-180">工程名称及施工部位</td>
-                    <td colspan="3" name=""></td>
+                    <td colspan="3" name="project"></td>
                 </tr>
             </table>
 
@@ -1890,29 +1890,34 @@
         });
     }
 
-
+    //显示打印弹窗
     function showPrintModal(obj, data) {
         var formID = 'printModal';
 
+
+
+        var tds = [];
         jQuery("#" + formID + " td").each(function () {
 
             var name = $(this).attr("name");
             if (name != undefined && name != "" && name != null) {
                 $(this).html('');
+                tds.push($(this));
             }
         });
+
+        jQuery("#" + formID + " [name='construction']").html(baseData.cees_construction.construction)
+        jQuery("#" + formID + " [name='project']").html(baseData.cees_project.project)
+
         for (var key in data) {
             var value = data[key];
 
             if (value == null || value == undefined || value == "") {
                 continue;
             }
-            var dom = jQuery("#" + formID + " [name*='" + key + "']");
-            if (dom.length <= 0) {
-                dom = jQuery("#" + formID + " [name*='" + key.toLocaleUpperCase() + "']");
-            }
+            var dom = getPrintModelDom(key,tds);
 
-            if (dom.length <= 0) {
+            if (dom == undefined) {
                 continue;
             }
             if (key.indexOf("rq") > 0 || key.indexOf("RQ") > 0) {
@@ -1952,6 +1957,21 @@
         });
     }
 
+    //tds为数组包含jq对象
+    function getPrintModelDom(name, tds) {
+        for (var i = 0; i < tds.length; i++) {
+
+            var td = tds[i];
+            var names = td.attr("name").split(",");
+            for (var j = 0; j < names.length; j++) {
+                var domName = names[j].toLowerCase();
+                if (domName == name.toLowerCase()) {
+                    return td;
+                }
+            }
+        }
+        return undefined;
+    }
 
     //显示添加弹窗
     function showAddModal() {
@@ -2076,6 +2096,7 @@
 
         return Y + M + D;
     }
+
     //判断是否为null
     function isNull(para) {
         if (para == null || para == undefined || para == '') {
