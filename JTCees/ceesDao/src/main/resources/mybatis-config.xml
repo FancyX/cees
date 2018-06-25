@@ -17,6 +17,10 @@
         <mapper resource="sqlmap/mybatis/mysql/cees/HntkyMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/HunNingTuKangYaMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkyMapper.xml"/>
+        <!--混凝土抗折-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_HntkzMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkzMapper.xml"/>
+
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_ProjectMapper.xml"/>

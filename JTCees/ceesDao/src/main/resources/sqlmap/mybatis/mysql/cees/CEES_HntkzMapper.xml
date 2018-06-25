@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_HntkzDao">
+    <select id="selectByBean" resultType="com.fancyx.cees.domain.vo.CEES_HntkzVo"
+            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
+        SELECT [kzid]
+        ,[cid]
+        ,[cnumber]
+        ,[pid]
+        ,[projectnumber]
+        ,[client]
+        ,[ccid]
+        ,[kznumber]
+        ,[testnumber]
+        ,[sn]
+        ,[sn_project]
+        ,[sn_test]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        ,[WTDBH]
+        ,[DWDM]
+        ,[SYBH]
+        ,[SHIYBH]
+        ,[SYXMDM]
+        ,[SYXMMC]
+        ,[WTDWBH]
+        ,[WTDWMC]
+        ,[YQBH]
+        ,[GCBH]
+        ,[GCMC]
+        ,[SGBW]
+        ,[SJQD]
+        ,[NPQD]
+        ,[YQTLD]
+        ,[SCTLD]
+        ,[SNPZ]
+        ,[SNBH]
+        ,[SNCB]
+        ,[SNCCRQ]
+        ,[SNSYBH]
+        ,[SHACD]
+        ,[SHAPZ]
+        ,[SHAXDMS]
+        ,[SHAHNL]
+        ,[SHASYBH]
+        ,[SHICD]
+        ,[SHIPZ]
+        ,[SHIZDLJ]
+        ,[SHIHNL]
+        ,[SHISYBH]
+        ,[CHLMC]
+        ,[CHLCD]
+        ,[CHLZYSNL]
+        ,[FMHMC]
+        ,[FMHCD]
+        ,[FMHZYSNL]
+        ,[PZJMC]
+        ,[PZJCD]
+        ,[PZJCL]
+        ,[PZJZYSNL]
+        ,[WJJMC]
+        ,[WJJCD]
+        ,[WJJCL]
+        ,[WJJZYSNL]
+        ,[SGPHB]
+        ,[SHB]
+        ,[SL]
+        ,[HNTDW]
+        ,[PHBBH]
+        ,[SNYL]
+        ,[SYL]
+        ,[SHAYL]
+        ,[SHIYL]
+        ,[CHLYL]
+        ,[FMHYL]
+        ,[PZJYL]
+        ,[WJJYL]
+        ,[ZMRQ]
+        ,[YQLQ]
+        ,[YQSYRQ]
+        ,[SKSDRQ]
+        ,[SKYHTJ]
+        ,[SYWTR]
+        ,[SJBH]
+        ,[SYRQ]
+        ,[SJLQ]
+        ,[SJCC_C]
+        ,[SJCC_K]
+        ,[SJCC_G]
+        ,[JSKD]
+        ,[HZ1]
+        ,[HZ2]
+        ,[HZ3]
+        ,[HZPJ]
+        ,[KZQD]
+        ,[ZHQD]
+        ,[DDQD]
+        ,[BZ]
+        ,[JSFZRBH]
+        ,[JSFZR]
+        ,[XHRBH]
+        ,[XHR]
+        ,[XHBZ]
+        ,[XHYJ]
+        ,[SYRBH]
+        ,[SYR]
+        ,[BGRQ]
+        ,[JL]
+        ,[SYMC]
+        ,[QFBZ]
+        ,[QFYJ]
+        ,[ZXGC]
+        ,[ZXBZ]
+        ,[JZBZ]
+        ,[HGBZ]
+        ,[SYJG]
+        ,[CLYJ]
+        ,[WTZH]
+        ,[JLBBH]
+        ,[BGBBH]
+        FROM [CEES_Hntkz]
+        <where>
+            1 = 1
+            <!--<if test="projectnumber != null and projectnumber != ''">-->
+                <!--AND projectnumber = #{projectnumber,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="state != null and state != ''">-->
+                <!--AND state = #{state,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="zmrqstart != null and zmrqstart != ''">-->
+                <!--AND zmrq >= #{zmrqstart,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="zmrqend != null and zmrqend != ''">-->
+                <!--AND #{zmrqend,jdbcType=VARCHAR} >= zmrq-->
+            <!--</if>-->
+        </where>
+        ORDER BY kzid DESC
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer"
+            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
+        SELECT
+        COUNT(1)
+        FROM
+        CEES_Hntkz
+        <where>
+            1 = 1
+            <!--<if test="projectnumber != null and projectnumber != ''">-->
+                <!--AND projectnumber = #{projectnumber,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="state != null and state != ''">-->
+                <!--AND state = #{state,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="zmrqstart != null and zmrqstart != ''">-->
+                <!--AND zmrq >= #{zmrqstart,jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="zmrqend != null and zmrqend != ''">-->
+                <!--AND #{zmrqend,jdbcType=VARCHAR} >= zmrq-->
+            <!--</if>-->
+        </where>
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM
+        [CEES_Hntkz]
+        WHERE
+        state != '提交' and
+        kzid =  #{id,jdbcType=INTEGER}
+    </delete>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_HntkzVo">
+        UPDATE [CEES_Hntkz]
+        SET [cid] = #{cid}
+        ,[cnumber] = #{cnumber}
+        ,[pid] = #{pid}
+        ,[projectnumber] = #{projectnumber}
+        ,[client] = #{client}
+        ,[ccid] = #{ccid}
+        ,[kznumber] = #{kznumber}
+        ,[testnumber] = #{testnumber}
+        ,[sn] = #{sn}
+        ,[sn_project] = #{sn_project}
+        ,[sn_test] = #{sn_test}
+        ,[state] = #{state}
+        ,[remarks] = #{remarks}
+        ,[edittime] = #{edittime}
+        ,[edituser] = #{edituser}
+        ,[readmark] = #{readmark}
+        ,[readtime] = #{readtime}
+        ,[WTDBH] = #{WTDBH}
+        ,[DWDM] = #{DWDM}
+        ,[SYBH] = #{SYBH}
+        ,[SHIYBH] = #{SHIYBH}
+        ,[SYXMDM] = #{SYXMDM}
+        ,[SYXMMC] = #{SYXMMC}
+        ,[WTDWBH] = #{WTDWBH}
+        ,[WTDWMC] = #{WTDWMC}
+        ,[YQBH] = #{YQBH}
+        ,[GCBH] = #{GCBH}
+        ,[GCMC] = #{GCMC}
+        ,[SGBW] = #{SGBW}
+        ,[SJQD] = #{SJQD}
+        ,[NPQD] = #{NPQD}
+        ,[YQTLD] = #{YQTLD}
+        ,[SCTLD] = #{SCTLD}
+        ,[SNPZ] = #{SNPZ}
+        ,[SNBH] = #{SNBH}
+        ,[SNCB] = #{SNCB}
+        ,[SNCCRQ] = #{SNCCRQ}
+        ,[SNSYBH] = #{SNSYBH}
+        ,[SHACD] = #{SHACD}
+        ,[SHAPZ] = #{SHAPZ}
+        ,[SHAXDMS] = #{SHAXDMS}
+        ,[SHAHNL] = #{SHAHNL}
+        ,[SHASYBH] = #{SHASYBH}
+        ,[SHICD] = #{SHICD}
+        ,[SHIPZ] = #{SHIPZ}
+        ,[SHIZDLJ] = #{SHIZDLJ}
+        ,[SHIHNL] = #{SHIHNL}
+        ,[SHISYBH] = #{SHISYBH}
+        ,[CHLMC] = #{CHLMC}
+        ,[CHLCD] = #{CHLCD}
+        ,[CHLZYSNL] = #{CHLZYSNL}
+        ,[FMHMC] = #{FMHMC}
+        ,[FMHCD] = #{FMHCD}
+        ,[FMHZYSNL] = #{FMHZYSNL}
+        ,[PZJMC] = #{PZJMC}
+        ,[PZJCD] = #{PZJCD}
+        ,[PZJCL] = #{PZJCL}
+        ,[PZJZYSNL] = #{PZJZYSNL}
+        ,[WJJMC] = #{WJJMC}
+        ,[WJJCD] = #{WJJCD}
+        ,[WJJCL] = #{WJJCL}
+        ,[WJJZYSNL] = #{WJJZYSNL}
+        ,[SGPHB] = #{SGPHB}
+        ,[SHB] = #{SHB}
+        ,[SL] = #{SL}
+        ,[HNTDW] = #{HNTDW}
+        ,[PHBBH] = #{PHBBH}
+        ,[SNYL] = #{SNYL}
+        ,[SYL] = #{SYL}
+        ,[SHAYL] = #{SHAYL}
+        ,[SHIYL] = #{SHIYL}
+        ,[CHLYL] = #{CHLYL}
+        ,[FMHYL] = #{FMHYL}
+        ,[PZJYL] = #{PZJYL}
+        ,[WJJYL] = #{WJJYL}
+        ,[ZMRQ] = #{ZMRQ}
+        ,[YQLQ] = #{YQLQ}
+        ,[YQSYRQ] = #{YQSYRQ}
+        ,[SKSDRQ] = #{SKSDRQ}
+        ,[SKYHTJ] = #{SKYHTJ}
+        ,[SYWTR] = #{SYWTR}
+        ,[SJBH] = #{SJBH}
+        ,[SYRQ] = #{SYRQ}
+        ,[SJLQ] = #{SJLQ}
+        ,[SJCC_C] = #{SJCC_C}
+        ,[SJCC_K] = #{SJCC_K}
+        ,[SJCC_G] = #{SJCC_G}
+        ,[JSKD] = #{JSKD}
+        ,[HZ1] = #{HZ1}
+        ,[HZ2] = #{HZ2}
+        ,[HZ3] = #{HZ3}
+        ,[HZPJ] = #{HZPJ}
+        ,[KZQD] = #{KZQD}
+        ,[ZHQD] = #{ZHQD}
+        ,[DDQD] = #{DDQD}
+        ,[BZ] = #{BZ}
+        ,[JSFZRBH] = #{JSFZRBH}
+        ,[JSFZR] = #{JSFZR}
+        ,[XHRBH] = #{XHRBH}
+        ,[XHR] = #{XHR}
+        ,[XHBZ] = #{XHBZ}
+        ,[XHYJ] = #{XHYJ}
+        ,[SYRBH] = #{SYRBH}
+        ,[SYR] = #{SYR}
+        ,[BGRQ] = #{BGRQ}
+        ,[JL] = #{JL}
+        ,[SYMC] = #{SYMC}
+        ,[QFBZ] = #{QFBZ}
+        ,[QFYJ] = #{QFYJ}
+        ,[ZXGC] = #{ZXGC}
+        ,[ZXBZ] = #{ZXBZ}
+        ,[JZBZ] = #{JZBZ}
+        ,[HGBZ] = #{HGBZ}
+        ,[SYJG] = #{SYJG}
+        ,[CLYJ] = #{CLYJ}
+        ,[WTZH] = #{WTZH}
+        ,[JLBBH] = #{JLBBH}
+        ,[BGBBH] = #{BGBBH}
+        WHERE
+        kzid = #{kzid}
+    </update>
+
+</mapper>
