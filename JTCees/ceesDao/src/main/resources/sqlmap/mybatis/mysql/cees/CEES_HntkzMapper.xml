@@ -298,4 +298,48 @@
         kzid = #{kzid}
     </update>
 
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_HntkzVo">
+        INSERT INTO
+	[CEES_Hntky]([cid], [cnumber], [pid], [projectnumber], [client], [ccid], [kynumber], [testnumber], [sn], [sn_project], [sn_test], [state],
+	[remarks], [edittime], [edituser], [readmark], [readtime], [WTDBH], [DWDM], [SYBH], [SHIYBH], [SYXMDM], [SYXMMC], [WTDWBH], [WTDWMC], [GCBH],
+	[GCMC], [YQBH], [SGBW], [SJQD], [NPQD], [YQTLD], [SCTLD], [SNPZ], [SNBH], [SNCB], [SNCCRQ], [SNSYBH], [SHACD], [SHAPZ], [SHAXDMS], [SHAHNL],
+	[SHASYBH], [SHICD], [SHIPZ], [SHIZDLJ], [SHIHNL], [SHISYBH], [CHLMC], [CHLCD], [CHLZYSNL], [FMHMC], [FMHCD], [FMHZYSNL], [PZJMC], [PZJCD],
+	[PZJCL], [PZJZYSNL], [WJJMC], [WJJCD], [WJJCL], [WJJZYSNL], [SGPHB], [SHB], [SL], [HNTDW], [PHBBH], [SNYL], [SYL], [SHAYL], [SHIYL], [CHLYL],
+	[FMHYL], [PZJYL], [WJJYL], [ZMRQ], [YQLQ], [YQSYRQ], [SKSDRQ], [SKYHTJ], [SYWTR], [SJBH], [SYRQ], [SJLQ], [SJCC], [SYMJ], [HZ1], [HZ2], [HZ3],
+	[HZPJ], [KYQD], [ZHQD], [DDQD], [BZ], [JSFZRBH], [JSFZR], [XHRBH], [XHR], [XHBZ], [XHYJ], [SYRBH], [SYR], [BGRQ], [JL], [SYMC], [QFBZ], [QFYJ],
+	[ZXGC], [ZXBZ], [JZBZ], [HGBZ], [SYJG], [CLYJ], [WTZH], [JLBBH], [BGBBH])
+	VALUES
+    (#{cid}, #{cnumber}, #{pid}, #{projectnumber}, #{client}, #{ccid}, #{kynumber}, #{testnumber}, #{sn}, #{sn_project}, #{sn_test}, #{state},
+	#{remarks}, #{edittime}, #{edituser}, #{readmark}, #{readtime}, #{WTDBH}, #{DWDM}, #{SYBH}, #{SHIYBH}, #{SYXMDM}, #{SYXMMC}, #{WTDWBH}, #{WTDWMC}, #{GCBH},
+	#{GCMC}, #{YQBH}, #{SGBW}, #{SJQD}, #{NPQD}, #{YQTLD}, #{SCTLD}, #{SNPZ}, #{SNBH}, #{SNCB}, #{SNCCRQ}, #{SNSYBH}, #{SHACD}, #{SHAPZ}, #{SHAXDMS}, #{SHAHNL},
+	#{SHASYBH}, #{SHICD}, #{SHIPZ}, #{SHIZDLJ}, #{SHIHNL}, #{SHISYBH}, #{CHLMC}, #{CHLCD}, #{CHLZYSNL}, #{FMHMC}, #{FMHCD}, #{FMHZYSNL}, #{PZJMC}, #{PZJCD},
+	#{PZJCL}, #{PZJZYSNL}, #{WJJMC}, #{WJJCD}, #{WJJCL}, #{WJJZYSNL}, #{SGPHB}, #{SHB}, #{SL}, #{HNTDW}, #{PHBBH}, #{SNYL}, #{SYL}, #{SHAYL}, #{SHIYL}, #{CHLYL},
+	#{FMHYL}, #{PZJYL}, #{WJJYL}, #{ZMRQ}, #{YQLQ}, #{YQSYRQ}, #{SKSDRQ}, #{SKYHTJ}, #{SYWTR}, #{SJBH}, #{SYRQ}, #{SJLQ}, #{SJCC}, #{SYMJ}, #{HZ1}, #{HZ2}, #{HZ3},
+	#{HZPJ}, #{KYQD}, #{ZHQD}, #{DDQD}, #{BZ}, #{JSFZRBH}, #{JSFZR}, #{XHRBH}, #{XHR}, #{XHBZ}, #{XHYJ}, #{SYRBH}, #{SYR}, #{BGRQ}, #{JL}, #{SYMC}, #{QFBZ}, #{QFYJ},
+	#{ZXGC}, #{ZXBZ}, #{JZBZ}, #{HGBZ}, #{SYJG}, #{CLYJ}, #{WTZH}, #{JLBBH}, #{BGBBH})
+    </insert>
+
+    <select id="maxSnProject" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn_project),0)
+        from CEES_Hntkz
+    </select>
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_Hntkz
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(projectnumber  as int))),0)
+        from CEES_Hntkz
+    </select>
+
+    <select id="maxKznumber" resultType="String">
+        select
+        ISNULL(MAX((kznumber )),0)
+        from CEES_Hntkz
+    </select>
 </mapper>

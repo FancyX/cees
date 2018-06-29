@@ -1633,7 +1633,7 @@
             var tableOptions = {
                 elem: '#tableData',
                 height: 510,
-                url: '/shiYanXiangMu/hunNIngTuKangYa/search', //数据接口
+                url: '/shiYanXiangMu/Hntkz/search', //数据接口
                 page: true,//开启分页
                 request: {
                     pageName: 'page', //页码的参数名称，默认：page
@@ -1718,7 +1718,7 @@
         //请求列数据-成功后请求表数据
         jQuery.ajax({
             type: 'post',
-            url: "/shiYanXiangMu/hunNIngTuKangYa/getShowCol.action",
+            url: "/shiYanXiangMu/Hntkz/getShowCol.action",
             dataType: 'json',
             data: {},
             async: false,
@@ -1759,7 +1759,7 @@
                 }
                 jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/update',
+                    url: '/shiYanXiangMu/Hntkz/update',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -1999,7 +1999,7 @@
                 }
                 jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/add',
+                    url: '/shiYanXiangMu/Hntkz/add',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -2050,7 +2050,7 @@
 
             jQuery.ajax({
                 type: 'post',
-                url: "/shiYanXiangMu/hunNIngTuKangYa/delete",
+                url: "/shiYanXiangMu/Hntkz/delete",
                 dataType: 'json',
                 data: {'kyid': data.kyid},
                 async: false,

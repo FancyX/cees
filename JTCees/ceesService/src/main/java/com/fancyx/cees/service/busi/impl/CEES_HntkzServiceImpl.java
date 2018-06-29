@@ -31,4 +31,29 @@ public class CEES_HntkzServiceImpl implements CEES_HntkzService {
     public void update(CEES_HntkzVo cees_hntkzVo) {
         cees_hntkzManager.update(cees_hntkzVo);
     }
+
+    @Override
+    public Integer getMax_sn_project() {
+        return cees_hntkzManager.getMax_sn_project();
+    }
+
+    @Override
+    public int getCnumber() {
+        return cees_hntkzManager.getCnumber();
+    }
+
+    @Override
+    public int getProjectnumber() {
+        return cees_hntkzManager.getProjectnumber();
+    }
+
+    @Override
+    public String getKznumber() {
+        return cees_hntkzManager.getKznumber();
+    }
+
+    @Override
+    public void insert(CEES_HntkzVo cees_hntkzVo) {
+        cees_hntkzManager.insert(cees_hntkzVo);
+    }
 }

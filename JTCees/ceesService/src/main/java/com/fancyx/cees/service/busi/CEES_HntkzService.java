@@ -13,4 +13,14 @@ public interface CEES_HntkzService {
     void delete(Integer id);
 
     void update(CEES_HntkzVo cees_hntkzVo);
+
+    Integer getMax_sn_project();
+
+    int getCnumber();
+
+    int getProjectnumber();
+
+    String getKznumber();
+
+    void insert(CEES_HntkzVo cees_hntkzVo);
 }

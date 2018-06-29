@@ -35,6 +35,31 @@ public class CEES_HntkzDaoImpl extends BaseDao implements CEES_HntkzDao {
         this.update(this.getNamespace("update"), cees_hntkzVo);
     }
 
+    @Override
+    public Integer getMax_sn_project() {
+        return (Integer) this.queryForObject(this.getNamespace("maxSnProject"));
+    }
+
+    @Override
+    public int getCnumber() {
+        return (Integer) this.queryForObject(this.getNamespace("maxCnumber"));
+    }
+
+    @Override
+    public int getProjectnumber() {
+        return (Integer) this.queryForObject(this.getNamespace("maxProjectnumber"));
+    }
+
+    @Override
+    public String getKznumber() {
+        return String.valueOf(this.queryForObject(this.getNamespace("getKznumber")));
+    }
+
+    @Override
+    public void insert(CEES_HntkzVo cees_hntkzVo) {
+        this.insert(this.getNamespace("insert"), cees_hntkzVo);
+    }
+
     /**
      * mybatis的namespace
      *
