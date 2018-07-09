@@ -1626,6 +1626,8 @@
                 var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', width: 200};
                 cols[0].push(toolbar);
 
+                console.log(cols);
+
                 return cols;
             }
 
@@ -1895,7 +1897,6 @@
         var formID = 'printModal';
 
 
-
         var tds = [];
         jQuery("#" + formID + " td").each(function () {
 
@@ -1915,7 +1916,7 @@
             if (value == null || value == undefined || value == "") {
                 continue;
             }
-            var dom = getPrintModelDom(key,tds);
+            var dom = getPrintModelDom(key, tds);
 
             if (dom == undefined) {
                 continue;

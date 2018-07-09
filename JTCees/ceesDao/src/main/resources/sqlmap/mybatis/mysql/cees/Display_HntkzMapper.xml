@@ -15,7 +15,7 @@
         XSYS,
         VISIBLE
       FROM
-        Display_Hntky
+        Display_Hntkz
       where
         VISIBLE = 1
     </select>

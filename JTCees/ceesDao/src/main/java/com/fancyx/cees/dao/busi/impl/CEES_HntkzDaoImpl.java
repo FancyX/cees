@@ -52,7 +52,7 @@ public class CEES_HntkzDaoImpl extends BaseDao implements CEES_HntkzDao {
 
     @Override
     public String getKznumber() {
-        return String.valueOf(this.queryForObject(this.getNamespace("getKznumber")));
+        return String.valueOf(this.queryForObject(this.getNamespace("maxKznumber")));
     }
 
     @Override

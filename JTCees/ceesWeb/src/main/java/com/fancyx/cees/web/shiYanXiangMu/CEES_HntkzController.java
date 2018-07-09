@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -64,6 +65,7 @@ public class CEES_HntkzController {
      * @return
      */
     @RequestMapping(value = "/getShowCol.action")
+    @ResponseBody
     public ResultBean getShowCol() {
 
         try {
@@ -76,7 +78,7 @@ public class CEES_HntkzController {
 
 
     /**
-     * 分页查询混凝土抗压
+     * 分页查询
      *
      * @param cees_hntkzVo
      * @param page
