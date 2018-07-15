@@ -9,7 +9,6 @@ import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.CEES_Project;
 import com.fancyx.cees.domain.busi.CEES_User;
 import com.fancyx.cees.domain.vo.CEES_ProjectVo;
-import com.fancyx.cees.domain.vo.CEES_UserVO;
 import com.fancyx.cees.domain.vo.SessionVO;
 import com.fancyx.cees.service.busi.CEES_ProjectService;
 import com.fancyx.cees.service.busi.Display_ProjectService;
@@ -101,7 +100,7 @@ public class GongChengXiangMuSheZhi {
     public ResultBean update(HttpSession session, CEES_ProjectVo cees_projectVo) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             cees_projectVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_projectVo.setEdittime(TimeUtil.getCurrentTime());
 
@@ -125,7 +124,7 @@ public class GongChengXiangMuSheZhi {
     public ResultBean add(HttpSession session, CEES_ProjectVo cees_projectVo) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             cees_projectVo.setPid(projectDbUtil.getPid());
             cees_projectVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_projectVo.setEdittime(TimeUtil.getCurrentTime());

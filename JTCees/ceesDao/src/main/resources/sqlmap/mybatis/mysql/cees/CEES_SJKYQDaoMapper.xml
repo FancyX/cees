@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_SJKYQDao">
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.CEES_SJKYQD">
+      SELECT [sjkyid]
+          ,[cid]
+          ,[cnumber]
+          ,[pid]
+          ,[projectnumber]
+          ,[client]
+          ,[ccid]
+          ,[sjkynumber]
+          ,[testnumber]
+          ,[sn]
+          ,[sn_project]
+          ,[sn_test]
+          ,[state]
+          ,[remarks]
+          ,[edittime]
+          ,[edituser]
+          ,[readmark]
+          ,[readtime]
+          ,[WTDBH]
+          ,[WTDWMC]
+          ,[LYRQ]
+          ,[GCMC]
+          ,[SYBH]
+          ,[SYRQ]
+          ,[SGBW]
+          ,[WTR]
+          ,[SJZL]
+          ,[SJZLQD]
+          ,[CD]
+          ,[CDDW]
+          ,[SNPZ]
+          ,[SNQDDJ]
+          ,[CB]
+          ,[SCD]
+          ,[SZL]
+          ,[CHLZL]
+          ,[WJJZL]
+          ,[WJJ2ZL]
+          ,[PBBH]
+          ,[SHA_SHUI]
+          ,[SNMPF]
+          ,[SNMP]
+          ,[SMPF]
+          ,[SMP]
+          ,[BHGMPF]
+          ,[BHGMP]
+          ,[CHLMPF]
+          ,[CHLMP]
+          ,[WJJMPF]
+          ,[WJJMP]
+          ,[WJJ2MPF]
+          ,[WJJ2MP]
+          ,[ZMRQ]
+          ,[YHTJ]
+          ,[YQLQ]
+          ,[YQSYRQ]
+          ,[SKSDRQ]
+          ,[SKZZR]
+          ,[SJBH]
+          ,[SYARQ]
+          ,[SJLQ]
+          ,[SJBC]
+          ,[SYMJ]
+          ,[KUAISHU]
+          ,[HZPJ]
+          ,[HZDK1]
+          ,[HZDK2]
+          ,[HZDK3]
+          ,[HZDK4]
+          ,[HZDK5]
+          ,[HZDK6]
+          ,[KYQD]
+          ,[DDSJ]
+          ,[YQBH]
+          ,[BZ]
+          ,[JL]
+          ,[DWDM]
+          ,[SYXMDM]
+          ,[SYXMMC]
+          ,[SHIYBH]
+          ,[SYMC]
+          ,[WTDWBH]
+          ,[GCBH]
+          ,[JSFZRBH]
+          ,[JSFZR]
+          ,[XHRBH]
+          ,[XHR]
+          ,[XHBZ]
+          ,[XHYJ]
+          ,[QFBZ]
+          ,[QFYJ]
+          ,[SYRBH]
+          ,[SYR]
+          ,[BGRQ]
+          ,[ZXGC]
+          ,[ZXBZ]
+          ,[SYWTR]
+          ,[JZBZ]
+          ,[HGBZ]
+          ,[SYJG]
+          ,[CLYJ]
+          ,[WTZH]
+          ,[JLBBH]
+          ,[BGBBH]
+      FROM [CEES_SJKYQD]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+        [CEES_SJKYQD]
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM [CEES_SJKYQD]
+        where
+        [sjkyid] =  #{id}
+        AND  [state] == '录入'
+    </delete>
+
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_SJKYQDVo">
+        UPDATE [CEES_SJKYQD]
+        SET [cid] = {cid}
+        ,[cnumber] = {cnumber}
+        ,[pid] = {pid}
+        ,[projectnumber] = {projectnumber}
+        ,[client] = {client}
+        ,[ccid] = {ccid}
+        ,[sjkynumber] = {sjkynumber}
+        ,[testnumber] = {testnumber}
+        ,[sn] = {sn}
+        ,[sn_project] = {sn_project}
+        ,[sn_test] = {sn_test}
+        ,[state] = {state}
+        ,[remarks] = {remarks}
+        ,[edittime] = {edittime}
+        ,[edituser] = {edituser}
+        ,[readmark] = {readmark}
+        ,[readtime] = {readtime}
+        ,[WTDBH] = {WTDBH}
+        ,[WTDWMC] = {WTDWMC}
+        ,[LYRQ] = {LYRQ}
+        ,[GCMC] = {GCMC}
+        ,[SYBH] = {SYBH}
+        ,[SYRQ] = {SYRQ}
+        ,[SGBW] = {SGBW}
+        ,[WTR] = {WTR}
+        ,[SJZL] = {SJZL}
+        ,[SJZLQD] = {SJZLQD}
+        ,[CD] = {CD}
+        ,[CDDW] = {CDDW}
+        ,[SNPZ] = {SNPZ}
+        ,[SNQDDJ] = {SNQDDJ}
+        ,[CB] = {CB}
+        ,[SCD] = {SCD}
+        ,[SZL] = {SZL}
+        ,[CHLZL] = {CHLZL}
+        ,[WJJZL] = {WJJZL}
+        ,[WJJ2ZL] = {WJJ2ZL}
+        ,[PBBH] = {PBBH}
+        ,[SHA_SHUI] = {SHA_SHUI}
+        ,[SNMPF] = {SNMPF}
+        ,[SNMP] = {SNMP}
+        ,[SMPF] = {SMPF}
+        ,[SMP] = {SMP}
+        ,[BHGMPF] = {BHGMPF}
+        ,[BHGMP] = {BHGMP}
+        ,[CHLMPF] = {CHLMPF}
+        ,[CHLMP] = {CHLMP}
+        ,[WJJMPF] = {WJJMPF}
+        ,[WJJMP] = {WJJMP}
+        ,[WJJ2MPF] = {WJJ2MPF}
+        ,[WJJ2MP] = {WJJ2MP}
+        ,[ZMRQ] = {ZMRQ}
+        ,[YHTJ] = {YHTJ}
+        ,[YQLQ] = {YQLQ}
+        ,[YQSYRQ] = {YQSYRQ}
+        ,[SKSDRQ] = {SKSDRQ}
+        ,[SKZZR] = {SKZZR}
+        ,[SJBH] = {SJBH}
+        ,[SYARQ] = {SYARQ}
+        ,[SJLQ] = {SJLQ}
+        ,[SJBC] = {SJBC}
+        ,[SYMJ] = {SYMJ}
+        ,[KUAISHU] = {KUAISHU}
+        ,[HZPJ] = {HZPJ}
+        ,[HZDK1] = {HZDK1}
+        ,[HZDK2] = {HZDK2}
+        ,[HZDK3] = {HZDK3}
+        ,[HZDK4] = {HZDK4}
+        ,[HZDK5] = {HZDK5}
+        ,[HZDK6] = {HZDK6}
+        ,[KYQD] = {KYQD}
+        ,[DDSJ] = {DDSJ}
+        ,[YQBH] = {YQBH}
+        ,[BZ] = {BZ}
+        ,[JL] = {JL}
+        ,[DWDM] = {DWDM}
+        ,[SYXMDM] = {SYXMDM}
+        ,[SYXMMC] = {SYXMMC}
+        ,[SHIYBH] = {SHIYBH}
+        ,[SYMC] = {SYMC}
+        ,[WTDWBH] = {WTDWBH}
+        ,[GCBH] = {GCBH}
+        ,[JSFZRBH] = {JSFZRBH}
+        ,[JSFZR] = {JSFZR}
+        ,[XHRBH] = {XHRBH}
+        ,[XHR] = {XHR}
+        ,[XHBZ] = {XHBZ}
+        ,[XHYJ] = {XHYJ}
+        ,[QFBZ] = {QFBZ}
+        ,[QFYJ] = {QFYJ}
+        ,[SYRBH] = {SYRBH}
+        ,[SYR] = {SYR}
+        ,[BGRQ] = {BGRQ}
+        ,[ZXGC] = {ZXGC}
+        ,[ZXBZ] = {ZXBZ}
+        ,[SYWTR] = {SYWTR}
+        ,[JZBZ] = {JZBZ}
+        ,[HGBZ] = {HGBZ}
+        ,[SYJG] = {SYJG}
+        ,[CLYJ] = {CLYJ}
+        ,[WTZH] = {WTZH}
+        ,[JLBBH] = {JLBBH}
+        ,[BGBBH] = {BGBBH}
+        WHERE
+        [CEES_SJKYQD].[sjkyid] = {sjkyid}
+    </update>
+
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_SJKYQDVo">
+        INSERT INTO [CEES_SJKYQD]
+        ([cid]
+        ,[cnumber]
+        ,[pid]
+        ,[projectnumber]
+        ,[client]
+        ,[ccid]
+        ,[sjkynumber]
+        ,[testnumber]
+        ,[sn]
+        ,[sn_project]
+        ,[sn_test]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        ,[WTDBH]
+        ,[WTDWMC]
+        ,[LYRQ]
+        ,[GCMC]
+        ,[SYBH]
+        ,[SYRQ]
+        ,[SGBW]
+        ,[WTR]
+        ,[SJZL]
+        ,[SJZLQD]
+        ,[CD]
+        ,[CDDW]
+        ,[SNPZ]
+        ,[SNQDDJ]
+        ,[CB]
+        ,[SCD]
+        ,[SZL]
+        ,[CHLZL]
+        ,[WJJZL]
+        ,[WJJ2ZL]
+        ,[PBBH]
+        ,[SHA_SHUI]
+        ,[SNMPF]
+        ,[SNMP]
+        ,[SMPF]
+        ,[SMP]
+        ,[BHGMPF]
+        ,[BHGMP]
+        ,[CHLMPF]
+        ,[CHLMP]
+        ,[WJJMPF]
+        ,[WJJMP]
+        ,[WJJ2MPF]
+        ,[WJJ2MP]
+        ,[ZMRQ]
+        ,[YHTJ]
+        ,[YQLQ]
+        ,[YQSYRQ]
+        ,[SKSDRQ]
+        ,[SKZZR]
+        ,[SJBH]
+        ,[SYARQ]
+        ,[SJLQ]
+        ,[SJBC]
+        ,[SYMJ]
+        ,[KUAISHU]
+        ,[HZPJ]
+        ,[HZDK1]
+        ,[HZDK2]
+        ,[HZDK3]
+        ,[HZDK4]
+        ,[HZDK5]
+        ,[HZDK6]
+        ,[KYQD]
+        ,[DDSJ]
+        ,[YQBH]
+        ,[BZ]
+        ,[JL]
+        ,[DWDM]
+        ,[SYXMDM]
+        ,[SYXMMC]
+        ,[SHIYBH]
+        ,[SYMC]
+        ,[WTDWBH]
+        ,[GCBH]
+        ,[JSFZRBH]
+        ,[JSFZR]
+        ,[XHRBH]
+        ,[XHR]
+        ,[XHBZ]
+        ,[XHYJ]
+        ,[QFBZ]
+        ,[QFYJ]
+        ,[SYRBH]
+        ,[SYR]
+        ,[BGRQ]
+        ,[ZXGC]
+        ,[ZXBZ]
+        ,[SYWTR]
+        ,[JZBZ]
+        ,[HGBZ]
+        ,[SYJG]
+        ,[CLYJ]
+        ,[WTZH]
+        ,[JLBBH]
+        ,[BGBBH])
+        VALUES
+        ({cid}
+        ,{cnumber}
+        ,{pid}
+        ,{projectnumber}
+        ,{client}
+        ,{ccid}
+        ,{sjkynumber}
+        ,{testnumber}
+        ,{sn}
+        ,{sn_project}
+        ,{sn_test}
+        ,{state}
+        ,{remarks}
+        ,{edittime}
+        ,{edituser}
+        ,{readmark}
+        ,{readtime}
+        ,{WTDBH}
+        ,{WTDWMC}
+        ,{LYRQ}
+        ,{GCMC}
+        ,{SYBH}
+        ,{SYRQ}
+        ,{SGBW}
+        ,{WTR}
+        ,{SJZL}
+        ,{SJZLQD}
+        ,{CD}
+        ,{CDDW}
+        ,{SNPZ}
+        ,{SNQDDJ}
+        ,{CB}
+        ,{SCD}
+        ,{SZL}
+        ,{CHLZL}
+        ,{WJJZL}
+        ,{WJJ2ZL}
+        ,{PBBH}
+        ,{SHA_SHUI}
+        ,{SNMPF}
+        ,{SNMP}
+        ,{SMPF}
+        ,{SMP}
+        ,{BHGMPF}
+        ,{BHGMP}
+        ,{CHLMPF}
+        ,{CHLMP}
+        ,{WJJMPF}
+        ,{WJJMP}
+        ,{WJJ2MPF}
+        ,{WJJ2MP}
+        ,{ZMRQ}
+        ,{YHTJ}
+        ,{YQLQ}
+        ,{YQSYRQ}
+        ,{SKSDRQ}
+        ,{SKZZR}
+        ,{SJBH}
+        ,{SYARQ}
+        ,{SJLQ}
+        ,{SJBC}
+        ,{SYMJ}
+        ,{KUAISHU}
+        ,{HZPJ}
+        ,{HZDK1}
+        ,{HZDK2}
+        ,{HZDK3}
+        ,{HZDK4}
+        ,{HZDK5}
+        ,{HZDK6}
+        ,{KYQD}
+        ,{DDSJ}
+        ,{YQBH}
+        ,{BZ}
+        ,{JL}
+        ,{DWDM}
+        ,{SYXMDM}
+        ,{SYXMMC}
+        ,{SHIYBH}
+        ,{SYMC}
+        ,{WTDWBH}
+        ,{GCBH}
+        ,{JSFZRBH}
+        ,{JSFZR}
+        ,{XHRBH}
+        ,{XHR}
+        ,{XHBZ}
+        ,{XHYJ}
+        ,{QFBZ}
+        ,{QFYJ}
+        ,{SYRBH}
+        ,{SYR}
+        ,{BGRQ}
+        ,{ZXGC}
+        ,{ZXBZ}
+        ,{SYWTR}
+        ,{JZBZ}
+        ,{HGBZ}
+        ,{SYJG}
+        ,{CLYJ}
+        ,{WTZH}
+        ,{JLBBH}
+        ,{BGBBH})
+
+    </insert>
+
+
+    <select id="maxSnProject" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from CEES_SJKYQD
+    </select>
+
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_SJKYQD
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(projectnumber  as int))),0)
+        from CEES_SJKYQD
+    </select>
+
+
+    <select id="maxKznumber" resultType="String">
+         select
+        ISNULL(MAX((Sjkynumber )),0)
+        from CEES_SJKYQD
+    </select>
+
+</mapper>

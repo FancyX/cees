@@ -29,7 +29,6 @@ import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -150,7 +149,7 @@ public class CEES_HntkzController {
     public ResultBean add(HttpSession session, CEES_HntkzVo  cees_hntkzVo) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             if (sessionVO == null) {
                 throw new Exception("请重新登录！");
             }

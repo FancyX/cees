@@ -36,7 +36,7 @@ public class LoginController {
 
         try {
             SessionVO sessionVO = loginService.login(userVO);
-            session.setAttribute(BaseConfig.SessionKey, sessionVO);
+            session.setAttribute(BaseConfig.SESSION_KEY, sessionVO);
             return new ResultBean();
         } catch (Exception ex) {
             ex.printStackTrace();

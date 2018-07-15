@@ -30,7 +30,7 @@ public class IndexController {
     public ResultBean getBaseData(HttpSession session ) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
 
             return new ResultBean<BaseDataVO>(indexService.getBaseData(sessionVO));
         } catch (Exception ex) {

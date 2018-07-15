@@ -20,6 +20,9 @@
         <!--混凝土抗折-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_HntkzMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_HntkzMapper.xml"/>
+        <!--砂浆抗压-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_SJKYQDaoMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_SJKYQDaoMapper.xml"/>
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>

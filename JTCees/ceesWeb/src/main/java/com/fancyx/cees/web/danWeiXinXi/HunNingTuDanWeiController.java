@@ -6,12 +6,10 @@ import com.fancyx.cees.common.CEESConcreteDBUtil;
 import com.fancyx.cees.common.TimeUtil;
 import com.fancyx.cees.config.BaseConfig;
 import com.fancyx.cees.dao.PageBean;
-import com.fancyx.cees.domain.busi.CEES_Concrete;
 import com.fancyx.cees.domain.vo.CEES_ConcreteVo;
 import com.fancyx.cees.domain.vo.SessionVO;
 import com.fancyx.cees.service.busi.CEESConcreteService;
 import com.fancyx.cees.service.busi.DisPlayConcreteService;
-import com.fancyx.cees.web.yongHuDanWeiSheZhi.UserController;
 import org.apache.log4j.Logger;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -124,7 +122,7 @@ public class HunNingTuDanWeiController {
     public ResultBean update(HttpSession session, CEES_ConcreteVo cees_concreteVo) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             cees_concreteVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_concreteVo.setEdittime(TimeUtil.getCurrentTime());
             cees_concreteService.update(cees_concreteVo);
@@ -145,7 +143,7 @@ public class HunNingTuDanWeiController {
     public ResultBean add(HttpSession session, CEES_ConcreteVo cees_concreteVo) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             cees_concreteVo.setCcid(ceesConcreteDBUtil.getCcid());
             cees_concreteVo.setEdituser(sessionVO.getCees_user().getLoginuser());
             cees_concreteVo.setEdittime(TimeUtil.getCurrentTime());

@@ -124,7 +124,7 @@ public class UserController {
     public ResultBean update(HttpSession session, CEES_UserVO ceesUserVO) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             ceesUserVO.setEdituser(sessionVO.getCees_user().getLoginuser());
             ceesUserVO.setEdittime(TimeUtil.getCurrentTime());
             userService.update(ceesUserVO);
@@ -146,7 +146,7 @@ public class UserController {
     public ResultBean add(HttpSession session, CEES_UserVO ceesUserVO) {
 
         try {
-            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SessionKey);
+            SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
 
             ceesUserVO.setUid(userDbUtil.getUid());
             ceesUserVO.setEdituser(sessionVO.getCees_user().getLoginuser());
