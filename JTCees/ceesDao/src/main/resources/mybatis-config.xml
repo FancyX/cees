@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
 
-	<!--<properties>
-	<property name="dialect" value="MYSQL" />
-	</properties>
-	<plugins>
-	<plugin interceptor="com.fancyx.cees.dao.interceptor.PaginationInterceptor" />
-	</plugins>-->
+    <!--<properties>
+    <property name="dialect" value="MYSQL" />
+    </properties>
+    <plugins>
+    <plugin interceptor="com.fancyx.cees.dao.interceptor.PaginationInterceptor" />
+    </plugins>-->
 
     <mappers>
         <!-- cees -->
@@ -23,6 +23,10 @@
         <!--砂浆抗压-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_SJKYQDaoMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_SJKYQDaoMapper.xml"/>
+
+        <!--钢筋原材-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJYCDaoMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJYCDaoMapper.xml"/>
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>

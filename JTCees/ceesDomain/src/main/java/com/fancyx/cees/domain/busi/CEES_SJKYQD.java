@@ -1,12 +1,12 @@
 package com.fancyx.cees.domain.busi;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 啊Q on 2018-07-14.
  */
-public class CEES_SJKYQD {
-
+public class CEES_SJKYQD  implements Serializable {
 
     //砂浆抗压id
     private int sjkyid;
