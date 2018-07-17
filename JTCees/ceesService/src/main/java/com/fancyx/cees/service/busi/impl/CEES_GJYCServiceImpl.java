@@ -32,4 +32,9 @@ public class CEES_GJYCServiceImpl implements CEES_GJYCService {
         manager.update(vo);
 
     }
+
+    @Override
+    public Integer getMax_sn_project() {
+        return manager.getMax_sn_project();
+    }
 }

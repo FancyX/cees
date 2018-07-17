@@ -32,4 +32,9 @@ public class CEES_GJYCManagerImpl implements CEES_GJYCManager {
     public void update(CEES_GJYCVo vo) {
         dao.update(vo);
     }
+
+    @Override
+    public Integer getMax_sn_project() {
+        return  dao.getMax_sn_project();
+    }
 }

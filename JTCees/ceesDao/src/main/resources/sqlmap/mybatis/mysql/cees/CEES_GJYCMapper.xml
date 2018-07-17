@@ -5,7 +5,6 @@
 <mapper namespace="com.fancyx.cees.dao.busi.CEES_ConcreteDao">
 
 
-
     <select id="selectByBean"
             resultType="com.fancyx.cees.domain.busi.CEES_GJYC">
         SELECT [gjycid]
@@ -169,7 +168,11 @@
         AND  [state] == '录入'
     </delete>
 
-
+    <select id="maxSnProject" resultType="java.lang.Integer">
+            select
+            ISNULL(MAX(sn),0)
+            from CEES_GJYC
+      </select>
 
 
 </mapper>

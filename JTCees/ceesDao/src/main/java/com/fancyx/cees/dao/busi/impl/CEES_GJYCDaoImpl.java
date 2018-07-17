@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * Created by 啊Q on 2018-07-16.
  */
 @Repository
-public class CEES_GJYCDaoImpl   extends BaseDao implements CEES_GJYCDao {
+public class CEES_GJYCDaoImpl extends BaseDao implements CEES_GJYCDao {
 
     public static final String NAME_SPACE = "com.fancyx.cees.dao.busi.CEES_GJYCDao";
 
@@ -24,8 +24,6 @@ public class CEES_GJYCDaoImpl   extends BaseDao implements CEES_GJYCDao {
     private String getNamespace(String statement) {
         return NAME_SPACE + "." + statement;
     }
-
-
 
 
     @Override
@@ -45,6 +43,11 @@ public class CEES_GJYCDaoImpl   extends BaseDao implements CEES_GJYCDao {
 
     @Override
     public void update(CEES_GJYCVo vo) {
-        this.insert(this.getNamespace("update"), vo);
+        this.update(this.getNamespace("update"), vo);
+    }
+
+    @Override
+    public Integer getMax_sn_project() {
+        return (Integer) this.queryForObject(this.getNamespace("maxSnProject"));
     }
 }

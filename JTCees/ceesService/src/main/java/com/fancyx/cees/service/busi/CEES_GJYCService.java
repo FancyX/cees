@@ -13,4 +13,6 @@ public interface CEES_GJYCService {
     void delete(Integer id);
 
     void update(CEES_GJYCVo vo);
+
+    Integer getMax_sn_project();
 }
