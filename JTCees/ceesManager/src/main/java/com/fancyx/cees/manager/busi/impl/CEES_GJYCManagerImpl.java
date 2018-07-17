@@ -37,4 +37,14 @@ public class CEES_GJYCManagerImpl implements CEES_GJYCManager {
     public Integer getMax_sn_project() {
         return  dao.getMax_sn_project();
     }
+
+    @Override
+    public int getCnumber() {
+        return  dao.getCnumber();
+    }
+
+    @Override
+    public int getProjectnumber() {
+        return  dao.getProjectnumber();
+    }
 }

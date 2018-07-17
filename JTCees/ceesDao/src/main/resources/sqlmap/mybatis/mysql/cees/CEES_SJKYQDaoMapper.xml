@@ -471,7 +471,7 @@
     </select>
 
 
-    <select id="maxKznumber" resultType="String">
+    <select id="maxSjkynumber" resultType="String">
          select
         ISNULL(MAX((Sjkynumber )),0)
         from CEES_SJKYQD

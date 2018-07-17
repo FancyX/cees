@@ -168,11 +168,164 @@
         AND  [state] == '录入'
     </delete>
 
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_GJYCVo">
+            UPDATE [CEES_GJYC]
+            SET [cid] = #{ cid}
+            ,[cnumber] = #{ cnumber}
+            ,[pid] = #{ pid}
+            ,[projectnumber] = #{ projectnumber}
+            ,[client] = #{ client}
+            ,[gjycnumber] = #{ gjycnumber}
+            ,[testnumber] = #{ testnumber}
+            ,[sn] = #{ sn}
+            ,[sn_project] = #{ sn_project}
+            ,[sn_test] = #{ sn_test}
+            ,[state] = #{ state}
+            ,[remarks] = #{ remarks}
+            ,[edittime] = #{ edittime}
+            ,[edituser] = #{ edituser}
+            ,[readmark] = #{ readmark}
+            ,[readtime] = #{ readtime}
+            ,[WTDBH] = #{ WTDBH}
+            ,[WTDWMC] = #{ WTDWMC}
+            ,[GJZL] = #{ GJZL}
+            ,[GJCD] = #{ GJCD}
+            ,[SJDBSL] = #{ SJDBSL}
+            ,[LYRQ] = #{ LYRQ}
+            ,[SYBH1] = #{ SYBH1}
+            ,[SYBH2] = #{ SYBH2}
+            ,[GCMC] = #{ GCMC}
+            ,[YT] = #{ YT}
+            ,[SYRQ] = #{ SYRQ}
+            ,[YQBH] = #{ YQBH}
+            ,[PH] = #{ PH}
+            ,[DBSL] = #{ DBSL}
+            ,[JB] = #{ JB}
+            ,[GG] = #{ GG}
+            ,[HJMJ] = #{ HJMJ}
+            ,[SJBH1] = #{ SJBH1}
+            ,[SJBH2] = #{ SJBH2}
+            ,[SJBH3] = #{ SJBH3}
+            ,[SJBH4] = #{ SJBH4}
+            ,[SJBH5] = #{ SJBH5}
+            ,[SJBH6] = #{ SJBH6}
+            ,[QFLL1] = #{ QFLL1}
+            ,[QFLL2] = #{ QFLL2}
+            ,[QFLL3] = #{ QFLL3}
+            ,[QFLL4] = #{ QFLL4}
+            ,[QFLL5] = #{ QFLL5}
+            ,[QFLL6] = #{ QFLL6}
+            ,[QFQD1] = #{ QFQD1}
+            ,[QFQD2] = #{ QFQD2}
+            ,[QFQD3] = #{ QFQD3}
+            ,[QFQD4] = #{ QFQD4}
+            ,[QFQD5] = #{ QFQD5}
+            ,[QFQD6] = #{ QFQD6}
+            ,[JXLL1] = #{ JXLL1}
+            ,[JXLL2] = #{ JXLL2}
+            ,[JXLL3] = #{ JXLL3}
+            ,[JXLL4] = #{ JXLL4}
+            ,[JXLL5] = #{ JXLL5}
+            ,[JXLL6] = #{ JXLL6}
+            ,[JXQD1] = #{ JXQD1}
+            ,[JXQD2] = #{ JXQD2}
+            ,[JXQD3] = #{ JXQD3}
+            ,[JXQD4] = #{ JXQD4}
+            ,[JXQD5] = #{ JXQD5}
+            ,[JXQD6] = #{ JXQD6}
+            ,[BXHDLWZ1] = #{ BXHDLWZ1}
+            ,[BXHDLWZ2] = #{ BXHDLWZ2}
+            ,[BXHDLWZ3] = #{ BXHDLWZ3}
+            ,[BXHDLWZ4] = #{ BXHDLWZ4}
+            ,[BXHDLWZ5] = #{ BXHDLWZ5}
+            ,[BXHDLWZ6] = #{ BXHDLWZ6}
+            ,[BJ1] = #{ BJ1}
+            ,[BJ2] = #{ BJ2}
+            ,[BJ3] = #{ BJ3}
+            ,[BJ4] = #{ BJ4}
+            ,[BJ5] = #{ BJ5}
+            ,[BJ6] = #{ BJ6}
+            ,[SCH1] = #{ SCH1}
+            ,[SCH2] = #{ SCH2}
+            ,[SCH3] = #{ SCH3}
+            ,[SCH4] = #{ SCH4}
+            ,[SCH5] = #{ SCH5}
+            ,[SCH6] = #{ SCH6}
+            ,[SCL1] = #{ SCL1}
+            ,[SCL2] = #{ SCL2}
+            ,[SCL3] = #{ SCL3}
+            ,[SCL4] = #{ SCL4}
+            ,[SCL5] = #{ SCL5}
+            ,[SCL6] = #{ SCL6}
+            ,[HJ1] = #{ HJ1}
+            ,[HJ2] = #{ HJ2}
+            ,[WXZJ1] = #{ WXZJ1}
+            ,[WXZJ2] = #{ WXZJ2}
+            ,[WXZJ3] = #{ WXZJ3}
+            ,[WXZJ4] = #{ WXZJ4}
+            ,[WXZJ5] = #{ WXZJ5}
+            ,[WXZJ6] = #{ WXZJ6}
+            ,[JD1] = #{ JD1}
+            ,[JD2] = #{ JD2}
+            ,[JD3] = #{ JD3}
+            ,[JD4] = #{ JD4}
+            ,[JD5] = #{ JD5}
+            ,[JD6] = #{ JD6}
+            ,[PDJG1] = #{ PDJG1}
+            ,[PDJG2] = #{ PDJG2}
+            ,[PDJG3] = #{ PDJG3}
+            ,[PDJG4] = #{ PDJG4}
+            ,[PDJG5] = #{ PDJG5}
+            ,[PDJG6] = #{ PDJG6}
+            ,[HJTJ] = #{ HJTJ}
+            ,[JL] = #{ JL}
+            ,[BZ] = #{ BZ}
+            ,[XHR] = #{ XHR}
+            ,[SYR] = #{ SYR}
+            ,[DWDM] = #{ DWDM}
+            ,[SYXMDM1] = #{ SYXMDM1}
+            ,[SYXMDM2] = #{ SYXMDM2}
+            ,[SYXMMC1] = #{ SYXMMC1}
+            ,[SYXMMC2] = #{ SYXMMC2}
+            ,[SHIYBH] = #{ SHIYBH}
+            ,[SYMC] = #{ SYMC}
+            ,[WTDWBH] = #{ WTDWBH}
+            ,[GCBH] = #{ GCBH}
+            ,[JSFZRBH] = #{ JSFZRBH}
+            ,[JSFZR] = #{ JSFZR}
+            ,[XHRBH] = #{ XHRBH}
+            ,[XHBZ] = #{ XHBZ}
+            ,[XHYJ] = #{ XHYJ}
+            ,[QFBZ] = #{ QFBZ}
+            ,[QFYJ] = #{ QFYJ}
+            ,[SYRBH] = #{ SYRBH}
+            ,[BGRQ] = #{ BGRQ}
+            ,[ZXGC1] = #{ ZXGC1}
+            ,[ZXBZ1] = #{ ZXBZ1}
+            ,[ZXGC2] = #{ ZXGC2}
+            ,[ZXBZ2] = #{ ZXBZ2}
+            ,[SYWTR] = #{ SYWTR}
+            ,[JZBZ] = #{ JZBZ}
+            ,[HGBZ] = #{ HGBZ}
+            ,[SYJG] = #{ SYJG}
+            ,[CLYJ] = #{ CLYJ}
+            ,[WTZH] = #{ WTZH}
+            ,[JLBBH] = #{ JLBBH}
+            ,[BGBBH] = #{ BGBBH}
+            WHERE
+            gjycid= #{gjycid}
+      </update>
+
     <select id="maxSnProject" resultType="java.lang.Integer">
             select
             ISNULL(MAX(sn),0)
             from CEES_GJYC
       </select>
 
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_GJYC
+    </select>
 
 </mapper>

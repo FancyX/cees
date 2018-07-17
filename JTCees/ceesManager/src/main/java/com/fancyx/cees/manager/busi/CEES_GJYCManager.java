@@ -15,4 +15,8 @@ public interface CEES_GJYCManager {
     void update(CEES_GJYCVo vo);
 
     Integer getMax_sn_project();
+
+    int getCnumber();
+
+    int getProjectnumber();
 }

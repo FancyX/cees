@@ -37,4 +37,14 @@ public class CEES_GJYCServiceImpl implements CEES_GJYCService {
     public Integer getMax_sn_project() {
         return manager.getMax_sn_project();
     }
+
+    @Override
+    public int getCnumber() {
+        return  manager.getCnumber();
+    }
+
+    @Override
+    public int getProjectnumber() {
+        return  manager.getProjectnumber();
+    }
 }
