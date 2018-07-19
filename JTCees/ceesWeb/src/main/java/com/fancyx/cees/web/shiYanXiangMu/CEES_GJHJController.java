@@ -1,17 +1,16 @@
 package com.fancyx.cees.web.shiYanXiangMu;
 
-
 import com.fancyx.cees.baseBeans.PageResultBean;
 import com.fancyx.cees.baseBeans.ResultBean;
-import com.fancyx.cees.common.CEES_GJYCDBUtil;
+import com.fancyx.cees.common.CEES_GJHJDBUtil;
 import com.fancyx.cees.common.TimeUtil;
 import com.fancyx.cees.config.BaseConfig;
 import com.fancyx.cees.dao.PageBean;
-import com.fancyx.cees.domain.busi.CEES_GJYC;
-import com.fancyx.cees.domain.vo.CEES_GJYCVo;
+import com.fancyx.cees.domain.busi.CEES_GJHJ;
+import com.fancyx.cees.domain.vo.CEES_GJHJVo;
 import com.fancyx.cees.domain.vo.SessionVO;
-import com.fancyx.cees.service.busi.CEES_GJYCService;
-import com.fancyx.cees.service.busi.Display_GJYCService;
+import com.fancyx.cees.service.busi.CEES_GJHJService;
+import com.fancyx.cees.service.busi.Display_GJHJService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -31,32 +30,29 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 钢筋原材
- * Created by 啊Q on 2018-07-16.
+ *
+ * Created by 啊Q on 2018-07-19.
  */
-
 @Controller
-@RequestMapping(value = "/shiYanXiangMu/GJYC")
-public class CEES_GJYCController {
-
-    private static final Logger log = Logger.getLogger(CEES_GJYCController.class);
-
-    @Resource
-    private CEES_GJYCService cees;
+@RequestMapping(value = "/shiYanXiangMu/GJHJ")
+public class CEES_GJHJController {
+    private static final Logger log = Logger.getLogger(CEES_GJHJController.class);
 
     @Resource
-    private Display_GJYCService diplay;
+    private CEES_GJHJService cees;
+
+    @Resource
+    private Display_GJHJService diplay;
 
     @Autowired
-    private CEES_GJYCDBUtil dbUtil;
-
+    private CEES_GJHJDBUtil dbUtil;
 
     /*
     * 返回页面
     * */
     @RequestMapping(value = "/page")
     public String page() {
-        return "cees/shiYanXiangMu/CEES_GJYC";
+        return "cees/shiYanXiangMu/CEES_GJHJ";
     }
 
     /**
@@ -77,25 +73,23 @@ public class CEES_GJYCController {
         }
     }
 
-
-
     /**
      * 分页查询
      *
-     * @param cees_gjycVo
+     * @param vo
      * @param page
      * @param pageSize
      * @return
      */
     @RequestMapping(value = "/search")
     @ResponseBody
-    public PageResultBean search(CEES_GJYCVo cees_gjycVo,
+    public PageResultBean search(CEES_GJHJVo vo,
                                  @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                                  @RequestParam(value = "limit", required = false, defaultValue = "10") int pageSize) {
 
         try {
-            PageBean pageBean = new PageBean<CEES_GJYC>(page, pageSize);
-            PageBean<CEES_GJYC> result = cees.pageQuery(pageBean, cees_gjycVo);
+            PageBean pageBean = new PageBean<CEES_GJHJ>(page, pageSize);
+            PageBean<CEES_GJHJ> result = cees.pageQuery(pageBean, vo);
             return new PageResultBean(result.getUnderly(), result.getItemCount());
         } catch (Exception ex) {
             log.error(ex);
@@ -117,7 +111,7 @@ public class CEES_GJYCController {
             cees.delete(id);
             return new ResultBean();
         } catch (Exception e) {
-            Exception exception = new Exception("删除异常", e);
+            Exception exception = new Exception("查询异常", e);
             log.error(exception);
             return new ResultBean(exception);
         }
@@ -131,7 +125,7 @@ public class CEES_GJYCController {
      */
     @RequestMapping(value = "/update")
     @ResponseBody
-    public ResultBean update(CEES_GJYCVo vo) {
+    public ResultBean update(CEES_GJHJVo vo) {
 
         try {
             cees.update(vo);
@@ -143,16 +137,15 @@ public class CEES_GJYCController {
         }
     }
 
-
     /**
      * 添加
      *
-     * @param cees_gjycVo
+     * @param vo
      * @return
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public ResultBean add(HttpSession session, CEES_GJYCVo cees_gjycVo) {
+    public ResultBean add(HttpSession session, CEES_GJHJVo vo) {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
@@ -161,23 +154,23 @@ public class CEES_GJYCController {
             }
 
             //用户
-            cees_gjycVo.setEdituser(sessionVO.getCees_user().getLoginuser());
+            vo.setEdituser(sessionVO.getCees_user().getLoginuser());
             //状态
-            cees_gjycVo.setState("录入");
+            vo.setState("录入");
             //时间
-            cees_gjycVo.setEdittime(TimeUtil.getCurrentTime());
+            vo.setEdittime(TimeUtil.getCurrentTime());
             //sn_project
-            cees_gjycVo.setSn_project(dbUtil.getSn_project());
+            vo.setSn_project(dbUtil.getSn_project());
             //cnumber
-            cees_gjycVo.setCnumber(dbUtil.getCnumber());
+            vo.setCnumber(dbUtil.getCnumber());
             //projectnumber
-            cees_gjycVo.setProjectnumber(dbUtil.getProjectnumber());
+            vo.setProjectnumber(dbUtil.getProjectnumber());
             //kynumber
-            cees_gjycVo.setGjycnumber(dbUtil.getGjycnumber());
+            vo.setGjhjnumber(dbUtil.getGjhjnumber());
             //client
-            cees_gjycVo.setClient(sessionVO.getCees_construction().getClient());
+            vo.setClient(sessionVO.getCees_construction().getClient());
 
-            cees.insert(cees_gjycVo);
+            cees.insert(vo);
             return new ResultBean();
         } catch (Exception ex) {
             Exception exception = new Exception("添加异常", ex);
@@ -185,7 +178,6 @@ public class CEES_GJYCController {
             return new ResultBean(exception);
         }
     }
-
 
     //将字符串转换为Date类
     @InitBinder

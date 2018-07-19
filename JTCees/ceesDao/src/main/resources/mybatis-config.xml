@@ -27,6 +27,9 @@
         <!--钢筋原材-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJYCMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJYCMapper.xml"/>
+        <!--钢筋焊接头-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJHJMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJHJMapper.xml"/>
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>

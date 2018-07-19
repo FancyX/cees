@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_GJHJDao">
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.CEES_GJHJ">
+      SELECT [gjhjid]
+          ,[cid]
+          ,[cnumber]
+          ,[pid]
+          ,[projectnumber]
+          ,[client]
+          ,[gjhjnumber]
+          ,[testnumber]
+          ,[sn]
+          ,[sn_project]
+          ,[sn_test]
+          ,[state]
+          ,[remarks]
+          ,[edittime]
+          ,[edituser]
+          ,[readmark]
+          ,[readtime]
+          ,[WTDBH]
+          ,[WTDWMC]
+          ,[GJZL]
+          ,[GJCD]
+          ,[LYRQ]
+          ,[SYBH]
+          ,[GCMC]
+          ,[DBHJSL]
+          ,[YT]
+          ,[SYRQ]
+          ,[YQBH]
+          ,[PH]
+          ,[JB]
+          ,[GG]
+          ,[GG1]
+          ,[HJMJ]
+          ,[HJMJ1]
+          ,[HJLX]
+          ,[YCLSYBH]
+          ,[HTXH]
+          ,[HJR]
+          ,[SJBH1]
+          ,[SJBH2]
+          ,[SJBH3]
+          ,[SJBH4]
+          ,[SJBH5]
+          ,[SJBH6]
+          ,[LL1]
+          ,[LL2]
+          ,[LL3]
+          ,[LL4]
+          ,[LL5]
+          ,[LL6]
+          ,[QD1]
+          ,[QD2]
+          ,[QD3]
+          ,[QD4]
+          ,[QD5]
+          ,[QD6]
+          ,[BXHDLWZ1]
+          ,[BXHDLWZ2]
+          ,[BXHDLWZ3]
+          ,[BXHDLWZ4]
+          ,[BXHDLWZ5]
+          ,[BXHDLWZ6]
+          ,[WXZJ1]
+          ,[WXZJ2]
+          ,[WXZJ3]
+          ,[WXZJ4]
+          ,[WXZJ5]
+          ,[WXZJ6]
+          ,[JD1]
+          ,[JD2]
+          ,[JD3]
+          ,[JD4]
+          ,[JD5]
+          ,[JD6]
+          ,[PD1]
+          ,[PD2]
+          ,[PD3]
+          ,[PD4]
+          ,[PD5]
+          ,[PD6]
+          ,[HJ1]
+          ,[HJ2]
+          ,[JL]
+          ,[BZ]
+          ,[XHR]
+          ,[SYR]
+          ,[DWDM]
+          ,[SYXMDM]
+          ,[SYXMMC]
+          ,[SHIYBH]
+          ,[SYMC]
+          ,[WTDWBH]
+          ,[GCBH]
+          ,[JSFZRBH]
+          ,[JSFZR]
+          ,[XHRBH]
+          ,[XHBZ]
+          ,[XHYJ]
+          ,[QFBZ]
+          ,[QFYJ]
+          ,[SYRBH]
+          ,[BGRQ]
+          ,[ZXGC]
+          ,[ZXBZ]
+          ,[SYWTR]
+          ,[JZBZ]
+          ,[HGBZ]
+          ,[SYJG]
+          ,[CLYJ]
+          ,[WTZH]
+          ,[JLBBH]
+          ,[BGBBH]
+      FROM [CEES_GJHJ]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+        [CEES_GJHJ]
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM [CEES_GJHJ]
+        where
+        [gjycid] =  #{id}
+        AND  [state] == '录入'
+    </delete>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo">
+        UPDATE [CEES_GJHJ]
+        SET [cid] = #{cid}
+        ,[cnumber] = #{cnumber}
+        ,[pid] = #{pid}
+        ,[projectnumber] = #{projectnumber}
+        ,[client] = #{client}
+        ,[gjhjnumber] = #{gjhjnumber}
+        ,[testnumber] = #{testnumber}
+        ,[sn] = #{sn}
+        ,[sn_project] = #{sn_project}
+        ,[sn_test] = #{sn_test}
+        ,[state] = #{state}
+        ,[remarks] = #{remarks}
+        ,[edittime] = #{edittime}
+        ,[edituser] = #{edituser}
+        ,[readmark] = #{readmark}
+        ,[readtime] = #{readtime}
+        ,[WTDBH] = #{WTDBH}
+        ,[WTDWMC] = #{WTDWMC}
+        ,[GJZL] = #{GJZL}
+        ,[GJCD] = #{GJCD}
+        ,[LYRQ] = #{LYRQ}
+        ,[SYBH] = #{SYBH}
+        ,[GCMC] = #{GCMC}
+        ,[DBHJSL] = #{DBHJSL}
+        ,[YT] = #{YT}
+        ,[SYRQ] = #{SYRQ}
+        ,[YQBH] = #{YQBH}
+        ,[PH] = #{PH}
+        ,[JB] = #{JB}
+        ,[GG] = #{GG}
+        ,[GG1] = #{GG1}
+        ,[HJMJ] = #{HJMJ}
+        ,[HJMJ1] = #{HJMJ1}
+        ,[HJLX] = #{HJLX}
+        ,[YCLSYBH] = #{YCLSYBH}
+        ,[HTXH] = #{HTXH}
+        ,[HJR] = #{HJR}
+        ,[SJBH1] = #{SJBH1}
+        ,[SJBH2] = #{SJBH2}
+        ,[SJBH3] = #{SJBH3}
+        ,[SJBH4] = #{SJBH4}
+        ,[SJBH5] = #{SJBH5}
+        ,[SJBH6] = #{SJBH6}
+        ,[LL1] = #{LL1}
+        ,[LL2] = #{LL2}
+        ,[LL3] = #{LL3}
+        ,[LL4] = #{LL4}
+        ,[LL5] = #{LL5}
+        ,[LL6] = #{LL6}
+        ,[QD1] = #{QD1}
+        ,[QD2] = #{QD2}
+        ,[QD3] = #{QD3}
+        ,[QD4] = #{QD4}
+        ,[QD5] = #{QD5}
+        ,[QD6] = #{QD6}
+        ,[BXHDLWZ1] = #{BXHDLWZ1}
+        ,[BXHDLWZ2] = #{BXHDLWZ2}
+        ,[BXHDLWZ3] = #{BXHDLWZ3}
+        ,[BXHDLWZ4] = #{BXHDLWZ4}
+        ,[BXHDLWZ5] = #{BXHDLWZ5}
+        ,[BXHDLWZ6] = #{BXHDLWZ6}
+        ,[WXZJ1] = #{WXZJ1}
+        ,[WXZJ2] = #{WXZJ2}
+        ,[WXZJ3] = #{WXZJ3}
+        ,[WXZJ4] = #{WXZJ4}
+        ,[WXZJ5] = #{WXZJ5}
+        ,[WXZJ6] = #{WXZJ6}
+        ,[JD1] = #{JD1}
+        ,[JD2] = #{JD2}
+        ,[JD3] = #{JD3}
+        ,[JD4] = #{JD4}
+        ,[JD5] = #{JD5}
+        ,[JD6] = #{JD6}
+        ,[PD1] = #{PD1}
+        ,[PD2] = #{PD2}
+        ,[PD3] = #{PD3}
+        ,[PD4] = #{PD4}
+        ,[PD5] = #{PD5}
+        ,[PD6] = #{PD6}
+        ,[HJ1] = #{HJ1}
+        ,[HJ2] = #{HJ2}
+        ,[JL] = #{JL}
+        ,[BZ] = #{BZ}
+        ,[XHR] = #{XHR}
+        ,[SYR] = #{SYR}
+        ,[DWDM] = #{DWDM}
+        ,[SYXMDM] = #{SYXMDM}
+        ,[SYXMMC] = #{SYXMMC}
+        ,[SHIYBH] = #{SHIYBH}
+        ,[SYMC] = #{SYMC}
+        ,[WTDWBH] = #{WTDWBH}
+        ,[GCBH] = #{GCBH}
+        ,[JSFZRBH] = #{JSFZRBH}
+        ,[JSFZR] = #{JSFZR}
+        ,[XHRBH] = #{XHRBH}
+        ,[XHBZ] = #{XHBZ}
+        ,[XHYJ] = #{XHYJ}
+        ,[QFBZ] = #{QFBZ}
+        ,[QFYJ] = #{QFYJ}
+        ,[SYRBH] = #{SYRBH}
+        ,[BGRQ] = #{BGRQ}
+        ,[ZXGC] = #{ZXGC}
+        ,[ZXBZ] = #{ZXBZ}
+        ,[SYWTR] = #{SYWTR}
+        ,[JZBZ] = #{JZBZ}
+        ,[HGBZ] = #{HGBZ}
+        ,[SYJG] = #{SYJG}
+        ,[CLYJ] = #{CLYJ}
+        ,[WTZH] = #{WTZH}
+        ,[JLBBH] = #{JLBBH}
+        ,[BGBBH] = #{BGBBH}
+        WHERE
+          gjhjid = #{gjhjid}
+    </update>
+
+    <select id="maxSnProject" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from [CEES_GJHJ]
+    </select>
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_GJHJ
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(projectnumber  as int))),0)
+        from CEES_GJHJ
+    </select>
+
+    <select id="maxGjhjnumber" resultType="String">
+         select
+        ISNULL(MAX((gjhjnumber )),0)
+        from CEES_GJHJ
+    </select>
+
+</mapper>
