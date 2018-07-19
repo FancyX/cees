@@ -21,4 +21,6 @@ public interface CEES_GJYCService {
     int getProjectnumber();
 
     String getGjycnumber();
+
+    void insert(CEES_GJYCVo cees_gjycVo);
 }

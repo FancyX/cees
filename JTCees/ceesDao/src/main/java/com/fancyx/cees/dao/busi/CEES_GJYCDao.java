@@ -20,4 +20,7 @@ public interface CEES_GJYCDao {
 
     int getProjectnumber();
 
+    String getGjycnumber();
+
+    void insert(CEES_GJYCVo cees_gjycVo);
 }

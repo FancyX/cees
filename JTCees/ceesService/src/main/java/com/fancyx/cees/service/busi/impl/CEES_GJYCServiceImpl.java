@@ -47,4 +47,14 @@ public class CEES_GJYCServiceImpl implements CEES_GJYCService {
     public int getProjectnumber() {
         return  manager.getProjectnumber();
     }
+
+    @Override
+    public String getGjycnumber() {
+        return  manager.getGjycnumber();
+    }
+
+    @Override
+    public void insert(CEES_GJYCVo cees_gjycVo) {
+        manager.insert(cees_gjycVo);
+    }
 }

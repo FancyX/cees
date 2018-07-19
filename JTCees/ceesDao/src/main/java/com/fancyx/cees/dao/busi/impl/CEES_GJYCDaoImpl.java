@@ -60,4 +60,16 @@ public class CEES_GJYCDaoImpl extends BaseDao implements CEES_GJYCDao {
     public int getProjectnumber() {
         return (Integer) this.queryForObject(this.getNamespace("maxProjectnumber"));
     }
+
+    @Override
+    public String getGjycnumber() {
+        return (String) this.queryForObject(this.getNamespace("maxGjycnumber"));
+
+    }
+
+    @Override
+    public void insert(CEES_GJYCVo cees_gjycVo) {
+        this.insert(this.getNamespace("insert"), cees_gjycVo);
+    }
+
 }

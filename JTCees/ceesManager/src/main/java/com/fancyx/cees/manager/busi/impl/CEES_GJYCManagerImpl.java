@@ -47,4 +47,14 @@ public class CEES_GJYCManagerImpl implements CEES_GJYCManager {
     public int getProjectnumber() {
         return  dao.getProjectnumber();
     }
+
+    @Override
+    public String getGjycnumber() {
+        return  dao.getGjycnumber();
+    }
+
+    @Override
+    public void insert(CEES_GJYCVo cees_gjycVo) {
+        dao.insert(cees_gjycVo);
+    }
 }

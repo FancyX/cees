@@ -2,9 +2,9 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fancyx.cees.dao.busi.Display_HntkzDao">
+<mapper namespace="com.fancyx.cees.dao.busi.Display_GJYCDao">
 
-    <select id="selectAll" resultType="com.fancyx.cees.domain.busi.Display_Hntkz">
+    <select id="selectAll" resultType="com.fancyx.cees.domain.busi.Display_GJYC">
       SELECT
         XH,
         XZ,

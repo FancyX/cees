@@ -25,8 +25,8 @@
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_SJKYQDaoMapper.xml"/>
 
         <!--钢筋原材-->
-        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJYCDaoMapper.xml"/>
-        <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJYCDaoMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJYCMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJYCMapper.xml"/>
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>
