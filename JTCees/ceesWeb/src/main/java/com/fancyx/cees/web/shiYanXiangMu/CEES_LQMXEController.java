@@ -34,6 +34,7 @@ import java.util.List;
  * Created by 啊Q on 2018-07-21.
  */
 @Controller
+@RequestMapping(value = "/shiYanXiangMu/LQMXE")
 public class CEES_LQMXEController {
 
     private static final Logger log = Logger.getLogger(CEES_LQMXEController.class);
