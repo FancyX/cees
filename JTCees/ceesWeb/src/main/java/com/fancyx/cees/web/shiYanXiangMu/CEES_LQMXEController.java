@@ -36,8 +36,6 @@ import java.util.List;
 @Controller
 public class CEES_LQMXEController {
 
-
-
     private static final Logger log = Logger.getLogger(CEES_LQMXEController.class);
 
     @Resource

@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_LQMXEDao">
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.CEES_SNJJ">
+        SELECT [lqmxeid]
+              ,[cid]
+              ,[cnumber]
+              ,[pid]
+              ,[projectnumber]
+              ,[client]
+              ,[lqmxenumber]
+              ,[testnumber]
+              ,[sn]
+              ,[sn_project]
+              ,[sn_test]
+              ,[state]
+              ,[remarks]
+              ,[edittime]
+              ,[edituser]
+              ,[readmark]
+              ,[readtime]
+              ,[WTDBH]
+              ,[WTDWMC]
+              ,[CLCD]
+              ,[LYRQ]
+              ,[SYZL]
+              ,[SYBH]
+              ,[GCMC]
+              ,[CLYT]
+              ,[SYRQ]
+              ,[YQBH]
+              ,[LQXDMD]
+              ,[KLZLYL1]
+              ,[KLZLYL2]
+              ,[KLZLYL3]
+              ,[KLZLYL4]
+              ,[KLZLYL5]
+              ,[KLZLYL6]
+              ,[KLXDMD1]
+              ,[KLXDMD2]
+              ,[KLXDMD3]
+              ,[KLXDMD4]
+              ,[KLXDMD5]
+              ,[KLXDMD6]
+              ,[BHWD]
+              ,[CJCS]
+              ,[SJBH1]
+              ,[SJHD11]
+              ,[SJHD12]
+              ,[SJHD13]
+              ,[SJHD14]
+              ,[SJHD21]
+              ,[SJHD22]
+              ,[SJHD23]
+              ,[SJHD24]
+              ,[SJHD31]
+              ,[SJHD32]
+              ,[SJHD33]
+              ,[SJHD34]
+              ,[SJHD1PJ]
+              ,[SJHD2PJ]
+              ,[SJHD3PJ]
+              ,[SJHD4PJ]
+              ,[LQHL1]
+              ,[SJHD1]
+              ,[JSWD1]
+              ,[JSWDJQZ1]
+              ,[KQZZ1]
+              ,[SZZL1]
+              ,[BHMGZ1]
+              ,[TJ451]
+              ,[TJ651]
+              ,[SJ471]
+              ,[BHMG1]
+              ,[LL1]
+              ,[LQTJBFL1]
+              ,[KXL1]
+              ,[LLJKXL1]
+              ,[BHD1]
+              ,[WDD1]
+              ,[LZDW]
+              ,[LZ1]
+              ,[MXRDS1]
+              ,[SJBH2]
+              ,[LQHL2]
+              ,[SJHD2]
+              ,[JSWD2]
+              ,[JSWDJQZ2]
+              ,[KQZZ2]
+              ,[SZZL2]
+              ,[BHMGZ2]
+              ,[TJ452]
+              ,[TJ652]
+              ,[SJ472]
+              ,[BHMG2]
+              ,[LL2]
+              ,[LQTJBFL2]
+              ,[KXL2]
+              ,[LLJKXL2]
+              ,[BHD2]
+              ,[WDD2]
+              ,[LZ2]
+              ,[MXRDS2]
+              ,[SJBH3]
+              ,[LQHL3]
+              ,[SJHD3]
+              ,[JSWD3]
+              ,[JSWDJQZ3]
+              ,[KQZZ3]
+              ,[SZZL3]
+              ,[BHMGZ3]
+              ,[TJ453]
+              ,[TJ653]
+              ,[SJ473]
+              ,[BHMG3]
+              ,[LL3]
+              ,[LQTJBFL3]
+              ,[KXL3]
+              ,[LLJKXL3]
+              ,[BHD3]
+              ,[WDD3]
+              ,[LZ3]
+              ,[MXRDS3]
+              ,[SJBH4]
+              ,[LQHL4]
+              ,[SJHD4]
+              ,[JSWD4]
+              ,[JSWDJQZ4]
+              ,[KQZZ4]
+              ,[SZZL4]
+              ,[BHMGZ4]
+              ,[TJ454]
+              ,[TJ654]
+              ,[SJ474]
+              ,[BHMG4]
+              ,[LL4]
+              ,[LQTJBFL4]
+              ,[KXL4]
+              ,[LLJKXL4]
+              ,[BHD4]
+              ,[WDD4]
+              ,[LZ4]
+              ,[MXRDS4]
+              ,[BZ]
+              ,[JQZ3]
+              ,[JQZ4]
+              ,[JQZ5]
+              ,[JQZ6]
+              ,[JQZ7]
+              ,[JQZ8]
+              ,[JQZ9]
+              ,[JQZ10]
+              ,[JQZ11]
+              ,[JQZ12]
+              ,[JQZ13]
+              ,[JQZ14]
+              ,[JQZ15]
+              ,[JQZ16]
+              ,[JQZ17]
+              ,[JQZ18]
+              ,[MTJMD1]
+              ,[MTJMD2]
+              ,[MTJMD3]
+              ,[MTJMD4]
+              ,[MTJMD5]
+              ,[KONGXL1]
+              ,[KONGXL2]
+              ,[KONGXL3]
+              ,[KONGXL4]
+              ,[KONGXL5]
+              ,[MTJXDMD]
+              ,[KLJXL1]
+              ,[KLJXL2]
+              ,[KLJXL3]
+              ,[KLJXL4]
+              ,[KLJXL5]
+              ,[LQBHD1]
+              ,[LQBHD2]
+              ,[LQBHD3]
+              ,[LQBHD4]
+              ,[LQBHD5]
+              ,[BEIZHU1]
+              ,[BEIZHU2]
+              ,[BEIZHU3]
+              ,[BEIZHU4]
+              ,[BEIZHU5]
+              ,[XHR]
+              ,[SYR]
+              ,[JL]
+              ,[DWDM]
+              ,[SYXMDM]
+              ,[SYXMMC]
+              ,[SHIYBH]
+              ,[SYMC]
+              ,[WTDWBH]
+              ,[GCBH]
+              ,[JSFZRBH]
+              ,[JSFZR]
+              ,[XHRBH]
+              ,[XHBZ]
+              ,[XHYJ]
+              ,[QFBZ]
+              ,[QFYJ]
+              ,[SYRBH]
+              ,[BGRQ]
+              ,[ZXGC]
+              ,[ZXBZ]
+              ,[SYWTR]
+              ,[JZBZ]
+              ,[HGBZ]
+              ,[SYJG]
+              ,[CLYJ]
+              ,[WTZH]
+              ,[JLBBH]
+              ,[BGBBH]
+          FROM [CEES_LQMXE]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+        [CEES_LQMXE]
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM   [CEES_LQMXE]
+        where
+        [gjycid] =  #{id}
+        AND  [state] == '录入'
+    </delete>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo">
+
+        UPDATE [CEES_LQMXE]
+        SET [cid] = #{cid}
+        ,[cnumber] = #{cnumber}
+        ,[pid] = #{pid}
+        ,[projectnumber] = #{projectnumber}
+        ,[client] = #{client}
+        ,[lqmxenumber] = #{lqmxenumber}
+        ,[testnumber] = #{testnumber}
+        ,[sn] = #{sn}
+        ,[sn_project] = #{sn_project}
+        ,[sn_test] = #{sn_test}
+        ,[state] = #{state}
+        ,[remarks] = #{remarks}
+        ,[edittime] = #{edittime}
+        ,[edituser] = #{edituser}
+        ,[readmark] = #{readmark}
+        ,[readtime] = #{readtime}
+        ,[WTDBH] = #{WTDBH}
+        ,[WTDWMC] = #{WTDWMC}
+        ,[CLCD] = #{CLCD}
+        ,[LYRQ] = #{LYRQ}
+        ,[SYZL] = #{SYZL}
+        ,[SYBH] = #{SYBH}
+        ,[GCMC] = #{GCMC}
+        ,[CLYT] = #{CLYT}
+        ,[SYRQ] = #{SYRQ}
+        ,[YQBH] = #{YQBH}
+        ,[LQXDMD] = #{LQXDMD}
+        ,[KLZLYL1] = #{KLZLYL1}
+        ,[KLZLYL2] = #{KLZLYL2}
+        ,[KLZLYL3] = #{KLZLYL3}
+        ,[KLZLYL4] = #{KLZLYL4}
+        ,[KLZLYL5] = #{KLZLYL5}
+        ,[KLZLYL6] = #{KLZLYL6}
+        ,[KLXDMD1] = #{KLXDMD1}
+        ,[KLXDMD2] = #{KLXDMD2}
+        ,[KLXDMD3] = #{KLXDMD3}
+        ,[KLXDMD4] = #{KLXDMD4}
+        ,[KLXDMD5] = #{KLXDMD5}
+        ,[KLXDMD6] = #{KLXDMD6}
+        ,[BHWD] = #{BHWD}
+        ,[CJCS] = #{CJCS}
+        ,[SJBH1] = #{SJBH1}
+        ,[SJHD11] = #{SJHD11}
+        ,[SJHD12] = #{SJHD12}
+        ,[SJHD13] = #{SJHD13}
+        ,[SJHD14] = #{SJHD14}
+        ,[SJHD21] = #{SJHD21}
+        ,[SJHD22] = #{SJHD22}
+        ,[SJHD23] = #{SJHD23}
+        ,[SJHD24] = #{SJHD24}
+        ,[SJHD31] = #{SJHD31}
+        ,[SJHD32] = #{SJHD32}
+        ,[SJHD33] = #{SJHD33}
+        ,[SJHD34] = #{SJHD34}
+        ,[SJHD1PJ] = #{SJHD1PJ}
+        ,[SJHD2PJ] = #{SJHD2PJ}
+        ,[SJHD3PJ] = #{SJHD3PJ}
+        ,[SJHD4PJ] = #{SJHD4PJ}
+        ,[LQHL1] = #{LQHL1}
+        ,[SJHD1] = #{SJHD1}
+        ,[JSWD1] = #{JSWD1}
+        ,[JSWDJQZ1] = #{JSWDJQZ1}
+        ,[KQZZ1] = #{KQZZ1}
+        ,[SZZL1] = #{SZZL1}
+        ,[BHMGZ1] = #{BHMGZ1}
+        ,[TJ451] = #{TJ451}
+        ,[TJ651] = #{TJ651}
+        ,[SJ471] = #{SJ471}
+        ,[BHMG1] = #{BHMG1}
+        ,[LL1] = #{LL1}
+        ,[LQTJBFL1] = #{LQTJBFL1}
+        ,[KXL1] = #{KXL1}
+        ,[LLJKXL1] = #{LLJKXL1}
+        ,[BHD1] = #{BHD1}
+        ,[WDD1] = #{WDD1}
+        ,[LZDW] = #{LZDW}
+        ,[LZ1] = #{LZ1}
+        ,[MXRDS1] = #{MXRDS1}
+        ,[SJBH2] = #{SJBH2}
+        ,[LQHL2] = #{LQHL2}
+        ,[SJHD2] = #{SJHD2}
+        ,[JSWD2] = #{JSWD2}
+        ,[JSWDJQZ2] = #{JSWDJQZ2}
+        ,[KQZZ2] = #{KQZZ2}
+        ,[SZZL2] = #{SZZL2}
+        ,[BHMGZ2] = #{BHMGZ2}
+        ,[TJ452] = #{TJ452}
+        ,[TJ652] = #{TJ652}
+        ,[SJ472] = #{SJ472}
+        ,[BHMG2] = #{BHMG2}
+        ,[LL2] = #{LL2}
+        ,[LQTJBFL2] = #{LQTJBFL2}
+        ,[KXL2] = #{KXL2}
+        ,[LLJKXL2] = #{LLJKXL2}
+        ,[BHD2] = #{BHD2}
+        ,[WDD2] = #{WDD2}
+        ,[LZ2] = #{LZ2}
+        ,[MXRDS2] = #{MXRDS2}
+        ,[SJBH3] = #{SJBH3}
+        ,[LQHL3] = #{LQHL3}
+        ,[SJHD3] = #{SJHD3}
+        ,[JSWD3] = #{JSWD3}
+        ,[JSWDJQZ3] = #{JSWDJQZ3}
+        ,[KQZZ3] = #{KQZZ3}
+        ,[SZZL3] = #{SZZL3}
+        ,[BHMGZ3] = #{BHMGZ3}
+        ,[TJ453] = #{TJ453}
+        ,[TJ653] = #{TJ653}
+        ,[SJ473] = #{SJ473}
+        ,[BHMG3] = #{BHMG3}
+        ,[LL3] = #{LL3}
+        ,[LQTJBFL3] = #{LQTJBFL3}
+        ,[KXL3] = #{KXL3}
+        ,[LLJKXL3] = #{LLJKXL3}
+        ,[BHD3] = #{BHD3}
+        ,[WDD3] = #{WDD3}
+        ,[LZ3] = #{LZ3}
+        ,[MXRDS3] = #{MXRDS3}
+        ,[SJBH4] = #{SJBH4}
+        ,[LQHL4] = #{LQHL4}
+        ,[SJHD4] = #{SJHD4}
+        ,[JSWD4] = #{JSWD4}
+        ,[JSWDJQZ4] = #{JSWDJQZ4}
+        ,[KQZZ4] = #{KQZZ4}
+        ,[SZZL4] = #{SZZL4}
+        ,[BHMGZ4] = #{BHMGZ4}
+        ,[TJ454] = #{TJ454}
+        ,[TJ654] = #{TJ654}
+        ,[SJ474] = #{SJ474}
+        ,[BHMG4] = #{BHMG4}
+        ,[LL4] = #{LL4}
+        ,[LQTJBFL4] = #{LQTJBFL4}
+        ,[KXL4] = #{KXL4}
+        ,[LLJKXL4] = #{LLJKXL4}
+        ,[BHD4] = #{BHD4}
+        ,[WDD4] = #{WDD4}
+        ,[LZ4] = #{LZ4}
+        ,[MXRDS4] = #{MXRDS4}
+        ,[BZ] = #{BZ}
+        ,[JQZ3] = #{JQZ3}
+        ,[JQZ4] = #{JQZ4}
+        ,[JQZ5] = #{JQZ5}
+        ,[JQZ6] = #{JQZ6}
+        ,[JQZ7] = #{JQZ7}
+        ,[JQZ8] = #{JQZ8}
+        ,[JQZ9] = #{JQZ9}
+        ,[JQZ10] = #{JQZ10}
+        ,[JQZ11] = #{JQZ11}
+        ,[JQZ12] = #{JQZ12}
+        ,[JQZ13] = #{JQZ13}
+        ,[JQZ14] = #{JQZ14}
+        ,[JQZ15] = #{JQZ15}
+        ,[JQZ16] = #{JQZ16}
+        ,[JQZ17] = #{JQZ17}
+        ,[JQZ18] = #{JQZ18}
+        ,[MTJMD1] = #{MTJMD1}
+        ,[MTJMD2] = #{MTJMD2}
+        ,[MTJMD3] = #{MTJMD3}
+        ,[MTJMD4] = #{MTJMD4}
+        ,[MTJMD5] = #{MTJMD5}
+        ,[KONGXL1] = #{KONGXL1}
+        ,[KONGXL2] = #{KONGXL2}
+        ,[KONGXL3] = #{KONGXL3}
+        ,[KONGXL4] = #{KONGXL4}
+        ,[KONGXL5] = #{KONGXL5}
+        ,[MTJXDMD] = #{MTJXDMD}
+        ,[KLJXL1] = #{KLJXL1}
+        ,[KLJXL2] = #{KLJXL2}
+        ,[KLJXL3] = #{KLJXL3}
+        ,[KLJXL4] = #{KLJXL4}
+        ,[KLJXL5] = #{KLJXL5}
+        ,[LQBHD1] = #{LQBHD1}
+        ,[LQBHD2] = #{LQBHD2}
+        ,[LQBHD3] = #{LQBHD3}
+        ,[LQBHD4] = #{LQBHD4}
+        ,[LQBHD5] = #{LQBHD5}
+        ,[BEIZHU1] = #{BEIZHU1}
+        ,[BEIZHU2] = #{BEIZHU2}
+        ,[BEIZHU3] = #{BEIZHU3}
+        ,[BEIZHU4] = #{BEIZHU4}
+        ,[BEIZHU5] = #{BEIZHU5}
+        ,[XHR] = #{XHR}
+        ,[SYR] = #{SYR}
+        ,[JL] = #{JL}
+        ,[DWDM] = #{DWDM}
+        ,[SYXMDM] = #{SYXMDM}
+        ,[SYXMMC] = #{SYXMMC}
+        ,[SHIYBH] = #{SHIYBH}
+        ,[SYMC] = #{SYMC}
+        ,[WTDWBH] = #{WTDWBH}
+        ,[GCBH] = #{GCBH}
+        ,[JSFZRBH] = #{JSFZRBH}
+        ,[JSFZR] = #{JSFZR}
+        ,[XHRBH] = #{XHRBH}
+        ,[XHBZ] = #{XHBZ}
+        ,[XHYJ] = #{XHYJ}
+        ,[QFBZ] = #{QFBZ}
+        ,[QFYJ] = #{QFYJ}
+        ,[SYRBH] = #{SYRBH}
+        ,[BGRQ] = #{BGRQ}
+        ,[ZXGC] = #{ZXGC}
+        ,[ZXBZ] = #{ZXBZ}
+        ,[SYWTR] = #{SYWTR}
+        ,[JZBZ] = #{JZBZ}
+        ,[HGBZ] = #{HGBZ}
+        ,[SYJG] = #{SYJG}
+        ,[CLYJ] = #{CLYJ}
+        ,[WTZH] = #{WTZH}
+        ,[JLBBH] = #{JLBBH}
+        ,[BGBBH] = #{BGBBH}
+        WHERE
+        lqmxeid = #{lqmxeid}
+      </update>
+
+    <select id="maxSnProject" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from [CEES_LQMXE]
+    </select>
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_LQMXE
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(projectnumber  as int))),0)
+        from CEES_LQMXE
+    </select>
+
+    <select id="maxLqmxenumber" resultType="String">
+        select
+        ISNULL(MAX((lqmxenumber )),0)
+        from CEES_LQMXE
+    </select>
+
+    <insert id="insert"  parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo">
+        INSERT INTO [CEES_LQMXE]
+        ([cid]
+        ,[cnumber]
+        ,[pid]
+        ,[projectnumber]
+        ,[client]
+        ,[lqmxenumber]
+        ,[testnumber]
+        ,[sn]
+        ,[sn_project]
+        ,[sn_test]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        ,[WTDBH]
+        ,[WTDWMC]
+        ,[CLCD]
+        ,[LYRQ]
+        ,[SYZL]
+        ,[SYBH]
+        ,[GCMC]
+        ,[CLYT]
+        ,[SYRQ]
+        ,[YQBH]
+        ,[LQXDMD]
+        ,[KLZLYL1]
+        ,[KLZLYL2]
+        ,[KLZLYL3]
+        ,[KLZLYL4]
+        ,[KLZLYL5]
+        ,[KLZLYL6]
+        ,[KLXDMD1]
+        ,[KLXDMD2]
+        ,[KLXDMD3]
+        ,[KLXDMD4]
+        ,[KLXDMD5]
+        ,[KLXDMD6]
+        ,[BHWD]
+        ,[CJCS]
+        ,[SJBH1]
+        ,[SJHD11]
+        ,[SJHD12]
+        ,[SJHD13]
+        ,[SJHD14]
+        ,[SJHD21]
+        ,[SJHD22]
+        ,[SJHD23]
+        ,[SJHD24]
+        ,[SJHD31]
+        ,[SJHD32]
+        ,[SJHD33]
+        ,[SJHD34]
+        ,[SJHD1PJ]
+        ,[SJHD2PJ]
+        ,[SJHD3PJ]
+        ,[SJHD4PJ]
+        ,[LQHL1]
+        ,[SJHD1]
+        ,[JSWD1]
+        ,[JSWDJQZ1]
+        ,[KQZZ1]
+        ,[SZZL1]
+        ,[BHMGZ1]
+        ,[TJ451]
+        ,[TJ651]
+        ,[SJ471]
+        ,[BHMG1]
+        ,[LL1]
+        ,[LQTJBFL1]
+        ,[KXL1]
+        ,[LLJKXL1]
+        ,[BHD1]
+        ,[WDD1]
+        ,[LZDW]
+        ,[LZ1]
+        ,[MXRDS1]
+        ,[SJBH2]
+        ,[LQHL2]
+        ,[SJHD2]
+        ,[JSWD2]
+        ,[JSWDJQZ2]
+        ,[KQZZ2]
+        ,[SZZL2]
+        ,[BHMGZ2]
+        ,[TJ452]
+        ,[TJ652]
+        ,[SJ472]
+        ,[BHMG2]
+        ,[LL2]
+        ,[LQTJBFL2]
+        ,[KXL2]
+        ,[LLJKXL2]
+        ,[BHD2]
+        ,[WDD2]
+        ,[LZ2]
+        ,[MXRDS2]
+        ,[SJBH3]
+        ,[LQHL3]
+        ,[SJHD3]
+        ,[JSWD3]
+        ,[JSWDJQZ3]
+        ,[KQZZ3]
+        ,[SZZL3]
+        ,[BHMGZ3]
+        ,[TJ453]
+        ,[TJ653]
+        ,[SJ473]
+        ,[BHMG3]
+        ,[LL3]
+        ,[LQTJBFL3]
+        ,[KXL3]
+        ,[LLJKXL3]
+        ,[BHD3]
+        ,[WDD3]
+        ,[LZ3]
+        ,[MXRDS3]
+        ,[SJBH4]
+        ,[LQHL4]
+        ,[SJHD4]
+        ,[JSWD4]
+        ,[JSWDJQZ4]
+        ,[KQZZ4]
+        ,[SZZL4]
+        ,[BHMGZ4]
+        ,[TJ454]
+        ,[TJ654]
+        ,[SJ474]
+        ,[BHMG4]
+        ,[LL4]
+        ,[LQTJBFL4]
+        ,[KXL4]
+        ,[LLJKXL4]
+        ,[BHD4]
+        ,[WDD4]
+        ,[LZ4]
+        ,[MXRDS4]
+        ,[BZ]
+        ,[JQZ3]
+        ,[JQZ4]
+        ,[JQZ5]
+        ,[JQZ6]
+        ,[JQZ7]
+        ,[JQZ8]
+        ,[JQZ9]
+        ,[JQZ10]
+        ,[JQZ11]
+        ,[JQZ12]
+        ,[JQZ13]
+        ,[JQZ14]
+        ,[JQZ15]
+        ,[JQZ16]
+        ,[JQZ17]
+        ,[JQZ18]
+        ,[MTJMD1]
+        ,[MTJMD2]
+        ,[MTJMD3]
+        ,[MTJMD4]
+        ,[MTJMD5]
+        ,[KONGXL1]
+        ,[KONGXL2]
+        ,[KONGXL3]
+        ,[KONGXL4]
+        ,[KONGXL5]
+        ,[MTJXDMD]
+        ,[KLJXL1]
+        ,[KLJXL2]
+        ,[KLJXL3]
+        ,[KLJXL4]
+        ,[KLJXL5]
+        ,[LQBHD1]
+        ,[LQBHD2]
+        ,[LQBHD3]
+        ,[LQBHD4]
+        ,[LQBHD5]
+        ,[BEIZHU1]
+        ,[BEIZHU2]
+        ,[BEIZHU3]
+        ,[BEIZHU4]
+        ,[BEIZHU5]
+        ,[XHR]
+        ,[SYR]
+        ,[JL]
+        ,[DWDM]
+        ,[SYXMDM]
+        ,[SYXMMC]
+        ,[SHIYBH]
+        ,[SYMC]
+        ,[WTDWBH]
+        ,[GCBH]
+        ,[JSFZRBH]
+        ,[JSFZR]
+        ,[XHRBH]
+        ,[XHBZ]
+        ,[XHYJ]
+        ,[QFBZ]
+        ,[QFYJ]
+        ,[SYRBH]
+        ,[BGRQ]
+        ,[ZXGC]
+        ,[ZXBZ]
+        ,[SYWTR]
+        ,[JZBZ]
+        ,[HGBZ]
+        ,[SYJG]
+        ,[CLYJ]
+        ,[WTZH]
+        ,[JLBBH]
+        ,[BGBBH])
+        VALUES
+        (#{cid}
+        ,#{cnumber}
+        ,#{pid}
+        ,#{projectnumber}
+        ,#{client}
+        ,#{lqmxenumber}
+        ,#{testnumber}
+        ,#{sn}
+        ,#{sn_project}
+        ,#{sn_test}
+        ,#{state}
+        ,#{remarks}
+        ,#{edittime}
+        ,#{edituser}
+        ,#{readmark}
+        ,#{readtime}
+        ,#{WTDBH}
+        ,#{WTDWMC}
+        ,#{CLCD}
+        ,#{LYRQ}
+        ,#{SYZL}
+        ,#{SYBH}
+        ,#{GCMC}
+        ,#{CLYT}
+        ,#{SYRQ}
+        ,#{YQBH}
+        ,#{LQXDMD}
+        ,#{KLZLYL1}
+        ,#{KLZLYL2}
+        ,#{KLZLYL3}
+        ,#{KLZLYL4}
+        ,#{KLZLYL5}
+        ,#{KLZLYL6}
+        ,#{KLXDMD1}
+        ,#{KLXDMD2}
+        ,#{KLXDMD3}
+        ,#{KLXDMD4}
+        ,#{KLXDMD5}
+        ,#{KLXDMD6}
+        ,#{BHWD}
+        ,#{CJCS}
+        ,#{SJBH1}
+        ,#{SJHD11}
+        ,#{SJHD12}
+        ,#{SJHD13}
+        ,#{SJHD14}
+        ,#{SJHD21}
+        ,#{SJHD22}
+        ,#{SJHD23}
+        ,#{SJHD24}
+        ,#{SJHD31}
+        ,#{SJHD32}
+        ,#{SJHD33}
+        ,#{SJHD34}
+        ,#{SJHD1PJ}
+        ,#{SJHD2PJ}
+        ,#{SJHD3PJ}
+        ,#{SJHD4PJ}
+        ,#{LQHL1}
+        ,#{SJHD1}
+        ,#{JSWD1}
+        ,#{JSWDJQZ1}
+        ,#{KQZZ1}
+        ,#{SZZL1}
+        ,#{BHMGZ1}
+        ,#{TJ451}
+        ,#{TJ651}
+        ,#{SJ471}
+        ,#{BHMG1}
+        ,#{LL1}
+        ,#{LQTJBFL1}
+        ,#{KXL1}
+        ,#{LLJKXL1}
+        ,#{BHD1}
+        ,#{WDD1}
+        ,#{LZDW}
+        ,#{LZ1}
+        ,#{MXRDS1}
+        ,#{SJBH2}
+        ,#{LQHL2}
+        ,#{SJHD2}
+        ,#{JSWD2}
+        ,#{JSWDJQZ2}
+        ,#{KQZZ2}
+        ,#{SZZL2}
+        ,#{BHMGZ2}
+        ,#{TJ452}
+        ,#{TJ652}
+        ,#{SJ472}
+        ,#{BHMG2}
+        ,#{LL2}
+        ,#{LQTJBFL2}
+        ,#{KXL2}
+        ,#{LLJKXL2}
+        ,#{BHD2}
+        ,#{WDD2}
+        ,#{LZ2}
+        ,#{MXRDS2}
+        ,#{SJBH3}
+        ,#{LQHL3}
+        ,#{SJHD3}
+        ,#{JSWD3}
+        ,#{JSWDJQZ3}
+        ,#{KQZZ3}
+        ,#{SZZL3}
+        ,#{BHMGZ3}
+        ,#{TJ453}
+        ,#{TJ653}
+        ,#{SJ473}
+        ,#{BHMG3}
+        ,#{LL3}
+        ,#{LQTJBFL3}
+        ,#{KXL3}
+        ,#{LLJKXL3}
+        ,#{BHD3}
+        ,#{WDD3}
+        ,#{LZ3}
+        ,#{MXRDS3}
+        ,#{SJBH4}
+        ,#{LQHL4}
+        ,#{SJHD4}
+        ,#{JSWD4}
+        ,#{JSWDJQZ4}
+        ,#{KQZZ4}
+        ,#{SZZL4}
+        ,#{BHMGZ4}
+        ,#{TJ454}
+        ,#{TJ654}
+        ,#{SJ474}
+        ,#{BHMG4}
+        ,#{LL4}
+        ,#{LQTJBFL4}
+        ,#{KXL4}
+        ,#{LLJKXL4}
+        ,#{BHD4}
+        ,#{WDD4}
+        ,#{LZ4}
+        ,#{MXRDS4}
+        ,#{BZ}
+        ,#{JQZ3}
+        ,#{JQZ4}
+        ,#{JQZ5}
+        ,#{JQZ6}
+        ,#{JQZ7}
+        ,#{JQZ8}
+        ,#{JQZ9}
+        ,#{JQZ10}
+        ,#{JQZ11}
+        ,#{JQZ12}
+        ,#{JQZ13}
+        ,#{JQZ14}
+        ,#{JQZ15}
+        ,#{JQZ16}
+        ,#{JQZ17}
+        ,#{JQZ18}
+        ,#{MTJMD1}
+        ,#{MTJMD2}
+        ,#{MTJMD3}
+        ,#{MTJMD4}
+        ,#{MTJMD5}
+        ,#{KONGXL1}
+        ,#{KONGXL2}
+        ,#{KONGXL3}
+        ,#{KONGXL4}
+        ,#{KONGXL5}
+        ,#{MTJXDMD}
+        ,#{KLJXL1}
+        ,#{KLJXL2}
+        ,#{KLJXL3}
+        ,#{KLJXL4}
+        ,#{KLJXL5}
+        ,#{LQBHD1}
+        ,#{LQBHD2}
+        ,#{LQBHD3}
+        ,#{LQBHD4}
+        ,#{LQBHD5}
+        ,#{BEIZHU1}
+        ,#{BEIZHU2}
+        ,#{BEIZHU3}
+        ,#{BEIZHU4}
+        ,#{BEIZHU5}
+        ,#{XHR}
+        ,#{SYR}
+        ,#{JL}
+        ,#{DWDM}
+        ,#{SYXMDM}
+        ,#{SYXMMC}
+        ,#{SHIYBH}
+        ,#{SYMC}
+        ,#{WTDWBH}
+        ,#{GCBH}
+        ,#{JSFZRBH}
+        ,#{JSFZR}
+        ,#{XHRBH}
+        ,#{XHBZ}
+        ,#{XHYJ}
+        ,#{QFBZ}
+        ,#{QFYJ}
+        ,#{SYRBH}
+        ,#{BGRQ}
+        ,#{ZXGC}
+        ,#{ZXBZ}
+        ,#{SYWTR}
+        ,#{JZBZ}
+        ,#{HGBZ}
+        ,#{SYJG}
+        ,#{CLYJ}
+        ,#{WTZH}
+        ,#{JLBBH}
+        ,#{BGBBH})
+    </insert>
+
+</mapper>

@@ -23,13 +23,22 @@
         <!--砂浆抗压-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_SJKYQDaoMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_SJKYQDaoMapper.xml"/>
-
         <!--钢筋原材-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJYCMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJYCMapper.xml"/>
         <!--钢筋焊接头-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_GJHJMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_GJHJMapper.xml"/>
+        <!--净浆强度试验-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_SNJJMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_SNJJMapper.xml"/>
+        <!--马歇尔稳定度-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_LQMXEMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_LQMXEMapper.xml"/>
+        <!--无侧限抗压强度-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_WCXKYMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_WCXKYMapper.xml"/>
+
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>

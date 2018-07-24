@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.Display_LQMXEDao">
+
+    <select id="selectAll" resultType="com.fancyx.cees.domain.busi.Display_LQMXE">
+      SELECT
+        XH,
+        XZ,
+        ZDMC,
+        GRIDMC,
+        ZW,
+        XSKD,
+        XSYS,
+        VISIBLE
+      FROM
+        Display_LQMXE
+      where
+        VISIBLE = 1
+    </select>
+
+</mapper>

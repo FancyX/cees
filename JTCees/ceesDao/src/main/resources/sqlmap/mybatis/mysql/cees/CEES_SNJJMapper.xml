@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_SNJJDao">
+
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.CEES_SNJJ">
+        SELECT [snjjid]
+              ,[cid]
+              ,[cnumber]
+              ,[pid]
+              ,[projectnumber]
+              ,[client]
+              ,[snjjnumber]
+              ,[testnumber]
+              ,[sn]
+              ,[sn_project]
+              ,[sn_test]
+              ,[state]
+              ,[remarks]
+              ,[edittime]
+              ,[edituser]
+              ,[readmark]
+              ,[readtime]
+              ,[WTDBH]
+              ,[WTDWMC]
+              ,[LYRQ]
+              ,[SYBH1]
+              ,[SYBH2]
+              ,[YQBH]
+              ,[GCMC]
+              ,[SYRQ]
+              ,[SYZL]
+              ,[CLCD]
+              ,[CLYT]
+              ,[JL]
+              ,[BZ]
+              ,[DWDM]
+              ,[SYXMDM1]
+              ,[SYXMDM2]
+              ,[SYXMMC1]
+              ,[SYXMMC2]
+              ,[SHIYBH]
+              ,[SYMC]
+              ,[WTDWBH]
+              ,[GCBH]
+              ,[JSFZRBH]
+              ,[JSFZR]
+              ,[XHRBH]
+              ,[XHR]
+              ,[XHBZ]
+              ,[XHYJ]
+              ,[QFBZ]
+              ,[QFYJ]
+              ,[SYRBH]
+              ,[SYR]
+              ,[BGRQ]
+              ,[ZXGC1]
+              ,[ZXGC2]
+              ,[ZXBZ1]
+              ,[ZXBZ2]
+              ,[SYWTR]
+              ,[JZBZ]
+              ,[HGBZ]
+              ,[SYJG]
+              ,[CLYJ]
+              ,[WTZH]
+              ,[WTR]
+              ,[SGBW]
+              ,[CB]
+              ,[KZC]
+              ,[KZK]
+              ,[KZG]
+              ,[KZKD]
+              ,[KZDK1]
+              ,[KZDK2]
+              ,[KZDK3]
+              ,[KZDKPJ]
+              ,[KZQD]
+              ,[KZDDSJQD]
+              ,[KYSJBC]
+              ,[KYSYMJ]
+              ,[KYDK1]
+              ,[KYDK2]
+              ,[KYDK3]
+              ,[KYDK4]
+              ,[KYDK5]
+              ,[KYDK6]
+              ,[KYDKPJ]
+              ,[KYQD]
+              ,[KYDDSJQD]
+              ,[SJZL]
+              ,[CD]
+              ,[SNPZ]
+              ,[QDDJ]
+              ,[WJJZL]
+              ,[WJJZL2]
+              ,[CHLZL]
+              ,[PHBBH]
+              ,[SN1]
+              ,[SZ]
+              ,[SHUI]
+              ,[CHL]
+              ,[WJJ]
+              ,[WJJ2]
+              ,[ZMRQ]
+              ,[YHTJ]
+              ,[YQLQ]
+              ,[YQSYRQ]
+              ,[SKSDRQ]
+              ,[SKZZR]
+              ,[SJBH]
+              ,[SJLQ]
+              ,[SJKZQD]
+              ,[SJKYQD]
+              ,[JLBBH]
+              ,[BGBBH]
+          FROM [CEES_SNJJ]
+    </select>
+
+    <select id="selectByBeanCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+          [CEES_SNJJ]
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM [CEES_SNJJ]
+        where
+        [gjycid] =  #{id}
+        AND  [state] == '录入'
+    </delete>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_SNJJVo">
+        UPDATE [CEES_SNJJ]
+        SET [cid] = #{cid}
+        ,[cnumber] = #{cnumber}
+        ,[pid] = #{pid}
+        ,[projectnumber] = #{projectnumber}
+        ,[client] = #{client}
+        ,[snjjnumber] = #{snjjnumber}
+        ,[testnumber] = #{testnumber}
+        ,[sn] = #{sn}
+        ,[sn_project] = #{sn_project}
+        ,[sn_test] = #{sn_test}
+        ,[state] = #{state}
+        ,[remarks] = #{remarks}
+        ,[edittime] = #{edittime}
+        ,[edituser] = #{edituser}
+        ,[readmark] = #{readmark}
+        ,[readtime] = #{readtime}
+        ,[WTDBH] = #{WTDBH}
+        ,[WTDWMC] = #{WTDWMC}
+        ,[LYRQ] = #{LYRQ}
+        ,[SYBH1] = #{SYBH1}
+        ,[SYBH2] = #{SYBH2}
+        ,[YQBH] = #{YQBH}
+        ,[GCMC] = #{GCMC}
+        ,[SYRQ] = #{SYRQ}
+        ,[SYZL] = #{SYZL}
+        ,[CLCD] = #{CLCD}
+        ,[CLYT] = #{CLYT}
+        ,[JL] = #{JL}
+        ,[BZ] = #{BZ}
+        ,[DWDM] = #{DWDM}
+        ,[SYXMDM1] = #{SYXMDM1}
+        ,[SYXMDM2] = #{SYXMDM2}
+        ,[SYXMMC1] = #{SYXMMC1}
+        ,[SYXMMC2] = #{SYXMMC2}
+        ,[SHIYBH] = #{SHIYBH}
+        ,[SYMC] = #{SYMC}
+        ,[WTDWBH] = #{WTDWBH}
+        ,[GCBH] = #{GCBH}
+        ,[JSFZRBH] = #{JSFZRBH}
+        ,[JSFZR] = #{JSFZR}
+        ,[XHRBH] = #{XHRBH}
+        ,[XHR] = #{XHR}
+        ,[XHBZ] = #{XHBZ}
+        ,[XHYJ] = #{XHYJ}
+        ,[QFBZ] = #{QFBZ}
+        ,[QFYJ] = #{QFYJ}
+        ,[SYRBH] = #{SYRBH}
+        ,[SYR] = #{SYR}
+        ,[BGRQ] = #{BGRQ}
+        ,[ZXGC1] = #{ZXGC1}
+        ,[ZXGC2] = #{ZXGC2}
+        ,[ZXBZ1] = #{ZXBZ1}
+        ,[ZXBZ2] = #{ZXBZ2}
+        ,[SYWTR] = #{SYWTR}
+        ,[JZBZ] = #{JZBZ}
+        ,[HGBZ] = #{HGBZ}
+        ,[SYJG] = #{SYJG}
+        ,[CLYJ] = #{CLYJ}
+        ,[WTZH] = #{WTZH}
+        ,[WTR] = #{WTR}
+        ,[SGBW] = #{SGBW}
+        ,[CB] = #{CB}
+        ,[KZC] = #{KZC}
+        ,[KZK] = #{KZK}
+        ,[KZG] = #{KZG}
+        ,[KZKD] = #{KZKD}
+        ,[KZDK1] = #{KZDK1}
+        ,[KZDK2] = #{KZDK2}
+        ,[KZDK3] = #{KZDK3}
+        ,[KZDKPJ] = #{KZDKPJ}
+        ,[KZQD] = #{KZQD}
+        ,[KZDDSJQD] = #{KZDDSJQD}
+        ,[KYSJBC] = #{KYSJBC}
+        ,[KYSYMJ] = #{KYSYMJ}
+        ,[KYDK1] = #{KYDK1}
+        ,[KYDK2] = #{KYDK2}
+        ,[KYDK3] = #{KYDK3}
+        ,[KYDK4] = #{KYDK4}
+        ,[KYDK5] = #{KYDK5}
+        ,[KYDK6] = #{KYDK6}
+        ,[KYDKPJ] = #{KYDKPJ}
+        ,[KYQD] = #{KYQD}
+        ,[KYDDSJQD] = #{KYDDSJQD}
+        ,[SJZL] = #{SJZL}
+        ,[CD] = #{CD}
+        ,[SNPZ] = #{SNPZ}
+        ,[QDDJ] = #{QDDJ}
+        ,[WJJZL] = #{WJJZL}
+        ,[WJJZL2] = #{WJJZL2}
+        ,[CHLZL] = #{CHLZL}
+        ,[PHBBH] = #{PHBBH}
+        ,[SN1] = #{SN1}
+        ,[SZ] = #{SZ}
+        ,[SHUI] = #{SHUI}
+        ,[CHL] = #{CHL}
+        ,[WJJ] = #{WJJ}
+        ,[WJJ2] = #{WJJ2}
+        ,[ZMRQ] = #{ZMRQ}
+        ,[YHTJ] = #{YHTJ}
+        ,[YQLQ] = #{YQLQ}
+        ,[YQSYRQ] = #{YQSYRQ}
+        ,[SKSDRQ] = #{SKSDRQ}
+        ,[SKZZR] = #{SKZZR}
+        ,[SJBH] = #{SJBH}
+        ,[SJLQ] = #{SJLQ}
+        ,[SJKZQD] = #{SJKZQD}
+        ,[SJKYQD] = #{SJKYQD}
+        ,[JLBBH] = #{JLBBH}
+        ,[BGBBH] = #{BGBBH}
+        WHERE
+        [snjjid] = #{snjjid}
+    </update>
+
+    <select id="maxSnProject" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX(sn),0)
+        from [CEES_SNJJ]
+    </select>
+
+    <select id="maxCnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(cnumber  as int))),0)
+        from CEES_SNJJ
+    </select>
+
+    <select id="maxProjectnumber" resultType="java.lang.Integer">
+        select
+        ISNULL(MAX((cast(projectnumber  as int))),0)
+        from CEES_SNJJ
+    </select>
+
+    <select id="maxSnjjnumber" resultType="String">
+        select
+        ISNULL(MAX((snjjnumber )),0)
+        from CEES_SNJJ
+    </select>
+
+    <insert id="insert"  parameterType="com.fancyx.cees.domain.vo.CEES_SNJJVo">
+        INSERT INTO [CEES_SNJJ]
+        ([cid]
+        ,[cnumber]
+        ,[pid]
+        ,[projectnumber]
+        ,[client]
+        ,[snjjnumber]
+        ,[testnumber]
+        ,[sn]
+        ,[sn_project]
+        ,[sn_test]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        ,[WTDBH]
+        ,[WTDWMC]
+        ,[LYRQ]
+        ,[SYBH1]
+        ,[SYBH2]
+        ,[YQBH]
+        ,[GCMC]
+        ,[SYRQ]
+        ,[SYZL]
+        ,[CLCD]
+        ,[CLYT]
+        ,[JL]
+        ,[BZ]
+        ,[DWDM]
+        ,[SYXMDM1]
+        ,[SYXMDM2]
+        ,[SYXMMC1]
+        ,[SYXMMC2]
+        ,[SHIYBH]
+        ,[SYMC]
+        ,[WTDWBH]
+        ,[GCBH]
+        ,[JSFZRBH]
+        ,[JSFZR]
+        ,[XHRBH]
+        ,[XHR]
+        ,[XHBZ]
+        ,[XHYJ]
+        ,[QFBZ]
+        ,[QFYJ]
+        ,[SYRBH]
+        ,[SYR]
+        ,[BGRQ]
+        ,[ZXGC1]
+        ,[ZXGC2]
+        ,[ZXBZ1]
+        ,[ZXBZ2]
+        ,[SYWTR]
+        ,[JZBZ]
+        ,[HGBZ]
+        ,[SYJG]
+        ,[CLYJ]
+        ,[WTZH]
+        ,[WTR]
+        ,[SGBW]
+        ,[CB]
+        ,[KZC]
+        ,[KZK]
+        ,[KZG]
+        ,[KZKD]
+        ,[KZDK1]
+        ,[KZDK2]
+        ,[KZDK3]
+        ,[KZDKPJ]
+        ,[KZQD]
+        ,[KZDDSJQD]
+        ,[KYSJBC]
+        ,[KYSYMJ]
+        ,[KYDK1]
+        ,[KYDK2]
+        ,[KYDK3]
+        ,[KYDK4]
+        ,[KYDK5]
+        ,[KYDK6]
+        ,[KYDKPJ]
+        ,[KYQD]
+        ,[KYDDSJQD]
+        ,[SJZL]
+        ,[CD]
+        ,[SNPZ]
+        ,[QDDJ]
+        ,[WJJZL]
+        ,[WJJZL2]
+        ,[CHLZL]
+        ,[PHBBH]
+        ,[SN1]
+        ,[SZ]
+        ,[SHUI]
+        ,[CHL]
+        ,[WJJ]
+        ,[WJJ2]
+        ,[ZMRQ]
+        ,[YHTJ]
+        ,[YQLQ]
+        ,[YQSYRQ]
+        ,[SKSDRQ]
+        ,[SKZZR]
+        ,[SJBH]
+        ,[SJLQ]
+        ,[SJKZQD]
+        ,[SJKYQD]
+        ,[JLBBH]
+        ,[BGBBH])
+        VALUES
+        (#{cid}
+        ,#{cnumber}
+        ,#{pid}
+        ,#{projectnumber}
+        ,#{client}
+        ,#{snjjnumber}
+        ,#{testnumber}
+        ,#{sn}
+        ,#{sn_project}
+        ,#{sn_test}
+        ,#{state}
+        ,#{remarks}
+        ,#{edittime}
+        ,#{edituser}
+        ,#{readmark}
+        ,#{readtime}
+        ,#{WTDBH}
+        ,#{WTDWMC}
+        ,#{LYRQ}
+        ,#{SYBH1}
+        ,#{SYBH2}
+        ,#{YQBH}
+        ,#{GCMC}
+        ,#{SYRQ}
+        ,#{SYZL}
+        ,#{CLCD}
+        ,#{CLYT}
+        ,#{JL}
+        ,#{BZ}
+        ,#{DWDM}
+        ,#{SYXMDM1}
+        ,#{SYXMDM2}
+        ,#{SYXMMC1}
+        ,#{SYXMMC2}
+        ,#{SHIYBH}
+        ,#{SYMC}
+        ,#{WTDWBH}
+        ,#{GCBH}
+        ,#{JSFZRBH}
+        ,#{JSFZR}
+        ,#{XHRBH}
+        ,#{XHR}
+        ,#{XHBZ}
+        ,#{XHYJ}
+        ,#{QFBZ}
+        ,#{QFYJ}
+        ,#{SYRBH}
+        ,#{SYR}
+        ,#{BGRQ}
+        ,#{ZXGC1}
+        ,#{ZXGC2}
+        ,#{ZXBZ1}
+        ,#{ZXBZ2}
+        ,#{SYWTR}
+        ,#{JZBZ}
+        ,#{HGBZ}
+        ,#{SYJG}
+        ,#{CLYJ}
+        ,#{WTZH}
+        ,#{WTR}
+        ,#{SGBW}
+        ,#{CB}
+        ,#{KZC}
+        ,#{KZK}
+        ,#{KZG}
+        ,#{KZKD}
+        ,#{KZDK1}
+        ,#{KZDK2}
+        ,#{KZDK3}
+        ,#{KZDKPJ}
+        ,#{KZQD}
+        ,#{KZDDSJQD}
+        ,#{KYSJBC}
+        ,#{KYSYMJ}
+        ,#{KYDK1}
+        ,#{KYDK2}
+        ,#{KYDK3}
+        ,#{KYDK4}
+        ,#{KYDK5}
+        ,#{KYDK6}
+        ,#{KYDKPJ}
+        ,#{KYQD}
+        ,#{KYDDSJQD}
+        ,#{SJZL}
+        ,#{CD}
+        ,#{SNPZ}
+        ,#{QDDJ}
+        ,#{WJJZL}
+        ,#{WJJZL2}
+        ,#{CHLZL}
+        ,#{PHBBH}
+        ,#{SN1}
+        ,#{SZ}
+        ,#{SHUI}
+        ,#{CHL}
+        ,#{WJJ}
+        ,#{WJJ2}
+        ,#{ZMRQ}
+        ,#{YHTJ}
+        ,#{YQLQ}
+        ,#{YQSYRQ}
+        ,#{SKSDRQ}
+        ,#{SKZZR}
+        ,#{SJBH}
+        ,#{SJLQ}
+        ,#{SJKZQD}
+        ,#{SJKYQD}
+        ,#{JLBBH}
+        ,#{BGBBH})
+    </insert>
+</mapper>
