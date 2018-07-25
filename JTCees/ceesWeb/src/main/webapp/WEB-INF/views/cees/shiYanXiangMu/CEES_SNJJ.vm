@@ -1635,7 +1635,7 @@
             var tableOptions = {
                 elem: '#tableData',
                 height: 510,
-                url: '/shiYanXiangMu/LQMXE/search', //数据接口
+                url: '/shiYanXiangMu/SNJJ/search', //数据接口
                 page: true,//开启分页
                 request: {
                     pageName: 'page', //页码的参数名称，默认：page
@@ -1720,7 +1720,7 @@
         //请求列数据-成功后请求表数据
         jQuery.ajax({
             type: 'post',
-            url: "/shiYanXiangMu/LQMXE/getShowCol.action",
+            url: "/shiYanXiangMu/SNJJ/getShowCol.action",
             dataType: 'json',
             data: {},
             async: false,
@@ -1761,7 +1761,7 @@
                 }
                 jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/LQMXE/update',
+                    url: '/shiYanXiangMu/SNJJ/update',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -2000,7 +2000,7 @@
                 }
                 jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/LQMXE/add',
+                    url: '/shiYanXiangMu/SNJJ/add',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -2051,7 +2051,7 @@
 
             jQuery.ajax({
                 type: 'post',
-                url: "/shiYanXiangMu/LQMXE/delete",
+                url: "/shiYanXiangMu/SNJJ/delete",
                 dataType: 'json',
                 data: {'kyid': data.kyid},
                 async: false,

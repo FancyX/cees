@@ -49,147 +49,9 @@
 
 ##添加弹窗
 <form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
-
-    <div class="layui-form-item">
-        <div class="layui-form-item">
-
-            <div class="layui-inline">
-                <div class="layui-form-item ">
-                    <label class="layui-form-label ">试样编号</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="SYBH" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item ">
-                    <label class="layui-form-label ">执行标准</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="ZXBZ" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item ">
-                    <label class="layui-form-label ">执行规程</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="ZXGC" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-            </div>
-
-            <div class="layui-inline">
-
-                <div class="layui-form-item">
-                    <div class="layui-inline ">
-                        <input type="radio" name="qf" value="签发通过" title="签发通过">
-                        <input type="radio" name="qf" value="签发不通过" title="签发不通过">
-                    </div>
-                    <div class="layui-inline ">
-                        <label class="layui-form-label ">签发意见</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline ">
-                        <input type="radio" name="jh" value="校核通过" title="校核通过">
-                        <input type="radio" name="jh" value="校核不通过" title="校核不通过">
-                    </div>
-                    <div class="layui-inline ">
-                        <label class="layui-form-label ">校核意见</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="layui-inline" style="width: 200px">
-                <div class="layui-form-item">
-                    <div class="layui-inline" style="width: 85px">
-                        <select name="SJQD" lay-search>
-                            <option value="有见证">有见证</option>
-                            <option value="无见证">无见证</option>
-                        </select>
-                    </div>
-                    <div class="layui-inline" style="width: 85px">
-                        <select name="SJQD" lay-search>
-                            <option value="合格">合格</option>
-                            <option value="不合格">不合格</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <select name="SJQD" lay-search>
-
-                    </select>
-                </div>
-                <div class="layui-form-item">
-                    <select name="SJQD" lay-search>
-
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="layui-form-item">
 
-        <table class="layui-table">
-            <tbody>
-            <tr>
-                <td>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-
-                            <label class="layui-form-label ">委托编号</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="SYBH" autocomplete="off"
-                                       class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label ">试验编号</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="SYBH" autocomplete="off"
-                                       class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label ">工程名称</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="SYBH" autocomplete="off"
-                                       class="layui-input">
-                            </div>
-                        </div>
-                    </div><div class="layui-form-item">
-                        <div class="layui-inline">
-
-                            <label class="layui-form-label ">委托单位</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="" autocomplete="off"
-                                       class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label ">施工部位</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="" autocomplete="off"
-                                       class="layui-input">
-                            </div>
-                        </div>
-
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
     </div>
-
 </form>
 
 ##修改
@@ -324,7 +186,7 @@
             var tableOptions = {
                 elem: '#tableData',
                 height: 510,
-                url: '/shiYanXiangMu/SJKYQD/search', //数据接口
+                url: '/shiYanXiangMu/WCXKY/search', //数据接口
                 page: true,//开启分页
                 request: {
                     pageName: 'page', //页码的参数名称，默认：page
@@ -409,7 +271,7 @@
         //请求列数据-成功后请求表数据
         jQuery.ajax({
             type: 'post',
-            url: "/shiYanXiangMu/SJKYQD/getShowCol.action",
+            url: "/shiYanXiangMu/WCXKY/getShowCol.action",
             dataType: 'json',
             data: {},
             async: false,
@@ -450,7 +312,7 @@
                 }
                 jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/SJKYQD/update',
+                    url: '/shiYanXiangMu/WCXKY/update',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -559,7 +421,7 @@
 
         initModal(data, "detailModal");
 
-        jQuery("#detailModal input,select").attr("", "");
+        jQuery("#detailModal input,select").attr("disabled", "disabled");
         layer.open({
             title: "查看",
             type: 1,
@@ -689,7 +551,7 @@
                 }
                 jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/SJKYQD/add',
+                    url: '/shiYanXiangMu/WCXKY/add',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -740,7 +602,7 @@
 
             jQuery.ajax({
                 type: 'post',
-                url: "/shiYanXiangMu/SJKYQD/delete",
+                url: "/shiYanXiangMu/WCXKY/delete",
                 dataType: 'json',
                 data: {'kyid': data.kyid},
                 async: false,

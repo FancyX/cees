@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fancyx.cees.dao.busi.CEES_WCXKYDao">
+<mapper namespace="com.fancyx.cees.dao.busi.Display_WCXKYDao">
 
     <select id="selectAll" resultType="com.fancyx.cees.domain.busi.Display_WCXKY">
       SELECT
