@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYa.css">
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
 <script src="/nav/jquery/jQuery.print.js"></script>
-<script src="/nav/js/iframe.js"></script>
+
 
 ##显示在右侧侧内容
 <div>
@@ -27,11 +27,6 @@
                 <div class="layui-input-inline" style="width: 64px">
                     <button class="layui-btn" lay-event="add" onclick="showAddModal()">新增</button>
                 </div>
-
-            ##                <div class="layui-input-inline" style="width: 64px">
-            ##                    <button id="deleteSelected" class="layui-btn layui-btn-danger" data-type="getCheckData">删除选中
-            ##                    </button>
-            ##                </div>
             </div>
         </div>
     </div>
@@ -1516,64 +1511,34 @@
     </div>
 </form>
 
-<script>
 
-    var initSelect = false;
-    var baseData;
+<script src="/nav/js/iframe.js"></script>
+<script>
+    var tableFirstCol = [[]];
+    tableFirstCol[0].push({field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left', unresize: false});
+    var displayUrl = '/shiYanXiangMu/hunNIngTuKangYa/getShowCol.action';
+    var selectUrl = '/shiYanXiangMu/hunNIngTuKangYa/search';
+    var updateUrl = '/shiYanXiangMu/hunNIngTuKangYa/update';
+    var insertUrl = '/shiYanXiangMu/hunNIngTuKangYa/add';
+    var deleteUrl = '/shiYanXiangMu/hunNIngTuKangYa/delete';
 
     window.onload = function () {
-        init();
+        init(tableFirstCol, displayUrl, selectUrl);
+        initThisData();
     };
-
-    //初始化集合方法
-    function init() {
-        //加载模块插件
-        initModels();
-        //初始化用户权数据
-        initUserData();
-        //初始化表格
-        initTable();
-    };
-
-    //初始化固定模块
-    function initModels() {
-        layui.use(['form', 'laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element'], function () {
-            var laydate = layui.laydate,//日期
-                    laypage = layui.laypage,//分页
-                    layer = layui.layer, //弹层
-                    table = layui.table,//表格
-                    carousel = layui.carousel, //轮播
-                    upload = layui.upload,//上传
-                    element = layui.element, //元素操作
-                    form = layui.form; //表单
-
-            //绑定所有时间组件
-            var arr = jQuery("input[placeholder='yyyy-MM-dd']")
-            for (var i = 0; i < arr.length; i++) {
-                laydate.render({
-                    elem: arr[i]
-                });
-            }
-        });
-    }
 
     //初始化-用户数据
-    function initUserData() {
-        //todo - 从父页面获取用户用户权限数据根据本页面情况隐藏或者不隐藏
-        baseData = window.parent.baseData;
+    function initThisData() {
         initConstruction(baseData.cees_construction);//施工单位
         initConcrete(baseData.cees_concreteList);//混凝土单位
         initProject(baseData.cees_project);//工程
+
+
     }
 
-
-    //不是所需权限
-    function isNotPower(ceces_user) {
-        if (ceces_user.part == "查询用户") {
-            failAlert("您的权限等级不足！");
-            return true;
-        }
-        return false;
+    function initAddModel() {
+        initThisData();
+        initLayerModels();
     }
 
     //初始化-混凝土单位
@@ -1596,142 +1561,6 @@
     function initProject(project) {
         jQuery("input[name='project']").val(project.project);
     }
-
-    //初始化表格-并绑定基础事件
-    function initTable() {
-        //初始化table表格
-        var loadTable = function (json) {
-
-            if (json == null || json == undefined) {
-                return;
-            }
-
-            //获取表头
-            var getCols = function (json) {
-
-                var data = json.data;
-                var cols = [[]];
-                cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选'};
-                cols[0][1] = {field: 'numbers', type: 'numbers', title: '序号'};
-                cols[0][2] = {field: 'kyid', title: 'id'};
-
-                for (var i = 0; i < data.length; i++) {
-
-                    var row = data[i];
-                    var gridmc = row['gridmc'];
-                    var zw = row['zw'];
-                    var col = {field: gridmc, title: zw};
-                    cols[0].push(col);
-                }
-
-                var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', width: 200};
-                cols[0].push(toolbar);
-
-                return cols;
-            }
-
-            //table表格初始化参数
-            var tableOptions = {
-                elem: '#tableData',
-                height: 510,
-                url: '/shiYanXiangMu/hunNIngTuKangYa/search', //数据接口
-                page: true,//开启分页
-                request: {
-                    pageName: 'page', //页码的参数名称，默认：page
-                    limitName: 'limit' //每页数据量的参数名，默认：limit
-                },
-                response: {
-                    statusName: 'code',//数据状态的字段名称，默认：code
-                    statusCode: 0,//成功的状态码，默认：0
-                    msgName: 'msg',//状态信息的字段名称，默认：msg
-                    countName: 'count', //数据总数的字段名称，默认：count
-                    dataName: 'data' //数据列表的字段名称，默认：data
-                },
-                where: {
-                    zmrqstart: jQuery("#beginTime").val(), //制模日期开始
-                    zmrqend: jQuery("#endTime").val()  //制模日期结束
-                },
-                skin: {
-                    size: 'lg'
-                },
-                cols: getCols(json)
-            };
-
-            //执行一个 table 实例
-            layui.use(['table'], function () {
-                var table = layui.table;//表格
-                table.render(tableOptions);
-
-                //监听工具条
-                //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
-                table.on('tool(test)', function (obj) {
-                    var data = obj.data //获得当前行数据
-                            , layEvent = obj.event; //获得 lay-event 对应的值
-                    if (layEvent === 'del') {
-                        deleteRow(obj, data);
-                    } else if (layEvent === 'edit') {
-//                        layer.msg('编辑操作');
-                        showUpdateModal(obj, data);
-                    } else if (layEvent === 'detail') {
-                        showDetailModal(obj, data);
-                    } else if (layEvent === 'print') {
-                        showPrintModal(obj, data);
-                    }
-                });
-
-                var active = {
-                    getCheckData: function () { //获取选中数据
-                        var checkStatus = table.checkStatus('tableData')
-                                , data = checkStatus.data;
-                        layer.alert(JSON.stringify(data));
-                    }, getCheckLength: function () { //获取选中数目
-                        var checkStatus = table.checkStatus('tableData')
-                                , data = checkStatus.data;
-                        layer.msg('选中了：' + data.length + ' 个');
-                    }, isAll: function () { //验证是否全选
-                        var checkStatus = table.checkStatus('tableData');
-                        layer.msg(checkStatus.isAll ? '全选' : '未全选')
-                    }
-                };
-
-                $('#deleteSelected').on('click', function () {
-                    var type = $(this).data('type');
-                    active[type] ? active[type].call(this) : '';
-                });
-
-            });
-
-
-        }
-
-        //检查返回值并执行回调
-        var checkResult = function (resultJson, callback) {
-            if (resultJson == null || resultJson == undefined) {
-                failAlert("获取数据失败！");
-                return;
-            } else {
-                if (resultJson.code == 0) {
-                    callback(resultJson);
-                }
-            }
-        };
-
-        //请求列数据-成功后请求表数据
-        jQuery.ajax({
-            type: 'post',
-            url: "/shiYanXiangMu/hunNIngTuKangYa/getShowCol.action",
-            dataType: 'json',
-            data: {},
-            async: false,
-            success: function (json) {
-                checkResult(json, loadTable);
-            },
-            err: function (err) {
-                failAlert("连接服务器失败！");
-            }
-        });
-    }
-
 
     //显示修改弹窗
     function showUpdateModal(obj, data) {
@@ -1761,7 +1590,7 @@
                 }
                 jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/update',
+                    url: updateUrl,
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -1792,74 +1621,6 @@
                 layer.close(index);
             }
         });
-    }
-
-    //初始化弹窗
-    function initModal(data, formID) {
-        //初始化下拉选
-        if (initSelect == false) {
-            jQuery('.layui-form-select input').unbind("blur").on("blur", function () {
-                var select = $(this).parent().parent().siblings("select")
-
-                var optionStr = '<option value="' + $(this).val() + '">' + $(this).val() + '</option>';
-                select.append(optionStr);
-                select.val($(this).val());
-            });
-            initSelect = true;
-        }
-
-        for (var key in data) {
-            var value = data[key];
-            if (value == null || value == undefined || value == "") {
-                continue;
-            }
-
-            var dom = jQuery("#" + formID + " [name='" + key + "']");
-
-            if (dom.length == 0) {
-                dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
-            }
-
-
-            //判断文本框类型
-            if (dom.is('input')) {
-
-                //判断为时间
-                if (dom.attr('placeholder') == "yyyy-MM-dd") {
-                    layui.use(['laydate'], function () {
-                        var laydate = layui.laydate;//日期
-                        laydate.render({
-                            elem: dom[0],
-                            value: new Date(value),
-                            isInitValue: true //允许填充初始值
-                        });
-                    });
-                } else {//普通输入框
-                    dom.val(value);
-                }
-            } else if (dom.is('select')) {//选择框
-                if (typeof(dom.attr("lay-search")) == "undefined") {
-
-                    layui.use('form', function () {
-                        var form = layui.form; //表单
-                        dom.val(value);
-                        form.render();
-                    });
-                } else {
-                    var dl = dom.next().find("dl");
-
-                    if (dom.find("option[value='" + value + "']").length == 0) {
-                        var optionStr = '<option value="' + value + '">' + value + '</option>';
-                        dom.append(optionStr);
-
-                        var ddStr = '<dd lay-value="' + value + '" class>' + value + '</dd>';
-                        dl.append(ddStr);
-                    }
-                    dom.val(value);
-                    dom.next().find("input").val(value);
-                }
-            }
-        }
     }
 
     //显示查看弹窗
@@ -1895,8 +1656,6 @@
     //显示打印弹窗
     function showPrintModal(obj, data) {
         var formID = 'printModal';
-
-
         var tds = [];
         jQuery("#" + formID + " td").each(function () {
 
@@ -1958,27 +1717,20 @@
         });
     }
 
-    //tds为数组包含jq对象
-    function getPrintModelDom(name, tds) {
-        for (var i = 0; i < tds.length; i++) {
-
-            var td = tds[i];
-            var names = td.attr("name").split(",");
-            for (var j = 0; j < names.length; j++) {
-                var domName = names[j].toLowerCase();
-                if (domName == name.toLowerCase()) {
-                    return td;
-                }
-            }
-        }
-        return undefined;
-    }
 
     //显示添加弹窗
     function showAddModal() {
         if (isNotPower(baseData.cees_user)) {
             return false
         }
+        if (selectCheckData != undefined) {
+            initModal(selectCheckData, "addModal");
+        } else {
+            $("#addModal").html(addModalHtml);
+            initAddModel()
+
+        }
+
         layer.open({
             title: "添加",
             type: 1,
@@ -2000,7 +1752,7 @@
                 }
                 jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/add',
+                    url: insertUrl,
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -2031,6 +1783,8 @@
                 layer.close(index);
             }
         });
+
+
     }
 
     //删除一行
@@ -2051,7 +1805,7 @@
 
             jQuery.ajax({
                 type: 'post',
-                url: "/shiYanXiangMu/hunNIngTuKangYa/delete",
+                url: deleteUrl,
                 dataType: 'json',
                 data: {'kyid': data.kyid},
                 async: false,
@@ -2081,44 +1835,4 @@
         return true;
     }
 
-</script>
-##公用方法
-<script>
-
-    function getTime(time) {
-
-        var date = new Date(time);
-        var Y = date.getFullYear() + '-';
-        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-        var D = date.getDate() + ' ';
-        var h = date.getHours() + ':';
-        var m = date.getMinutes() + ':';
-        var s = date.getSeconds();
-
-        return Y + M + D;
-    }
-
-    //判断是否为null
-    function isNull(para) {
-        if (para == null || para == undefined || para == '') {
-            return true;
-        }
-        return false;
-    }
-
-    //弹出失败信息
-    function failAlert(msg) {
-        layer.alert(msg, {
-            icon: 2,
-            skin: 'layer-ext-moon'
-        });
-    }
-
-    //弹出成功信息
-    function successAlert(msg) {
-        layer.alert(msg, {
-            icon: 1,
-            skin: 'layer-ext-moon'
-        });
-    }
 </script>

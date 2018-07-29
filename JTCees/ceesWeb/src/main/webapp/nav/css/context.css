@@ -37,11 +37,15 @@
 }
 
 .my-layer-modal .layui-table tbody tr {
-    color: black ;
+    color: black;
 }
 
 .my-layer-modal .layui-table tbody tr:hover {
     background: #FFFFFF !important;
+}
+
+.layui-table > thead > tr:first-child th:first-child > div > div > i {
+    display: none;
 }
 
 

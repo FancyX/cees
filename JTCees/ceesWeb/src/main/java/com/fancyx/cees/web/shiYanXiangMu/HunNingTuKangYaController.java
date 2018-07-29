@@ -55,7 +55,7 @@ public class HunNingTuKangYaController {
     * */
     @RequestMapping(value = "/page")
     public String page() {
-        return "cees/shiYanXiangMu/hunNingTukangYa";
+        return "cees/shiYanXiangMu/hunNingTukangYa2";
     }
 
 

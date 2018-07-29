@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYa.css">
+##<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYa.css">
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
 <script src="/nav/jquery/jQuery.print.js"></script>
 
@@ -166,7 +166,8 @@
                                        class="layui-input">
                             </div>
                         </div>
-                    </div><div class="layui-form-item">
+                    </div>
+                    <div class="layui-form-item">
                         <div class="layui-inline">
 
                             <label class="layui-form-label ">委托单位</label>
@@ -184,6 +185,409 @@
                         </div>
 
                     </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+
+                            <label class="layui-form-label ">来样日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">试块数</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">实验仪器编号</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">委托人</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+
+                            <label class="layui-form-label ">砂浆种类</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">强度等级</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">稠度</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">掺和种类</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+
+                            <label class="layui-form-label ">水泥品种</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">强度等级</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">水泥长别</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+
+                            <label class="layui-form-label ">砂产地</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">砂种类</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">外加剂种类</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label ">外加剂2种类</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-form-item">
+
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td rowspan="2">
+                    配比标号
+                </td>
+                <td rowspan="2">项目</td>
+                <td colspan="6">各种材料用量
+                    <div class="float-right">
+                        用于粘贴的试验编号
+                        <input type="text" name="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>水泥</td>
+                <td>砂</td>
+                <td>水</td>
+                <td>掺和料</td>
+                <td>外加剂</td>
+                <td>外加剂2</td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                    每m3
+                </td>
+                <td>
+                ##水泥
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##砂
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##水
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##掺和料
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##外加剂
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##外加剂2
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    每盘
+                </td>
+                <td>
+                ##水泥
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##砂
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##水
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##掺和料
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##外加剂
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##外加剂2
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-form-item">
+
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>制模日期</td>
+                <td>养护条件</td>
+                <td>制模日期</td>
+                <td>试块制作人</td>
+                <td>试块收到日期</td>
+                <td>要求期龄(d)</td>
+                <td>要求试验日期</td>
+            </tr>
+            <tr>
+                <td>
+                ##制模日期
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##养护条件
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##制模日期
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##试块制作人
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##试块收到日期
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##要求期龄(d)
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                ##要求试验日期
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-form-item">
+
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td rowspan="2">试件编号</td>
+                <td rowspan="2">试验日期</td>
+                <td rowspan="2">实际期龄(天)</td>
+                <td rowspan="2">试件边长(mm)</td>
+                <td rowspan="2">受压面积(mm2)</td>
+                <td colspan="2">荷载</td>
+                <td rowspan="2">抗压强度(MPa)</td>
+                <td rowspan="2">达到设计强度(%)</td>
+            </tr>
+            <tr>
+                <td>单块</td>
+                <td>平均</td>
+            </tr>
+            <tr>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+                <td rowspan="6">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td colspan="8">
+                    <input type="text" name="" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-form-item">
+
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>技术负责人</td>
+                <td><input type="text" name="" autocomplete="off"
+                                 class="layui-input">
+                </td>
+                <td>校核人</td>
+                <td><input type="text" name="" autocomplete="off"
+                                 class="layui-input">
+                </td>
+                <td>试验人</td>
+                <td><input type="text" name="" autocomplete="off"
+                                 class="layui-input">
+                </td>
+                <td>报告日期</td>
+                <td><input type="text" name="" autocomplete="off"
+                                 class="layui-input">
                 </td>
             </tr>
             </tbody>
@@ -671,7 +1075,7 @@
         layer.open({
             title: "添加",
             type: 1,
-            area: ['1240px', '620px'], //宽高
+            area: ['1300px', '620px'], //宽高
             content: jQuery('#addModal'),
             success: function (layer) {
                 //这个函数就是在弹窗弹出成功后执行的函数
