@@ -16,7 +16,7 @@ public class HunNingTuKangYaServiceImpl implements HunNingTuKangYaService {
     private HunNingTuKangYaManager manager;
 
     @Override
-    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky) {
+    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaVO hntky) {
         return manager.pageQuery(pageBean, hntky);
     }
 

@@ -18,6 +18,8 @@
         Display_Hntky
       where
         VISIBLE = 1
+      order by
+        XH
     </select>
 
 </mapper>

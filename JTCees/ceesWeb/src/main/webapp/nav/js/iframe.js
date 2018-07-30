@@ -7,6 +7,7 @@ var selectCheck = undefined;
 var selectCheckData = undefined;
 //添加弹窗的html
 var addModalHtml;
+var tableIns;
 
 /**
  * 初始化方法
@@ -23,7 +24,8 @@ function init(tableFirstCol, displayUrl, selectUrl) {
     //获取父页面数据备用
     baseData = window.parent.baseData;
     addModalHtml = $("#addModal").html();
-    initTable(tableFirstCol, displayUrl, selectUrl);
+    var isInitTable = true;
+    initTable(tableFirstCol, displayUrl, selectUrl, isInitTable);
 }
 
 //初始化固定模块
@@ -54,7 +56,8 @@ function initLayerModels() {
 //初始化表格-并绑定基础事件
 function initTable(tableFirstCol,
                    displayUrl,
-                   selectUrl) {
+                   selectUrl,
+                   isInitTable) {
     //初始化table表格
     var loadTable = function (json) {
 
@@ -99,7 +102,7 @@ function initTable(tableFirstCol,
         //table表格初始化参数
         var tableOptions = {
             elem: '#tableData',
-            // height: 510,
+            height: 510,
             url: selectUrl, //数据接口
             page: true,//开启分页
             request: {
@@ -127,7 +130,11 @@ function initTable(tableFirstCol,
         //执行一个 table 实例
         layui.use(['table'], function () {
             var table = layui.table;//表格
-            table.render(tableOptions);
+            if (isInitTable) {
+                tableIns = table.render(tableOptions);
+            } else {
+                tableIns.reload(tableOptions);
+            }
 
             //监听工具条
             //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
@@ -166,7 +173,6 @@ function initTable(tableFirstCol,
 
 
             });
-
 
         });
     };

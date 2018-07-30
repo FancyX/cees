@@ -21,7 +21,7 @@
                     <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
                 </div>
                 <div class="layui-input-inline" style="width: 64px">
-                    <button class="layui-btn " onclick="initTable()">查询</button>
+                    <button class="layui-btn " onclick="search()">查询</button>
                 </div>
 
                 <div class="layui-input-inline" style="width: 64px">
@@ -1527,13 +1527,15 @@
         initThisData();
     };
 
+    function search() {
+        initTable(tableFirstCol, displayUrl, selectUrl, false);
+    }
+
     //初始化-用户数据
     function initThisData() {
         initConstruction(baseData.cees_construction);//施工单位
         initConcrete(baseData.cees_concreteList);//混凝土单位
         initProject(baseData.cees_project);//工程
-
-
     }
 
     function initAddModel() {

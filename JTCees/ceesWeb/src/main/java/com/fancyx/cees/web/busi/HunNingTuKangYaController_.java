@@ -3,6 +3,7 @@ package com.fancyx.cees.web.busi;
 import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.busi.HunNingTuKangYaDTO;
+import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +48,7 @@ public class HunNingTuKangYaController_ {
      */
     @RequestMapping(value = "/search")
     @ResponseBody
-    public Model search(HunNingTuKangYaDTO hunNingTuKangYaDTO,
+    public Model search(HunNingTuKangYaVO hunNingTuKangYaDTO,
                         @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                         @RequestParam(value = "rows", required = false, defaultValue = "10") int pageSize,
                         Model model) {

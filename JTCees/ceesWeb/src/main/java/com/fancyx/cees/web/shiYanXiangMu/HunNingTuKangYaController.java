@@ -55,7 +55,7 @@ public class HunNingTuKangYaController {
     * */
     @RequestMapping(value = "/page")
     public String page() {
-        return "cees/shiYanXiangMu/hunNingTukangYa2";
+        return "cees/shiYanXiangMu/hunNingTukangYa";
     }
 
 
@@ -86,7 +86,7 @@ public class HunNingTuKangYaController {
      */
     @RequestMapping(value = "/search")
     @ResponseBody
-    public PageResultBean search(HunNingTuKangYaDTO hunNingTuKangYaDTO,
+    public PageResultBean search(HunNingTuKangYaVO hunNingTuKangYaDTO,
                                  @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                                  @RequestParam(value = "limit", required = false, defaultValue = "10") int pageSize) {
 

@@ -19,7 +19,7 @@ public class HunNingTuKangYaManagerImpl implements HunNingTuKangYaManager{
     private HunNingTuKangYaDao dao;
 
     @Override
-    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky) {
+    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaVO hntky) {
         return dao.pageQuery(pageBean,hntky);
     }
 

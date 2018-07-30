@@ -16,7 +16,7 @@ public class HunNingTuKangYaDaoImpl extends BaseDao implements HunNingTuKangYaDa
     public static final String NAME_SPACE = "com.fancyx.cees.dao.busi.HunNingTuKangYaDao";
 
     @Override
-    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hunNingTuKangYa) {
+    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaVO hunNingTuKangYa) {
         PageBean<HunNingTuKangYa> hntkys = this.pageQuery(
                 this.getNamespace("selectByBean"),
                 this.getNamespace("selectByBeanCount"),

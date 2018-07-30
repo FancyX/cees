@@ -17,7 +17,7 @@ public interface HunNingTuKangYaDao {
      * @param hunNingTuKangYa
      * @return
      */
-    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hunNingTuKangYa);
+    PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaVO hunNingTuKangYa);
 
     /**
      * 添加一条混凝土抗压信息

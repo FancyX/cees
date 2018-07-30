@@ -13,7 +13,7 @@ public interface HunNingTuKangYaService {
      * @param hntky
      * @return
      */
-    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaDTO hntky);
+    public PageBean<HunNingTuKangYa> pageQuery(PageBean pageBean, HunNingTuKangYaVO hntky);
 
 
     /**
