@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYa.css">
 <link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
 <script src="/nav/jquery/jQuery.print.js"></script>
-<script src="/nav/js/iframe.js"></script>
 
 ##显示在右侧侧内容
 <div>
@@ -20,6 +19,10 @@
                 <div class="layui-input-inline" style="width: 150px;">
                     <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
                 </div>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <input type="text" class="layui-input" id="queryStr">
+                </div>
+
                 <div class="layui-input-inline" style="width: 64px">
                     <button class="layui-btn " onclick="initTable()">查询</button>
                 </div>
@@ -1520,6 +1523,7 @@
 
     var initSelect = false;
     var baseData;
+    var addModalHtml = undefined;
 
     window.onload = function () {
         init();
@@ -1527,6 +1531,8 @@
 
     //初始化集合方法
     function init() {
+        addModalHtml = $("#addModal").html();
+
         //加载模块插件
         initModels();
         //初始化用户权数据
@@ -1546,7 +1552,7 @@
                     upload = layui.upload,//上传
                     element = layui.element, //元素操作
                     form = layui.form; //表单
-
+            form.render("select");
             //绑定所有时间组件
             var arr = jQuery("input[placeholder='yyyy-MM-dd']")
             for (var i = 0; i < arr.length; i++) {
@@ -1611,16 +1617,25 @@
 
                 var data = json.data;
                 var cols = [[]];
-                cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选'};
-                cols[0][1] = {field: 'numbers', type: 'numbers', title: '序号'};
-                cols[0][2] = {field: 'kyid', title: 'id'};
+                cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left'};
+//                cols[0][1] = {field: 'numbers', type: 'numbers', title: '序号'};
+//                cols[0][2] = {field: 'kyid', title: 'id'};
 
                 for (var i = 0; i < data.length; i++) {
+
 
                     var row = data[i];
                     var gridmc = row['gridmc'];
                     var zw = row['zw'];
-                    var col = {field: gridmc, title: zw};
+                    var width = 80;
+                    if (zw.length > 4) {
+                        width = width + (zw.length - 4) * 12;
+                    }
+                    if (gridmc.length - zw.length > 2) {
+                        width += 24;
+                    }
+
+                    var col = {field: gridmc, title: zw, width: width};
                     cols[0].push(col);
                 }
 
@@ -1649,10 +1664,12 @@
                 },
                 where: {
                     zmrqstart: jQuery("#beginTime").val(), //制模日期开始
-                    zmrqend: jQuery("#endTime").val()  //制模日期结束
+                    zmrqend: jQuery("#endTime").val(),  //制模日期结束
+//                    queryStr: encodeURI(jQuery("#queryStr").val()) //查询字符串
+                    queryStr: jQuery("#queryStr").val() //查询字符串
                 },
                 skin: {
-                    size: 'lg'
+                    size: 'sm'
                 },
                 cols: getCols(json)
             };
@@ -1677,6 +1694,27 @@
                     } else if (layEvent === 'print') {
                         showPrintModal(obj, data);
                     }
+                });
+
+                table.on('checkbox(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                    var oldStates = $(this).prop("checked");
+                    $(this).parents("tbody").find("tr td div input[type='checkbox']").prop("checked", false);
+                    $(this).parents("tbody").find("tr td div div").removeClass("layui-form-checked");
+
+                    if (oldStates) {
+                        $(this).removeClass('layui-form-checked');
+                        $(this).prop("checked", false);
+                        selectCheckData = undefined;
+                        selectCheck = undefined;
+                    } else {
+                        selectCheckData = obj.data;
+                        selectCheck = $(this);
+                        $(this).addClass('layui-form-checked');
+                        $(this).prop("checked", true);
+
+                    }
+
+
                 });
 
                 var active = {
@@ -1799,13 +1837,17 @@
         //初始化下拉选
         if (initSelect == false) {
             jQuery('.layui-form-select input').unbind("blur").on("blur", function () {
-                var select = $(this).parent().parent().siblings("select")
+                var select = $(this).parent().parent().siblings("select");
 
                 var optionStr = '<option value="' + $(this).val() + '">' + $(this).val() + '</option>';
                 select.append(optionStr);
                 select.val($(this).val());
             });
             initSelect = true;
+        }
+
+        if (data == null || data == undefined) {
+            return;
         }
 
         for (var key in data) {
@@ -1843,7 +1885,7 @@
                     layui.use('form', function () {
                         var form = layui.form; //表单
                         dom.val(value);
-                        form.render();
+                        form.render("select");
                     });
                 } else {
                     var dl = dom.next().find("dl");
@@ -1979,6 +2021,16 @@
         if (isNotPower(baseData.cees_user)) {
             return false
         }
+
+        if (selectCheckData != undefined) {
+            initModal(selectCheckData, "addModal");
+        } else {
+            $("#addModal").html(addModalHtml);
+            initUserData();
+            initModels();
+        }
+
+
         layer.open({
             title: "添加",
             type: 1,

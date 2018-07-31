@@ -10,29 +10,29 @@ public class HunNingTuKangYa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //抗压id
-    private int kyid;
+    private Integer kyid;
     //施工单位id
-    private int cid;
+    private Integer cid;
     //施工单位编号
     private String cnumber;
     //工程项目id
-    private int pid;
+    private Integer pid;
     //工程编号
     private String projectnumber;
     //送检人(委托人)
     private String client;
     //混凝土单位id
-    private int ccid;
+    private Integer ccid;
     private String kynumber;
     private String testnumber;
     //序号
-    private int sn;
+    private Integer sn;
     //工程明细序号/工程抗压序号
-    private int sn_project;
+    private Integer sn_project;
     //送检单明细序号/提交序号
-    private int sn_test;
+    private Integer sn_test;
     //状态
-    private String state = "录入";
+    private String state;
     //备注
     private String remarks;
     //编辑时间
@@ -40,13 +40,13 @@ public class HunNingTuKangYa implements Serializable {
     //用户名
     private String edituser;
     //已读标志
-    private int readmark;
+    private Integer readmark;
     //已读时间
     private String readtime;
     //委托单编号
     private String WTDBH;
     //单位代码
-    private int DWDM;
+    private Integer DWDM;
     //试验编号
     private String SYBH;
     //试样编号
@@ -197,11 +197,11 @@ public class HunNingTuKangYa implements Serializable {
     //备注
     private String BZ;
     //技术负责人编号
-    private int JSFZRBH;
+    private Integer JSFZRBH;
     //技术负责人
     private String JSFZR;
     //校核人编号
-    private int XHRBH;
+    private Integer XHRBH;
     //校核人
     private String XHR;
     //校核备注
@@ -209,7 +209,7 @@ public class HunNingTuKangYa implements Serializable {
     //校核意见
     private String XHYJ;
     //试验人编号
-    private int SYRBH;
+    private Integer SYRBH;
     //试验人
     private String SYR;
     //报告日期
@@ -235,7 +235,7 @@ public class HunNingTuKangYa implements Serializable {
     //处理意见
     private String CLYJ;
     //委托组号
-    private int WTZH;
+    private Integer WTZH;
     //记录表编号
     private String JLBBH;
     //报告表编号
@@ -245,19 +245,19 @@ public class HunNingTuKangYa implements Serializable {
         return serialVersionUID;
     }
 
-    public int getKyid() {
+    public Integer getKyid() {
         return kyid;
     }
 
-    public void setKyid(int kyid) {
+    public void setKyid(Integer kyid) {
         this.kyid = kyid;
     }
 
-    public int getCid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(Integer cid) {
         this.cid = cid;
     }
 
@@ -269,11 +269,11 @@ public class HunNingTuKangYa implements Serializable {
         this.cnumber = cnumber;
     }
 
-    public int getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -293,11 +293,11 @@ public class HunNingTuKangYa implements Serializable {
         this.client = client;
     }
 
-    public int getCcid() {
+    public Integer getCcid() {
         return ccid;
     }
 
-    public void setCcid(int ccid) {
+    public void setCcid(Integer ccid) {
         this.ccid = ccid;
     }
 
@@ -317,27 +317,27 @@ public class HunNingTuKangYa implements Serializable {
         this.testnumber = testnumber;
     }
 
-    public int getSn() {
+    public Integer getSn() {
         return sn;
     }
 
-    public void setSn(int sn) {
+    public void setSn(Integer sn) {
         this.sn = sn;
     }
 
-    public int getSn_project() {
+    public Integer getSn_project() {
         return sn_project;
     }
 
-    public void setSn_project(int sn_project) {
+    public void setSn_project(Integer sn_project) {
         this.sn_project = sn_project;
     }
 
-    public int getSn_test() {
+    public Integer getSn_test() {
         return sn_test;
     }
 
-    public void setSn_test(int sn_test) {
+    public void setSn_test(Integer sn_test) {
         this.sn_test = sn_test;
     }
 
@@ -373,11 +373,11 @@ public class HunNingTuKangYa implements Serializable {
         this.edituser = edituser;
     }
 
-    public int getReadmark() {
+    public Integer getReadmark() {
         return readmark;
     }
 
-    public void setReadmark(int readmark) {
+    public void setReadmark(Integer readmark) {
         this.readmark = readmark;
     }
 
@@ -397,11 +397,11 @@ public class HunNingTuKangYa implements Serializable {
         this.HNTDW = HNTDW;
     }
 
-    public int getJSFZRBH() {
+    public Integer getJSFZRBH() {
         return JSFZRBH;
     }
 
-    public void setJSFZRBH(int JSFZRBH) {
+    public void setJSFZRBH(Integer JSFZRBH) {
         this.JSFZRBH = JSFZRBH;
     }
 
@@ -621,11 +621,11 @@ public class HunNingTuKangYa implements Serializable {
         this.DDQD = DDQD;
     }
 
-    public int getSYRBH() {
+    public Integer getSYRBH() {
         return SYRBH;
     }
 
-    public void setSYRBH(int SYRBH) {
+    public void setSYRBH(Integer SYRBH) {
         this.SYRBH = SYRBH;
     }
 
@@ -965,11 +965,11 @@ public class HunNingTuKangYa implements Serializable {
         this.WJJZYSNL = WJJZYSNL;
     }
 
-    public int getDWDM() {
+    public Integer getDWDM() {
         return DWDM;
     }
 
-    public void setDWDM(int DWDM) {
+    public void setDWDM(Integer DWDM) {
         this.DWDM = DWDM;
     }
 
@@ -1021,11 +1021,11 @@ public class HunNingTuKangYa implements Serializable {
         this.CHLZYSNL = CHLZYSNL;
     }
 
-    public int getXHRBH() {
+    public Integer getXHRBH() {
         return XHRBH;
     }
 
-    public void setXHRBH(int XHRBH) {
+    public void setXHRBH(Integer XHRBH) {
         this.XHRBH = XHRBH;
     }
 
@@ -1077,11 +1077,11 @@ public class HunNingTuKangYa implements Serializable {
         this.YQLQ = YQLQ;
     }
 
-    public int getWTZH() {
+    public Integer getWTZH() {
         return WTZH;
     }
 
-    public void setWTZH(int WTZH) {
+    public void setWTZH(Integer WTZH) {
         this.WTZH = WTZH;
     }
 
