@@ -28,7 +28,7 @@
 }
 
 .my-layer-modal {
-    padding: 10px;
+    padding: 10px 15px;
 
 }
 
@@ -47,6 +47,11 @@
 .layui-table > thead > tr:first-child th:first-child > div > div > i {
     display: none;
 }
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
 
 
 

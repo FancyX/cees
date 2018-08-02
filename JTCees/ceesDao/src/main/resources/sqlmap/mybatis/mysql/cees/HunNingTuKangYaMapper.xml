@@ -18,32 +18,20 @@
 
     <sql id="query_where">
 
-        <if test="queryStr != null">
-            OR kyid = #{queryStr}
+        <if test="queryIntStr != null">
+            OR kyid  = #{queryIntStr}
 
-            OR cid = #{queryStr}
+            OR cid  = #{queryIntStr}
 
-            OR pid = #{queryStr}
+            OR pid  = #{queryIntStr}
 
-            OR ccid = #{queryStr}
+            OR ccid  = #{queryIntStr}
 
-            OR sn = #{queryStr}
+            OR sn  = #{queryIntStr}
 
-            OR sn_project = #{queryStr}
+            OR sn_project  = #{queryIntStr}
 
-            OR sn_test = #{queryStr}
-
-            OR readmark = #{queryStr}
-
-            OR DWDM = #{queryStr}
-
-            OR JSFZRBH = #{queryStr}
-
-            OR XHRBH = #{queryStr}
-
-            OR SYRBH = #{queryStr}
-
-            OR WTZH = #{queryStr}
+            OR sn_test  = #{queryIntStr}
         </if>
 
         <if test="queryStr!=null and queryStr!=''">

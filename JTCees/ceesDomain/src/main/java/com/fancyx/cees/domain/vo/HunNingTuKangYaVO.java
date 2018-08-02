@@ -8,9 +8,11 @@ import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 public class HunNingTuKangYaVO extends HunNingTuKangYa {
 
 
-
     //查询字符串
     String queryStr;
+    //查询数字
+    String queryIntStr;
+
 
     //制模日期开始
     private String zmrqstart;
@@ -24,6 +26,21 @@ public class HunNingTuKangYaVO extends HunNingTuKangYa {
     public void setQueryStr(String queryStr) {
         this.queryStr = queryStr;
     }
+
+    public String getQueryIntStr() {
+        return queryIntStr;
+    }
+
+    public void setQueryIntStr(String queryIntStr) {
+
+        try {
+            Integer.parseInt(queryIntStr);
+            this.queryIntStr = queryIntStr;
+        } catch (Exception e) {
+
+        }
+    }
+
 
     public String getZmrqstart() {
         return zmrqstart;
