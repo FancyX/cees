@@ -61,6 +61,11 @@ public class HunNingTuKangYaDaoImpl extends BaseDao implements HunNingTuKangYaDa
         return String.valueOf(this.queryForObject(this.getNamespace("maxKynumber")));
     }
 
+    @Override
+    public Integer getMaxSn() {
+        return (Integer) this.queryForObject(this.getNamespace("maxSn"));
+    }
+
 
     /**
      * mybatis的namespace

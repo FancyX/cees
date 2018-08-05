@@ -53,6 +53,21 @@
 }
 
 
+.paste-btn {
+    border: 1px solid #ccc;
+    padding: 7px 4px;
+    margin-top: -7px;
+    cursor: pointer;
+}
+
+.my-sm-lable {
+    line-height: 20px;
+    padding: 9px 5px 9px 1px;
+    text-align: right;
+}
+
+
+
 
 
 

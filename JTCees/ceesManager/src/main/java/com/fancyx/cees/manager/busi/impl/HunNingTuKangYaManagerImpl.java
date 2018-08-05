@@ -57,4 +57,9 @@ public class HunNingTuKangYaManagerImpl implements HunNingTuKangYaManager{
     public String getKynumber() {
         return dao.getKynumber();
     }
+
+    @Override
+    public Integer getMaxSn() {
+        return dao.getMaxSn();
+    }
 }

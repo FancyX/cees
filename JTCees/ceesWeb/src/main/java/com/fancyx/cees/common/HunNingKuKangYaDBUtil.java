@@ -18,6 +18,18 @@ public class HunNingKuKangYaDBUtil {
     @Resource
     private HunNingTuKangYaService hunNingTuKangYaService;
 
+    public Integer getSn() {
+        //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
+        synchronized (this) {
+            try {
+                Integer i = hunNingTuKangYaService.getMaxSn();
+                return i + 1;
+            } catch (Exception e) {
+                return 1;
+            }
+        }
+    }
+
 
     /*
     * 获取不重复的 sn_project 字段
@@ -29,8 +41,12 @@ public class HunNingKuKangYaDBUtil {
 
         //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
         synchronized (this) {
-            Integer db_sn_project = hunNingTuKangYaService.getMax_sn_project();
-            return db_sn_project + 1;
+            try {
+                Integer db_sn_project = hunNingTuKangYaService.getMax_sn_project();
+                return db_sn_project + 1;
+            } catch (Exception e) {
+                return 1;
+            }
         }
     }
 
@@ -40,9 +56,14 @@ public class HunNingKuKangYaDBUtil {
         synchronized (this) {
             Integer db_Cnumber = hunNingTuKangYaService.getCnumber();
             int cnumber = 1;
-            if (db_Cnumber > 0) {
-                String str_db_Cnumber = String.valueOf(db_Cnumber);
-                cnumber = Integer.parseInt(str_db_Cnumber.substring(4)) + 1;
+
+            try {
+                if (db_Cnumber > 0) {
+                    String str_db_Cnumber = String.valueOf(db_Cnumber);
+                    cnumber = Integer.parseInt(str_db_Cnumber.substring(4)) + 1;
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
             return year + String.format("%04d", cnumber);//其中0表示补零而不是补空格，6表示至少6位
@@ -51,14 +72,17 @@ public class HunNingKuKangYaDBUtil {
 
     public String getProjectnumber() {
 
-
         //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
         synchronized (this) {
             Integer db_projectnumber = hunNingTuKangYaService.getProjectnumber();
             int projectnumber = 1;
-            if (db_projectnumber > 0) {
-                String str_db_Cnumber = String.valueOf(db_projectnumber);
-                projectnumber = Integer.parseInt(str_db_Cnumber.substring(4)) + 1;
+            try {
+                if (db_projectnumber > 0) {
+                    String str_db_Cnumber = String.valueOf(db_projectnumber);
+                    projectnumber = Integer.parseInt(str_db_Cnumber.substring(4)) + 1;
+                }
+            } catch (Exception ex) {
+
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
             return year + String.format("%04d", projectnumber);//其中0表示补零而不是补空格，6表示至少6位
@@ -70,11 +94,17 @@ public class HunNingKuKangYaDBUtil {
         synchronized (this) {
             String db_Kynumber = hunNingTuKangYaService.getKynumber();
             int kynumber = 1;
-            if (db_Kynumber.length() > 0) {
-                kynumber = Integer.parseInt(db_Kynumber.substring(6)) + 1;
+            try {
+                if (db_Kynumber.length() > 0) {
+                    kynumber = Integer.parseInt(db_Kynumber.substring(6)) + 1;
+                }
+            } catch (Exception ex) {
+//                ex.printStackTrace();
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
             return "ky" + year + String.format("%04d", kynumber);//其中0表示补零而不是补空格，6表示至少6位
         }
     }
+
+
 }

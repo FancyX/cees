@@ -59,5 +59,10 @@ public class HunNingTuKangYaServiceImpl implements HunNingTuKangYaService {
         return manager.getKynumber();
     }
 
+    @Override
+    public Integer getMaxSn() {
+        return manager.getMaxSn();
+    }
+
 
 }

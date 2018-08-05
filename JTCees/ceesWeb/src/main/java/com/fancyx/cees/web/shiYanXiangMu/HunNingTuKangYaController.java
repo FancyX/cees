@@ -141,37 +141,66 @@ public class HunNingTuKangYaController {
     /**
      * 添加混凝土抗压
      *
-     * @param hunNingTuKangYaVO
+     * @param vo
      * @return
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public ResultBean add(HttpSession session, HunNingTuKangYaVO hunNingTuKangYaVO) {
+    public ResultBean add(HttpSession session, HunNingTuKangYaVO vo) {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
             if (sessionVO == null) {
                 throw new Exception("请重新登录！");
             }
+//
+            vo.setPid(sessionVO.getCees_project().getPid());
+            vo.setReadmark(0);
+            vo.setSn_test(0);
+            vo.setDWDM(0);
+            //设置Cid
+            vo.setCid(sessionVO.getCees_construction().getCid());
+            //委托单位名称-施工单位名称
+            vo.setWTDWMC(sessionVO.getCees_construction().getConstruction());
+//            vo.setWTDWBH();
+//            vo.setGCBH();
+//            vo.setGCMC();//
+//            vo.setHNTDW();//
+
+//            vo.setZMRQ();//
+//            vo.setYQLQ();
+//            vo.setYQSYRQ();
+//            vo.setSKYHTJ();
+//            vo.setSYWTR()
+//            vo.setSYRQ();
+//            vo.setSJLQ();
+//            vo.setSJCC();
+//            vo.setSYMJ();
+            vo.setJSFZRBH(0);
+            vo.setXHRBH(0);
+//            vo.setSYRBH();
+//            vo.setWTZH(0);
 
             //用户
-            hunNingTuKangYaVO.setEdituser(sessionVO.getCees_user().getLoginuser());
+            vo.setEdituser(sessionVO.getCees_user().getLoginuser());
             //状态
-            hunNingTuKangYaVO.setState("录入");
+            vo.setState("录入");
             //时间
-            hunNingTuKangYaVO.setEdittime(TimeUtil.getCurrentTime());
+            vo.setEdittime(TimeUtil.getCurrentTime());
+            //sn
+            vo.setSn(hunNingKuKangYaDBUtil.getSn());
             //sn_project
-            hunNingTuKangYaVO.setSn_project(hunNingKuKangYaDBUtil.getSnProject());
+            vo.setSn_project(hunNingKuKangYaDBUtil.getSnProject());
             //cnumber
-            hunNingTuKangYaVO.setCnumber(hunNingKuKangYaDBUtil.getCnumber());
+            vo.setCnumber(hunNingKuKangYaDBUtil.getCnumber());
             //projectnumber
-            hunNingTuKangYaVO.setProjectnumber(hunNingKuKangYaDBUtil.getProjectnumber());
+            vo.setProjectnumber(hunNingKuKangYaDBUtil.getProjectnumber());
             //kynumber
-            hunNingTuKangYaVO.setKynumber(hunNingKuKangYaDBUtil.getKynumber());
+            vo.setKynumber(hunNingKuKangYaDBUtil.getKynumber());
             //client
-            hunNingTuKangYaVO.setClient(sessionVO.getCees_construction().getClient());
+            vo.setClient(sessionVO.getCees_construction().getClient());
 
-            hunNingTuKangYaService.insert(hunNingTuKangYaVO);
+            hunNingTuKangYaService.insert(vo);
             return new ResultBean();
         } catch (Exception ex) {
             log.error("混凝土抗压添加异常", ex);
@@ -179,7 +208,6 @@ public class HunNingTuKangYaController {
         }
     }
 
-//    @DateTimeFormat(pattern = "yyyy-HH-dd")
 
     //     将字符串转换为Date类
     @InitBinder

@@ -670,4 +670,10 @@
           ISNULL(MAX((kynumber )),0)
         from CEES_Hntky
     </select>
+
+    <select id="maxSn" resultType="java.lang.Integer">
+      select
+	    ISNULL(MAX((sn )),0)
+      from CEES_Hntky
+    </select>
 </mapper>

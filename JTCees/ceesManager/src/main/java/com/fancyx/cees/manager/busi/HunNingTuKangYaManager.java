@@ -41,4 +41,5 @@ public interface HunNingTuKangYaManager {
 
     String getKynumber();
 
+    Integer getMaxSn();
 }
