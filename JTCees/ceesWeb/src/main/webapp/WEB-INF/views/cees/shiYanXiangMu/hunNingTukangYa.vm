@@ -1719,8 +1719,6 @@
         }
         //要求龄期
         var yqlq = jQuery("#" + formID + " input[name='YQLQ']").val();
-        console.log(zmrq);
-        console.log(yqlq);
 
         try {
             yqlq = parseInt(yqlq);

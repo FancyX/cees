@@ -140,12 +140,6 @@
                             <label class="layui-form-label">混凝土单位</label>
                             <div class="layui-input-inline layui-col-md8">
                                 <select name="ccid" lay-filter="ccid">
-                                    <option value=""></option>
-                                    <option value="0">北京</option>
-                                    <option value="1">上海</option>
-                                    <option value="2">广州</option>
-                                    <option value="3">深圳</option>
-                                    <option value="4">杭州</option>
                                 </select>
                             </div>
                         </div>
@@ -708,6 +702,79 @@
 </script>
 
 <script>
+
+    //显示添加弹窗
+    function showAddModal() {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+        initAddModel();
+
+        layer.open({
+            title: "添加",
+            type: 1,
+            area: ['980px', '560px'], //宽高
+            content: jQuery('#addModal'),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['保存', '取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+                if (!check("addModal")) {
+                    return false;
+                }
+                jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
+
+                    url: '/shiYanXiangMu/hunNingTuKangYa/add',
+                    type: 'post',
+                    dataType: 'json',
+                    beforeSubmit: function () {
+                    },
+                    success: function (json) {
+
+                        if (json.code == 0) {
+                            var tips = layer.alert(json.msg, {
+                                icon: 1,
+                                skin: 'layer-ext-moon',
+                                closeBtn: 0
+
+                            }, function (thisIndex, layero) {
+                                initGetShowCol(initTable);
+                                layer.close(index);
+                                layer.close(thisIndex);
+                            });
+                        } else {
+                            failAlert(json.msg);
+                        }
+                    },
+                    clearForm: false,//禁止清楚表单
+                    resetForm: false //禁止重置表单
+                });
+                return false; //开启该代码可禁止点击该按钮关闭
+            },
+            btn2: function (index, layero) {//取消回调
+                layer.close(index);
+            }
+        });
+    }
+
+
+    //校验参数通过返回true
+    function check(formId) {
+        if (isNull($("#" + formId + " input[name='SGBW']").val())) {
+            failAlert("请填写施工部位！");
+            return false;
+        }
+        return true;
+    }
+
+
     //初始化表格
     function initTable(displayCol) {
 
@@ -810,8 +877,41 @@
 
     //添加 - 初始化弹窗
     function initAddModel() {
-        jQuery("#addModal").html(moadlHtmls.add);
+        var formID = 'addModal';
+
+        //为添加更新表单
+        var jqForm = jQuery("#" + formID);
+        jqForm.html(moadlHtmls.add);
+
+        //施工单位
+        jqForm.find("input[name='construction']").val(baseData.cees_construction.construction);
+        jqForm.find("input[name='client']").val(baseData.cees_construction.client);
+        jqForm.find("input[name='cid']").val(baseData.cees_construction.cid);
+
+        //混凝土单位
+        var domStr = '';
+        for (var i = 0; i < baseData.cees_concreteList.length; i++) {
+            var concrete = baseData.cees_concreteList[i];
+            domStr += '<option value="' + concrete.ccid + '">' + concrete.concrete + '</option>';
+        }
+        jqForm.find("select[name='ccid']").html(domStr);
+
+        //工程
+        jqForm.find("input[name='project']").val(baseData.cees_project.project);
+
+        //初始化select
+        initLayuiFormSelect();
+
+        //初始化没有事件的时间空间
+        var initLaydateArr = jqForm.find("input[name='SNCCRQ'],[name='SKSDRQ'],[name='SKSDRQ'],[name='BGRQ']");
+        initLayuiLaydateByArr(initLaydateArr);
+        //设置制模龄期
+        var lq = 28;
+        initLayuiLaydateTime(jqForm.find("input[name='ZMRQ']"), new Date());
+        initLayuiLaydateTime(jqForm.find("input[name='YQSYRQ'],[name='SYRQ']"), getNewTime(new Date(), lq));
+        jqForm.find("input[name='YQLQ'],[name='SJLQ']").val(lq);
     }
+
 
     //修改 - 初始化弹窗
     function initUpdateModel() {

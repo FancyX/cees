@@ -53,8 +53,6 @@ function initGetModalHtml() {
 }
 
 
-
-
 //-----------------------------通用工具方法-------------------------------
 
 function initLayuiFormSelect() {
@@ -64,11 +62,11 @@ function initLayuiFormSelect() {
     });
 }
 
-function initLayuiLaydate() {
-    layui.use(['form'], function () {
+function initLayuiLaydate(formID) {
+    layui.use(['laydate'], function () {
         var laydate = layui.laydate;//日期
         //绑定所有时间组件
-        var arr = jQuery("input[placeholder='yyyy-MM-dd']")
+        var arr = jQuery('#' + formID + " input[placeholder='yyyy-MM-dd']");
         for (var i = 0; i < arr.length; i++) {
             laydate.render({
                 elem: arr[i]
@@ -76,7 +74,28 @@ function initLayuiLaydate() {
         }
     });
 }
+function initLayuiLaydateByArr(jqArr) {
+    layui.use(['laydate'], function () {
+        var laydate = layui.laydate;//日期
+        for (var i = 0; i < jqArr.length; i++) {
+            laydate.render({
+                elem: jqArr[i]
+            });
+        }
+    });
+}
 
+function initLayuiLaydateTime(jqArr, time) {
+    layui.use(['laydate'], function () {
+        var laydate = layui.laydate;//日期
+        for (var i = 0; i < jqArr.length; i++) {
+            laydate.render({
+                elem: jqArr[i],
+                value: time
+            });
+        }
+    });
+}
 
 
 //初始化弹窗-input

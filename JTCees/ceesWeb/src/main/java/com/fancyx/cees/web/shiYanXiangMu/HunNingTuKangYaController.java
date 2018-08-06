@@ -54,12 +54,12 @@ public class HunNingTuKangYaController {
     * */
     @RequestMapping(value = "/page")
     public String page() {
-        return "cees/shiYanXiangMu/hunNingTukangYa";
+        return "cees/shiYanXiangMu/hunNingTukangYa3";
     }
 
 
     /**
-     * 返回所有列
+     * 返回所有列d
      *
      * @return
      */
@@ -162,9 +162,14 @@ public class HunNingTuKangYaController {
             vo.setCid(sessionVO.getCees_construction().getCid());
             //委托单位名称-施工单位名称
             vo.setWTDWMC(sessionVO.getCees_construction().getConstruction());
-//            vo.setWTDWBH();
-//            vo.setGCBH();
-//            vo.setGCMC();//
+
+            //表CEES_Construction;字段cnumber
+            vo.setWTDWBH(sessionVO.getCees_construction().getCnumber());
+
+            //cees_project 表 project 字段 工程编号
+            vo.setGCBH(sessionVO.getCees_project().getProjectnumber());
+            //cees_project 表 project 字段 工程名称
+            vo.setGCMC(sessionVO.getCees_project().getProject());
 //            vo.setHNTDW();//
 //            vo.setZMRQ();//
 //            vo.setYQLQ();
