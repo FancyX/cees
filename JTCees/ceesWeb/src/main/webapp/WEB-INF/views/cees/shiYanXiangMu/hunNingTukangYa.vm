@@ -61,19 +61,19 @@
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">工程抗压序号
                             </div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="sn_project" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="sn_project" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row blue-font margin-bottom-20">
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">送检人</div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="client" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="client" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row blue-font margin-bottom-20">
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">送检编号</div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="testnumber" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="testnumber" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row margin-bottom-20">
@@ -118,15 +118,15 @@
                         <div class="layui-row blue-font margin-bottom-20">
                             <label class="layui-form-label">施工单位</label>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="construction" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="construction" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-row margin-bottom-20">
                             <label class="layui-form-label">工程名称</label>##
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" disabled name="cid" autocomplete="off" class="layui-input none">
-                                <input type="text" disabled name="project" autocomplete="off" class="layui-input">
+                                <input type="text" readonly name="cid" autocomplete="off" class="layui-input none">
+                                <input type="text" readonly name="project" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row margin-bottom-20">
@@ -513,6 +513,7 @@
             ##试块收到日期
                 <td>
                     <input type="text" name="SKSDRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SKSDRQ" class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##制模日期
                 <td>
@@ -520,11 +521,13 @@
                 </td>
             ##要求龄期
                 <td>
-                    <input type="text" name="YQLQ" autocomplete="off" class="layui-input">
+                    <input type="text" name="YQLQ" onchange="lqChange('addModal')" autocomplete="off"
+                           class="layui-input">
                 </td>
             ##要求试验日期
                 <td>
                     <input type="text" name="YQSYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="YQSYRQ"  class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##试块养护条件
                 <td>
@@ -565,6 +568,7 @@
             ##试验日期
                 <td rowspan="3">
                     <input type="text" name="SYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SYRQ" class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##实际期龄
                 <td rowspan="3">
@@ -581,40 +585,40 @@
                 </td>
             ##受压面积
                 <td rowspan="3">
-                    <input type="text" name="SYMJ" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="SYMJ" autocomplete="off" readonly class="layui-input">
                 </td>
             ##荷载-单块-1
                 <td>
-                    <input type="text" name="HZ1" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ1" autocomplete="off" readonly class="layui-input">
                 </td>
 
             ##荷载-平均
                 <td rowspan="3">
-                    <input type="text" name="HZPJ" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZPJ" autocomplete="off" readonly class="layui-input">
                 </td>
 
             ##抗压强度
                 <td rowspan="3">
-                    <input type="text" name="KYQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="KYQD" autocomplete="off" readonly class="layui-input">
                 </td rowspan="3">
             ##折合150mm立方强度
                 <td rowspan="3">
-                    <input type="text" name="ZHQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="ZHQD" autocomplete="off" readonly class="layui-input">
                 </td>
             ##达到设计强度
                 <td rowspan="3">
-                    <input type="text" name="DDQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="DDQD" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             ##荷载-单块-2,3
             <tr>
                 <td>
-                    <input type="text" name="HZ2" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ2" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="HZ3" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ3" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             <tr>
@@ -642,7 +646,7 @@
                             技术负责人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="JSFZR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="JSFZR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -651,7 +655,7 @@
                             校核人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="XHR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="XHR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -660,7 +664,7 @@
                             试验人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="SYR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="SYR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -670,6 +674,7 @@
                         </div>
                         <div class="layui-col-md8">
                             <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                            <input type="text" name="BGRQ"  class="layui-input none" placeholder="yyyy-MM-dd">
                         </div>
                     </div>
                 </td>
@@ -692,6 +697,7 @@
             </div>
         </div>
     </div>
+
     <div class="layui-row margin-bottom-20">
         <table class="layui-table">
             <tbody>
@@ -702,19 +708,19 @@
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">工程抗压序号
                             </div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="sn_project" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="sn_project" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row blue-font margin-bottom-20">
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">送检人</div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="client" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="client" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row blue-font margin-bottom-20">
                             <div class="layui-input-inline layui-col-md3 my-sm-lable">送检编号</div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="testnumber" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="testnumber" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row margin-bottom-20">
@@ -759,15 +765,15 @@
                         <div class="layui-row blue-font margin-bottom-20">
                             <label class="layui-form-label">施工单位</label>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="construction" disabled autocomplete="off" class="layui-input">
+                                <input type="text" name="construction" readonly autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-row margin-bottom-20">
                             <label class="layui-form-label">工程名称</label>##
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" disabled name="cid" autocomplete="off" class="layui-input none">
-                                <input type="text" disabled name="project" autocomplete="off" class="layui-input">
+                                <input type="text" readonly name="cid" autocomplete="off" class="layui-input none">
+                                <input type="text" readonly name="project" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-row margin-bottom-20">
@@ -1154,6 +1160,7 @@
             ##试块收到日期
                 <td>
                     <input type="text" name="SKSDRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SKSDRQ" class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##制模日期
                 <td>
@@ -1161,11 +1168,13 @@
                 </td>
             ##要求龄期
                 <td>
-                    <input type="text" name="YQLQ" autocomplete="off" class="layui-input">
+                    <input type="text" name="YQLQ" onchange="lqChange('updateModal')" autocomplete="off"
+                           class="layui-input">
                 </td>
             ##要求试验日期
                 <td>
                     <input type="text" name="YQSYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="YQSYRQ"  class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##试块养护条件
                 <td>
@@ -1206,6 +1215,7 @@
             ##试验日期
                 <td rowspan="3">
                     <input type="text" name="SYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SYRQ" class="layui-input none" placeholder="yyyy-MM-dd">
                 </td>
             ##实际期龄
                 <td rowspan="3">
@@ -1222,40 +1232,40 @@
                 </td>
             ##受压面积
                 <td rowspan="3">
-                    <input type="text" name="SYMJ" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="SYMJ" autocomplete="off" readonly class="layui-input">
                 </td>
             ##荷载-单块-1
                 <td>
-                    <input type="text" name="HZ1" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ1" autocomplete="off" readonly class="layui-input">
                 </td>
 
             ##荷载-平均
                 <td rowspan="3">
-                    <input type="text" name="HZPJ" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZPJ" autocomplete="off" readonly class="layui-input">
                 </td>
 
             ##抗压强度
                 <td rowspan="3">
-                    <input type="text" name="KYQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="KYQD" autocomplete="off" readonly class="layui-input">
                 </td rowspan="3">
             ##折合150mm立方强度
                 <td rowspan="3">
-                    <input type="text" name="ZHQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="ZHQD" autocomplete="off" readonly class="layui-input">
                 </td>
             ##达到设计强度
                 <td rowspan="3">
-                    <input type="text" name="DDQD" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="DDQD" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             ##荷载-单块-2,3
             <tr>
                 <td>
-                    <input type="text" name="HZ2" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ2" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="HZ3" autocomplete="off" disabled class="layui-input">
+                    <input type="text" name="HZ3" autocomplete="off" readonly class="layui-input">
                 </td>
             </tr>
             <tr>
@@ -1283,7 +1293,7 @@
                             技术负责人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="JSFZR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="JSFZR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -1292,7 +1302,7 @@
                             校核人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="XHR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="XHR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -1301,7 +1311,7 @@
                             试验人
                         </div>
                         <div class="layui-col-md8">
-                            <input type="text" name="SYR" disabled autocomplete="off" class="layui-input">
+                            <input type="text" name="SYR" readonly autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -1311,6 +1321,7 @@
                         </div>
                         <div class="layui-col-md8">
                             <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                            <input type="text" name="BGRQ"  class="layui-input none" placeholder="yyyy-MM-dd">
                         </div>
                     </div>
                 </td>
@@ -1637,7 +1648,7 @@
         initConstruction(baseData.cees_construction);//施工单位
         initConcrete(baseData.cees_concreteList);//混凝土单位
         initProject(baseData.cees_project);//工程
-        initDefaultData();
+        initDefaultData("addModal", new Date(), 28);
     }
 
     //初始化-混凝土单位
@@ -1663,25 +1674,63 @@
     }
 
     //初始化默认数据
-    function initDefaultData() {
-
-        var currentDate = new Date();
-
+    function initDefaultData(formID, time, lq) {
         //绑定制模日期
-        jQuery("input[name='ZMRQ']").each(function () {
+        var arr = jQuery("#" + formID + " input[name='ZMRQ']");
+        for (var i = 0; i < arr.length; i++) {
             layui.use(['laydate'], function () {
                 var laydate = layui.laydate;//日期
                 laydate.render({
-                    elem: $(this)[0],
-                    value: new Date()
+                    elem: arr[i],
+                    value: time,
+                    change: function (value, date, endDate) {
+                        lqChange(formID)
+                    }, done: function (value, date, endDate) {
+                        lqChange(formID)
+                    }
                 });
-
             });
-        });
+        }
+        // jQuery("#" + formID + ' input[name="YQLQ"]').on('input propertychange', function () {
+        //     lqChange(formID)
+        // })
+
+        //要求龄期-实际龄期
+        jQuery("#" + formID + " input[name='YQLQ'],[name='SJLQ']").val(lq);
+        //要求实验日期
+        var arr2 = jQuery("#" + formID + " input[name='YQSYRQ'],[name='SYRQ']")
+        for (var i = 0; i < arr2.length; i++) {
+            layui.use(['laydate'], function () {
+                var laydate = layui.laydate;//日期
+                laydate.render({
+                    elem: arr2[i],
+                    value: getNewTime(new Date(time), lq)
+                });
+            });
+        }
+    }
+
+    //龄期改变事件
+    function lqChange(formID) {
+        //指模日期
+        var zmrq = jQuery("#" + formID + " input[name='ZMRQ']").val();
+        if (zmrq == "" || zmrq == "yyyy-MM-dd" || zmrq == undefined) {
+            zmrq = getTime(new Date());
+        }
         //要求龄期
-        jQuery("input[name='YQLQ']").val(28);
-        //实际龄期
-        jQuery("input[name='SJLQ']").val(28);
+        var yqlq = jQuery("#" + formID + " input[name='YQLQ']").val();
+        console.log(zmrq);
+        console.log(yqlq);
+
+        try {
+            yqlq = parseInt(yqlq);
+            if (isNaN(yqlq) || yqlq <= 0) {
+                yqlq = 28;
+            }
+        } catch (err) {
+            yqlq = 28;
+        }
+        initDefaultData(formID, new Date(zmrq), yqlq);
     }
 
     //初始化表格-并绑定基础事件
@@ -1724,11 +1773,21 @@
                 return cols;
             }
 
+            var where = {}
+            // {
+            //     zmrqstart: jQuery("#beginTime").val(), //制模日期开始
+            //     zmrqend: jQuery("#endTime").val(),  //制模日期结束
+            //     queryStr: jQuery("#queryStr").val(), //查询字符串
+            //     queryIntStr: jQuery("#queryStr").val()
+            // };
+
+            // if()
+
             //table表格初始化参数
             var tableOptions = {
                 elem: '#tableData',
                 height: 510,
-                url: '/shiYanXiangMu/hunNIngTuKangYa/search', //数据接口
+                url: '/shiYanXiangMu/hunNingTuKangYa/search', //数据接口
                 page: true,//开启分页
                 request: {
                     pageName: 'page', //页码的参数名称，默认：page
@@ -1741,12 +1800,7 @@
                     countName: 'count', //数据总数的字段名称，默认：count
                     dataName: 'data' //数据列表的字段名称，默认：data
                 },
-                where: {
-                    zmrqstart: jQuery("#beginTime").val(), //制模日期开始
-                    zmrqend: jQuery("#endTime").val(),  //制模日期结束
-                    queryStr: jQuery("#queryStr").val(), //查询字符串
-                    queryIntStr: jQuery("#queryStr").val()
-                },
+                where: {},
                 skin: {
                     size: 'sm'
                 },
@@ -1836,7 +1890,7 @@
         //请求列数据-成功后请求表数据
         jQuery.ajax({
             type: 'post',
-            url: "/shiYanXiangMu/hunNIngTuKangYa/getShowCol.action",
+            url: "/shiYanXiangMu/hunNingTuKangYa/getShowCol.action",
             dataType: 'json',
             data: {},
             async: false,
@@ -1868,7 +1922,11 @@
         if (isNotPower(baseData.cees_user)) {
             return false;
         }
+        //初始化数据
         initModal(data, "updateModal");
+        //为时间控件绑定数据
+        initDefaultData("updateModal", new Date(data['zmrq']), data['yqlq']);
+
         layer.open({
             title: "修改",
             type: 1,
@@ -1890,7 +1948,7 @@
                 }
                 jQuery('#updateModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/update',
+                    url: '/shiYanXiangMu/hunNingTuKangYa/update',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -1921,6 +1979,8 @@
                 layer.close(index);
             }
         });
+
+
     }
 
     //初始化弹窗
@@ -1953,7 +2013,6 @@
                 dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
             }
 
-
             //判断文本框类型
             if (dom.is('input')) {
 
@@ -1971,6 +2030,7 @@
                     dom.val(value);
                 }
             } else if (dom.is('select')) {//选择框
+
                 if (typeof(dom.attr("lay-search")) == "undefined") {
 
                     layui.use('form', function () {
@@ -2143,7 +2203,7 @@
                 }
                 jQuery('#addModal').ajaxSubmit({      //ajax方式提交表单
 
-                    url: '/shiYanXiangMu/hunNIngTuKangYa/add',
+                    url: '/shiYanXiangMu/hunNingTuKangYa/add',
                     type: 'post',
                     dataType: 'json',
                     beforeSubmit: function () {
@@ -2194,7 +2254,7 @@
 
             jQuery.ajax({
                 type: 'post',
-                url: "/shiYanXiangMu/hunNIngTuKangYa/delete",
+                url: "/shiYanXiangMu/hunNingTuKangYa/delete",
                 dataType: 'json',
                 data: {'kyid': data.kyid},
                 async: false,
@@ -2227,6 +2287,13 @@
 </script>
 ##公用方法
 <script>
+
+    function getNewTime(time, day) {
+        // Date curDate = new Date();
+        // var preDate = new Date(curDate.getTime() - 24*60*60*1000); //前一天
+
+        return new Date(time.getTime() + (day * 24 * 60 * 60 * 1000)); //后一天
+    }
 
     function getTime(time) {
 

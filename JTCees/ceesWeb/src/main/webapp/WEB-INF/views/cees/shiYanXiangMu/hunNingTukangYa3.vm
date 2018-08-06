@@ -1,0 +1,831 @@
+<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/hunNingTukangYaPopUpStyle.css">
+<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
+<script src="/nav/jquery/jQuery.print.js"></script>
+<script src="/nav/js/iframe2.js"></script>
+
+##显示在右侧侧内容
+<div>
+##工具条
+    <div class="content-bar">
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+                <label class="layui-form-label width-60">制模日期</label>
+                <div class="layui-input-inline width-150">
+                    <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+                </div>
+
+                <label class="layui-form-label width-20">至</label>
+
+                <div class="layui-input-inline width-150">
+                    <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+                </div>
+                <div class="layui-input-inline width-150">
+                    <input type="text" class="layui-input" id="queryStr">
+                </div>
+
+                <div class="layui-input-inline  width-64">
+                    <button class="layui-btn " onclick="initTable()">查询</button>
+                </div>
+
+                <div class="layui-input-inline width-64">
+                    <button class="layui-btn" lay-event="add" onclick="showAddModal()">新增</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+##表格
+    <table id="tableData" lay-filter="test"></table>
+##表格的工具条
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="print">打印</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+
+##弹窗
+
+##添加弹窗
+<form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-col-md6">
+                        <div class="layui-row blue-font margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">工程抗压序号
+                            </div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="sn_project" readonly autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row blue-font margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">送检人</div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="client" readonly autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row blue-font margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">送检编号</div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="testnumber" readonly autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">设计强度</div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <select name="SJQD" lay-search>
+                                    <option value=""></option>
+                                    <option value="C30">C30</option>
+                                    <option value="C35">C35</option>
+                                    <option value="C40">C40</option>
+                                    <option value="C45">C45</option>
+                                    <option value="C50">C50</option>
+                                    <option value="C55">C55</option>
+                                    <option value="C60">C60</option>
+                                    <option value="C65">C65</option>
+                                    <option value="C70">C70</option>
+                                    <option value="C75">C75</option>
+                                    <option value="C80">C80</option>
+                                    <option value="C85">C85</option>
+                                    <option value="C90">C90</option>
+                                    <option value="C100">C100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">拟配强度</div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="NPQD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">要求坍落度</div>
+                            <div class="layui-input-inline  layui-col-md8">
+                                <input type="text" name="YQTLD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="layui-col-md6">
+
+                        <div class="layui-row blue-font margin-bottom-20">
+                            <label class="layui-form-label">施工单位</label>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="construction" readonly autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <label class="layui-form-label">工程名称</label>##
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" readonly name="cid" autocomplete="off" class="layui-input none">
+                                <input type="text" readonly name="project" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <label class="layui-form-label">施工部位</label>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="SGBW" autocomplete="off" lay-verify="required"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <label class="layui-form-label">混凝土单位</label>
+                            <div class="layui-input-inline layui-col-md8">
+                                <select name="ccid" lay-filter="ccid">
+                                    <option value=""></option>
+                                    <option value="0">北京</option>
+                                    <option value="1">上海</option>
+                                    <option value="2">广州</option>
+                                    <option value="3">深圳</option>
+                                    <option value="4">杭州</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <label class="layui-form-label ">
+                                <div class="paste-btn">
+                                    粘贴抗压号
+                                </div>
+                            </label>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="kynumber" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <label class="layui-form-label">实测坍落度(mm)</label>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="SCTLD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                ##第一列
+                    <div class="layui-col-md4">
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                水泥品种
+                            </div>
+                            <div class="layui-input-inline layui-col-md3">
+                                <select name="SNPZ" lay-search>
+                                    <option value=""></option>
+                                    <option value="P.O">P.O</option>
+                                    <option value="P.S">P.S</option>
+                                    <option value="P.F">P.F</option>
+                                    <option value="P.P">P.P</option>
+                                    <option value="P.Ⅰ">P.Ⅰ</option>
+                                    <option value="P.Ⅱ">P.Ⅱ</option>
+                                </select>
+                            </div>
+
+
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                水泥标号
+                            </div>
+                            <div class="layui-input-inline layui-col-md3">
+                                <select name="SNBH" lay-search>
+                                    <option value=""></option>
+                                    <option value="32.5">32.5</option>
+                                    <option value="32.5R">32.5R</option>
+                                    <option value="42.5">42.5</option>
+                                    <option value="42.5R">42.5R</option>
+                                    <option value="52.5">52.5</option>
+                                    <option value="52.5R">52.5R</option>
+                                    <option value="62.5">62.5</option>
+                                    <option value="62.5R">62.5R</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                砂子品种
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="SHAPZ" lay-search>
+                                    <option value=""></option>
+                                    <option value="0">粗砂</option>
+                                    <option value="1">中砂</option>
+                                    <option value="2">细砂</option>
+                                    <option value="3">河砂</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                石子品种
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="SHIPZ" lay-search>
+                                    <option value=""></option>
+                                    <option value="碎石">碎石</option>
+                                    <option value="碎卵石">碎卵石</option>
+                                    <option value="卵碎石">卵碎石</option>
+                                    <option value="卵石">卵石</option>
+                                    <option value="豆石">豆石</option>
+                                    <option value="细石">细石</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                粉煤灰名称
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="FMHMC" lay-search>
+                                    <option value=""></option>
+                                    <option value="粉煤灰">粉煤灰</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                掺合料名称
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="CHLMC" lay-search>
+                                    <option value=""></option>
+                                    <option value="硅粉">硅粉</option>
+                                    <option value="矿粉">矿粉</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                外加剂名称
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="WJJMC" lay-search>
+                                    <option value=""></option>
+                                    <option value="减水剂">减水剂</option>
+                                    <option value="防冻剂">防冻剂</option>
+                                    <option value="泵送剂">泵送剂</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                外加剂名称2
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="PZJMC" lay-search>
+                                    <option value=""></option>
+                                    <option value="UEA">UEA</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                ##第二列
+                    <div class="layui-col-md4">
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                水泥厂别
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="SNCB" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                砂子产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="SHACD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                石子产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="SHICD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                粉煤灰产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="FMHCD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                掺合料产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="CHLCD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                外加剂产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="WJJCD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                外加剂2产地
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="PZJCD" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+                ##第三列
+                    <div class="layui-col-md4">
+                        <div class="layui-row margin-bottom-20">
+                        ##水泥出厂日期
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                出厂日期
+                            </div>
+                            <div class="layui-input-inline layui-col-md3">
+                                <input type="text" name="SNCCRQ" class="layui-input" placeholder="yyyy-MM-dd">
+                            </div>
+
+                        ##水泥试验编号
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                试验编号
+                            </div>
+                            <div class="layui-input-inline layui-col-md3">
+                                <input type="text" name="SNSYBH" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    ##砂子试验编号
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                试验编号
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="SHASYBH" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    ##石子试验编号
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                试验编号
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <input type="text" name="SHISYBH" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    ##石子最大粒径
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md3 my-sm-lable">
+                                最大粒径
+                            </div>
+                            <div class="layui-input-inline  layui-col-md9">
+                                <select name="SHIZDLJ" lay-search>
+                                    <option value=""></option>
+                                    <option value="16">16</option>
+                                    <option value="25">25</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+            ##
+            ##                <td></td>
+                <td>材料名称</td>
+                <td>水泥</td>
+                <td>水</td>
+                <td>砂子</td>
+                <td>石子</td>
+                <td>粉煤灰</td>
+                <td>掺合料</td>
+                <td>外加剂</td>
+                <td>外加剂2</td>
+            </tr>
+            <tr>
+            ##
+            ##                <td></td>
+            ##材料名称
+                <td>用量(kg/m3)</td>
+            ##水泥-水泥用量
+                <td>
+                    <input type="text" name="SNYL" autocomplete="off" class="layui-input">
+                </td>
+            ##水-水用量
+                <td>
+                    <input type="text" name="SYL" autocomplete="off" class="layui-input">
+                </td>
+            ##砂子-砂子用量
+                <td>
+                    <input type="text" name="SHAYL" autocomplete="off" class="layui-input">
+                </td>
+            ##石子-石子用量
+                <td>
+                    <input type="text" name="SHIYL" autocomplete="off" class="layui-input">
+                </td>
+            ##粉煤灰-粉煤灰用量
+                <td>
+                    <input type="text" name="FMHYL" autocomplete="off" class="layui-input">
+                </td>
+            ##掺合料-掺和料用量
+                <td>
+                    <input type="text" name="CHLYL" autocomplete="off" class="layui-input">
+                </td>
+            ##外加剂-外加剂用量
+                <td>
+                    <input type="text" name="WJJYL" autocomplete="off" class="layui-input">
+                </td>
+            ##外加剂2-外加剂2用量
+                <td>
+                    <input type="text" name="PZJYL" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td colspan="2">配合比编号</td>
+                <td>水灰比</td>
+                <td>砂率(%)</td>
+                <td class="blue-font">试块收到日期</td>
+                <td>制模日期</td>
+                <td>要求龄期</td>
+                <td class="blue-font">要求试验日期</td>
+                <td>试块养护条件</td>
+            </tr>
+            <tr>
+            ##配合比编号
+                <td colspan="2">
+                    <input type="text" name="PHBBH" autocomplete="off" class="layui-input">
+                </td>
+            ##水灰比
+                <td>
+                    <input type="text" name="SHB" autocomplete="off" class="layui-input">
+                </td>
+            ##砂率(%)
+                <td>
+                    <input type="text" name="SL" autocomplete="off" class="layui-input">
+                </td>
+            ##试块收到日期
+                <td>
+                    <input type="text" name="SKSDRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SKSDRQ" class="layui-input none" placeholder="yyyy-MM-dd">
+                </td>
+            ##制模日期
+                <td>
+                    <input type="text" name="ZMRQ" class="layui-input" placeholder="yyyy-MM-dd">
+                </td>
+            ##要求龄期
+                <td>
+                    <input type="text" name="YQLQ" onchange="lqChange('addModal')" autocomplete="off"
+                           class="layui-input">
+                </td>
+            ##要求试验日期
+                <td>
+                    <input type="text" name="YQSYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="YQSYRQ" class="layui-input none" placeholder="yyyy-MM-dd">
+                </td>
+            ##试块养护条件
+                <td>
+                    <input type="text" name="SKYHTJ" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            ##头
+            <tr>
+                <td rowspan="2">试件编号</td>
+                <td rowspan="2" class="blue-font">试验日期</td>
+                <td rowspan="2">实际期龄</td>
+                <td rowspan="2">试件尺寸</td>
+                <td rowspan="2" class="blue-font">受压面积</td>
+                <td colspan="2" class="blue-font">荷载</td>
+                <td rowspan="2" class="blue-font">抗压强度</td>
+                <td rowspan="2" class="blue-font">折合150mm立方强度</td>
+                <td rowspan="2" class="blue-font">达到设计强度</td>
+            </tr>
+            <tr>
+                <td class="blue-font">单块</td>
+                <td class="blue-font">平均</td>
+            </tr>
+
+            ##内容
+            <tr>
+            ##试件编号
+                <td rowspan="3">
+                    <textarea name="SJBH" class="layui-textarea"></textarea>
+                </td>
+            ##试验日期
+                <td rowspan="3">
+                    <input type="text" name="SYRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                    <input type="text" name="SYRQ" class="layui-input none" placeholder="yyyy-MM-dd">
+                </td>
+            ##实际期龄
+                <td rowspan="3">
+                    <input type="text" name="SJLQ" autocomplete="off" class="layui-input">
+                </td>
+            ##试件尺寸
+                <td rowspan="3">
+                    <select name="SJCC" lay-search>
+                        <option value=""></option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+
+                    </select>
+                </td>
+            ##受压面积
+                <td rowspan="3">
+                    <input type="text" name="SYMJ" autocomplete="off" readonly class="layui-input">
+                </td>
+            ##荷载-单块-1
+                <td>
+                    <input type="text" name="HZ1" autocomplete="off" readonly class="layui-input">
+                </td>
+
+            ##荷载-平均
+                <td rowspan="3">
+                    <input type="text" name="HZPJ" autocomplete="off" readonly class="layui-input">
+                </td>
+
+            ##抗压强度
+                <td rowspan="3">
+                    <input type="text" name="KYQD" autocomplete="off" readonly class="layui-input">
+                </td rowspan="3">
+            ##折合150mm立方强度
+                <td rowspan="3">
+                    <input type="text" name="ZHQD" autocomplete="off" readonly class="layui-input">
+                </td>
+            ##达到设计强度
+                <td rowspan="3">
+                    <input type="text" name="DDQD" autocomplete="off" readonly class="layui-input">
+                </td>
+            </tr>
+            ##荷载-单块-2,3
+            <tr>
+                <td>
+                    <input type="text" name="HZ2" autocomplete="off" readonly class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="HZ3" autocomplete="off" readonly class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10"></td>
+            </tr>
+
+            <tr>
+                <td colspan="1">备注</td>
+                <td colspan="9">
+                    <input type="text" name="BZ" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-col-md3">
+
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            技术负责人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="JSFZR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            校核人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="XHR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            试验人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="SYR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            报告日期
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                            <input type="text" name="BGRQ" class="layui-input none" placeholder="yyyy-MM-dd">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+<script src="/nav/js/iframe2.js"></script>
+##全局变量
+<script>
+    //表格单选选中的数据
+    var selectCheckData = undefined;
+
+    //当前页面的请求的URL由各个页面定义此处为样本
+    var urls = {
+        showCol: '/shiYanXiangMu/hunNingTuKangYa/getShowCol.action',
+        select: '/shiYanXiangMu/hunNingTuKangYa/search',
+        add: '/shiYanXiangMu/hunNingTuKangYa/add',
+        update: '/shiYanXiangMu/hunNingTuKangYa/update',
+        delete: '/shiYanXiangMu/hunNingTuKangYa/delete'
+    };
+</script>
+##页面初始化
+<script>
+    window.onload = function (ev) {
+        init();
+    };
+</script>
+
+<script>
+    //初始化表格
+    function initTable(displayCol) {
+
+        //获取表头
+        var getCols = function (json) {
+
+            var data = json.data;
+            var cols = [[]];
+            cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left'};
+            for (var i = 0; i < data.length; i++) {
+                var row = data[i];
+                var gridmc = row['gridmc'];
+                var zw = row['zw'];
+                var width = 90;
+                if (zw.length > 4) {
+                    width = width + (zw.length - 4) * 8;
+                }
+                if (gridmc.length - zw.length > 2) {
+                    width += 24;
+                }
+                var col = {field: gridmc, title: zw, width: width};
+                cols[0].push(col);
+            }
+            var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', width: 200};
+            cols[0].push(toolbar);
+            return cols;
+        }
+
+        //表格初始化和查询参数绑定
+        var tableOptions = {
+            elem: '#tableData',
+            height: 510,
+            url: urls.select, //数据接口
+            page: true,//开启分页
+            request: {
+                pageName: 'page', //页码的参数名称，默认：page
+                limitName: 'limit' //每页数据量的参数名，默认：limit
+            },
+            response: {
+                statusName: 'code',//数据状态的字段名称，默认：code
+                statusCode: 0,//成功的状态码，默认：0
+                msgName: 'msg',//状态信息的字段名称，默认：msg
+                countName: 'count', //数据总数的字段名称，默认：count
+                dataName: 'data' //数据列表的字段名称，默认：data
+            },
+            where: {
+                zmrqstart: jQuery("#beginTime").val(), //制模日期开始
+                zmrqend: jQuery("#endTime").val(),  //制模日期结束
+                queryStr: jQuery("#queryStr").val(), //查询字符串
+                queryIntStr: jQuery("#queryStr").val()
+            },
+            skin: {
+                size: 'sm'
+            },
+            cols: getCols(displayCol)
+        };
+
+        //执行一个 table 实例
+        layui.use(['table'], function () {
+            var table = layui.table;//表格
+            table.render(tableOptions);
+
+            //监听工具条
+            //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            table.on('tool(test)', function (obj) {
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'del') {//删除
+                    deleteRow(obj, data);
+                } else if (layEvent === 'edit') {//编辑
+                    showUpdateModal(obj, data);
+                } else if (layEvent === 'detail') {//查看
+                    showDetailModal(obj, data);
+                } else if (layEvent === 'print') {//打印
+                    showPrintModal(obj, data);
+                }
+            });
+
+            //设置多选框单选事件
+            table.on('checkbox(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var oldStates = $(this).prop("checked");
+                $(this).parents("tbody").find("tr td div input[type='checkbox']").prop("checked", false);
+                $(this).parents("tbody").find("tr td div div").removeClass("layui-form-checked");
+
+                if (oldStates) {
+                    $(this).removeClass('layui-form-checked');
+                    $(this).prop("checked", false);
+                    selectCheckData = undefined;
+                    selectCheck = undefined;
+                } else {
+                    selectCheckData = obj.data;
+                    selectCheck = $(this);
+                    $(this).addClass('layui-form-checked');
+                    $(this).prop("checked", true);
+
+                }
+            });
+        });
+    }
+
+    //添加 - 初始化弹窗
+    function initAddModel() {
+        jQuery("#addModal").html(moadlHtmls.add);
+    }
+
+    //修改 - 初始化弹窗
+    function initUpdateModel() {
+
+    }
+
+    //查看 - 初始化弹窗
+    function initDetailModel() {
+
+    }
+
+    //打印 - 初始化弹窗
+    function initPrintModel() {
+
+    }
+</script>
+

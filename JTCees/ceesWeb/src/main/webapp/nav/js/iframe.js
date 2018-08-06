@@ -277,6 +277,9 @@ function initModal(data, formID) {
     }
 }
 
+
+
+//-----------------------------通用工具方法-------------------------------
 //tds为数组包含jq对象
 function getPrintModelDom(name, tds) {
     for (var i = 0; i < tds.length; i++) {
@@ -292,9 +295,6 @@ function getPrintModelDom(name, tds) {
     }
     return undefined;
 }
-
-
-//-----------------------------通用工具方法-------------------------------
 
 //不是所需权限
 function isNotPower(ceces_user) {

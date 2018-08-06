@@ -36,7 +36,7 @@ import java.util.Date;
  */
 
 @Controller
-@RequestMapping(value = "/shiYanXiangMu/hunNIngTuKangYa")
+@RequestMapping(value = "/shiYanXiangMu/hunNingTuKangYa")
 public class HunNingTuKangYaController {
     private static final Logger log = Logger.getLogger(HunNingTuKangYaController.class);
 
@@ -166,7 +166,6 @@ public class HunNingTuKangYaController {
 //            vo.setGCBH();
 //            vo.setGCMC();//
 //            vo.setHNTDW();//
-
 //            vo.setZMRQ();//
 //            vo.setYQLQ();
 //            vo.setYQSYRQ();
