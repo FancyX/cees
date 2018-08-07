@@ -52,14 +52,47 @@ function initGetModalHtml() {
     moadlHtmls.print = jQuery("#printModal").html();
 }
 
+//根据施工单位获取混凝土单位
+function getConcreteByConstructionID(constructionID, callback) {
+    //请求列数据-成功后请求表数据
+    jQuery.ajax({
+        type: 'post',
+        url: "/danWeiXinXi/HunNingTuDanWei/selectByConstructionId",
+        dataType: 'json',
+        data: {
+            constructionId: constructionID
+        },
+        async: false,
+        success: function (json) {
+            if (json == null || json == undefined) {
+                failAlert("获取数据失败！");
+                return;
+            } else {
+                if (json.code == 0) {
+                    callback(json);
+                }
+            }
+        },
+        err: function (err) {
+            failAlert("连接服务器失败！");
+        }
+    });
+}
+
 
 //-----------------------------通用工具方法-------------------------------
 
-function initLayuiFormSelect() {
+function initLayuiFormSelect(callback) {
     layui.use(['form'], function () {
         var form = layui.form; //表单
         form.render("select");
+
+        if (callback != undefined) {
+            callback();
+        }
     });
+
+
 }
 
 function initLayuiLaydate(formID) {
@@ -74,6 +107,7 @@ function initLayuiLaydate(formID) {
         }
     });
 }
+
 function initLayuiLaydateByArr(jqArr) {
     layui.use(['laydate'], function () {
         var laydate = layui.laydate;//日期
@@ -86,15 +120,37 @@ function initLayuiLaydateByArr(jqArr) {
 }
 
 function initLayuiLaydateTime(jqArr, time) {
-    layui.use(['laydate'], function () {
-        var laydate = layui.laydate;//日期
-        for (var i = 0; i < jqArr.length; i++) {
-            laydate.render({
-                elem: jqArr[i],
-                value: time
-            });
-        }
-    });
+    if (time.toString() == 'Invalid Date') {
+        initLayuiLaydateByArr(jqArr);
+    }
+    else {
+        layui.use(['laydate'], function () {
+            var laydate = layui.laydate;//日期
+            for (var i = 0; i < jqArr.length; i++) {
+                laydate.render({
+                    elem: jqArr[i],
+                    value: time
+                });
+            }
+        });
+    }
+}
+
+function initLayuiLaydateTimeStr(jqArr, time) {
+    if (isNull(time)) {
+        initLayuiLaydateByArr(jqArr);
+    }
+    else {
+        layui.use(['laydate'], function () {
+            var laydate = layui.laydate;//日期
+            for (var i = 0; i < jqArr.length; i++) {
+                laydate.render({
+                    elem: jqArr[i],
+                    value: new Date(time)
+                });
+            }
+        });
+    }
 }
 
 
@@ -115,18 +171,9 @@ function initModalInput(data, formID) {
             dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
         }
         //判断文本框类型
-        if (dom.is('input')) {
-            //判断为时间
+        if (dom.is('input')||dom.is('textarea')) {
+            //判断为普通输入框
             if (dom.attr('placeholder') != "yyyy-MM-dd") {
-                layui.use(['laydate'], function () {
-                    var laydate = layui.laydate;//日期
-                    laydate.render({
-                        elem: dom[0],
-                        value: new Date(value),
-                        isInitValue: true //允许填充初始值
-                    });
-                });
-            } else {//普通输入框
                 dom.val(value);
             }
         }
@@ -178,12 +225,37 @@ function getTime(time) {
     return Y + M + D;
 }
 
+function isTime(str) {
+    if (isNull(str)) {
+        return false;
+    }
+    var reg = /^(\d+)-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+    var r = str.match(reg);
+    if (r == null) return false;
+    r[2] = r[2] - 1;
+    var d = new Date(r[1], r[2], r[3], r[4], r[5], r[6]);
+    if (d.getFullYear() != r[1]) return false;
+    if (d.getMonth() != r[2]) return false;
+    if (d.getDate() != r[3]) return false;
+    if (d.getHours() != r[4]) return false;
+    if (d.getMinutes() != r[5]) return false;
+    if (d.getSeconds() != r[6]) return false;
+    return true;
+
+
+}
+
 //判断是否为null
 function isNull(para) {
     if (para == null || para == undefined || para == '') {
         return true;
     }
     return false;
+}
+
+//判断是否为正整数包括0
+function isNotNum(value) {
+    return !/^(0|[1-9][0-9]*)$/.test(value);
 }
 
 //弹出失败信息

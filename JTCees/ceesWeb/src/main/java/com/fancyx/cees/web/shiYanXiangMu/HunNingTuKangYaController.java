@@ -10,8 +10,10 @@ import com.fancyx.cees.dao.PageBean;
 import com.fancyx.cees.domain.busi.HunNingTuKangYa;
 import com.fancyx.cees.domain.vo.HunNingTuKangYaVO;
 import com.fancyx.cees.domain.vo.SessionVO;
+import com.fancyx.cees.service.busi.CEESConcreteService;
 import com.fancyx.cees.service.busi.Display_HntkyService;
 import com.fancyx.cees.service.busi.HunNingTuKangYaService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -46,12 +48,16 @@ public class HunNingTuKangYaController {
     @Resource
     private Display_HntkyService display_hntkyService;
 
+    //混凝土单位
+    @Resource
+    private CEESConcreteService ceesConcreteService;
+
     @Autowired
     private HunNingKuKangYaDBUtil hunNingKuKangYaDBUtil;
 
     /*
-    * 返回混凝土抗压页面
-    * */
+     * 返回混凝土抗压页面
+     * */
     @RequestMapping(value = "/page")
     public String page() {
         return "cees/shiYanXiangMu/hunNingTukangYa3";
@@ -94,7 +100,7 @@ public class HunNingTuKangYaController {
             PageBean<HunNingTuKangYa> result = hunNingTuKangYaService.pageQuery(pageBean, hunNingTuKangYaDTO);
             return new PageResultBean(result.getUnderly(), result.getItemCount());
         } catch (Exception ex) {
-            log.error("混凝土抗压分页查询异常", ex);
+            log.error("查询异常", ex);
             return new PageResultBean(ex);
         }
     }
@@ -122,19 +128,30 @@ public class HunNingTuKangYaController {
     /**
      * 更新混凝土抗压
      *
-     * @param hunNingTuKangYaVO
+     * @param vo
      * @return
      */
     @RequestMapping(value = "/update")
     @ResponseBody
-    public ResultBean update(HunNingTuKangYaVO hunNingTuKangYaVO) {
-
+    public ResultBean update(HunNingTuKangYaVO vo) {
+        System.out.println("vo.getCcid() = " + vo.getCcid());
         try {
-            hunNingTuKangYaService.update(hunNingTuKangYaVO);
+            //设置试件尺寸
+            vo = setSJCC(vo);
+            //设置龄期
+            vo = setLQ(vo);
+            //表：CEES_Concrete；字段：concrete - 混凝土单位名称
+            vo.setHNTDW(ceesConcreteService.getConcrete(vo.getCcid()).getConcrete());
+
+
+
+            hunNingTuKangYaService.update(vo);
             return new ResultBean();
         } catch (Exception ex) {
-            log.error("混凝土抗压修改异常", ex);
-            return new ResultBean(ex);
+            ex.printStackTrace();
+            Exception e = new Exception("修改错误！", ex);
+            log.error("修改错误", e);
+            return new ResultBean(e);
         }
     }
 
@@ -153,37 +170,45 @@ public class HunNingTuKangYaController {
             if (sessionVO == null) {
                 throw new Exception("请重新登录！");
             }
-//
-            vo.setPid(sessionVO.getCees_project().getPid());
+
+            //设置未读标志
             vo.setReadmark(0);
+            //设置测试值
             vo.setSn_test(0);
+            //单位代码
             vo.setDWDM(0);
-            //设置Cid
+            //技术负责人编号
+            vo.setJSFZRBH(0);
+            //校核人编号
+            vo.setXHRBH(0);
+            //试验人编号
+            vo.setSYRBH(0);
+            //委托组号
+            vo.setWTZH(0);
+
+            //设置Cid-施工单位ID
             vo.setCid(sessionVO.getCees_construction().getCid());
             //委托单位名称-施工单位名称
             vo.setWTDWMC(sessionVO.getCees_construction().getConstruction());
-
             //表CEES_Construction;字段cnumber
             vo.setWTDWBH(sessionVO.getCees_construction().getCnumber());
 
-            //cees_project 表 project 字段 工程编号
+            //cees_project 表 pid 字段 工程编号
+            vo.setPid(sessionVO.getCees_project().getPid());
+            //cees_project 表 projectNumber 字段 工程编号
             vo.setGCBH(sessionVO.getCees_project().getProjectnumber());
             //cees_project 表 project 字段 工程名称
             vo.setGCMC(sessionVO.getCees_project().getProject());
-//            vo.setHNTDW();//
-//            vo.setZMRQ();//
-//            vo.setYQLQ();
-//            vo.setYQSYRQ();
-//            vo.setSKYHTJ();
-//            vo.setSYWTR()
-//            vo.setSYRQ();
-//            vo.setSJLQ();
-//            vo.setSJCC();
-//            vo.setSYMJ();
-            vo.setJSFZRBH(0);
-            vo.setXHRBH(0);
-//            vo.setSYRBH();
-//            vo.setWTZH(0);
+
+            //表：CEES_User；字段：name - 试验委托人
+            vo.setSYWTR(sessionVO.getCees_user().getName());
+
+            //设置试件尺寸
+            vo = setSJCC(vo);
+            //设置龄期
+            vo = setLQ(vo);
+            //表：CEES_Concrete；字段：concrete - 混凝土单位名称
+            vo.setHNTDW(ceesConcreteService.getConcrete(vo.getCcid()).getConcrete());
 
             //用户
             vo.setEdituser(sessionVO.getCees_user().getLoginuser());
@@ -221,5 +246,35 @@ public class HunNingTuKangYaController {
 //        注册自定义的编辑器
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 
+    }
+
+    //设置龄期
+    public HunNingTuKangYaVO setLQ(HunNingTuKangYaVO vo) {
+
+        try {
+            int yqlq = Integer.parseInt(vo.getYQLQ());
+            if (vo.getZMRQ() != null && yqlq > 0) {
+                Date newTime = TimeUtil.getNewTime(vo.getZMRQ(), yqlq);
+                vo.setYQSYRQ(newTime);
+                vo.setSYRQ(newTime);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
+    //设置试件尺寸
+    public HunNingTuKangYaVO setSJCC(HunNingTuKangYaVO vo) {
+        try {
+            if (StringUtils.isNotBlank(vo.getSJCC())) {
+                Integer sjcc = Integer.parseInt(vo.getSJCC());
+                String symj = Integer.toString(sjcc * sjcc);
+                vo.setSYMJ(symj);
+            }
+        } catch (Exception e) {
+
+        }
+        return vo;
     }
 }

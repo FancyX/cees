@@ -46,7 +46,7 @@ public class HunNingTuKangYaServiceImpl implements HunNingTuKangYaService {
 
     @Override
     public Integer getCnumber() {
-        return manager.getCnumber() ;
+        return manager.getCnumber();
     }
 
     @Override

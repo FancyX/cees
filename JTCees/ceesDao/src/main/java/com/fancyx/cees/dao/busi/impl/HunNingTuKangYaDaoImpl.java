@@ -37,7 +37,7 @@ public class HunNingTuKangYaDaoImpl extends BaseDao implements HunNingTuKangYaDa
 
     @Override
     public void update(HunNingTuKangYaVO hunNingTuKangYaVO) {
-        this.update(this.getNamespace("update"), hunNingTuKangYaVO);
+        this.update(this.getNamespace("update2"), hunNingTuKangYaVO);
     }
 
     @Override

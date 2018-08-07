@@ -532,6 +532,342 @@
         kyid =  #{id,jdbcType=INTEGER}
     </delete>
 
+    <update id="update2" parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
+        UPDATE [CEES_Hntky]
+        <set>
+            <if test="cid != null" >
+                [cid] = #{cid},
+            </if>
+            <if test="pid != null" >
+                [pid] = #{pid},
+            </if>
+            <if test="ccid != null" >
+                [ccid] = #{ccid},
+            </if>
+            <if test="sn != null" >
+                [sn] = #{sn},
+            </if>
+            <if test="state != null" >
+                [state] = #{state},
+            </if>
+            <if test="remarks != null" >
+                [remarks] = #{remarks},
+            </if>
+            <if test="edittime != null" >
+                [edittime] = #{edittime},
+            </if>
+            <if test="edituser != null" >
+                [edituser] = #{edituser},
+            </if>
+            <if test="readmark != null" >
+                [readmark] = #{readmark},
+            </if>
+            <if test="readtime != null" >
+                [readtime] = #{readtime},
+            </if>
+            <if test="WTDBH != null" >
+                [WTDBH] = #{WTDBH},
+            </if>
+            <if test="DWDM != null" >
+                [DWDM] = #{DWDM},
+            </if>
+            <if test="SYBH != null" >
+                [SYBH] = #{SYBH},
+            </if>
+            <if test="SHIYBH != null" >
+                [SHIYBH] = #{SHIYBH},
+            </if>
+            <if test="SYXMDM != null" >
+                [SYXMDM] = #{SYXMDM},
+            </if>
+            <if test="SYXMMC != null" >
+                [SYXMMC] = #{SYXMMC},
+            </if>
+            <if test="WTDWBH != null" >
+                [WTDWBH] = #{WTDWBH},
+            </if>
+            <if test="WTDWMC != null" >
+                [WTDWMC] = #{WTDWMC},
+            </if>
+            <if test="GCBH != null" >
+                [GCBH] = #{GCBH},
+            </if>
+            <if test="GCMC != null" >
+                [GCMC] = #{GCMC},
+            </if>
+            <if test="YQBH != null" >
+                [YQBH] = #{YQBH},
+            </if>
+            <if test="SGBW != null" >
+                [SGBW] = #{SGBW},
+            </if>
+            <if test="SJQD != null" >
+                [SJQD] = #{SJQD},
+            </if>
+            <if test="NPQD != null" >
+                [NPQD] = #{NPQD},
+            </if>
+            <if test="YQTLD != null" >
+                [YQTLD] = #{YQTLD},
+            </if>
+            <if test="SCTLD != null" >
+                [SCTLD] = #{SCTLD},
+            </if>
+            <if test="SNPZ != null" >
+                [SNPZ] = #{SNPZ},
+            </if>
+            <if test="SNBH != null" >
+                [SNBH] = #{SNBH},
+            </if>
+            <if test="SNCB != null" >
+                [SNCB] = #{SNCB},
+            </if>
+            <if test="SNCCRQ != null" >
+                [SNCCRQ] = #{SNCCRQ},
+            </if>
+            <if test="SNSYBH != null" >
+                [SNSYBH] = #{SNSYBH},
+            </if>
+            <if test="SHACD != null" >
+                [SHACD] = #{SHACD},
+            </if>
+            <if test="SHAPZ != null" >
+                [SHAPZ] = #{SHAPZ},
+            </if>
+            <if test="SHAXDMS != null" >
+                [SHAXDMS] = #{SHAXDMS},
+            </if>
+            <if test="SHAHNL != null" >
+                [SHAHNL] = #{SHAHNL},
+            </if>
+            <if test="SHASYBH != null" >
+                [SHASYBH] = #{SHASYBH},
+            </if>
+            <if test="SHICD != null" >
+                [SHICD] = #{SHICD},
+            </if>
+            <if test="SHIPZ != null" >
+                [SHIPZ] = #{SHIPZ},
+            </if>
+            <if test="SHIZDLJ != null" >
+                [SHIZDLJ] = #{SHIZDLJ},
+            </if>
+            <if test="SHIHNL != null" >
+                [SHIHNL] = #{SHIHNL},
+            </if>
+            <if test="SHISYBH != null" >
+                [SHISYBH] = #{SHISYBH},
+            </if>
+            <if test="CHLMC != null" >
+                [CHLMC] = #{CHLMC},
+            </if>
+            <if test="CHLCD != null" >
+                [CHLCD] = #{CHLCD},
+            </if>
+            <if test="CHLZYSNL != null" >
+                [CHLZYSNL] = #{CHLZYSNL},
+            </if>
+            <if test="FMHMC != null" >
+                [FMHMC] = #{FMHMC},
+            </if>
+            <if test="FMHCD != null" >
+                [FMHCD] = #{FMHCD},
+            </if>
+            <if test="FMHZYSNL != null" >
+                [FMHZYSNL] = #{FMHZYSNL},
+            </if>
+            <if test="PZJMC != null" >
+                [PZJMC] = #{PZJMC},
+            </if>
+            <if test="PZJCD != null" >
+                [PZJCD] = #{PZJCD},
+            </if>
+            <if test="PZJCL != null" >
+                [PZJCL] = #{PZJCL},
+            </if>
+            <if test="PZJZYSNL != null" >
+                [PZJZYSNL] = #{PZJZYSNL},
+            </if>
+            <if test="WJJMC != null" >
+                [WJJMC] = #{WJJMC},
+            </if>
+            <if test="WJJCD != null" >
+                [WJJCD] = #{WJJCD},
+            </if>
+            <if test="WJJCL != null" >
+                [WJJCL] = #{WJJCL},
+            </if>
+            <if test="WJJZYSNL != null" >
+                [WJJZYSNL] = #{WJJZYSNL},
+            </if>
+            <if test="SGPHB != null" >
+                [SGPHB] = #{SGPHB},
+            </if>
+            <if test="SHB != null" >
+                [SHB] = #{SHB},
+            </if>
+            <if test="SL != null" >
+                [SL] = #{SL},
+            </if>
+            <if test="HNTDW != null" >
+                [HNTDW] = #{HNTDW},
+            </if>
+            <if test="PHBBH != null" >
+                [PHBBH] = #{PHBBH},
+            </if>
+            <if test="SNYL != null" >
+                [SNYL] = #{SNYL},
+            </if>
+            <if test="SYL != null" >
+                [SYL] = #{SYL},
+            </if>
+            <if test="SHAYL != null" >
+                [SHAYL] = #{SHAYL},
+            </if>
+            <if test="SHIYL != null" >
+                [SHIYL] = #{SHIYL},
+            </if>
+            <if test="CHLYL != null" >
+                [CHLYL] = #{CHLYL},
+            </if>
+            <if test="FMHYL != null" >
+                [FMHYL] = #{FMHYL},
+            </if>
+            <if test="PZJYL != null" >
+                [PZJYL] = #{PZJYL},
+            </if>
+            <if test="WJJYL != null" >
+                [WJJYL] = #{WJJYL},
+            </if>
+            <if test="ZMRQ != null" >
+                [ZMRQ] = #{ZMRQ},
+            </if>
+            <if test="YQLQ != null" >
+                [YQLQ] = #{YQLQ},
+            </if>
+            <if test="YQSYRQ != null" >
+                [YQSYRQ] = #{YQSYRQ},
+            </if>
+            <if test="SKSDRQ != null" >
+                [SKSDRQ] = #{SKSDRQ},
+            </if>
+            <if test="SKYHTJ != null" >
+                [SKYHTJ] = #{SKYHTJ},
+            </if>
+            <if test="SYWTR != null" >
+                [SYWTR] = #{SYWTR},
+            </if>
+            <if test="SJBH != null" >
+                [SJBH] = #{SJBH},
+            </if>
+            <if test="SYRQ != null" >
+                [SYRQ] = #{SYRQ},
+            </if>
+            <if test="SJLQ != null" >
+                [SJLQ] = #{SJLQ},
+            </if>
+            <if test="SJCC != null" >
+                [SJCC] = #{SJCC},
+            </if>
+            <if test="SYMJ != null" >
+                [SYMJ] = #{SYMJ},
+            </if>
+            <if test="HZ1 != null" >
+                [HZ1] = #{HZ1},
+            </if>
+            <if test="HZ2 != null" >
+                [HZ2] = #{HZ2},
+            </if>
+            <if test="HZ3 != null" >
+                [HZ3] = #{HZ3},
+            </if>
+            <if test="HZPJ != null" >
+                [HZPJ] = #{HZPJ},
+            </if>
+            <if test="KYQD != null" >
+                [KYQD] = #{KYQD},
+            </if>
+            <if test="ZHQD != null" >
+                [ZHQD] = #{ZHQD},
+            </if>
+            <if test="DDQD != null" >
+                [DDQD] = #{DDQD},
+            </if>
+            <if test="BZ != null" >
+                [BZ] = #{BZ},
+            </if>
+            <if test="JSFZRBH != null" >
+                [JSFZRBH] = #{JSFZRBH},
+            </if>
+            <if test="JSFZR != null" >
+                [JSFZR] = #{JSFZR},
+            </if>
+            <if test="XHRBH != null" >
+                [XHRBH] = #{XHRBH},
+            </if>
+            <if test="XHR != null" >
+                [XHR] = #{XHR},
+            </if>
+            <if test="XHBZ != null" >
+                [XHBZ] = #{XHBZ},
+            </if>
+            <if test="XHYJ != null" >
+                [XHYJ] = #{XHYJ},
+            </if>
+            <if test="SYRBH != null" >
+                [SYRBH] = #{SYRBH},
+            </if>
+            <if test="SYR != null" >
+                [SYR] = #{SYR},
+            </if>
+            <if test="BGRQ != null" >
+                [BGRQ] = #{BGRQ},
+            </if>
+            <if test="JL != null" >
+                [JL] = #{JL},
+            </if>
+            <if test="SYMC != null" >
+                [SYMC] = #{SYMC},
+            </if>
+            <if test="QFBZ != null" >
+                [QFBZ] = #{QFBZ},
+            </if>
+            <if test="QFYJ != null" >
+                [QFYJ] = #{QFYJ},
+            </if>
+            <if test="ZXGC != null" >
+                [ZXGC] = #{ZXGC},
+            </if>
+            <if test="ZXBZ != null" >
+                [ZXBZ] = #{ZXBZ},
+            </if>
+            <if test="JZBZ != null" >
+                [JZBZ] = #{JZBZ},
+            </if>
+            <if test="HGBZ != null" >
+                [HGBZ] = #{HGBZ},
+            </if>
+            <if test="SYJG != null" >
+                [SYJG] = #{SYJG},
+            </if>
+            <if test="CLYJ != null" >
+                [CLYJ] = #{CLYJ},
+            </if>
+            <if test="WTZH != null" >
+                [WTZH] = #{WTZH},
+            </if>
+            <if test="JLBBH != null" >
+                [JLBBH] = #{JLBBH},
+            </if>
+            <if test="BGBBH != null" >
+                [BGBBH] = #{BGBBH},
+            </if>
+        </set>
+        WHERE
+        kyid = #{kyid}
+    </update>
+
+
     <update id="update" parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYa">
         UPDATE [CEES_Hntky]
         SET [cid] =#{cid}
