@@ -20,6 +20,7 @@
 
     <script src="/nav/jquery/jquery-1.12.4.min.js"></script>
     <script src="/nav/jquery/jquery.form.js"></script>
+    <link rel="stylesheet" href="/nav/Font-Awesome-3.2.1/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="/nav/css/context.css">
 </head>

@@ -1,5 +1,9 @@
 //从父页面获取的基础数据
 var baseData = undefined;
+//表格内选中
+var selectCheck = undefined;
+var selectCheckData = undefined;
+
 var moadlHtmls = {
     add: undefined,
     update: undefined,
@@ -171,7 +175,7 @@ function initModalInput(data, formID) {
             dom = jQuery("#" + formID + " [name='" + key.toLocaleUpperCase() + "']");
         }
         //判断文本框类型
-        if (dom.is('input')||dom.is('textarea')) {
+        if (dom.is('input') || dom.is('textarea')) {
             //判断为普通输入框
             if (dom.attr('placeholder') != "yyyy-MM-dd") {
                 dom.val(value);
@@ -273,7 +277,3 @@ function successAlert(msg) {
         skin: 'layer-ext-moon'
     });
 }
-
-
-
-
