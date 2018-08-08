@@ -1320,6 +1320,13 @@
     </div>
 </form>
 
+##查看
+<form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action=""></form>
+
+##打印
+<form id="printModal" class="layui-container none">
+</form>
+
 <script src="/nav/js/iframe2.js"></script>
 ##全局变量
 <script>
@@ -1493,6 +1500,7 @@
                                 layer.close(thisIndex);
                             });
                         } else {
+                            console.log(json)
                             failAlert(json.msg);
                         }
                     },
@@ -1572,6 +1580,79 @@
 
     }
 
+    //显示删除弹窗
+    function deleteRow(obj, data) {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+
+        if (data.state == "提交") {
+            failAlert("不能删除已提交数据！");
+            return;
+        }
+
+        layer.confirm('真的删除行么', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+
+            jQuery.ajax({
+                type: 'post',
+                url: urls.delete,
+                dataType: 'json',
+                data: {'kyid': data.kyid},
+                async: false,
+                success: function (json) {
+                    if (json.code == 0) {
+                        initGetShowCol(initTable);
+                        successAlert(json.msg);
+
+                    } else {
+                        failAlert(json.msg);
+                    }
+                },
+                err: function (err) {
+                    failAlert("连接服务器失败,请重试！");
+                }
+            });
+
+            obj.del();
+            layer.close(index);
+        });
+    }
+
+    //显示查看弹窗
+    function showDetailModal(obj, data) {
+
+        var detailFormID = 'detailModal';
+        var domStr = jQuery("#updateModal").html();
+        jQuery("#" + detailFormID).html(domStr);
+        jQuery("#" + detailFormID + " input,select").attr("disabled", "disabled");
+        //初始化数据
+        initUpdateModel(data, detailFormID);
+
+        layer.open({
+            title: "查看",
+            type: 1,
+            area: ['1240px', '620px'], //宽高
+            content: jQuery('#' + detailFormID),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，     成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {
+                layer.close(index);
+            }
+        });
+    }
+
+
     //初始化当前页面的弹窗默认数据
     function initThisModalDefaultData(jqFormDom) {
         jqFormDom.find("input[name='SKYHTJ']").val('标养');
@@ -1592,7 +1673,7 @@
     }
 
     //初始化修改和查看页面数据
-    function initUpdateAndDetailModelData(data,formID) {
+    function initUpdateAndDetailModelData(data, formID) {
         var jqForm = jQuery("#" + formID);
         //为普通输入框赋值
         initModalInput(data, formID);
@@ -1646,8 +1727,7 @@
         //为添加更新表单
         var jqForm = jQuery("#" + formID);
         jqForm.html(moadlHtmls.add);
-        //初始化select
-        initLayuiFormSelect();
+
         //初始化弹窗的默认数据
         initThisModalDefaultData(jqForm);
 
@@ -1659,6 +1739,9 @@
         initLayuiLaydateTime(jqForm.find("input[name='ZMRQ']"), new Date());
         initLayuiLaydateTime(jqForm.find("input[name='YQSYRQ'],[name='SYRQ']"), getNewTime(new Date(), lq));
         jqForm.find("input[name='YQLQ'],[name='SJLQ']").val(lq);
+
+        //初始化select
+        initLayuiFormSelect();
     }
 
 
@@ -1666,7 +1749,7 @@
     function initUpdateModel(data, formID) {
         var jqForm = jQuery("#" + formID);
         jqForm.html(moadlHtmls.update);
-        initUpdateAndDetailModelData(data,formID);
+        initUpdateAndDetailModelData(data, formID);
     }
 
     //查看 - 初始化弹窗
@@ -1678,7 +1761,6 @@
     function initPrintModel() {
 
     }
-
 
     //校验参数通过返回true
     function check(formId) {

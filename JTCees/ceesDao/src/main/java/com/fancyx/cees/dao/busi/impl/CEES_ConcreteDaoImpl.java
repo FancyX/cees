@@ -36,7 +36,7 @@ public class CEES_ConcreteDaoImpl extends BaseDao implements CEES_ConcreteDao {
 
     @Override
     public CEES_Concrete getConcrete(int concreteID) {
-        return (CEES_Concrete) this.queryForObject(this.getNamespace("selectByConstructionId"), concreteID);
+        return (CEES_Concrete) this.queryForObject(this.getNamespace("getConcrete"), concreteID);
     }
 
     @Override

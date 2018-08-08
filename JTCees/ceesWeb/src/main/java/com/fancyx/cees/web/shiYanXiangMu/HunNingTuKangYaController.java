@@ -115,42 +115,11 @@ public class HunNingTuKangYaController {
     @RequestMapping(value = "/delete")
     @ResponseBody
     public ResultBean delete(Integer kyid) {
-        System.out.println("kyid = " + kyid);
         try {
             hunNingTuKangYaService.delete(kyid);
             return new ResultBean();
         } catch (Exception e) {
             log.error("混凝土抗压删除异常", e);
-            return new ResultBean(e);
-        }
-    }
-
-    /**
-     * 更新混凝土抗压
-     *
-     * @param vo
-     * @return
-     */
-    @RequestMapping(value = "/update")
-    @ResponseBody
-    public ResultBean update(HunNingTuKangYaVO vo) {
-        System.out.println("vo.getCcid() = " + vo.getCcid());
-        try {
-            //设置试件尺寸
-            vo = setSJCC(vo);
-            //设置龄期
-            vo = setLQ(vo);
-            //表：CEES_Concrete；字段：concrete - 混凝土单位名称
-            vo.setHNTDW(ceesConcreteService.getConcrete(vo.getCcid()).getConcrete());
-
-
-
-            hunNingTuKangYaService.update(vo);
-            return new ResultBean();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Exception e = new Exception("修改错误！", ex);
-            log.error("修改错误", e);
             return new ResultBean(e);
         }
     }
@@ -232,24 +201,52 @@ public class HunNingTuKangYaController {
             hunNingTuKangYaService.insert(vo);
             return new ResultBean();
         } catch (Exception ex) {
-            log.error("混凝土抗压添加异常", ex);
-            return new ResultBean(ex);
+            Exception e = new Exception("添加异常");
+            log.error("混凝土抗压添加异常", e);
+            return new ResultBean(e);
         }
     }
 
+
+    /**
+     * 更新混凝土抗压
+     *
+     * @param vo
+     * @return
+     */
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public ResultBean update(HunNingTuKangYaVO vo) {
+        try {
+            //设置试件尺寸
+            vo = setSJCC(vo);
+            //设置龄期
+            vo = setLQ(vo);
+            //表：CEES_Concrete；字段：concrete - 混凝土单位名称
+            vo.setHNTDW(ceesConcreteService.getConcrete(vo.getCcid()).getConcrete());
+
+            hunNingTuKangYaService.update(vo);
+            return new ResultBean();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Exception e = new Exception("修改错误！", ex);
+            log.error("修改错误", e);
+            return new ResultBean(e);
+        }
+    }
 
     //     将字符串转换为Date类
     @InitBinder
     public void initBinder(WebDataBinder binder, WebRequest request) {
         //转换日期格式
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        注册自定义的编辑器
+        //注册自定义的编辑器
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 
     }
 
     //设置龄期
-    public HunNingTuKangYaVO setLQ(HunNingTuKangYaVO vo) {
+    private HunNingTuKangYaVO setLQ(HunNingTuKangYaVO vo) {
 
         try {
             int yqlq = Integer.parseInt(vo.getYQLQ());
@@ -265,7 +262,7 @@ public class HunNingTuKangYaController {
     }
 
     //设置试件尺寸
-    public HunNingTuKangYaVO setSJCC(HunNingTuKangYaVO vo) {
+    private HunNingTuKangYaVO setSJCC(HunNingTuKangYaVO vo) {
         try {
             if (StringUtils.isNotBlank(vo.getSJCC())) {
                 Integer sjcc = Integer.parseInt(vo.getSJCC());
