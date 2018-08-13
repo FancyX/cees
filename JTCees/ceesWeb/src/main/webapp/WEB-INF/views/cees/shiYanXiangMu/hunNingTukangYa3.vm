@@ -6,7 +6,7 @@
 ##显示在右侧侧内容
 <div>
 ##工具条
-    <div class="content-bar">
+    <div class="content-bar" id="queryWrapper">
         <div class="layui-form-item">
 
             <div class="layui-inline">
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="layui-input-inline  width-64">
-                    <button class="layui-btn " onclick="initTable()">查询</button>
+                    <button class="layui-btn " onclick="initGetShowCol(initTable)">查询</button>
                 </div>
 
                 <div class="layui-input-inline width-64">
@@ -38,9 +38,9 @@
 ##表格
     <table id="tableData" lay-filter="test"></table>
 
-    <div id="chk" style="display: none">
-        <div style="text-align: center;line-height: 28px;padding-top: 3px;cursor: pointer">
-            <i class="icon-check-empty" style="font-size: 24px;font-weight: 500;"></i>
+    <div id="chk" class="none">
+        <div class="chk-wrapper">
+            <i is-selected="false" class="icon-check-empty"></i>
         </div>
     </div>
 ##表格的工具条
@@ -1330,7 +1330,7 @@
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action=""></form>
 
 ##打印
-<form id="printModal" class="layui-container none">
+<form id="printModal" class="layui-container none" >
     <div class="layui-row">
         <div class="layui-col-md12">
             <div class="left">
@@ -1608,6 +1608,7 @@
 <script>
     window.onload = function (ev) {
         init();
+        initLayuiLaydate("queryWrapper");
     };
 </script>
 
@@ -1622,7 +1623,7 @@
             var data = json.data;
             var cols = [[]];
             // cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left'};
-            cols[0][0] = {field: 'checkbox', templet: '#chk', edit: false, title: '单选', fixed: 'left',event:'chk'};
+            cols[0][0] = {field: 'checkbox', templet: '#chk', edit: false, title: '单选', fixed: 'left', event: 'chk'};
             for (var i = 0; i < data.length; i++) {
                 var row = data[i];
                 var gridmc = row['gridmc'];
@@ -1689,29 +1690,38 @@
                     showDetailModal(obj, data);
                 } else if (layEvent === 'print') {//打印
                     showPrintModal(obj, data);
-                }else if (layEvent === 'chk') {//打印
-                   console.log(obj);
-                   console.log($(this));
-                }
-            });
+                } else if (layEvent === 'chk') {//打印
+//                    console.log(obj);
+//                    console.log($(this));
 
-            //设置多选框单选事件
-            table.on('checkbox(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
-                var oldStates = $(this).prop("checked");
-                $(this).parents("tbody").find("tr td div input[type='checkbox']").prop("checked", false);
-                $(this).parents("tbody").find("tr td div div").removeClass("layui-form-checked");
+                    console.log($(this).find("i"));
+                    console.log($(this).find("i").attr("is-selected"));
 
-                if (oldStates) {
-                    $(this).removeClass('layui-form-checked');
-                    $(this).prop("checked", false);
-                    selectCheckData = undefined;
-                    selectCheck = undefined;
-                } else {
-                    selectCheckData = obj.data;
-                    selectCheck = $(this);
-                    $(this).addClass('layui-form-checked');
-                    $(this).prop("checked", true);
+                    var oldStates = $(this).find("i").attr("is-selected") == "false" ? false : true;
 
+                    //移除所有选中
+                    $('.chk-wrapper').each(function () {
+
+                        $(this).attr("is-selected", false);
+                        $(this).removeClass("icon-check");
+                    });
+
+                    if (oldStates) {//将当前选中移除
+
+                        $(this).find("i").addClass('icon-check-empty');
+                        $(this).find("i").removeClass("icon-check");
+                        $(this).find("i").attr("is-selected", false);
+                        selectCheckData = undefined;
+                        selectCheck = undefined;
+
+                    } else {//选中当前
+                        $(this).find("i").removeClass('icon-check-empty');
+                        $(this).find("i").addClass("icon-check");
+                        $(this).find("i").attr("is-selected", true);
+
+                        selectCheckData = obj.data;
+                        selectCheck = $(this);
+                    }
                 }
             });
         });
@@ -1724,7 +1734,16 @@
         }
 
         var formID = 'addModal';
-        initAddModel(formID);
+
+        console.log(selectCheckData);
+
+
+        if (selectCheck == undefined || selectCheckData == undefined) {
+            initAddModel(formID);
+        } else {
+            initUpdateModel(selectCheckData, formID);
+        }
+
 
         layer.open({
             title: "添加",

@@ -99,11 +99,11 @@ function initLayuiFormSelect(callback) {
 
 }
 
-function initLayuiLaydate(formID) {
+function initLayuiLaydate(wrapperID) {
     layui.use(['laydate'], function () {
         var laydate = layui.laydate;//日期
         //绑定所有时间组件
-        var arr = jQuery('#' + formID + " input[placeholder='yyyy-MM-dd']");
+        var arr = jQuery('#' + wrapperID + " input[placeholder='yyyy-MM-dd']");
         for (var i = 0; i < arr.length; i++) {
             laydate.render({
                 elem: arr[i]

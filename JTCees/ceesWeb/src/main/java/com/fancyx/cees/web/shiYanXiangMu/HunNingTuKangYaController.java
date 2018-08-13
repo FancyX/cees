@@ -202,7 +202,7 @@ public class HunNingTuKangYaController {
             return new ResultBean();
         } catch (Exception ex) {
             Exception e = new Exception("添加异常");
-            log.error("混凝土抗压添加异常", e);
+            log.error("混凝土抗压添加异常", ex);
             return new ResultBean(e);
         }
     }
