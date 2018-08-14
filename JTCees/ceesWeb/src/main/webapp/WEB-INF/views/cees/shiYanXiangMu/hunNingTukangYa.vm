@@ -1334,7 +1334,7 @@
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action="">
 </form>
 ##打印
-<form id="printModal" class="layui-container none">
+<form id="printModal" class="layui-container none" >
     <div class="layui-row">
         <div class="layui-col-md12">
             <div class="left">

@@ -1330,264 +1330,252 @@
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action=""></form>
 
 ##打印
-<form id="printModal" class="layui-container none" >
-    <div class="layui-row">
-        <div class="layui-col-md12">
-            <div class="left">
-                记录表编号：JL-002-212
+<form id="printModal" class="layui-container none text-center" style="width: 794px;height: 1090px;font-size: 14px">
+    <div style="width: 100%;height: 100%;background: #f0f0f0;padding: 15px">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <div class="left">
+                    记录表编号：JL-002-212
+                </div>
             </div>
         </div>
-    </div>
-    <div class="layui-row">
-        <div class="layui-col-md12  text-center ">
-            北京市公路质量检测中心
-        </div>
-    </div>
-    <div class="layui-row">
-        <div class="layui-col-md12 text-center ">
-            <h3> 混凝土抗压强度试验报告</h3>
-        </div>
-    </div>
-    <div class="layui-row">
-        <div class="layui-col-md12">
-            <div class="right">
-                编号：试表30-07
+        <div class="layui-row">
+            <div class="layui-col-md12  text-center ">
+                北京市公路质量检测中心
             </div>
         </div>
-    </div>
-    <div class="layui-row">
-        <div class="layui-col-md12">
-
-            <table class="table">
-                <tr>
-                    <td class="my-w-180">委托编号</td>
-                    <td name="WTDBH"></td>
-                    <td class="my-w-180">试验编号</td>
-                    <td name="SYBH"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">施工单位</td>
-                    <td colspan="3" name="construction"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">工程名称及施工部位</td>
-                    <td colspan="3" name="project"></td>
-                </tr>
-            </table>
-
-            <table class="table">
-                <tr class="none-td-border">
-                    <td class="my-w-50">设计强度</td>
-                    <td name="SJQD" style="width: 123px"></td>
-                    <td class="my-w-50">拟配强度</td>
-                    <td name="NPQD"></td>
-                    <td class="my-w-50">实测坍落度</td>
-                    <td name="SCTLD"></td>
-                    <td class="my-w-50">要求坍落度</td>
-                    <td name="YQTLD"></td>
-                </tr>
-            </table>
-        ##          水泥品种及标号 - 石产地及品种
-            <table class="table">
-                <tr class="none-td-border">
-                    <td class="my-w-180">水泥品种及标号</td>
-                    <td style="width: 372px;" name="SNPZ,SNBH"></td>
-                    <td class="my-w-60">出厂日期</td>
-                    <td name="SNCCRQ"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">水泥厂别</td>
-                    <td name="SNCB"></td>
-                    <td class="my-w-50">试验编号</td>
-                    <td name="SNSYBH"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">砂产地及品种</td>
-                    <td name="SHACD,SHAPZ"></td>
-                    <td class="my-w-50">试验编号</td>
-                    <td name="SHASYBH"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">石产地及品种</td>
-                    <td name="SHICD,SHIPZ"></td>
-                    <td class="my-w-50">试验编号</td>
-                    <td name="SHISYBH"></td>
-                </tr>
-            </table>
-            <table class="table">
-                <tr class="none-td-border">
-                    <td class="my-w-180">粉煤灰名称及产地</td>
-                    <td name="FMHMC,FMHCD"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">掺合料名称及产地</td>
-                    <td name="CHLMC,CHLCD"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">外加剂1名称及产地</td>
-                    <td name="WJJMC,WJJCD"></td>
-                </tr>
-                <tr>
-                    <td class="my-w-180">外加剂2名称及产地</td>
-                    <td name="PZJMC,PZJCD"></td>
-                </tr>
-            </table>
-            <table class="table">
-                <tr class="none-td-border">
-                    <td class="my-w-180">石子最大粒径</td>
-                    <td name="SHIZDLJ"></td>
-                    <td class="my-w-50">水灰比</td>
-                    <td name="SHB"></td>
-                    <td class="my-w-50">砂率</td>
-                    <td name="SL"></td>
-                    <td>检测依据</td>
-                    <td name=""></td>
-                </tr>
-
-            </table>
+        <div class="layui-row">
+            <div class="layui-col-md12 text-center ">
+                <h3> 混凝土抗压强度试验报告</h3>
+            </div>
         </div>
-    </div>
-
-    <div class="layui-row top20">
-        <div class="layui-col-md12">
-            <table class="table ">
-                <tbody>
-                <tr>
-                    <td class="my-w-100">配合比编号</td>
-                    <td>材料名称</td>
-                    <td>水泥</td>
-                    <td>水</td>
-                    <td>砂</td>
-                    <td>石</td>
-                    <td>粉煤灰</td>
-                    <td>掺合料</td>
-                    <td>外加剂1</td>
-                    <td>外加剂2</td>
-                </tr>
-                <tr>
-                    <td name="PHBBH"></td>
-                    <td>用量(kg/m3)</td>
-                ##                    水泥
-                    <td name="SNYL"></td>
-                ##                    水
-                    <td name="SYL"></td>
-                ##                    砂
-                    <td name="SHAYL"></td>
-                ##                    石
-                    <td name="SHIYL"></td>
-                ##                    粉煤灰
-                    <td name="FMHYL"></td>
-                ##                    掺合料
-                    <td name="CHLYL"></td>
-                ##                    外加剂1
-                    <td name="WJJYL"></td>
-                ##                    外加剂2
-                    <td name="PZJYL"></td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="layui-row" style="margin-bottom: 15px">
+            <div class="layui-col-md12">
+                <div class="right">
+                    编号：试表30-07
+                </div>
+            </div>
         </div>
-    </div>
+    ##        当前table分为100列以细微调整
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <table class="table">
+                    <tr>
+                        <td colspan="16">委托编号</td>
+                        <td colspan="34" name="WTDBH"></td>
+                        <td colspan="16">试验编号</td>
+                        <td colspan="34" name="SYBH"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">施工单位</td>
+                        <td colspan="84" name="construction"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">工程名称及施工部位</td>
+                        <td colspan="84" name="project,SGBW"></td>
+                    </tr>
 
-    <div class="layui-row top20">
-        <div class="layui-col-md12">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <td class="my-w-100">制模日期</td>
-                    <td style="width: 135px" name="ZMRQ"></td>
-                    <td style="width: 135px">要求龄期</td>
-                    <td style="width:63px;" name="YQLQ"></td>
-                    <td>要求试验日期</td>
-                    <td name="YQSYRQ"></td>
-                </tr>
-                <tr>
-                    <td>试块收到日期</td>
-                    <td name="SKSDRQ"></td>
-                    <td>试块养护条件</td>
-                    <td name="SKYHTJ"></td>
-                    <td>试验委托人</td>
-                    <td name="SYWTR"></td>
-                </tr>
-                </tbody>
-            </table>
+                    <tr>
+                        <td colspan="8">设计强度</td>
+                        <td colspan="8" name="SJQD"></td>
+                        <td colspan="11">拟配强度</td>
+                        <td colspan="17" name="NPQD"></td>
+                        <td colspan="11">实测坍落度</td>
+                        <td colspan="17" name="SCTLD"></td>
+                        <td colspan="12">要求坍落度</td>
+                        <td colspan="16" name="YQTLD"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="16">水泥品种及标号</td>
+                        <td colspan="56" name="SNPZ,SNBH"></td>
+                        <td colspan="12">出厂日期</td>
+                        <td colspan="16" name="SNCCRQ"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">水泥厂别</td>
+                        <td colspan="56" name="SNCB"></td>
+                        <td colspan="12">试验编号</td>
+                        <td colspan="16" name="SNSYBH"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="16">砂产地及品种</td>
+                        <td colspan="56" name="SHACD,SHAPZ"></td>
+                        <td colspan="12">试验编号</td>
+                        <td colspan="16" name="SHASYBH"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="16">石产地及品种</td>
+                        <td colspan="56" name="SHICD,SHIPZ"></td>
+                        <td colspan="12">试验编号</td>
+                        <td colspan="16" name="SHISYBH"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="16">粉煤灰名称及产地</td>
+                        <td colspan="84" name="FMHMC,FMHCD"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">掺合料名称及产地</td>
+                        <td colspan="84" name="CHLMC,CHLCD"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">外加剂1名称及产地</td>
+                        <td colspan="84" name="WJJMC,WJJCD"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">外加剂2名称及产地</td>
+                        <td colspan="84" name="PZJMC,PZJCD"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="16">石子最大粒径</td>
+                        <td colspan="11" name="SHIZDLJ"></td>
+                        <td colspan="7">水灰比</td>
+                        <td colspan="11" name="SHB"></td>
+                        <td colspan="8">砂率</td>
+                        <td colspan="11" name="SL"></td>
+                        <td colspan="8">检测依据</td>
+                        <td colspan="28" name=""></td>
+                    </tr>
+
+                </table>
+
+            </div>
         </div>
-    </div>
 
-    <div class="layui-row top20">
-        <div class="layui-col-md12">
-            <table class="table">
-                <tbody>
-                ##头
-                <tr>
-                    <td rowspan="2">试件编号</td>
-                    <td rowspan="2">试验日期</td>
-                    <td rowspan="2">实际期龄</td>
-                    <td rowspan="2">试件尺寸</td>
-                    <td rowspan="2">受压面积</td>
-                    <td colspan="2">荷载</td>
-                    <td rowspan="2">抗压强度</td>
-                    <td rowspan="2">折合150mm立方强度</td>
-                    <td rowspan="2">达到设计强度</td>
-                </tr>
-                <tr>
-                    <td class="blue-font">单块</td>
-                    <td class="blue-font">平均</td>
-                </tr>
-
-                ##内容
-                <tr>
-                ##试件编号
-                    <td style="height: 30px;" rowspan="3" name="SJBH"></td>
-                ##试验日期
-                    <td rowspan="3" name="SYRQ"></td>
-                ##实际期龄
-                    <td rowspan="3" name="SJLQ"></td>
-                ##试件尺寸
-                    <td rowspan="3" name="SJCC"></td>
-                ##受压面积
-                    <td rowspan="3" name="SYMJ"></td>
-                ##荷载-单块-1
-                    <td name="HZ1"></td>
-                ##荷载-平均
-                    <td rowspan="3" name="HZPJ">/</td>
-                ##抗压强度
-                    <td rowspan="3" name="KYQD">/</td rowspan="3">
-                ##折合150mm立方强度
-                    <td rowspan="3" name="ZHQD">/</td>
-                ##达到设计强度
-                    <td rowspan="3" name="DDQD">/</td>
-                </tr>
-                ##荷载-单块-2,3
-                <tr>
-                    <td name="HZ2"></td>
-                </tr>
-                <tr>
-                    <td name="HZ3"></td>
-                </tr>
-                <tr>
-                    <td colspan="1" style="height: 45px;">备注</td>
-                    <td colspan="9" name="BZ"></td>
-                </tr>
-
-                </tbody>
-            </table>
-
-            <table class="table">
-                <tr class="none-td-border">
-                    <td>技术负责人</td>
-                    <td name="JSFZR"></td>
-                    <td>校核人</td>
-                    <td name="XHR"></td>
-                    <td>试验人</td>
-                    <td name="SYR"></td>
-                </tr>
-                <tr>
-                    <td>报告日期</td>
-                    <td colspan="5" name="BGRQ"></td>
-                </tr>
-            </table>
+    ##        当前table分为100列以细微调整
+        <div class="layui-row top20">
+            <div class="layui-col-md12">
+                <table class="table ">
+                    <tbody>
+                    <tr>
+                        <td colspan="16">配合比编号</td>
+                        <td colspan="9">材料名称</td>
+                        <td colspan="9">水泥</td>
+                        <td colspan="9">水</td>
+                        <td colspan="9">砂</td>
+                        <td colspan="9">石</td>
+                        <td colspan="9">粉煤灰</td>
+                        <td colspan="10">掺合料</td>
+                        <td colspan="10">外加剂1</td>
+                        <td colspan="10">外加剂2</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16" name="PHBBH"></td>
+                        <td colspan="9">用量(kg/m3)</td>
+                    ##                    水泥
+                        <td colspan="9" name="SNYL"></td>
+                    ##                    水
+                        <td colspan="9" name="SYL"></td>
+                    ##                    砂
+                        <td colspan="9" name="SHAYL"></td>
+                    ##                    石
+                        <td colspan="9" name="SHIYL"></td>
+                    ##                    粉煤灰
+                        <td colspan="9" name="FMHYL"></td>
+                    ##                    掺合料
+                        <td colspan="10" name="CHLYL"></td>
+                    ##                    外加剂1
+                        <td colspan="10" name="WJJYL"></td>
+                    ##                    外加剂2
+                        <td colspan="10" name="PZJYL"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+    ##        当前table分为100列以细微调整
+        <div class="layui-row top20">
+            <div class="layui-col-md12">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td colspan="16">制模日期</td>
+                        <td colspan="20" name="ZMRQ"></td>
+                        <td colspan="16">要求龄期</td>
+                        <td colspan="12" name="YQLQ"></td>
+                        <td colspan="16">要求试验日期</td>
+                        <td colspan="20" name="YQSYRQ"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">试块收到日期</td>
+                        <td colspan="20" name="SKSDRQ"></td>
+                        <td colspan="16">试块养护条件</td>
+                        <td colspan="12" name="SKYHTJ"></td>
+                        <td colspan="16">试验委托人</td>
+                        <td colspan="20" name="SYWTR"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="layui-row top20">
+            <div class="layui-col-md12">
+                <table class="table">
+                    <tbody>
+                    ##头
+                    <tr>
+                        <td colspan="10" rowspan="2">试件编号</td>
+                        <td colspan="10" rowspan="2">试验日期</td>
+                        <td colspan="6" rowspan="2">实际期龄</td>
+                        <td colspan="10" rowspan="2">试件尺寸</td>
+                        <td colspan="10" rowspan="2">受压面积</td>
+                        <td colspan="24" colspan="2">荷载</td>
+                        <td colspan="10" rowspan="2">抗压强度</td>
+                        <td colspan="10" rowspan="2">折合150mm立方强度</td>
+                        <td colspan="10" rowspan="2">达到设计强度</td>
+                    </tr>
+                    <tr>
+                        <td colspan="10" class="blue-font">单块</td>
+                        <td colspan="10"  class="blue-font">平均</td>
+                    </tr>
+
+                    ##内容
+                    <tr>
+                    ##试件编号
+                        <td colspan="10" rowspan="3" name="SJBH"></td>
+                    ##试验日期
+                        <td  colspan="10"  rowspan="3" name="SYRQ"></td>
+                    ##实际期龄
+                        <td  colspan="6"  rowspan="3" name="SJLQ"></td>
+                    ##试件尺寸
+                        <td  colspan="10"  rowspan="3" name="SJCC"></td>
+                    ##受压面积
+                        <td  colspan="10"  rowspan="3" name="SYMJ"></td>
+                    ##荷载-单块-1
+                        <td  colspan="12"  name="HZ1"></td>
+                    ##荷载-平均
+                        <td  colspan="12"  rowspan="3" name="HZPJ">/</td>
+                    ##抗压强度
+                        <td   colspan="10"   rowspan="3" name="KYQD">/</td rowspan="3">
+                    ##折合150mm立方强度
+                        <td   colspan="10"   rowspan="3" name="ZHQD">/</td>
+                    ##达到设计强度
+                        <td   colspan="10"   rowspan="3" name="DDQD">/</td>
+                    </tr>
+                    ##荷载-单块-2,3
+                    <tr>
+                        <td  colspan="12"  name="HZ2"></td>
+                    </tr>
+                    <tr>
+                        <td  colspan="12"  name="HZ3"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10">备注</td>
+                        <td colspan="90" name="BZ"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
     </div>
 </form>
 
@@ -1627,6 +1615,7 @@
             for (var i = 0; i < data.length; i++) {
                 var row = data[i];
                 var gridmc = row['gridmc'];
+
                 var zw = row['zw'];
                 var width = 90;
                 if (zw.length > 4) {
@@ -1691,29 +1680,22 @@
                 } else if (layEvent === 'print') {//打印
                     showPrintModal(obj, data);
                 } else if (layEvent === 'chk') {//打印
-//                    console.log(obj);
-//                    console.log($(this));
-
-                    console.log($(this).find("i"));
-                    console.log($(this).find("i").attr("is-selected"));
 
                     var oldStates = $(this).find("i").attr("is-selected") == "false" ? false : true;
-
                     //移除所有选中
                     $('.chk-wrapper').each(function () {
-
-                        $(this).attr("is-selected", false);
-                        $(this).removeClass("icon-check");
+                        $(this).find("i").attr("is-selected", false);
+                        $(this).find("i").removeClass("icon-check");
+                        $(this).find("i").addClass("icon-check-empty");
                     });
 
                     if (oldStates) {//将当前选中移除
-
                         $(this).find("i").addClass('icon-check-empty');
                         $(this).find("i").removeClass("icon-check");
                         $(this).find("i").attr("is-selected", false);
+
                         selectCheckData = undefined;
                         selectCheck = undefined;
-
                     } else {//选中当前
                         $(this).find("i").removeClass('icon-check-empty');
                         $(this).find("i").addClass("icon-check");
