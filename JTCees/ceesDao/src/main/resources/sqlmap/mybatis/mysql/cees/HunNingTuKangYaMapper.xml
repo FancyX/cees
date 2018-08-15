@@ -14,6 +14,9 @@
         <if test="sn_project != null">
             AND #{sn_project} = sn_project
         </if>
+        <if test="kynumber != null">
+            AND #{kynumber} = kynumber
+        </if>
     </sql>
 
     <sql id="query_where">

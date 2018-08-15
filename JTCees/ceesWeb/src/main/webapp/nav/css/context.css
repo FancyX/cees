@@ -36,6 +36,10 @@
     color: #0B0BFE;
 }
 
+.my-layer-modal .red-font {
+    color: #FF0000;
+}
+
 .my-layer-modal .layui-table tbody tr {
     color: black;
 }

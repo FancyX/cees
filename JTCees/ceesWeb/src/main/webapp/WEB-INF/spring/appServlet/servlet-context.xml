@@ -26,7 +26,7 @@
 
     <!-- template view -->
     <beans:bean id="velocityConfig"
-          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+                class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <!-- view模板路径映射 -->
         <beans:property name="resourceLoaderPath" value="/WEB-INF/views/"/>
         <beans:property name="velocityProperties">
@@ -38,7 +38,7 @@
         </beans:property>
     </beans:bean>
     <beans:bean id="velocityViewResolver"
-          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+                class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <!--<beans:property name="layoutUrl" value="layout/default.vm"/>-->
         <beans:property name="layoutUrl" value="layout/default-null.vm"/>
         <beans:property name="cache" value="false"/>
@@ -48,8 +48,7 @@
         <beans:property name="numberToolAttribute" value="numberTool"/>
         <beans:property name="contentType" value="text/html;charset=UTF-8"/>
     </beans:bean>
-    <beans:bean
-            class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    <beans:bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <beans:property name="defaultContentType" value="text/html"/>
         <beans:property name="ignoreAcceptHeader" value="true"/>
         <beans:property name="mediaTypes">
@@ -75,7 +74,8 @@
     <resources mapping="/nav/**" location="/nav/"/>
     <resources mapping="/js/**" location="/js/"/>
     <!-- 自动扫描包 -->
-    <context:component-scan base-package="com.fancyx.cees" />
+    <context:component-scan base-package="com.fancyx.cees"/>
     <!-- 默认注解映射支持 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
+
 </beans:beans>

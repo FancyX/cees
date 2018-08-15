@@ -1,5 +1,8 @@
 package com.fancyx.cees.domain.busi;
 
+import com.fancyx.cees.CustomDateSerializer;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -126,7 +129,7 @@ public class CEES_SJKYQD  implements Serializable {
     private String SJLQ;
     //试件边长
     private String SJBC;
-    //受压面机
+    //受压面积
     private String SYMJ;
     //试块数
     private int KUAISHU;
@@ -374,6 +377,7 @@ public class CEES_SJKYQD  implements Serializable {
         this.WTDWMC = WTDWMC;
     }
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getLYRQ() {
         return LYRQ;
     }

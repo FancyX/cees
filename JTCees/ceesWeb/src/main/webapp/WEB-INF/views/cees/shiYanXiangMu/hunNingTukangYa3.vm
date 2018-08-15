@@ -1651,7 +1651,6 @@
             }
             var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', edit: false, title: '操作', width: 200};
             cols[0].push(toolbar);
-            console.log(cols);
             return cols;
         }
 
