@@ -21,7 +21,8 @@
     width: 100%;
     table-layout: fixed !important;
     border-collapse: collapse;
-    font-size: 16px;
+    font-size: 14px;
+
 }
 
 .table tr {
@@ -32,10 +33,17 @@
     padding: 4px;
     border: 1px solid #0c0c0c;
     min-height: 24px !important;
+
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .none-td-border td {
     border-top: 0 !important;
+}
+
+.top10 {
+    margin-top: 10px;
 }
 
 .top20 {
@@ -47,5 +55,14 @@
 }
 
 #printModal {
-    padding: 20px 50px 20px 50px;
+
+    width: 794px;
+    height: 1090px;
+    padding: 30px;
+}
+
+#printModal > div {
+    width: 100%;
+    height: 100%;
+    /*background: #f0f0f0;*/
 }

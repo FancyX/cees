@@ -1,5 +1,8 @@
 package com.fancyx.cees.domain.busi;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -159,12 +162,15 @@ public class HunNingTuKangYa implements Serializable {
     //外加剂用量
     private String WJJYL;
     //制模日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date ZMRQ;
     //要求龄期
     private String YQLQ;
     //要求试验日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date YQSYRQ;
     //试块收到日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date SKSDRQ;
     //试块养护条件
     private String SKYHTJ;
@@ -173,6 +179,7 @@ public class HunNingTuKangYa implements Serializable {
     //试件编号
     private String SJBH;
     //试验日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date SYRQ;
     //实际龄期
     private String SJLQ;
@@ -213,6 +220,7 @@ public class HunNingTuKangYa implements Serializable {
     //试验人
     private String SYR;
     //报告日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date BGRQ;
     //结论
     private String JL;

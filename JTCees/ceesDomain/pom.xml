@@ -11,6 +11,18 @@
 
     <groupId>JTCees</groupId>
     <name>ceesDomain</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.8.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.7.RELEASE</version>
+        </dependency>
+    </dependencies>
     <artifactId>ceesDomain</artifactId>
     <packaging>jar</packaging>
 

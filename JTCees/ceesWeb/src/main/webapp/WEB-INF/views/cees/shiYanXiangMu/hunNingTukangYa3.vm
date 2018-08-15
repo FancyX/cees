@@ -151,7 +151,7 @@
                         </div>
                         <div class="layui-row margin-bottom-20">
                             <label class="layui-form-label ">
-                                <div class="paste-btn">
+                                <div class="paste-btn" onclick="getDataByTableNumber()">
                                     粘贴抗压号
                                 </div>
                             </label>
@@ -1330,8 +1330,8 @@
 <form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action=""></form>
 
 ##打印
-<form id="printModal" class="layui-container none text-center" style="width: 794px;height: 1090px;font-size: 14px">
-    <div style="width: 100%;height: 100%;background: #f0f0f0;padding: 15px">
+<form id="printModal" class="layui-container none text-center">
+    <div>
         <div class="layui-row">
             <div class="layui-col-md12">
                 <div class="left">
@@ -1521,9 +1521,9 @@
                     ##头
                     <tr>
                         <td colspan="10" rowspan="2">试件编号</td>
-                        <td colspan="10" rowspan="2">试验日期</td>
+                        <td colspan="12" rowspan="2">试验日期</td>
                         <td colspan="6" rowspan="2">实际期龄</td>
-                        <td colspan="10" rowspan="2">试件尺寸</td>
+                        <td colspan="8" rowspan="2">试件尺寸</td>
                         <td colspan="10" rowspan="2">受压面积</td>
                         <td colspan="24" colspan="2">荷载</td>
                         <td colspan="10" rowspan="2">抗压强度</td>
@@ -1531,8 +1531,8 @@
                         <td colspan="10" rowspan="2">达到设计强度</td>
                     </tr>
                     <tr>
-                        <td colspan="10" class="blue-font">单块</td>
-                        <td colspan="10"  class="blue-font">平均</td>
+                        <td colspan="12" class="blue-font">单块</td>
+                        <td colspan="12" class="blue-font">平均</td>
                     </tr>
 
                     ##内容
@@ -1540,30 +1540,30 @@
                     ##试件编号
                         <td colspan="10" rowspan="3" name="SJBH"></td>
                     ##试验日期
-                        <td  colspan="10"  rowspan="3" name="SYRQ"></td>
+                        <td colspan="12" rowspan="3" name="SYRQ"></td>
                     ##实际期龄
-                        <td  colspan="6"  rowspan="3" name="SJLQ"></td>
+                        <td colspan="6" rowspan="3" name="SJLQ"></td>
                     ##试件尺寸
-                        <td  colspan="10"  rowspan="3" name="SJCC"></td>
+                        <td colspan="8" rowspan="3" name="SJCC"></td>
                     ##受压面积
-                        <td  colspan="10"  rowspan="3" name="SYMJ"></td>
+                        <td colspan="10" rowspan="3" name="SYMJ"></td>
                     ##荷载-单块-1
-                        <td  colspan="12"  name="HZ1"></td>
+                        <td colspan="12" name="HZ1">&nbsp;</td>
                     ##荷载-平均
-                        <td  colspan="12"  rowspan="3" name="HZPJ">/</td>
+                        <td colspan="12" rowspan="3" name="HZPJ">/</td>
                     ##抗压强度
-                        <td   colspan="10"   rowspan="3" name="KYQD">/</td rowspan="3">
+                        <td colspan="10" rowspan="3" name="KYQD">/</td rowspan="3">
                     ##折合150mm立方强度
-                        <td   colspan="10"   rowspan="3" name="ZHQD">/</td>
+                        <td colspan="10" rowspan="3" name="ZHQD">/</td>
                     ##达到设计强度
-                        <td   colspan="10"   rowspan="3" name="DDQD">/</td>
+                        <td colspan="10" rowspan="3" name="DDQD">/</td>
                     </tr>
                     ##荷载-单块-2,3
                     <tr>
-                        <td  colspan="12"  name="HZ2"></td>
+                        <td colspan="12" name="HZ2">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td  colspan="12"  name="HZ3"></td>
+                        <td colspan="12" name="HZ3">&nbsp;</td>
                     </tr>
                     <tr>
                         <td colspan="10">备注</td>
@@ -1573,9 +1573,31 @@
                 </table>
 
 
+                <table class="table">
+                    <tr class="none-td-border">
+                        <td>技术负责人</td>
+                        <td name="JSFZR"></td>
+                        <td>校核人</td>
+                        <td name="XHR"></td>
+                        <td>试验人</td>
+                        <td name="SYR"></td>
+                    </tr>
+                    <tr>
+                        <td>报告日期</td>
+                        <td colspan="5" name="BGRQ"></td>
+                    </tr>
+                </table>
             </div>
         </div>
 
+
+        <div class="layui-row top10">
+            <div class="layui-col-md12">
+                <div class="left">
+                    声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 
@@ -1614,21 +1636,22 @@
             cols[0][0] = {field: 'checkbox', templet: '#chk', edit: false, title: '单选', fixed: 'left', event: 'chk'};
             for (var i = 0; i < data.length; i++) {
                 var row = data[i];
-                var gridmc = row['gridmc'];
+                var gridmc = row['gridmc'].toLocaleLowerCase();
 
                 var zw = row['zw'];
                 var width = 90;
                 if (zw.length > 4) {
-                    width = width + (zw.length - 4) * 8;
+                    width = width + (zw.length - 4) * 10;
                 }
                 if (gridmc.length - zw.length > 2) {
                     width += 24;
                 }
-                var col = {field: gridmc, title: zw, width: width};
+                var col = {field: gridmc, title: zw, width: width, edit: false};
                 cols[0].push(col);
             }
             var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', edit: false, title: '操作', width: 200};
             cols[0].push(toolbar);
+            console.log(cols);
             return cols;
         }
 
@@ -1709,6 +1732,42 @@
         });
     }
 
+    //粘贴抗压号事件
+    function getDataByTableNumber() {
+
+        var formID = "addModal";
+
+        var kynumber = jQuery("#" + formID + " [name='kynumber']").val();
+
+        if (isNull(kynumber)) {
+            failAlert("请先填写抗压编号");
+            return;
+        }
+
+        jQuery.ajax({
+            type: 'post',
+            url: urls.select,
+            dataType: 'json',
+            data: {'kynumber': kynumber, 'page': 1, 'limit': 1},
+            async: false,
+            success: function (json) {
+
+                if (json.code == 0 &&
+                        json.data != null && json.data != undefined) {
+                    initModelByData(json.data[0], formID,moadlHtmls.add);
+                    console.log(json.data);
+
+                } else {
+                    failAlert(json.msg);
+                }
+
+            },
+            err: function (err) {
+                failAlert("连接服务器失败,请重试！");
+            }
+        });
+    }
+
     //显示添加弹窗
     function showAddModal() {
         if (isNotPower(baseData.cees_user)) {
@@ -1717,13 +1776,11 @@
 
         var formID = 'addModal';
 
-        console.log(selectCheckData);
-
 
         if (selectCheck == undefined || selectCheckData == undefined) {
             initAddModel(formID);
         } else {
-            initUpdateModel(selectCheckData, formID);
+            initModelByData(selectCheckData, formID,moadlHtmls.add);
         }
 
 
@@ -1789,7 +1846,7 @@
             return false;
         }
         //初始化数据
-        initUpdateModel(data, modelId);
+        initModelByData(data, modelId,moadlHtmls.update);
 
         layer.open({
             title: "修改",
@@ -1896,7 +1953,7 @@
         jQuery("#" + detailFormID).html(domStr);
         jQuery("#" + detailFormID + " input,select").attr("disabled", "disabled");
         //初始化数据
-        initUpdateModel(data, detailFormID);
+        initModelByData(data, detailFormID,moadlHtmls.update);
 
         layer.open({
             title: "查看",
@@ -1919,47 +1976,10 @@
         });
     }
 
-
     //显示打印弹窗
     function showPrintModal(obj, data) {
         var formID = 'printModal';
-
-
-        var tds = [];
-        jQuery("#" + formID + " td").each(function () {
-
-            var name = $(this).attr("name");
-            if (name != undefined && name != "" && name != null) {
-                $(this).html('');
-                tds.push($(this));
-            }
-        });
-
-        jQuery("#" + formID + " [name='construction']").html(baseData.cees_construction.construction)
-        jQuery("#" + formID + " [name='project']").html(baseData.cees_project.project)
-
-        for (var key in data) {
-            var value = data[key];
-
-            if (value == null || value == undefined || value == "") {
-                continue;
-            }
-            var dom = getPrintModelDom(key, tds);
-
-            if (dom == undefined) {
-                continue;
-            }
-            if (key.indexOf("rq") > 0 || key.indexOf("RQ") > 0) {
-                value = getTime(value);
-            }
-
-            var domHtml = dom.html();
-            if (domHtml == undefined || domHtml == '') {
-                dom.html(value);
-            } else {
-                dom.html(domHtml + " - " + value);
-            }
-        }
+        initPrintModel(formID, data)
 
 
         layer.open({
@@ -2006,7 +2026,7 @@
     }
 
     //初始化修改和查看页面数据
-    function initUpdateAndDetailModelData(data, formID) {
+    function initModelDataByData(data, formID) {
         var jqForm = jQuery("#" + formID);
         //为普通输入框赋值
         initModalInput(data, formID);
@@ -2020,7 +2040,6 @@
         //水泥品种
         jqForm.find("select[name='SNPZ']").val(data.snpz);
         //水泥标号
-        console.log(data.snbh)
         jqForm.find("select[name='SNBH']").val(data.snbh);
         //砂子品种
         jqForm.find("select[name='SHAPZ']").val(data.shapz);
@@ -2079,10 +2098,10 @@
 
 
     //修改 - 初始化弹窗
-    function initUpdateModel(data, formID) {
+    function initModelByData(data, formID,html) {
         var jqForm = jQuery("#" + formID);
-        jqForm.html(moadlHtmls.update);
-        initUpdateAndDetailModelData(data, formID);
+        jqForm.html(html);
+        initModelDataByData(data, formID);
     }
 
     //查看 - 初始化弹窗
@@ -2091,8 +2110,45 @@
     }
 
     //打印 - 初始化弹窗
-    function initPrintModel() {
+    function initPrintModel(formID, data) {
+        jQuery("#" + formID).html(moadlHtmls.print);
 
+
+        var tds = [];
+        jQuery("#" + formID + " td").each(function () {
+
+            var name = $(this).attr("name");
+            if (name != undefined && name != "" && name != null) {
+                tds.push($(this));
+            }
+        });
+
+
+        for (var key in data) {
+            var value = data[key];
+
+            if (value == null || value == undefined || value == "") {
+                continue;
+            }
+            var dom = getPrintModelDom(key, tds);
+
+            if (dom == undefined) {
+                continue;
+            }
+            if (key.indexOf("rq") > 0 || key.indexOf("RQ") > 0) {
+                value = getTime(value);
+            }
+
+            var domHtml = dom.html();
+            if (domHtml == undefined || domHtml == '') {
+                dom.html(value);
+            } else {
+                dom.html(domHtml + " - " + value);
+            }
+        }
+
+        jQuery("#" + formID + " [name='construction']").html(baseData.cees_construction.construction)
+        jQuery("#" + formID + " [name='project,SGBW']").html(baseData.cees_project.project + ' - ' + jQuery("#" + formID + " [name='project,SGBW']").html());
     }
 
     //校验参数通过返回true
