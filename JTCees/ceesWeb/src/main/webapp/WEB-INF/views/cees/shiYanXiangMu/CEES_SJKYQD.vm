@@ -291,48 +291,48 @@
             <tr>
             ##配比编号
                 <td rowspan="2">
-                    <input type="text" name="PBBH" readonly autocomplete="off"
+                    <input type="text" name="PBBH" autocomplete="off"
                            class="layui-input">
                 </td>
                 <td class="blue-font">每m3</td>
             ##水泥
-                <td><input type="text" name="SNMPF" readonly autocomplete="off"
+                <td><input type="text" name="SNMPF" autocomplete="off"
                            class="layui-input"></td>
             ##砂
-                <td><input type="text" name="SMPF" readonly autocomplete="off"
+                <td><input type="text" name="SMPF" autocomplete="off"
                            class="layui-input"></td>
             ##水
-                <td><input type="text" name="" readonly autocomplete="off"
+                <td><input type="text" name="" autocomplete="off"
                            class="layui-input"></td>
             ##掺合料
-                <td><input type="text" name="CHLMPF" readonly autocomplete="off"
+                <td><input type="text" name="CHLMPF" autocomplete="off"
                            class="layui-input"></td>
             ##外加剂
-                <td><input type="text" name="WJJMPF" readonly autocomplete="off"
+                <td><input type="text" name="WJJMPF" autocomplete="off"
                            class="layui-input"></td>
             ##外加剂2
-                <td><input type="text" name="WJJ2MPF" readonly autocomplete="off"
+                <td><input type="text" name="WJJ2MPF" autocomplete="off"
                            class="layui-input"></td>
             </tr>
             <tr>
                 <td class="blue-font">每盘</td>
             ##水泥
-                <td><input type="text" name="SNMP" readonly autocomplete="off"
+                <td><input type="text" name="SNMP" autocomplete="off"
                            class="layui-input"></td>
             ##砂
-                <td><input type="text" name="SMP" readonly autocomplete="off"
+                <td><input type="text" name="SMP" autocomplete="off"
                            class="layui-input"></td>
             ##水
-                <td><input type="text" name="" readonly autocomplete="off"
+                <td><input type="text" name="" autocomplete="off"
                            class="layui-input"></td>
             ##掺合料
-                <td><input type="text" name="CHLMP" readonly autocomplete="off"
+                <td><input type="text" name="CHLMP" autocomplete="off"
                            class="layui-input"></td>
             ##外加剂
-                <td><input type="text" name="WJJMP" readonly autocomplete="off"
+                <td><input type="text" name="WJJMP" autocomplete="off"
                            class="layui-input"></td>
             ##外加剂2
-                <td><input type="text" name="WJJ2MP" readonly autocomplete="off"
+                <td><input type="text" name="WJJ2MP" autocomplete="off"
                            class="layui-input"></td>
 
             </tr>
@@ -376,14 +376,14 @@
     </div>
 
     <div class="layui-row margin-bottom-20">
-        <table class="layui-table">
+        <table class="layui-table text-center">
             <tbody>
             <tr>
                 <td rowspan="2">试件编号</td>
                 <td rowspan="2" class="blue-font">试验日期</td>
                 <td rowspan="2">实际龄期(天)</td>
                 <td rowspan="2">试件边长(mm)</td>
-                <td rowspan="2">受压面积(mm2))</td>
+                <td rowspan="2">受压面积(mm2)</td>
                 <td colspan="2">荷载(KN)</td>
                 <td rowspan="2">抗压强度(MPa)</td>
                 <td rowspan="2">达到设计强度(%)</td>
@@ -676,7 +676,7 @@
         });
     }
 
-    //粘贴抗压号事件
+    //粘贴抗编号事件
     function getDataByTableNumber() {
 
         var formID = "addModal";
