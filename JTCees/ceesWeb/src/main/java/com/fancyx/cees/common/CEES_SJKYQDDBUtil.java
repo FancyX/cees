@@ -42,7 +42,7 @@ public class CEES_SJKYQDDBUtil {
         synchronized (this) {
             String db_Kynumber = cees_sjkyqdService.getSjkynumber();
             int kynumber = 1;
-            if (db_Kynumber.length() > 0) {
+            if (db_Kynumber!=null && db_Kynumber.length() > 1) {
                 kynumber = Integer.parseInt(db_Kynumber.substring(6)) + 1;
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));

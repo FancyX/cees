@@ -11,6 +11,7 @@ import com.fancyx.cees.domain.vo.CEES_SJKYQDVo;
 import com.fancyx.cees.domain.vo.SessionVO;
 import com.fancyx.cees.service.busi.CEES_SJKYQDService;
 import com.fancyx.cees.service.busi.Display_SJKYQDService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,10 +24,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 
 /**
  * 砂浆抗压controller
@@ -50,8 +53,8 @@ public class CEES_SJKYQDController {
 
 
     /*
-    * 返回页面
-    * */
+     * 返回页面
+     * */
     @RequestMapping(value = "/page")
     public String page() {
         return "cees/shiYanXiangMu/CEES_SJKYQD";
@@ -92,10 +95,12 @@ public class CEES_SJKYQDController {
         try {
             PageBean pageBean = new PageBean<CEES_SJKYQDController>(page, pageSize);
             PageBean<CEES_SJKYQD> result = cees_sjkyqdService.pageQuery(pageBean, cees_sjkyqdVo);
+
             return new PageResultBean(result.getUnderly(), result.getItemCount());
         } catch (Exception ex) {
             Exception exception = new Exception("查询异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new PageResultBean(exception);
         }
     }
@@ -113,8 +118,9 @@ public class CEES_SJKYQDController {
             cees_sjkyqdService.delete(id);
             return new ResultBean();
         } catch (Exception e) {
-            Exception exception = new Exception("查询异常", e);
+            Exception exception = new Exception("删除异常", e);
             log.error(exception);
+            e.printStackTrace();
             return new ResultBean(exception);
         }
     }
@@ -135,6 +141,7 @@ public class CEES_SJKYQDController {
         } catch (Exception ex) {
             Exception exception = new Exception("修改异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
     }
@@ -143,12 +150,12 @@ public class CEES_SJKYQDController {
     /**
      * 添加
      *
-     * @param cees_sjkyqdVo
+     * @param vo
      * @return
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public ResultBean add(HttpSession session, CEES_SJKYQDVo cees_sjkyqdVo) {
+    public ResultBean add(HttpSession session, CEES_SJKYQDVo vo) {
 
         try {
             SessionVO sessionVO = (SessionVO) session.getAttribute(BaseConfig.SESSION_KEY);
@@ -157,40 +164,63 @@ public class CEES_SJKYQDController {
             }
 
             //用户
-            cees_sjkyqdVo.setEdituser(sessionVO.getCees_user().getLoginuser());
+            vo.setEdituser(sessionVO.getCees_user().getLoginuser());
             //状态
-            cees_sjkyqdVo.setState("录入");
+            vo.setState("录入");
             //时间
-            cees_sjkyqdVo.setEdittime(TimeUtil.getCurrentTime());
+            vo.setEdittime(TimeUtil.getCurrentTime());
             //sn_project
-            cees_sjkyqdVo.setSn_project(cees_sjkyqddbUtil.getSn_project());
+            vo.setSn_project(cees_sjkyqddbUtil.getSn_project());
             //cnumber
-            cees_sjkyqdVo.setCnumber(cees_sjkyqddbUtil.getCnumber());
+            vo.setCnumber(cees_sjkyqddbUtil.getCnumber());
             //projectnumber
-            cees_sjkyqdVo.setProjectnumber(cees_sjkyqddbUtil.getProjectnumber());
+            vo.setProjectnumber(cees_sjkyqddbUtil.getProjectnumber());
             //kynumber
-            cees_sjkyqdVo.setSjkynumber(cees_sjkyqddbUtil.getSjkynumber());
+            vo.setSjkynumber(cees_sjkyqddbUtil.getSjkynumber());
             //client
-            cees_sjkyqdVo.setClient(sessionVO.getCees_construction().getClient());
+            vo.setClient(sessionVO.getCees_construction().getClient());
 
-            cees_sjkyqdService.insert(cees_sjkyqdVo);
+            //受压面积 - SJBC
+            vo = setSJBC(vo);
+
+            cees_sjkyqdService.insert(vo);
             return new ResultBean();
         } catch (Exception ex) {
             Exception exception = new Exception("添加异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
+    }
+
+    //设置试件尺寸
+    private CEES_SJKYQDVo setSJBC(CEES_SJKYQDVo vo) {
+        try {
+            if (StringUtils.isNotBlank(vo.getSJBC())) {
+                Integer sjbc =  Integer.parseInt(vo.getSJBC());
+                String symj = Integer.toString(sjbc * sjbc);
+                vo.setSYMJ(symj);
+            }
+        } catch (Exception e) {
+
+        }
+        return vo;
     }
 
 
     //将字符串转换为Date类
     @InitBinder
-    public void initBinder(WebDataBinder binder, WebRequest request) {
-        //转换日期格式
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        //注册自定义的编辑器
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    public void initBinder(WebDataBinder binder) {
+        try {
+            //转换日期格式
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            dateFormat.setLenient(false);
+            //注册自定义的编辑器
 
+            binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }
+

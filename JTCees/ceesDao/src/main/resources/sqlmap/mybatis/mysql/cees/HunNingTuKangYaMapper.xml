@@ -251,7 +251,8 @@
     </sql>
 
 
-    <select id="selectByBean" resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
+    <select id="selectByBean"
+            resultType="com.fancyx.cees.domain.busi.HunNingTuKangYa"
             parameterType="com.fancyx.cees.domain.vo.HunNingTuKangYaVO">
         select
         kyid,cid,cnumber,pid,projectnumber,client,ccid,kynumber,testnumber,sn,sn_project,sn_test,state,
@@ -275,7 +276,7 @@
         ORDER BY kyid DESC
     </select>
     <select id="selectByBeanCount" resultType="java.lang.Integer"
-            parameterType="com.fancyx.cees.domain.busi.HunNingTuKangYaDTO">
+            parameterType="com.fancyx.cees.domain.vo.HunNingTuKangYaVO">
         SELECT
         COUNT(1)
         FROM
