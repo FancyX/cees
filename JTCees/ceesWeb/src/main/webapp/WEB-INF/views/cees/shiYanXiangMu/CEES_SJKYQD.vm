@@ -1063,7 +1063,7 @@
         </div>
         <div class="layui-row">
             <div class="layui-col-md12">
-                <table class="table text-center">
+                <table class=" text-center">
                     <tr>
                         <td colspan="15">委托编号</td>
                         <td colspan="50" name="WTDBH"></td>
@@ -1072,45 +1072,47 @@
                     </tr>
                     <tr>
                         <td colspan="15">施工单位</td>
-                        <td colspan="50" name=""></td>
+                    ##数据从其他位置赋值
+                        <td colspan="50" name="construction"></td>
                         <td colspan="15">委托人</td>
                         <td colspan="20" name="client"></td>
                     </tr>
                     <tr>
-                        <td colspan="15">施工单位</td>
-                        <td colspan="85" name="client"></td>
+                        <td colspan="15">工程名称及施工部位</td>
+                        <td colspan="85" name="GCMC,SGBW"></td>
                     </tr>
                     <tr>
                         <td colspan="15">砂浆种类</td>
-                        <td colspan="20" name=""></td>
-                        <td colspan="12" name="">强度等级</td>
-                        <td colspan="21" name=""></td>
-                        <td colspan="12" name="">稠度</td>
-                        <td colspan="20" name=""></td>
+                        <td colspan="20" name="SJZL"></td>
+                        <td colspan="12">强度等级</td>
+                        <td colspan="21" name="SJZLQD"></td>
+                        <td colspan="12">稠度</td>
+                        <td colspan="20" name="CD,CDDW"></td>
                     </tr>
                     <tr>
                         <td colspan="15">水泥品种</td>
-                        <td colspan="20" name=""></td>
-                        <td colspan="12" name="">强度等级</td>
-                        <td colspan="21" name=""></td>
-                        <td colspan="12" name="">冀东</td>
-                        <td colspan="20" name=""></td>
+                        <td colspan="20" name="SNPZ"></td>
+                        <td colspan="12">强度等级</td>
+                        <td colspan="21" name="SNQDDJ"></td>
+                        <td colspan="12">厂别</td>
+                        <td colspan="20" name="CB"></td>
                     </tr>
                     <tr>
                         <td colspan="15">砂产地及品种</td>
-                        <td colspan="85" name="client"></td>
+                        <td colspan="85" name="SCD,SZL"></td>
                     </tr>
                     <tr>
+                    ##不知道这个是什么
                         <td colspan="15">检测依据</td>
                         <td colspan="40" name=""></td>
                         <td colspan="15">掺合料种类</td>
-                        <td colspan="30" name="client"></td>
+                        <td colspan="30" name="CHLZL"></td>
                     </tr>
                     <tr>
                         <td colspan="15">外加剂种类</td>
-                        <td colspan="40" name=""></td>
+                        <td colspan="40" name="WJJZL"></td>
                         <td colspan="15">外加剂2种类</td>
-                        <td colspan="30" name="client"></td>
+                        <td colspan="30" name="WJJ2ZL"></td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="15">配比编号</td>
@@ -1126,13 +1128,20 @@
                         <td colspan="12">外加剂2</td>
                     </tr>
                     <tr>
-                        <td rowspan="2" colspan="15"></td>
+                    ##配比编号
+                        <td rowspan="2" colspan="15" name="PBBH"></td>
                         <td colspan="13">每m3用量</td>
-                        <td colspan="12"></td>
-                        <td colspan="12"></td>
-                        <td colspan="12"></td>
+                    ##水泥
+                        <td colspan="12" name="SNMPF"></td>
+                    ##砂
+                        <td colspan="12" name="SMPF"></td>
+                    ##水
+                        <td colspan="12" name="SHA_SHUI"></td>
+                    ##掺合料
                         <td colspan="12">/</td>
+                    ##外加剂
                         <td colspan="12">/</td>
+                    ##外加剂2
                         <td colspan="12">/</td>
                     </tr>
                     <tr>
@@ -1146,19 +1155,19 @@
                     </tr>
                     <tr>
                         <td colspan="15">制模日期</td>
-                        <td colspan="25"></td>
+                        <td colspan="25" name="ZMRQ"></td>
                         <td colspan="12">养护条件</td>
-                        <td colspan="24"></td>
-                        <td colspan="12">要求期龄</td>
-                        <td colspan="12"></td>
+                        <td colspan="24" name="YHTJ"></td>
+                        <td colspan="12">要求龄期</td>
+                        <td colspan="12" name="YQLQ"></td>
                     </tr>
                     <tr>
                         <td colspan="15">要求试验日期</td>
-                        <td colspan="25"></td>
+                        <td colspan="25" name="YQSYRQ"></td>
                         <td colspan="12">试块收到日期</td>
-                        <td colspan="24"></td>
+                        <td colspan="24" name="SKSDRQ"></td>
                         <td colspan="12">试块制作人</td>
-                        <td colspan="12"></td>
+                        <td colspan="12" name="SKZZR"></td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="15">试件编号</td>
@@ -1175,50 +1184,78 @@
                         <td colspan="9">平均</td>
                     </tr>
                     <tr>
-                        <td rowspan="6" colspan="15"></td>
-                        <td rowspan="6" colspan="22"></td>
-                        <td rowspan="6" colspan="9"></td>
-                        <td rowspan="6" colspan="9"></td>
-                        <td rowspan="6" colspan="9"></td>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
-                        <td rowspan="6" colspan="9"></td>
-                        <td rowspan="6" colspan="9"></td>
-                        <td rowspan="6" colspan="9"></td>
+                    ##试件编号
+                        <td rowspan="6" colspan="15" name="SJBH"></td>
+                    ##试压日期 - 试验日期
+                        <td rowspan="6" colspan="22" name="SYRQ"></td>
+                    ##实际龄期
+                        <td rowspan="6" colspan="9" name="SJLQ"></td>
+                    ##试件边长
+                        <td rowspan="6" colspan="9" name="SJBC"></td>
+                    ##受压面积
+                        <td rowspan="6" colspan="9" name="SYMJ"></td>
+                    ##破坏荷载-单块1
+                        <td rowspan="1" colspan="9" name="HZDK1">&nbsp;</td>
+                    ##破坏荷载-平均
+                        <td rowspan="6" colspan="9" name="HZPJ"></td>
+                    ##抗压强度
+                        <td rowspan="6" colspan="9" name="KYQD"></td>
+                    ##达到设计强度
+                        <td rowspan="6" colspan="9" name="DDSJ"></td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
+                    ##破坏荷载-单块2
+                        <td rowspan="1" colspan="9" name="HZDK2">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
+                    ##破坏荷载-单块3
+                        <td rowspan="1" colspan="9" name="HZDK3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
+                    ##破坏荷载-单块4
+                        <td rowspan="1" colspan="9" name="HZDK4">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
+                    ##破坏荷载-单块5
+                        <td rowspan="1" colspan="9" name="HZDK5">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="9">&nbsp;</td>
+                    ##破坏荷载-单块6
+                        <td rowspan="1" colspan="9" name="HZDK6">&nbsp;</td>
                     </tr>
-                    <tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <table class=" text-center">
+                    <tr class="none-td-border">
                         <td colspan="15">备注</td>
-                        <td colspan="85"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="15">技术负责人</td>
-                        <td colspan="20" name=""></td>
-                        <td colspan="12" name="">校核人</td>
-                        <td colspan="21" name=""></td>
-                        <td colspan="12" name="">试验人</td>
-                        <td colspan="20" name=""></td>
-                    </tr>
-                    <tr>
-                        <td colspan="15">报告日期</td>
-                        <td colspan="85" name=""></td>
+                        <td colspan="85" name="BZ"></td>
                     </tr>
                 </table>
             </div>
         </div>
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <table class=" text-center">
+                    <tr class="none-td-border">
+                        <td colspan="15">技术负责人</td>
+                        <td colspan="20" name="JSFZR"></td>
+                        <td colspan="12" >校核人</td>
+                        <td colspan="21" name="XHR"></td>
+                        <td colspan="12" >试验人</td>
+                        <td colspan="20" name="SYR"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="15">报告日期</td>
+                        <td colspan="85" name="BGRQ"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
         <div class="layui-row top10">
             <div class="layui-col-md12">
                 <div class="left">
@@ -1738,7 +1775,7 @@
             if (domHtml == undefined || domHtml == '') {
                 dom.html(value);
             } else {
-                dom.html(domHtml + " - " + value);
+                dom.html(domHtml + " " + value);
             }
         }
 
