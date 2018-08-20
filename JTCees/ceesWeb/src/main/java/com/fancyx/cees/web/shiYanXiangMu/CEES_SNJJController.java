@@ -179,6 +179,7 @@ public class CEES_SNJJController {
         } catch (Exception ex) {
             Exception exception = new Exception("添加异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
     }

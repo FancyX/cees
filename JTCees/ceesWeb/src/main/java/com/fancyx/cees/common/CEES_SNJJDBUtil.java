@@ -40,11 +40,11 @@ public class CEES_SNJJDBUtil {
         synchronized (this) {
             String number = cees.getSnjjnumber();
             int kynumber = 1;
-            if (number.length() > 0) {
+            if (number != null && number.length() > 1) {
                 kynumber = Integer.parseInt(number.substring(6)) + 1;
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
-            return  year + String.format("%04d", kynumber);//其中0表示补零而不是补空格，6表示至少6位
+            return year + String.format("%04d", kynumber);//其中0表示补零而不是补空格，6表示至少6位
         }
     }
 }

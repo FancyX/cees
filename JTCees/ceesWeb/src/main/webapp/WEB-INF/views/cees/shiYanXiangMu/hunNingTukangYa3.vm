@@ -1349,7 +1349,7 @@
                 <h3> 混凝土抗压强度试验报告</h3>
             </div>
         </div>
-        <div class="layui-row" style="margin-bottom: 15px">
+        <div class="layui-row margin-top-15">
             <div class="layui-col-md12">
                 <div class="right">
                     编号：试表30-07
@@ -1753,7 +1753,7 @@
 
                 if (json.code == 0 &&
                         json.data != null && json.data != undefined) {
-                    initModelByData(json.data[0], formID,moadlHtmls.add);
+                    initModelByData(json.data[0], formID, moadlHtmls.add);
                     console.log(json.data);
 
                 } else {
@@ -1779,7 +1779,7 @@
         if (selectCheck == undefined || selectCheckData == undefined) {
             initAddModel(formID);
         } else {
-            initModelByData(selectCheckData, formID,moadlHtmls.add);
+            initModelByData(selectCheckData, formID, moadlHtmls.add);
         }
 
 
@@ -1845,7 +1845,7 @@
             return false;
         }
         //初始化数据
-        initModelByData(data, modelId,moadlHtmls.update);
+        initModelByData(data, modelId, moadlHtmls.update);
 
         layer.open({
             title: "修改",
@@ -1952,7 +1952,7 @@
         jQuery("#" + detailFormID).html(domStr);
         jQuery("#" + detailFormID + " input,select").attr("disabled", "disabled");
         //初始化数据
-        initModelByData(data, detailFormID,moadlHtmls.update);
+        initModelByData(data, detailFormID, moadlHtmls.update);
 
         layer.open({
             title: "查看",
@@ -2097,7 +2097,7 @@
 
 
     //修改 - 初始化弹窗
-    function initModelByData(data, formID,html) {
+    function initModelByData(data, formID, html) {
         var jqForm = jQuery("#" + formID);
         jqForm.html(html);
         initModelDataByData(data, formID);

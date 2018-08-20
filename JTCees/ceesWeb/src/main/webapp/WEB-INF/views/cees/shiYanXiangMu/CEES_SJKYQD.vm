@@ -1063,7 +1063,7 @@
         </div>
         <div class="layui-row">
             <div class="layui-col-md12">
-                <table class=" text-center">
+                <table class="table text-center">
                     <tr>
                         <td colspan="15">委托编号</td>
                         <td colspan="50" name="WTDBH"></td>
@@ -1229,7 +1229,7 @@
         </div>
         <div class="layui-row">
             <div class="layui-col-md12">
-                <table class=" text-center">
+                <table class="table text-center">
                     <tr class="none-td-border">
                         <td colspan="15">备注</td>
                         <td colspan="85" name="BZ"></td>
@@ -1239,7 +1239,7 @@
         </div>
         <div class="layui-row">
             <div class="layui-col-md12">
-                <table class=" text-center">
+                <table class="table text-center">
                     <tr class="none-td-border">
                         <td colspan="15">技术负责人</td>
                         <td colspan="20" name="JSFZR"></td>

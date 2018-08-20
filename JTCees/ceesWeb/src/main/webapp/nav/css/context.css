@@ -40,6 +40,10 @@
     color: #FF0000;
 }
 
+.my-layer-modal .layui-table {
+    table-layout: fixed !important;
+}
+
 .my-layer-modal .layui-table tbody tr {
     color: black;
 }
@@ -50,6 +54,18 @@
 
 .layui-table > thead > tr:first-child th:first-child > div > div > i {
     display: none;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
 }
 
 .margin-bottom-10 {

@@ -205,6 +205,26 @@ public class CEES_SNJJ {
     //养护条件
     private String YHTJ;
     //要求龄期
+    private String YQLQ;
+    //要求试验日期
+    private Date YQSYRQ;
+    //试块收到日期
+    private Date SKSDRQ;
+    //试块制作人
+    private String SKZZR;
+    //试件编号
+    private String SJBH;
+    //实际龄期
+    private String SJLQ;
+    //实际抗折强度
+    private String SJKZQD;
+    //实际抗压强度
+    private String SJKYQD;
+    //记录表编号
+    private String JLBBH;
+    //报告表编号
+    private String BGBBH;
+    private String SYZL;
 
     public int getSnjjid() {
         return snjjid;
@@ -1085,25 +1105,4 @@ public class CEES_SNJJ {
     public void setSYZL(String SYZL) {
         this.SYZL = SYZL;
     }
-
-    private String YQLQ;
-    //要求试验日期
-    private Date YQSYRQ;
-    //试块收到日期
-    private Date SKSDRQ;
-    //试块制作人
-    private String SKZZR;
-    //试件编号
-    private String SJBH;
-    //实际龄期
-    private String SJLQ;
-    //实际抗折强度
-    private String SJKZQD;
-    //实际抗压强度
-    private String SJKYQD;
-    //记录表编号
-    private String JLBBH;
-    //报告表编号
-    private String BGBBH;
-    private String SYZL;
 }
