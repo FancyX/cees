@@ -38,12 +38,12 @@ public class CEES_SJKYQDaoImpl extends BaseDao implements CEES_SJKYQDao {
 
     @Override
     public void delete(Integer id) {
-        this.insert(this.getNamespace("delete"), id);
+        this.delete(this.getNamespace("delete"), id);
     }
 
     @Override
     public void update(CEES_SJKYQDVo cees_sjkyqdVo) {
-        this.insert(this.getNamespace("update"), cees_sjkyqdVo);
+        this.update(this.getNamespace("update"), cees_sjkyqdVo);
     }
 
     @Override

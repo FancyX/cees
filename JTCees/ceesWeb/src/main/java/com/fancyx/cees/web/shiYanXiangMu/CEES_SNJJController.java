@@ -115,6 +115,7 @@ public class CEES_SNJJController {
         } catch (Exception e) {
             Exception exception = new Exception("删除异常", e);
             log.error(exception);
+            e.printStackTrace();
             return new ResultBean(exception);
         }
     }
@@ -136,6 +137,7 @@ public class CEES_SNJJController {
         } catch (Exception ex) {
             Exception exception = new Exception("修改异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
     }

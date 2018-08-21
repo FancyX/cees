@@ -268,109 +268,320 @@
 
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_SJKYQDVo">
         UPDATE [CEES_SJKYQD]
-        SET [cid] = #{cid}
-        ,[cnumber] = #{cnumber}
-        ,[pid] = #{pid}
-        ,[projectnumber] = #{projectnumber}
-        ,[client] = #{client}
-        ,[ccid] = #{ccid}
-        ,[sjkynumber] = #{sjkynumber}
-        ,[testnumber] = #{testnumber}
-        ,[sn] = #{sn}
-        ,[sn_project] = #{sn_project}
-        ,[sn_test] = #{sn_test}
-        ,[state] = #{state}
-        ,[remarks] = #{remarks}
-        ,[edittime] = #{edittime}
-        ,[edituser] = #{edituser}
-        ,[readmark] = #{readmark}
-        ,[readtime] = #{readtime}
-        ,[WTDBH] = #{WTDBH}
-        ,[WTDWMC] = #{WTDWMC}
-        ,[LYRQ] = #{LYRQ}
-        ,[GCMC] = #{GCMC}
-        ,[SYBH] = #{SYBH}
-        ,[SYRQ] = #{SYRQ}
-        ,[SGBW] = #{SGBW}
-        ,[WTR] = #{WTR}
-        ,[SJZL] = #{SJZL}
-        ,[SJZLQD] = #{SJZLQD}
-        ,[CD] = #{CD}
-        ,[CDDW] = #{CDDW}
-        ,[SNPZ] = #{SNPZ}
-        ,[SNQDDJ] = #{SNQDDJ}
-        ,[CB] = #{CB}
-        ,[SCD] = #{SCD}
-        ,[SZL] = #{SZL}
-        ,[CHLZL] = #{CHLZL}
-        ,[WJJZL] = #{WJJZL}
-        ,[WJJ2ZL] = #{WJJ2ZL}
-        ,[PBBH] = #{PBBH}
-        ,[SHA_SHUI] = #{SHA_SHUI}
-        ,[SNMPF] = #{SNMPF}
-        ,[SNMP] = #{SNMP}
-        ,[SMPF] = #{SMPF}
-        ,[SMP] = #{SMP}
-        ,[BHGMPF] = #{BHGMPF}
-        ,[BHGMP] = #{BHGMP}
-        ,[CHLMPF] = #{CHLMPF}
-        ,[CHLMP] = #{CHLMP}
-        ,[WJJMPF] = #{WJJMPF}
-        ,[WJJMP] = #{WJJMP}
-        ,[WJJ2MPF] = #{WJJ2MPF}
-        ,[WJJ2MP] = #{WJJ2MP}
-        ,[ZMRQ] = #{ZMRQ}
-        ,[YHTJ] = #{YHTJ}
-        ,[YQLQ] = #{YQLQ}
-        ,[YQSYRQ] = #{YQSYRQ}
-        ,[SKSDRQ] = #{SKSDRQ}
-        ,[SKZZR] = #{SKZZR}
-        ,[SJBH] = #{SJBH}
-        ,[SYARQ] = #{SYARQ}
-        ,[SJLQ] = #{SJLQ}
-        ,[SJBC] = #{SJBC}
-        ,[SYMJ] = #{SYMJ}
-        ,[KUAISHU] = #{KUAISHU}
-        ,[HZPJ] = #{HZPJ}
-        ,[HZDK1] = #{HZDK1}
-        ,[HZDK2] = #{HZDK2}
-        ,[HZDK3] = #{HZDK3}
-        ,[HZDK4] = #{HZDK4}
-        ,[HZDK5] = #{HZDK5}
-        ,[HZDK6] = #{HZDK6}
-        ,[KYQD] = #{KYQD}
-        ,[DDSJ] = #{DDSJ}
-        ,[YQBH] = #{YQBH}
-        ,[BZ] = #{BZ}
-        ,[JL] = #{JL}
-        ,[DWDM] = #{DWDM}
-        ,[SYXMDM] = #{SYXMDM}
-        ,[SYXMMC] = #{SYXMMC}
-        ,[SHIYBH] = #{SHIYBH}
-        ,[SYMC] = #{SYMC}
-        ,[WTDWBH] = #{WTDWBH}
-        ,[GCBH] = #{GCBH}
-        ,[JSFZRBH] = #{JSFZRBH}
-        ,[JSFZR] = #{JSFZR}
-        ,[XHRBH] = #{XHRBH}
-        ,[XHR] = #{XHR}
-        ,[XHBZ] = #{XHBZ}
-        ,[XHYJ] = #{XHYJ}
-        ,[QFBZ] = #{QFBZ}
-        ,[QFYJ] = #{QFYJ}
-        ,[SYRBH] = #{SYRBH}
-        ,[SYR] = #{SYR}
-        ,[BGRQ] = #{BGRQ}
-        ,[ZXGC] = #{ZXGC}
-        ,[ZXBZ] = #{ZXBZ}
-        ,[SYWTR] = #{SYWTR}
-        ,[JZBZ] = #{JZBZ}
-        ,[HGBZ] = #{HGBZ}
-        ,[SYJG] = #{SYJG}
-        ,[CLYJ] = #{CLYJ}
-        ,[WTZH] = #{WTZH}
-        ,[JLBBH] = #{JLBBH}
-        ,[BGBBH] = #{BGBBH}
+        <set>
+            <if test="sjkyid != null" >
+                [sjkyid] = #{sjkyid},
+            </if>
+            <if test="cid != null" >
+                [cid] = #{cid},
+            </if>
+            <if test="cnumber != null" >
+                [cnumber] = #{cnumber},
+            </if>
+            <if test="pid != null" >
+                [pid] = #{pid},
+            </if>
+            <if test="projectnumber != null" >
+                [projectnumber] = #{projectnumber},
+            </if>
+            <if test="client != null" >
+                [client] = #{client},
+            </if>
+            <if test="ccid != null" >
+                [ccid] = #{ccid},
+            </if>
+            <if test="sjkynumber != null" >
+                [sjkynumber] = #{sjkynumber},
+            </if>
+            <if test="testnumber != null" >
+                [testnumber] = #{testnumber},
+            </if>
+            <if test="sn != null" >
+                [sn] = #{sn},
+            </if>
+            <if test="sn_project != null" >
+                [sn_project] = #{sn_project},
+            </if>
+            <if test="sn_test != null" >
+                [sn_test] = #{sn_test},
+            </if>
+            <if test="state != null" >
+                [state] = #{state},
+            </if>
+            <if test="remarks != null" >
+                [remarks] = #{remarks},
+            </if>
+            <if test="edittime != null" >
+                [edittime] = #{edittime},
+            </if>
+            <if test="edituser != null" >
+                [edituser] = #{edituser},
+            </if>
+            <if test="readmark != null" >
+                [readmark] = #{readmark},
+            </if>
+            <if test="readtime != null" >
+                [readtime] = #{readtime},
+            </if>
+            <if test="WTDBH != null" >
+                [WTDBH] = #{WTDBH},
+            </if>
+            <if test="WTDWMC != null" >
+                [WTDWMC] = #{WTDWMC},
+            </if>
+            <if test="LYRQ != null" >
+                [LYRQ] = #{LYRQ},
+            </if>
+            <if test="GCMC != null" >
+                [GCMC] = #{GCMC},
+            </if>
+            <if test="SYBH != null" >
+                [SYBH] = #{SYBH},
+            </if>
+            <if test="SYRQ != null" >
+                [SYRQ] = #{SYRQ},
+            </if>
+            <if test="SGBW != null" >
+                [SGBW] = #{SGBW},
+            </if>
+            <if test="WTR != null" >
+                [WTR] = #{WTR},
+            </if>
+            <if test="SJZL != null" >
+                [SJZL] = #{SJZL},
+            </if>
+            <if test="SJZLQD != null" >
+                [SJZLQD] = #{SJZLQD},
+            </if>
+            <if test="CD != null" >
+                [CD] = #{CD},
+            </if>
+            <if test="CDDW != null" >
+                [CDDW] = #{CDDW},
+            </if>
+            <if test="SNPZ != null" >
+                [SNPZ] = #{SNPZ},
+            </if>
+            <if test="SNQDDJ != null" >
+                [SNQDDJ] = #{SNQDDJ},
+            </if>
+            <if test="CB != null" >
+                [CB] = #{CB},
+            </if>
+            <if test="SCD != null" >
+                [SCD] = #{SCD},
+            </if>
+            <if test="SZL != null" >
+                [SZL] = #{SZL},
+            </if>
+            <if test="CHLZL != null" >
+                [CHLZL] = #{CHLZL},
+            </if>
+            <if test="WJJZL != null" >
+                [WJJZL] = #{WJJZL},
+            </if>
+            <if test="WJJ2ZL != null" >
+                [WJJ2ZL] = #{WJJ2ZL},
+            </if>
+            <if test="PBBH != null" >
+                [PBBH] = #{PBBH},
+            </if>
+            <if test="SHA_SHUI != null" >
+                [SHA_SHUI] = #{SHA_SHUI},
+            </if>
+            <if test="SNMPF != null" >
+                [SNMPF] = #{SNMPF},
+            </if>
+            <if test="SNMP != null" >
+                [SNMP] = #{SNMP},
+            </if>
+            <if test="SMPF != null" >
+                [SMPF] = #{SMPF},
+            </if>
+            <if test="SMP != null" >
+                [SMP] = #{SMP},
+            </if>
+            <if test="BHGMPF != null" >
+                [BHGMPF] = #{BHGMPF},
+            </if>
+            <if test="BHGMP != null" >
+                [BHGMP] = #{BHGMP},
+            </if>
+            <if test="CHLMPF != null" >
+                [CHLMPF] = #{CHLMPF},
+            </if>
+            <if test="CHLMP != null" >
+                [CHLMP] = #{CHLMP},
+            </if>
+            <if test="WJJMPF != null" >
+                [WJJMPF] = #{WJJMPF},
+            </if>
+            <if test="WJJMP != null" >
+                [WJJMP] = #{WJJMP},
+            </if>
+            <if test="WJJ2MPF != null" >
+                [WJJ2MPF] = #{WJJ2MPF},
+            </if>
+            <if test="WJJ2MP != null" >
+                [WJJ2MP] = #{WJJ2MP},
+            </if>
+            <if test="ZMRQ != null" >
+                [ZMRQ] = #{ZMRQ},
+            </if>
+            <if test="YHTJ != null" >
+                [YHTJ] = #{YHTJ},
+            </if>
+            <if test="YQLQ != null" >
+                [YQLQ] = #{YQLQ},
+            </if>
+            <if test="YQSYRQ != null" >
+                [YQSYRQ] = #{YQSYRQ},
+            </if>
+            <if test="SKSDRQ != null" >
+                [SKSDRQ] = #{SKSDRQ},
+            </if>
+            <if test="SKZZR != null" >
+                [SKZZR] = #{SKZZR},
+            </if>
+            <if test="SJBH != null" >
+                [SJBH] = #{SJBH},
+            </if>
+            <if test="SYARQ != null" >
+                [SYARQ] = #{SYARQ},
+            </if>
+            <if test="SJLQ != null" >
+                [SJLQ] = #{SJLQ},
+            </if>
+            <if test="SJBC != null" >
+                [SJBC] = #{SJBC},
+            </if>
+            <if test="SYMJ != null" >
+                [SYMJ] = #{SYMJ},
+            </if>
+            <if test="KUAISHU != null" >
+                [KUAISHU] = #{KUAISHU},
+            </if>
+            <if test="HZPJ != null" >
+                [HZPJ] = #{HZPJ},
+            </if>
+            <if test="HZDK1 != null" >
+                [HZDK1] = #{HZDK1},
+            </if>
+            <if test="HZDK2 != null" >
+                [HZDK2] = #{HZDK2},
+            </if>
+            <if test="HZDK3 != null" >
+                [HZDK3] = #{HZDK3},
+            </if>
+            <if test="HZDK4 != null" >
+                [HZDK4] = #{HZDK4},
+            </if>
+            <if test="HZDK5 != null" >
+                [HZDK5] = #{HZDK5},
+            </if>
+            <if test="HZDK6 != null" >
+                [HZDK6] = #{HZDK6},
+            </if>
+            <if test="KYQD != null" >
+                [KYQD] = #{KYQD},
+            </if>
+            <if test="DDSJ != null" >
+                [DDSJ] = #{DDSJ},
+            </if>
+            <if test="YQBH != null" >
+                [YQBH] = #{YQBH},
+            </if>
+            <if test="BZ != null" >
+                [BZ] = #{BZ},
+            </if>
+            <if test="JL != null" >
+                [JL] = #{JL},
+            </if>
+            <if test="DWDM != null" >
+                [DWDM] = #{DWDM},
+            </if>
+            <if test="SYXMDM != null" >
+                [SYXMDM] = #{SYXMDM},
+            </if>
+            <if test="SYXMMC != null" >
+                [SYXMMC] = #{SYXMMC},
+            </if>
+            <if test="SHIYBH != null" >
+                [SHIYBH] = #{SHIYBH},
+            </if>
+            <if test="SYMC != null" >
+                [SYMC] = #{SYMC},
+            </if>
+            <if test="WTDWBH != null" >
+                [WTDWBH] = #{WTDWBH},
+            </if>
+            <if test="GCBH != null" >
+                [GCBH] = #{GCBH},
+            </if>
+            <if test="JSFZRBH != null" >
+                [JSFZRBH] = #{JSFZRBH},
+            </if>
+            <if test="JSFZR != null" >
+                [JSFZR] = #{JSFZR},
+            </if>
+            <if test="XHRBH != null" >
+                [XHRBH] = #{XHRBH},
+            </if>
+            <if test="XHR != null" >
+                [XHR] = #{XHR},
+            </if>
+            <if test="XHBZ != null" >
+                [XHBZ] = #{XHBZ},
+            </if>
+            <if test="XHYJ != null" >
+                [XHYJ] = #{XHYJ},
+            </if>
+            <if test="QFBZ != null" >
+                [QFBZ] = #{QFBZ},
+            </if>
+            <if test="QFYJ != null" >
+                [QFYJ] = #{QFYJ},
+            </if>
+            <if test="SYRBH != null" >
+                [SYRBH] = #{SYRBH},
+            </if>
+            <if test="SYR != null" >
+                [SYR] = #{SYR},
+            </if>
+            <if test="BGRQ != null" >
+                [BGRQ] = #{BGRQ},
+            </if>
+            <if test="ZXGC != null" >
+                [ZXGC] = #{ZXGC},
+            </if>
+            <if test="ZXBZ != null" >
+                [ZXBZ] = #{ZXBZ},
+            </if>
+            <if test="SYWTR != null" >
+                [SYWTR] = #{SYWTR},
+            </if>
+            <if test="JZBZ != null" >
+                [JZBZ] = #{JZBZ},
+            </if>
+            <if test="HGBZ != null" >
+                [HGBZ] = #{HGBZ},
+            </if>
+            <if test="SYJG != null" >
+                [SYJG] = #{SYJG},
+            </if>
+            <if test="CLYJ != null" >
+                [CLYJ] = #{CLYJ},
+            </if>
+            <if test="WTZH != null" >
+                [WTZH] = #{WTZH},
+            </if>
+            <if test="JLBBH != null" >
+                [JLBBH] = #{JLBBH},
+            </if>
+            <if test="BGBBH != null" >
+                [BGBBH] = #{BGBBH},
+            </if>
+        </set>
         WHERE
         [CEES_SJKYQD].[sjkyid] = #{sjkyid}
     </update>

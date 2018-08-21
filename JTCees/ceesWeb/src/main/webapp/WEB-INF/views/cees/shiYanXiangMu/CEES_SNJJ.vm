@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="layui-input-inline layui-col-md8">
                                     <input type="text" name="LYRQ" readonly autocomplete="off"
-                                           class="layui-input"  placeholder="yyyy-MM-dd">
+                                           class="layui-input" placeholder="yyyy-MM-dd">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="layui-input-inline layui-col-md4 my-sm-lable">委托人
                             </div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="WTR" readonly autocomplete="off"
+                                <input type="text" name="WTR" autocomplete="off"
                                        class="layui-input">
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <div class="layui-input-inline layui-col-md4 my-sm-lable">试样种类
                             </div>
                             <div class="layui-input-inline layui-col-md8">
-                                <input type="text" name="" readonly autocomplete="off"
+                                <input type="text" name="" autocomplete="off"
                                        class="layui-input">
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="layui-input-inline layui-col-md8">
                                 <input type="text" name="SYRQ" readonly autocomplete="off"
-                                       class="layui-input"  placeholder="yyyy-MM-dd">
+                                       class="layui-input" placeholder="yyyy-MM-dd">
                             </div>
                         </div>
                     </div>
@@ -241,40 +241,45 @@
             </tr>
             <tr>
                 <td colspan="15">制模日期</td>
-                <td colspan="13"><input type="text" name="ZMRQ" readonly autocomplete="off" class="layui-input"  placeholder="yyyy-MM-dd">
+                <td colspan="13"><input type="text" name="ZMRQ" readonly autocomplete="off" class="layui-input"
+                                        placeholder="yyyy-MM-dd">
                 </td>
                 <td colspan="12">养护条件</td>
-                <td colspan="24"><input type="text" name="YHTJ" readonly autocomplete="off" class="layui-input">
+                <td colspan="24"><input type="text" name="YHTJ" autocomplete="off" class="layui-input">
                 </td>
                 <td colspan="12">要求龄期</td>
-                <td colspan="24"><input type="text" name="YQLQ" readonly autocomplete="off" class="layui-input">
+                <td colspan="24"><input type="text" name="YQLQ" autocomplete="off" class="layui-input">
                 </td>
             </tr>
             <tr>
                 <td class="blue-font" colspan="15">要求试验日期</td>
                 <td class="blue-font" colspan="13">
-                    <input type="text" name="YQSYRQ" readonly autocomplete="off" class="layui-input"  placeholder="yyyy-MM-dd">
+                    <input type="text" name="YQSYRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
                 </td>
                 <td class="blue-font" colspan="12">试块收到日期</td>
                 <td class="blue-font" colspan="24">
-                    <input type="text" name="SKSDRQ" readonly autocomplete="off" class="layui-input"  placeholder="yyyy-MM-dd">
+                    <input type="text" name="SKSDRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
                 </td>
                 <td colspan="12">试块制作人</td>
                 <td colspan="24">
-                    <input type="text" name="SKZZR" readonly autocomplete="off" class="layui-input">
+                    <input type="text" name="SKZZR" autocomplete="off" class="layui-input">
                 </td>
             </tr>
             <tr>
                 <td colspan="15">试件编号</td>
                 <td colspan="13">
-                    <input type="text" name="SJBH" readonly autocomplete="off" class="layui-input">
+                    <input type="text" name="SJBH" autocomplete="off" class="layui-input">
                 </td>
                 <td class="blue-font" colspan="12">试验日期</td>
                 <td class="blue-font" colspan="24">
-                    <input type="text" name="SYRQ" readonly autocomplete="off" class="layui-input"  placeholder="yyyy-MM-dd">
+                    <input type="text" name="SYRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
                 </td>
                 <td colspan="12">实际龄期</td>
-                <td colspan="24"><input type="text" name="SJLQ" readonly autocomplete="off" class="layui-input"  placeholder="yyyy-MM-dd">
+                <td colspan="24"><input type="text" name="SJLQ" autocomplete="off" class="layui-input"
+                                        placeholder="yyyy-MM-dd">
                 </td>
             </tr>
             </tbody>
@@ -306,18 +311,28 @@
             <tr>
             ##试件尺寸(mm)-长
                 <td colspan="6">长</td>
-                <td colspan="10"><input type="text" name="KZC" autocomplete="off" class="layui-input"></td>
+                <td colspan="10">
+                    <input type="text" name="KZC" autocomplete="off" class="layui-input">
+                </td>
             ##计算跨度
-                <td rowspan="3" colspan="16"><input type="text" name="KZKD" autocomplete="off" class="layui-input"></td>
+                <td rowspan="3" colspan="16" class="blue-font">
+                    <input type="text" name="KZKD" readonly autocomplete="off" class="layui-input">
+                </td>
             ##破坏荷载 - 单块1
-                <td colspan="10"><input type="text" name="KZDK1" autocomplete="off" class="layui-input"></td>
+                <td colspan="10">
+                    <input type="text" name="KZDK1" autocomplete="off" class="layui-input">
+                </td>
             ##破坏荷载 - 平均
-                <td rowspan="3" colspan="10"><input type="text" name="KZDKPJ" autocomplete="off" class="layui-input">
+                <td rowspan="3" colspan="10">
+                    <input type="text" name="KZDKPJ" readonly autocomplete="off" class="layui-input">
                 </td>
             ##抗折强度
-                <td rowspan="3" colspan="16"><input type="text" name="KZQD" autocomplete="off" class="layui-input"></td>
+                <td rowspan="3" colspan="16">
+                    <input type="text" name="KZQD" disabled autocomplete="off" class="layui-input">
+                </td>
             ##达到设计强度
-                <td rowspan="3" colspan="17"><input type="text" name="KZDDSJQD" autocomplete="off" class="layui-input">
+                <td rowspan="3" colspan="17">
+                    <input type="text" name="KZDDSJQD" readonly autocomplete="off" class="layui-input">
                 </td>
             </tr>
             <tr>
@@ -368,7 +383,7 @@
                 </td>
             ##受压面积
                 <td rowspan="6" colspan="16">
-                    <input type="text" name="KYSYMJ" autocomplete="off" class="layui-input">
+                    <input type="text" name="KYSYMJ" readonly autocomplete="off" class="layui-input">
                 </td>
             ##破坏荷载 - 单块1
                 <td colspan="10">
@@ -376,15 +391,15 @@
                 </td>
             ##破坏荷载 - 平均
                 <td rowspan="6" colspan="10">
-                    <input type="text" name="KYDKPJ" autocomplete="off" class="layui-input">
+                    <input type="text" name="KYDKPJ" readonly autocomplete="off" class="layui-input">
                 </td>
             ##抗压强度
                 <td rowspan="6" colspan="16">
-                    <input type="text" name="KYQD" autocomplete="off" class="layui-input">
+                    <input type="text" name="KYQD" disabled autocomplete="off" class="layui-input">
                 </td>
             ##达到设计强度
                 <td rowspan="6" colspan="17">
-                    <input type="text" name="KYDDSJQD" autocomplete="off" class="layui-input">
+                    <input type="text" name="KYDDSJQD" readonly autocomplete="off" class="layui-input">
                 </td>
             </tr>
             ##破坏荷载 - 单块2
@@ -427,11 +442,11 @@
             <tr>
             <tr>
                 <td colspan="15">结论</td>
-                <td colspan="85"><input type="text" name="" autocomplete="off" class="layui-input"></td>
+                <td colspan="85"><input type="text" name="JL" autocomplete="off" class="layui-input"></td>
             </tr>
             <tr>
                 <td colspan="15">备注</td>
-                <td colspan="85"><input type="text" name="" autocomplete="off" class="layui-input">
+                <td colspan="85"><input type="text" name="BZ" autocomplete="off" class="layui-input">
                 </td>
             </tr>
             </tbody>
@@ -495,13 +510,450 @@
             <div class="layui-inline blue-font">
                 <label class="layui-form-label ">ID</label>
                 <div class="layui-input-inline ">
-                    <input type="text" name="sjkyid" autocomplete="off" class="layui-input">
+                    <input type="text" name="snjjid" autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-col-md6">
 
+                        <div class="layui-row margin-bottom-20">
+                            <div class="red-font">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">委托单号
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="WTDBH" readonly autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="blue-font">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">委托单位
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="WTDWMC" readonly autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="blue-font">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">仪器编号
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="YQBH" readonly autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="blue-font">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">来样日期
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="LYRQ" readonly autocomplete="off"
+                                           class="layui-input" placeholder="yyyy-MM-dd">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md4 my-sm-lable">委托人
+                            </div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="WTR" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="blue-font">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">工程名称
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="GCMC" readonly autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                        ##不知道字段
+                            <div class="layui-input-inline layui-col-md4 my-sm-lable">试样种类
+                            </div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-row margin-bottom-20">
+                            <div class="layui-input-inline layui-col-md4 my-sm-lable">试验日期
+                            </div>
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" name="SYRQ" readonly autocomplete="off"
+                                       class="layui-input" placeholder="yyyy-MM-dd">
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table text-center ">
+            <tbody>
+            <tr>
+                <td colspan="15">施工部位</td>
+                <td colspan="85">
+                    <input type="text" name="SGBW" autocomplete="off"
+                           class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" colspan="15">砂浆种类</td>
+                <td rowspan="2" colspan="21">
+                    <input type="text" name="SJZL" autocomplete="off" class="layui-input">
+                </td>
+                <td class="red-font" colspan="10">抗折强度</td>
+                <td colspan="22">
+                    <input type="text" name="KZQD" autocomplete="off" class="layui-input">MPa
+                </td>
+                <td rowspan="2" colspan="10">稠度</td>
+                <td rowspan="2" colspan="22">
+                    <input type="text" name="CD" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="red-font" colspan="10">抗压强度</td>
+                <td colspan="22">
+                    <input type="text" name="KYQD" autocomplete="off" class="layui-input">MPa
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="15">水泥品种</td>
+                <td colspan="21">
+                    <input type="text" name="SNPZ" autocomplete="off" class="layui-input">
+                </td>
+                <td colspan="10">强度等级</td>
+                <td colspan="22">
+                    <input type="text" name="QDDJ" autocomplete="off" class="layui-input">
+                </td>
+                <td colspan="10">厂别</td>
+                <td colspan="22">
+                    <input type="text" name="CB" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="15">外加剂种类</td>
+                <td colspan="21">
+                    <input type="text" name="WJJZL" autocomplete="off" class="layui-input">
+                </td>
+                <td colspan="10">外加剂2种类</td>
+                <td colspan="22">
+                    <input type="text" name="WJJZL2" autocomplete="off" class="layui-input">
+                </td>
+                <td colspan="10">掺合料种类</td>
+                <td colspan="22">
+                    <input type="text" name="CHLZL" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" colspan="15">配合比编号</td>
+                <td rowspan="2" colspan="13">项目</td>
+                <td colspan="72">各种材料用量</td>
+            </tr>
+            <tr>
+                <td colspan="12">水泥</td>
+                <td colspan="12">砂</td>
+                <td colspan="12">水</td>
+                <td colspan="12">掺合料</td>
+                <td colspan="12">外加剂</td>
+                <td colspan="12">外加剂2</td>
+            </tr>
+            <tr>
+            ##配比编号
+                <td colspan="15"><input type="text" name="PHBBH" readonly autocomplete="off" value="/"
+                                        class="layui-input"></td>
+                <td colspan="13">每立方用量</td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+                <td colspan="12"><input type="text" name="" readonly autocomplete="off" value="/" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="15">制模日期</td>
+                <td colspan="13"><input type="text" name="ZMRQ" readonly autocomplete="off" class="layui-input"
+                                        placeholder="yyyy-MM-dd">
+                </td>
+                <td colspan="12">养护条件</td>
+                <td colspan="24"><input type="text" name="YHTJ" autocomplete="off" class="layui-input">
+                </td>
+                <td colspan="12">要求龄期</td>
+                <td colspan="24"><input type="text" name="YQLQ" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="blue-font" colspan="15">要求试验日期</td>
+                <td class="blue-font" colspan="13">
+                    <input type="text" name="YQSYRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
+                </td>
+                <td class="blue-font" colspan="12">试块收到日期</td>
+                <td class="blue-font" colspan="24">
+                    <input type="text" name="SKSDRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
+                </td>
+                <td colspan="12">试块制作人</td>
+                <td colspan="24">
+                    <input type="text" name="SKZZR" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="15">试件编号</td>
+                <td colspan="13">
+                    <input type="text" name="SJBH" autocomplete="off" class="layui-input">
+                </td>
+                <td class="blue-font" colspan="12">试验日期</td>
+                <td class="blue-font" colspan="24">
+                    <input type="text" name="SYRQ" readonly autocomplete="off" class="layui-input"
+                           placeholder="yyyy-MM-dd">
+                </td>
+                <td colspan="12">实际龄期</td>
+                <td colspan="24"><input type="text" name="SJLQ" autocomplete="off" class="layui-input"
+                                        placeholder="yyyy-MM-dd">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table text-center">
+            <tbody>
+            <tr>
+            <tr>
+                <td class="blue-font" colspan="15">试验编号</td>
+                <td class="blue-font" colspan="85">
+                    <input type="text" name="SYBH1" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="5" colspan="15" class="blue-font">抗折</td>
+                <td rowspan="2" colspan="16">试件尺寸(mm)</td>
+                <td rowspan="2" colspan="16" class="blue-font">计算跨度</td>
+                <td colspan="20">破坏荷载(kN))</td>
+                <td rowspan="2" colspan="16" class="blue-font">抗折强度(MPa)</td>
+                <td rowspan="2" colspan="17" class="blue-font">达到设计强度(%)</td>
+            </tr>
+            <tr>
+                <td colspan="10">单块</td>
+                <td colspan="10" class="blue-font">平均</td>
+            </tr>
+            <tr>
+            ##试件尺寸(mm)-长
+                <td colspan="6">长</td>
+                <td colspan="10"><input type="text" name="KZC" autocomplete="off" class="layui-input"></td>
+            ##计算跨度
+                <td rowspan="3" colspan="16" class="blue-font"><input type="text" name="KZKD" readonly
+                                                                      autocomplete="off" class="layui-input"></td>
+            ##破坏荷载 - 单块1
+                <td colspan="10"><input type="text" name="KZDK1" autocomplete="off" class="layui-input"></td>
+            ##破坏荷载 - 平均
+                <td rowspan="3" colspan="10"><input type="text" name="KZDKPJ" readonly autocomplete="off"
+                                                    class="layui-input">
+                </td>
+            ##抗折强度
+                <td rowspan="3" colspan="16">
+                    <input type="text" name="KZQD" readonly autocomplete="off" class="layui-input"></td>
+            ##达到设计强度
+                <td rowspan="3" colspan="17">
+                    <input type="text" name="KZDDSJQD" readonly autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+            ##试件尺寸(mm)-宽
+                <td colspan="6">宽</td>
+                <td colspan="10"><input type="text" name="KZK" autocomplete="off" class="layui-input"></td>
+            ##破坏荷载 - 单块2
+                <td colspan="10"><input type="text" name="KZDK2" autocomplete="off" class="layui-input"></td>
+            </tr>
+            <tr>
+            ##试件尺寸(mm)-高
+                <td colspan="6">高</td>
+                <td colspan="10"><input type="text" name="KZG" autocomplete="off" class="layui-input"></td>
+            ##破坏荷载 - 单块3
+                <td colspan="10"><input type="text" name="KZDK3" autocomplete="off" class="layui-input"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table text-center">
+            <tbody>
+            <tr>
+            <tr>
+                <td class="blue-font" colspan="15">试验编号</td>
+                <td class="blue-font" colspan="85">
+                    <input type="text" name="SYBH2" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="8" colspan="15" class="blue-font">抗压</td>
+                <td rowspan="2" colspan="16">试件边长(mm)</td>
+                <td rowspan="2" colspan="16" class="blue-font">受压面积(mm2)</td>
+                <td colspan="20">破坏荷载(kN))</td>
+                <td rowspan="2" colspan="16" class="blue-font">抗压强度(MPa)</td>
+                <td rowspan="2" colspan="17" class="blue-font">达到设计强度(%)</td>
+            </tr>
+            <tr>
+                <td colspan="10">单块</td>
+                <td colspan="10" class="blue-font">平均</td>
+            </tr>
+            <tr>
+            ##试件边长
+                <td rowspan="6" colspan="16">
+                    <input type="text" name="KYSJBC" autocomplete="off" class="layui-input">
+                </td>
+            ##受压面积
+                <td rowspan="6" colspan="16">
+                    <input type="text" name="KYSYMJ" readonly autocomplete="off" class="layui-input">
+                </td>
+            ##破坏荷载 - 单块1
+                <td colspan="10">
+                    <input type="text" name="KYDK1" autocomplete="off" class="layui-input">
+                </td>
+            ##破坏荷载 - 平均
+                <td rowspan="6" colspan="10">
+                    <input type="text" name="KYDKPJ" readonly autocomplete="off" class="layui-input">
+                </td>
+            ##抗压强度
+                <td rowspan="6" colspan="16">
+                    <input type="text" name="KYQD" readonly autocomplete="off" class="layui-input">
+                </td>
+            ##达到设计强度
+                <td rowspan="6" colspan="17">
+                    <input type="text" name="KYDDSJQD" readonly autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            ##破坏荷载 - 单块2
+            <tr>
+                <td colspan="10">
+                    <input type="text" name="KYDK2" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            ##破坏荷载 - 单块3
+            <tr>
+                <td colspan="10">
+                    <input type="text" name="KYDK3" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            ##破坏荷载 - 单块4
+            <tr>
+                <td colspan="10">
+                    <input type="text" name="KYDK4" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            ##破坏荷载 - 单块5
+            <tr>
+                <td colspan="10">
+                    <input type="text" name="KYDK5" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            ##破坏荷载 - 单块6
+            <tr>
+                <td colspan="10">
+                    <input type="text" name="KYDK6" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table text-center">
+            <tbody>
+            <tr>
+            <tr>
+                <td colspan="15">结论</td>
+                <td colspan="85"><input type="text" name="JL" autocomplete="off" class="layui-input"></td>
+            </tr>
+            <tr>
+                <td colspan="15">备注</td>
+                <td colspan="85"><input type="text" name="BZ" autocomplete="off" class="layui-input">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-col-md3">
+
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            技术负责人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="JSFZR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            校核人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="XHR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            试验人
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="SYR" readonly autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md3">
+                        <div class="layui-input-inline layui-col-md3 my-sm-lable blue-font">
+                            报告日期
+                        </div>
+                        <div class="layui-col-md8">
+                            <input type="text" name="BGRQ" disabled class="layui-input" placeholder="yyyy-MM-dd">
+                            <input type="text" name="BGRQ" class="layui-input none" placeholder="yyyy-MM-dd">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </form>
 
 ##查看
@@ -553,9 +1005,179 @@
                         <td colspan="84" name="project,SGBW"></td>
                     </tr>
 
-
+                    <tr>
+                        <td rowspan="2" colspan="16">砂浆种类</td>
+                        <td rowspan="2" colspan="16">压浆料</td>
+                        <td colspan="16">抗折强度</td>
+                        <td colspan="16"></td>
+                        <td rowspan="2" colspan="16">稠度</td>
+                        <td rowspan="2" colspan="20">/s</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">抗压强度</td>
+                        <td colspan="16"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">水泥品种</td>
+                        <td colspan="16">/</td>
+                        <td colspan="16">强度等级</td>
+                        <td colspan="16">/</td>
+                        <td colspan="16">厂别</td>
+                        <td colspan="20">/</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">检测依据</td>
+                        <td colspan="16"></td>
+                        <td colspan="16">掺合料种类</td>
+                        <td colspan="16">/</td>
+                        <td colspan="16">外加剂种类</td>
+                        <td colspan="20">/</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="16">配合比编号</td>
+                        <td rowspan="2" colspan="16">项目</td>
+                        <td colspan="68">各种材料用量</td>
+                    </tr>
+                    <tr>
+                        <td colspan="13">水泥</td>
+                        <td colspan="13">水</td>
+                        <td colspan="13">掺合料</td>
+                        <td colspan="13">外加剂</td>
+                        <td colspan="16">外加剂2</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">/</td>
+                        <td colspan="16">每立方米</td>
+                        <td colspan="13">/</td>
+                        <td colspan="13">/</td>
+                        <td colspan="13">/</td>
+                        <td colspan="13">/</td>
+                        <td colspan="16">/</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">制模日期</td>
+                        <td colspan="16"></td>
+                        <td colspan="13">养护条件</td>
+                        <td colspan="26"></td>
+                        <td colspan="13">要求龄期</td>
+                        <td colspan="16">/</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">要求试验日期</td>
+                        <td colspan="16"></td>
+                        <td colspan="13">试块收到日期</td>
+                        <td colspan="26"></td>
+                        <td colspan="13">试块制作人</td>
+                        <td colspan="16">/</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">试件编号</td>
+                        <td colspan="16"></td>
+                        <td colspan="13">试验日期</td>
+                        <td colspan="26"></td>
+                        <td colspan="13">实际龄期</td>
+                        <td colspan="16">/</td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">试验编号</td>
+                        <td colspan="84"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" colspan="16">抗折试验</td>
+                        <td rowspan="2" colspan="16">试件尺寸</td>
+                        <td rowspan="2" colspan="16">计算跨度(mm2)</td>
+                        <td colspan="20">破坏荷载(kN)</td>
+                        <td rowspan="2" colspan="16">抗折强度(MPa)</td>
+                        <td rowspan="2" colspan="16">达到设计强度</td>
+                    </tr>
+                    <tr>
+                        <td colspan="10">单块</td>
+                        <td colspan="10">平均</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">长</td>
+                        <td colspan="10"></td>
+                        <td rowspan="3" colspan="16"></td>
+                        <td colspan="10"></td>
+                        <td rowspan="3" colspan="10"></td>
+                        <td rowspan="3" colspan="16"></td>
+                        <td rowspan="3" colspan="16"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">宽</td>
+                        <td colspan="10"></td>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">高</td>
+                        <td colspan="10"></td>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">试验编号</td>
+                        <td colspan="84"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8" colspan="16">抗压试验</td>
+                        <td rowspan="2" colspan="16">试件边长</td>
+                        <td rowspan="2" colspan="16">受压面积(mm2)</td>
+                        <td colspan="20">破坏荷载(kN)</td>
+                        <td rowspan="2" colspan="16">抗折强度(MPa)</td>
+                        <td rowspan="2" colspan="16">达到设计强度</td>
+                    </tr>
+                    <tr>
+                        <td colspan="10">单块</td>
+                        <td colspan="10">平均</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6" colspan="16"></td>
+                        <td rowspan="6" colspan="16"></td>
+                        <td colspan="10"></td>
+                        <td rowspan="6" colspan="10"></td>
+                        <td rowspan="6" colspan="16"></td>
+                        <td rowspan="6" colspan="16"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">备注</td>
+                        <td colspan="84"></td>
+                    </tr>
                 </table>
-
+                <table class="table">
+                    <tr class="none-td-border">
+                        <td colspan="16">技术负责人</td>
+                        <td colspan="20" name="JSFZR"></td>
+                        <td colspan="12">校核人</td>
+                        <td colspan="20" name="XHR"></td>
+                        <td colspan="12">试验人</td>
+                        <td colspan="20" name="SYR"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="16">报告日期</td>
+                        <td colspan="84" name="BGRQ"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="layui-row top10">
+            <div class="layui-col-md12">
+                <div class="left">
+                    声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
+                </div>
             </div>
         </div>
     </div>
@@ -880,13 +1502,13 @@
                 type: 'post',
                 url: urls.delete,
                 dataType: 'json',
-                data: {'id': data.sjkyid},
+                data: {'id': data.snjjid},
                 async: false,
                 success: function (json) {
                     if (json.code == 0) {
                         initGetShowCol(initTable);
                         successAlert(json.msg);
-
+                        obj.del();
                     } else {
                         failAlert(json.msg);
                     }
@@ -895,8 +1517,6 @@
                     failAlert("连接服务器失败,请重试！");
                 }
             });
-
-            obj.del();
             layer.close(index);
         });
     }

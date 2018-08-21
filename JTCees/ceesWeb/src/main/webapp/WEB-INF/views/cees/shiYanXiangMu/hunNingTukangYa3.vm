@@ -1750,16 +1750,17 @@
             data: {'kynumber': kynumber, 'page': 1, 'limit': 1},
             async: false,
             success: function (json) {
-
+                console.log(json);
                 if (json.code == 0 &&
                         json.data != null && json.data != undefined) {
-                    initModelByData(json.data[0], formID, moadlHtmls.add);
-                    console.log(json.data);
-
+                    if (json.data.length > 0) {
+                        initModelByData(json.data[0], formID, moadlHtmls.add);
+                    } else {
+                        failAlert('该编号不存在');
+                    }
                 } else {
                     failAlert(json.msg);
                 }
-
             },
             err: function (err) {
                 failAlert("连接服务器失败,请重试！");
