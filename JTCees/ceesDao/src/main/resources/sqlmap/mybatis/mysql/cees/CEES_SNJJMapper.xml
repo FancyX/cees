@@ -12,9 +12,6 @@
         <if test="zmrqend != null and zmrqend != ''">
             AND #{zmrqend} >= zmrq
         </if>
-        <if test="sn_project != null">
-            AND #{sn_project} = sn_project
-        </if>
         <if test="snjjnumber != null">
             AND #{snjjnumber} = snjjnumber
         </if>
@@ -132,6 +129,7 @@
     </sql>
 
     <select id="selectByBean"
+            parameterType="com.fancyx.cees.domain.vo.CEES_SNJJVo"
             resultType="com.fancyx.cees.domain.busi.CEES_SNJJ">
         SELECT [snjjid]
         ,[cid]
@@ -250,7 +248,9 @@
         </where>
     </select>
 
-    <select id="selectByBeanCount" resultType="java.lang.Integer">
+    <select id="selectByBeanCount"
+            parameterType="com.fancyx.cees.domain.vo.CEES_SNJJVo"
+            resultType="java.lang.Integer">
         SELECT
         COUNT(1)
         FROM

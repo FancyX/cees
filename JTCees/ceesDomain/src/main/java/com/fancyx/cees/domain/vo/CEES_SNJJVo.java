@@ -6,14 +6,10 @@ import com.fancyx.cees.domain.busi.CEES_SNJJ;
  * Created by 啊Q on 2018-07-21.
  */
 public class CEES_SNJJVo extends CEES_SNJJ {
-
-
     //查询字符串
     String queryStr;
     //查询数字
     String queryIntStr;
-
-
     //制模日期开始
     private String zmrqstart;
     //制模日期结束
@@ -40,7 +36,6 @@ public class CEES_SNJJVo extends CEES_SNJJ {
 
         }
     }
-
 
     public String getZmrqstart() {
         return zmrqstart;

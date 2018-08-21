@@ -771,19 +771,25 @@
             <tr>
             ##试件尺寸(mm)-长
                 <td colspan="6">长</td>
-                <td colspan="10"><input type="text" name="KZC" autocomplete="off" class="layui-input"></td>
+                <td colspan="10">
+                    <input type="text" name="KZC" autocomplete="off" class="layui-input">
+                </td>
             ##计算跨度
-                <td rowspan="3" colspan="16" class="blue-font"><input type="text" name="KZKD" readonly
-                                                                      autocomplete="off" class="layui-input"></td>
+                <td rowspan="3" colspan="16" class="blue-font">
+                    <input type="text" name="KZKD" readonly autocomplete="off" class="layui-input">
+                </td>
             ##破坏荷载 - 单块1
-                <td colspan="10"><input type="text" name="KZDK1" autocomplete="off" class="layui-input"></td>
+                <td colspan="10">
+                    <input type="text" name="KZDK1" autocomplete="off" class="layui-input">
+                </td>
             ##破坏荷载 - 平均
-                <td rowspan="3" colspan="10"><input type="text" name="KZDKPJ" readonly autocomplete="off"
-                                                    class="layui-input">
+                <td rowspan="3" colspan="10">
+                    <input type="text" name="KZDKPJ" readonly autocomplete="off" class="layui-input">
                 </td>
             ##抗折强度
                 <td rowspan="3" colspan="16">
-                    <input type="text" name="KZQD" readonly autocomplete="off" class="layui-input"></td>
+                    <input type="text" name="KZQD" disabled autocomplete="off" class="layui-input">
+                </td>
             ##达到设计强度
                 <td rowspan="3" colspan="17">
                     <input type="text" name="KZDDSJQD" readonly autocomplete="off" class="layui-input">
@@ -849,7 +855,7 @@
                 </td>
             ##抗压强度
                 <td rowspan="6" colspan="16">
-                    <input type="text" name="KYQD" readonly autocomplete="off" class="layui-input">
+                    <input type="text" name="KYQD" disabled autocomplete="off" class="layui-input">
                 </td>
             ##达到设计强度
                 <td rowspan="6" colspan="17">
