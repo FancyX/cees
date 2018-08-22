@@ -1013,15 +1013,15 @@
 
                     <tr>
                         <td rowspan="2" colspan="16">砂浆种类</td>
-                        <td rowspan="2" colspan="16">压浆料</td>
+                        <td rowspan="2" colspan="16" name="SJZL"></td>
                         <td colspan="16">抗折强度</td>
-                        <td colspan="16"></td>
+                        <td colspan="16" name="KZQD"></td>
                         <td rowspan="2" colspan="16">稠度</td>
-                        <td rowspan="2" colspan="20">/s</td>
+                        <td rowspan="2" colspan="20" name="CD">/s</td>
                     </tr>
                     <tr>
                         <td colspan="16">抗压强度</td>
-                        <td colspan="16"></td>
+                        <td colspan="16" name="KYQD"></td>
                     </tr>
                     <tr>
                         <td colspan="16">水泥品种</td>
@@ -1062,31 +1062,31 @@
                     </tr>
                     <tr>
                         <td colspan="16">制模日期</td>
-                        <td colspan="16"></td>
+                        <td colspan="16" name="ZMRQ"></td>
                         <td colspan="13">养护条件</td>
-                        <td colspan="26"></td>
+                        <td colspan="26" name="YHTJ"></td>
                         <td colspan="13">要求龄期</td>
                         <td colspan="16">/</td>
                     </tr>
                     <tr>
                         <td colspan="16">要求试验日期</td>
-                        <td colspan="16"></td>
+                        <td colspan="16" name="YQSYRQ"></td>
                         <td colspan="13">试块收到日期</td>
-                        <td colspan="26"></td>
+                        <td colspan="26" name="SKSDRQ"></td>
                         <td colspan="13">试块制作人</td>
                         <td colspan="16">/</td>
                     </tr>
                     <tr>
                         <td colspan="16">试件编号</td>
-                        <td colspan="16"></td>
+                        <td colspan="16" name="SJBH"></td>
                         <td colspan="13">试验日期</td>
-                        <td colspan="26"></td>
+                        <td colspan="26" name="SYRQ"></td>
                         <td colspan="13">实际龄期</td>
                         <td colspan="16">/</td>
                     </tr>
                     <tr>
                         <td colspan="16">试验编号</td>
-                        <td colspan="84"></td>
+                        <td colspan="84" name="SYBH1"></td>
                     </tr>
                     <tr>
                         <td rowspan="5" colspan="16">抗折试验</td>
@@ -1102,26 +1102,33 @@
                     </tr>
                     <tr>
                         <td colspan="6">长</td>
+                    ##长
                         <td colspan="10"></td>
-                        <td rowspan="3" colspan="16"></td>
-                        <td colspan="10"></td>
-                        <td rowspan="3" colspan="10"></td>
-                        <td rowspan="3" colspan="16"></td>
-                        <td rowspan="3" colspan="16"></td>
+                    ##计算跨度
+                        <td rowspan="3" colspan="16" name="KZKD"></td>
+                    ##单块
+                        <td colspan="10" name="KZDK1"></td>
+                    ##平均
+                        <td rowspan="3" colspan="10" name="KZDKPJ"></td>
+                    ##抗折强度
+                        <td rowspan="3" colspan="16" name="KZQD"></td>
+                    ##达到设计强度
+                        <td rowspan="3" colspan="16" name="KZDDSJQD"></td>
                     </tr>
                     <tr>
                         <td colspan="6">宽</td>
-                        <td colspan="10"></td>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KZK"></td>
+                    ##单块2
+                        <td colspan="10" name="KZDK2"></td>
                     </tr>
                     <tr>
                         <td colspan="6">高</td>
-                        <td colspan="10"></td>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KZG"></td>
+                        <td colspan="10" name="KZDK3"></td>
                     </tr>
                     <tr>
                         <td colspan="16">试验编号</td>
-                        <td colspan="84"></td>
+                        <td colspan="84" name="SYBH2"></td>
                     </tr>
                     <tr>
                         <td rowspan="8" colspan="16">抗压试验</td>
@@ -1136,31 +1143,37 @@
                         <td colspan="10">平均</td>
                     </tr>
                     <tr>
-                        <td rowspan="6" colspan="16"></td>
-                        <td rowspan="6" colspan="16"></td>
-                        <td colspan="10"></td>
-                        <td rowspan="6" colspan="10"></td>
-                        <td rowspan="6" colspan="16"></td>
-                        <td rowspan="6" colspan="16"></td>
+                    ##试件边长
+                        <td rowspan="6" colspan="16" name="KYSJBC"></td>
+                    ##受压面积
+                        <td rowspan="6" colspan="16" name="KYSYMJ"></td>
+                    ##单块
+                        <td colspan="10" name="KYDK1"></td>
+                    ##平均
+                        <td rowspan="6" colspan="10" name="KYDKPJ"></td>
+                    ##抗折强度
+                        <td rowspan="6" colspan="16" name="KZQD"></td>
+                    ##达到设计强度
+                        <td rowspan="6" colspan="16" name="KZDDSJQD"></td>
                     </tr>
                     <tr>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KYDK2"></td>
                     </tr>
                     <tr>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KYDK3"></td>
                     </tr>
                     <tr>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KYDK4"></td>
                     </tr>
                     <tr>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KYDK5"></td>
                     </tr>
                     <tr>
-                        <td colspan="10"></td>
+                        <td colspan="10" name="KYDK6"></td>
                     </tr>
                     <tr>
                         <td colspan="16">备注</td>
-                        <td colspan="84"></td>
+                        <td colspan="84" name="remarks"></td>
                     </tr>
                 </table>
                 <table class="table">

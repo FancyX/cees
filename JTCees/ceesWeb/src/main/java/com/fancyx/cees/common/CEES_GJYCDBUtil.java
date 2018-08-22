@@ -39,13 +39,13 @@ public class CEES_GJYCDBUtil {
     public String getGjycnumber() {
         //该锁只保证当前系统的sn_project不重复，不保证数据库中的字段不重复
         synchronized (this) {
-            String db_Kynumber = cees.getGjycnumber();
+            String number = cees.getGjycnumber();
             int kynumber = 1;
-            if (db_Kynumber.length() > 0) {
-                kynumber = Integer.parseInt(db_Kynumber.substring(6)) + 1;
+            if (number != null && number.length() > 1) {
+                kynumber = Integer.parseInt(number.substring(6)) + 1;
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
-            return  year + String.format("%04d", kynumber);//其中0表示补零而不是补空格，6表示至少6位
+            return year + String.format("%04d", kynumber);//其中0表示补零而不是补空格，6表示至少6位
         }
     }
 }

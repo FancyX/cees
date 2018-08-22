@@ -271,9 +271,6 @@
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_SNJJVo">
         UPDATE [CEES_SNJJ]
         <set>
-            <if test="snjjid != null">
-                [snjjid] = #{snjjid},
-            </if>
             <if test="cid != null">
                 [cid] = #{cid},
             </if>

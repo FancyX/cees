@@ -29,7 +29,7 @@ public class Dao_outside {
             Properties pro = new Properties();
             InputStream in = null;
             String time = "0";
-            in = new BufferedInputStream(new FileInputStream("F:\\Git\\SqlServerlDemo\\src\\main\\resources\\conn.properties"));
+            in = new BufferedInputStream(new FileInputStream("F:\\Git\\cees\\SqlServerlDemo\\src\\main\\resources\\conn.properties"));
             pro.load(in);
 
             cpds = new ComboPooledDataSource();
