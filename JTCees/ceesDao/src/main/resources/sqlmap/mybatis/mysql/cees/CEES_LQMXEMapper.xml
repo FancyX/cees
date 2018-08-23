@@ -4,449 +4,1103 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fancyx.cees.dao.busi.CEES_LQMXEDao">
 
+    <sql id="query_time_where">
+        <if test="lqmxenumber != null">
+            AND #{lqmxenumber} = lqmxenumber
+        </if>
+    </sql>
+
+    <sql id="query_where">
+
+        <if test="queryIntStr != null">
+            OR lqmxeid = #{queryIntStr}
+            OR cid = #{queryIntStr}
+            OR pid = #{queryIntStr}
+            OR sn = #{queryIntStr}
+            OR sn_project = #{queryIntStr}
+            OR sn_test = #{queryIntStr}
+            OR DWDM = #{queryIntStr}
+            OR JSFZRBH = #{queryIntStr}
+            OR XHRBH = #{queryIntStr}
+            OR SYRBH = #{queryIntStr}
+            OR WTZH = #{queryIntStr}
+        </if>
+        <if test="queryStr!=null and queryStr!=''">
+            OR cnumber LIKE '%${queryStr}%'
+            OR projectnumber LIKE '%${queryStr}%'
+            OR client LIKE '%${queryStr}%'
+            OR lqmxenumber LIKE '%${queryStr}%'
+            OR testnumber LIKE '%${queryStr}%'
+            OR state LIKE '%${queryStr}%'
+            OR remarks LIKE '%${queryStr}%'
+            OR edittime LIKE '%${queryStr}%'
+            OR edituser LIKE '%${queryStr}%'
+            OR readtime LIKE '%${queryStr}%'
+            OR WTDBH LIKE '%${queryStr}%'
+            OR WTDWMC LIKE '%${queryStr}%'
+            OR CLCD LIKE '%${queryStr}%'
+            OR SYZL LIKE '%${queryStr}%'
+            OR SYBH LIKE '%${queryStr}%'
+            OR GCMC LIKE '%${queryStr}%'
+            OR CLYT LIKE '%${queryStr}%'
+            OR YQBH LIKE '%${queryStr}%'
+            OR LQXDMD LIKE '%${queryStr}%'
+            OR KLZLYL1 LIKE '%${queryStr}%'
+            OR KLZLYL2 LIKE '%${queryStr}%'
+            OR KLZLYL3 LIKE '%${queryStr}%'
+            OR KLZLYL4 LIKE '%${queryStr}%'
+            OR KLZLYL5 LIKE '%${queryStr}%'
+            OR KLZLYL6 LIKE '%${queryStr}%'
+            OR KLXDMD1 LIKE '%${queryStr}%'
+            OR KLXDMD2 LIKE '%${queryStr}%'
+            OR KLXDMD3 LIKE '%${queryStr}%'
+            OR KLXDMD4 LIKE '%${queryStr}%'
+            OR KLXDMD5 LIKE '%${queryStr}%'
+            OR KLXDMD6 LIKE '%${queryStr}%'
+            OR BHWD LIKE '%${queryStr}%'
+            OR CJCS LIKE '%${queryStr}%'
+            OR SJBH1 LIKE '%${queryStr}%'
+            OR SJHD11 LIKE '%${queryStr}%'
+            OR SJHD12 LIKE '%${queryStr}%'
+            OR SJHD13 LIKE '%${queryStr}%'
+            OR SJHD14 LIKE '%${queryStr}%'
+            OR SJHD21 LIKE '%${queryStr}%'
+            OR SJHD22 LIKE '%${queryStr}%'
+            OR SJHD23 LIKE '%${queryStr}%'
+            OR SJHD24 LIKE '%${queryStr}%'
+            OR SJHD31 LIKE '%${queryStr}%'
+            OR SJHD32 LIKE '%${queryStr}%'
+            OR SJHD33 LIKE '%${queryStr}%'
+            OR SJHD34 LIKE '%${queryStr}%'
+            OR SJHD1PJ LIKE '%${queryStr}%'
+            OR SJHD2PJ LIKE '%${queryStr}%'
+            OR SJHD3PJ LIKE '%${queryStr}%'
+            OR SJHD4PJ LIKE '%${queryStr}%'
+            OR LQHL1 LIKE '%${queryStr}%'
+            OR SJHD1 LIKE '%${queryStr}%'
+            OR JSWD1 LIKE '%${queryStr}%'
+            OR JSWDJQZ1 LIKE '%${queryStr}%'
+            OR KQZZ1 LIKE '%${queryStr}%'
+            OR SZZL1 LIKE '%${queryStr}%'
+            OR BHMGZ1 LIKE '%${queryStr}%'
+            OR TJ451 LIKE '%${queryStr}%'
+            OR TJ651 LIKE '%${queryStr}%'
+            OR SJ471 LIKE '%${queryStr}%'
+            OR BHMG1 LIKE '%${queryStr}%'
+            OR LL1 LIKE '%${queryStr}%'
+            OR LQTJBFL1 LIKE '%${queryStr}%'
+            OR KXL1 LIKE '%${queryStr}%'
+            OR LLJKXL1 LIKE '%${queryStr}%'
+            OR BHD1 LIKE '%${queryStr}%'
+            OR WDD1 LIKE '%${queryStr}%'
+            OR LZDW LIKE '%${queryStr}%'
+            OR LZ1 LIKE '%${queryStr}%'
+            OR MXRDS1 LIKE '%${queryStr}%'
+            OR SJBH2 LIKE '%${queryStr}%'
+            OR LQHL2 LIKE '%${queryStr}%'
+            OR SJHD2 LIKE '%${queryStr}%'
+            OR JSWD2 LIKE '%${queryStr}%'
+            OR JSWDJQZ2 LIKE '%${queryStr}%'
+            OR KQZZ2 LIKE '%${queryStr}%'
+            OR SZZL2 LIKE '%${queryStr}%'
+            OR BHMGZ2 LIKE '%${queryStr}%'
+            OR TJ452 LIKE '%${queryStr}%'
+            OR TJ652 LIKE '%${queryStr}%'
+            OR SJ472 LIKE '%${queryStr}%'
+            OR BHMG2 LIKE '%${queryStr}%'
+            OR LL2 LIKE '%${queryStr}%'
+            OR LQTJBFL2 LIKE '%${queryStr}%'
+            OR KXL2 LIKE '%${queryStr}%'
+            OR LLJKXL2 LIKE '%${queryStr}%'
+            OR BHD2 LIKE '%${queryStr}%'
+            OR WDD2 LIKE '%${queryStr}%'
+            OR LZ2 LIKE '%${queryStr}%'
+            OR MXRDS2 LIKE '%${queryStr}%'
+            OR SJBH3 LIKE '%${queryStr}%'
+            OR LQHL3 LIKE '%${queryStr}%'
+            OR SJHD3 LIKE '%${queryStr}%'
+            OR JSWD3 LIKE '%${queryStr}%'
+            OR JSWDJQZ3 LIKE '%${queryStr}%'
+            OR KQZZ3 LIKE '%${queryStr}%'
+            OR SZZL3 LIKE '%${queryStr}%'
+            OR BHMGZ3 LIKE '%${queryStr}%'
+            OR TJ453 LIKE '%${queryStr}%'
+            OR TJ653 LIKE '%${queryStr}%'
+            OR SJ473 LIKE '%${queryStr}%'
+            OR BHMG3 LIKE '%${queryStr}%'
+            OR LL3 LIKE '%${queryStr}%'
+            OR LQTJBFL3 LIKE '%${queryStr}%'
+            OR KXL3 LIKE '%${queryStr}%'
+            OR LLJKXL3 LIKE '%${queryStr}%'
+            OR BHD3 LIKE '%${queryStr}%'
+            OR WDD3 LIKE '%${queryStr}%'
+            OR LZ3 LIKE '%${queryStr}%'
+            OR MXRDS3 LIKE '%${queryStr}%'
+            OR SJBH4 LIKE '%${queryStr}%'
+            OR LQHL4 LIKE '%${queryStr}%'
+            OR SJHD4 LIKE '%${queryStr}%'
+            OR JSWD4 LIKE '%${queryStr}%'
+            OR JSWDJQZ4 LIKE '%${queryStr}%'
+            OR KQZZ4 LIKE '%${queryStr}%'
+            OR SZZL4 LIKE '%${queryStr}%'
+            OR BHMGZ4 LIKE '%${queryStr}%'
+            OR TJ454 LIKE '%${queryStr}%'
+            OR TJ654 LIKE '%${queryStr}%'
+            OR SJ474 LIKE '%${queryStr}%'
+            OR BHMG4 LIKE '%${queryStr}%'
+            OR LL4 LIKE '%${queryStr}%'
+            OR LQTJBFL4 LIKE '%${queryStr}%'
+            OR KXL4 LIKE '%${queryStr}%'
+            OR LLJKXL4 LIKE '%${queryStr}%'
+            OR BHD4 LIKE '%${queryStr}%'
+            OR WDD4 LIKE '%${queryStr}%'
+            OR LZ4 LIKE '%${queryStr}%'
+            OR MXRDS4 LIKE '%${queryStr}%'
+            OR BZ LIKE '%${queryStr}%'
+            OR JQZ3 LIKE '%${queryStr}%'
+            OR JQZ4 LIKE '%${queryStr}%'
+            OR JQZ5 LIKE '%${queryStr}%'
+            OR JQZ6 LIKE '%${queryStr}%'
+            OR JQZ7 LIKE '%${queryStr}%'
+            OR JQZ8 LIKE '%${queryStr}%'
+            OR JQZ9 LIKE '%${queryStr}%'
+            OR JQZ10 LIKE '%${queryStr}%'
+            OR JQZ11 LIKE '%${queryStr}%'
+            OR JQZ12 LIKE '%${queryStr}%'
+            OR JQZ13 LIKE '%${queryStr}%'
+            OR JQZ14 LIKE '%${queryStr}%'
+            OR JQZ15 LIKE '%${queryStr}%'
+            OR JQZ16 LIKE '%${queryStr}%'
+            OR JQZ17 LIKE '%${queryStr}%'
+            OR JQZ18 LIKE '%${queryStr}%'
+            OR MTJMD1 LIKE '%${queryStr}%'
+            OR MTJMD2 LIKE '%${queryStr}%'
+            OR MTJMD3 LIKE '%${queryStr}%'
+            OR MTJMD4 LIKE '%${queryStr}%'
+            OR MTJMD5 LIKE '%${queryStr}%'
+            OR KONGXL1 LIKE '%${queryStr}%'
+            OR KONGXL2 LIKE '%${queryStr}%'
+            OR KONGXL3 LIKE '%${queryStr}%'
+            OR KONGXL4 LIKE '%${queryStr}%'
+            OR KONGXL5 LIKE '%${queryStr}%'
+            OR MTJXDMD LIKE '%${queryStr}%'
+            OR KLJXL1 LIKE '%${queryStr}%'
+            OR KLJXL2 LIKE '%${queryStr}%'
+            OR KLJXL3 LIKE '%${queryStr}%'
+            OR KLJXL4 LIKE '%${queryStr}%'
+            OR KLJXL5 LIKE '%${queryStr}%'
+            OR LQBHD1 LIKE '%${queryStr}%'
+            OR LQBHD2 LIKE '%${queryStr}%'
+            OR LQBHD3 LIKE '%${queryStr}%'
+            OR LQBHD4 LIKE '%${queryStr}%'
+            OR LQBHD5 LIKE '%${queryStr}%'
+            OR BEIZHU1 LIKE '%${queryStr}%'
+            OR BEIZHU2 LIKE '%${queryStr}%'
+            OR BEIZHU3 LIKE '%${queryStr}%'
+            OR BEIZHU4 LIKE '%${queryStr}%'
+            OR BEIZHU5 LIKE '%${queryStr}%'
+            OR XHR LIKE '%${queryStr}%'
+            OR SYR LIKE '%${queryStr}%'
+            OR JL LIKE '%${queryStr}%'
+            OR SYXMDM LIKE '%${queryStr}%'
+            OR SYXMMC LIKE '%${queryStr}%'
+            OR SHIYBH LIKE '%${queryStr}%'
+            OR SYMC LIKE '%${queryStr}%'
+            OR WTDWBH LIKE '%${queryStr}%'
+            OR GCBH LIKE '%${queryStr}%'
+            OR JSFZR LIKE '%${queryStr}%'
+            OR XHBZ LIKE '%${queryStr}%'
+            OR XHYJ LIKE '%${queryStr}%'
+            OR QFBZ LIKE '%${queryStr}%'
+            OR QFYJ LIKE '%${queryStr}%'
+            OR ZXGC LIKE '%${queryStr}%'
+            OR ZXBZ LIKE '%${queryStr}%'
+            OR SYWTR LIKE '%${queryStr}%'
+            OR JZBZ LIKE '%${queryStr}%'
+            OR HGBZ LIKE '%${queryStr}%'
+            OR SYJG LIKE '%${queryStr}%'
+            OR CLYJ LIKE '%${queryStr}%'
+            OR JLBBH LIKE '%${queryStr}%'
+            OR BGBBH LIKE '%${queryStr}%'
+        </if>
+    </sql>
+
     <select id="selectByBean"
-            resultType="com.fancyx.cees.domain.busi.CEES_SNJJ">
+            parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo"
+            resultType="com.fancyx.cees.domain.busi.CEES_LQMXE">
         SELECT [lqmxeid]
-              ,[cid]
-              ,[cnumber]
-              ,[pid]
-              ,[projectnumber]
-              ,[client]
-              ,[lqmxenumber]
-              ,[testnumber]
-              ,[sn]
-              ,[sn_project]
-              ,[sn_test]
-              ,[state]
-              ,[remarks]
-              ,[edittime]
-              ,[edituser]
-              ,[readmark]
-              ,[readtime]
-              ,[WTDBH]
-              ,[WTDWMC]
-              ,[CLCD]
-              ,[LYRQ]
-              ,[SYZL]
-              ,[SYBH]
-              ,[GCMC]
-              ,[CLYT]
-              ,[SYRQ]
-              ,[YQBH]
-              ,[LQXDMD]
-              ,[KLZLYL1]
-              ,[KLZLYL2]
-              ,[KLZLYL3]
-              ,[KLZLYL4]
-              ,[KLZLYL5]
-              ,[KLZLYL6]
-              ,[KLXDMD1]
-              ,[KLXDMD2]
-              ,[KLXDMD3]
-              ,[KLXDMD4]
-              ,[KLXDMD5]
-              ,[KLXDMD6]
-              ,[BHWD]
-              ,[CJCS]
-              ,[SJBH1]
-              ,[SJHD11]
-              ,[SJHD12]
-              ,[SJHD13]
-              ,[SJHD14]
-              ,[SJHD21]
-              ,[SJHD22]
-              ,[SJHD23]
-              ,[SJHD24]
-              ,[SJHD31]
-              ,[SJHD32]
-              ,[SJHD33]
-              ,[SJHD34]
-              ,[SJHD1PJ]
-              ,[SJHD2PJ]
-              ,[SJHD3PJ]
-              ,[SJHD4PJ]
-              ,[LQHL1]
-              ,[SJHD1]
-              ,[JSWD1]
-              ,[JSWDJQZ1]
-              ,[KQZZ1]
-              ,[SZZL1]
-              ,[BHMGZ1]
-              ,[TJ451]
-              ,[TJ651]
-              ,[SJ471]
-              ,[BHMG1]
-              ,[LL1]
-              ,[LQTJBFL1]
-              ,[KXL1]
-              ,[LLJKXL1]
-              ,[BHD1]
-              ,[WDD1]
-              ,[LZDW]
-              ,[LZ1]
-              ,[MXRDS1]
-              ,[SJBH2]
-              ,[LQHL2]
-              ,[SJHD2]
-              ,[JSWD2]
-              ,[JSWDJQZ2]
-              ,[KQZZ2]
-              ,[SZZL2]
-              ,[BHMGZ2]
-              ,[TJ452]
-              ,[TJ652]
-              ,[SJ472]
-              ,[BHMG2]
-              ,[LL2]
-              ,[LQTJBFL2]
-              ,[KXL2]
-              ,[LLJKXL2]
-              ,[BHD2]
-              ,[WDD2]
-              ,[LZ2]
-              ,[MXRDS2]
-              ,[SJBH3]
-              ,[LQHL3]
-              ,[SJHD3]
-              ,[JSWD3]
-              ,[JSWDJQZ3]
-              ,[KQZZ3]
-              ,[SZZL3]
-              ,[BHMGZ3]
-              ,[TJ453]
-              ,[TJ653]
-              ,[SJ473]
-              ,[BHMG3]
-              ,[LL3]
-              ,[LQTJBFL3]
-              ,[KXL3]
-              ,[LLJKXL3]
-              ,[BHD3]
-              ,[WDD3]
-              ,[LZ3]
-              ,[MXRDS3]
-              ,[SJBH4]
-              ,[LQHL4]
-              ,[SJHD4]
-              ,[JSWD4]
-              ,[JSWDJQZ4]
-              ,[KQZZ4]
-              ,[SZZL4]
-              ,[BHMGZ4]
-              ,[TJ454]
-              ,[TJ654]
-              ,[SJ474]
-              ,[BHMG4]
-              ,[LL4]
-              ,[LQTJBFL4]
-              ,[KXL4]
-              ,[LLJKXL4]
-              ,[BHD4]
-              ,[WDD4]
-              ,[LZ4]
-              ,[MXRDS4]
-              ,[BZ]
-              ,[JQZ3]
-              ,[JQZ4]
-              ,[JQZ5]
-              ,[JQZ6]
-              ,[JQZ7]
-              ,[JQZ8]
-              ,[JQZ9]
-              ,[JQZ10]
-              ,[JQZ11]
-              ,[JQZ12]
-              ,[JQZ13]
-              ,[JQZ14]
-              ,[JQZ15]
-              ,[JQZ16]
-              ,[JQZ17]
-              ,[JQZ18]
-              ,[MTJMD1]
-              ,[MTJMD2]
-              ,[MTJMD3]
-              ,[MTJMD4]
-              ,[MTJMD5]
-              ,[KONGXL1]
-              ,[KONGXL2]
-              ,[KONGXL3]
-              ,[KONGXL4]
-              ,[KONGXL5]
-              ,[MTJXDMD]
-              ,[KLJXL1]
-              ,[KLJXL2]
-              ,[KLJXL3]
-              ,[KLJXL4]
-              ,[KLJXL5]
-              ,[LQBHD1]
-              ,[LQBHD2]
-              ,[LQBHD3]
-              ,[LQBHD4]
-              ,[LQBHD5]
-              ,[BEIZHU1]
-              ,[BEIZHU2]
-              ,[BEIZHU3]
-              ,[BEIZHU4]
-              ,[BEIZHU5]
-              ,[XHR]
-              ,[SYR]
-              ,[JL]
-              ,[DWDM]
-              ,[SYXMDM]
-              ,[SYXMMC]
-              ,[SHIYBH]
-              ,[SYMC]
-              ,[WTDWBH]
-              ,[GCBH]
-              ,[JSFZRBH]
-              ,[JSFZR]
-              ,[XHRBH]
-              ,[XHBZ]
-              ,[XHYJ]
-              ,[QFBZ]
-              ,[QFYJ]
-              ,[SYRBH]
-              ,[BGRQ]
-              ,[ZXGC]
-              ,[ZXBZ]
-              ,[SYWTR]
-              ,[JZBZ]
-              ,[HGBZ]
-              ,[SYJG]
-              ,[CLYJ]
-              ,[WTZH]
-              ,[JLBBH]
-              ,[BGBBH]
-          FROM [CEES_LQMXE]
+        ,[cid]
+        ,[cnumber]
+        ,[pid]
+        ,[projectnumber]
+        ,[client]
+        ,[lqmxenumber]
+        ,[testnumber]
+        ,[sn]
+        ,[sn_project]
+        ,[sn_test]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        ,[WTDBH]
+        ,[WTDWMC]
+        ,[CLCD]
+        ,[LYRQ]
+        ,[SYZL]
+        ,[SYBH]
+        ,[GCMC]
+        ,[CLYT]
+        ,[SYRQ]
+        ,[YQBH]
+        ,[LQXDMD]
+        ,[KLZLYL1]
+        ,[KLZLYL2]
+        ,[KLZLYL3]
+        ,[KLZLYL4]
+        ,[KLZLYL5]
+        ,[KLZLYL6]
+        ,[KLXDMD1]
+        ,[KLXDMD2]
+        ,[KLXDMD3]
+        ,[KLXDMD4]
+        ,[KLXDMD5]
+        ,[KLXDMD6]
+        ,[BHWD]
+        ,[CJCS]
+        ,[SJBH1]
+        ,[SJHD11]
+        ,[SJHD12]
+        ,[SJHD13]
+        ,[SJHD14]
+        ,[SJHD21]
+        ,[SJHD22]
+        ,[SJHD23]
+        ,[SJHD24]
+        ,[SJHD31]
+        ,[SJHD32]
+        ,[SJHD33]
+        ,[SJHD34]
+        ,[SJHD1PJ]
+        ,[SJHD2PJ]
+        ,[SJHD3PJ]
+        ,[SJHD4PJ]
+        ,[LQHL1]
+        ,[SJHD1]
+        ,[JSWD1]
+        ,[JSWDJQZ1]
+        ,[KQZZ1]
+        ,[SZZL1]
+        ,[BHMGZ1]
+        ,[TJ451]
+        ,[TJ651]
+        ,[SJ471]
+        ,[BHMG1]
+        ,[LL1]
+        ,[LQTJBFL1]
+        ,[KXL1]
+        ,[LLJKXL1]
+        ,[BHD1]
+        ,[WDD1]
+        ,[LZDW]
+        ,[LZ1]
+        ,[MXRDS1]
+        ,[SJBH2]
+        ,[LQHL2]
+        ,[SJHD2]
+        ,[JSWD2]
+        ,[JSWDJQZ2]
+        ,[KQZZ2]
+        ,[SZZL2]
+        ,[BHMGZ2]
+        ,[TJ452]
+        ,[TJ652]
+        ,[SJ472]
+        ,[BHMG2]
+        ,[LL2]
+        ,[LQTJBFL2]
+        ,[KXL2]
+        ,[LLJKXL2]
+        ,[BHD2]
+        ,[WDD2]
+        ,[LZ2]
+        ,[MXRDS2]
+        ,[SJBH3]
+        ,[LQHL3]
+        ,[SJHD3]
+        ,[JSWD3]
+        ,[JSWDJQZ3]
+        ,[KQZZ3]
+        ,[SZZL3]
+        ,[BHMGZ3]
+        ,[TJ453]
+        ,[TJ653]
+        ,[SJ473]
+        ,[BHMG3]
+        ,[LL3]
+        ,[LQTJBFL3]
+        ,[KXL3]
+        ,[LLJKXL3]
+        ,[BHD3]
+        ,[WDD3]
+        ,[LZ3]
+        ,[MXRDS3]
+        ,[SJBH4]
+        ,[LQHL4]
+        ,[SJHD4]
+        ,[JSWD4]
+        ,[JSWDJQZ4]
+        ,[KQZZ4]
+        ,[SZZL4]
+        ,[BHMGZ4]
+        ,[TJ454]
+        ,[TJ654]
+        ,[SJ474]
+        ,[BHMG4]
+        ,[LL4]
+        ,[LQTJBFL4]
+        ,[KXL4]
+        ,[LLJKXL4]
+        ,[BHD4]
+        ,[WDD4]
+        ,[LZ4]
+        ,[MXRDS4]
+        ,[BZ]
+        ,[JQZ3]
+        ,[JQZ4]
+        ,[JQZ5]
+        ,[JQZ6]
+        ,[JQZ7]
+        ,[JQZ8]
+        ,[JQZ9]
+        ,[JQZ10]
+        ,[JQZ11]
+        ,[JQZ12]
+        ,[JQZ13]
+        ,[JQZ14]
+        ,[JQZ15]
+        ,[JQZ16]
+        ,[JQZ17]
+        ,[JQZ18]
+        ,[MTJMD1]
+        ,[MTJMD2]
+        ,[MTJMD3]
+        ,[MTJMD4]
+        ,[MTJMD5]
+        ,[KONGXL1]
+        ,[KONGXL2]
+        ,[KONGXL3]
+        ,[KONGXL4]
+        ,[KONGXL5]
+        ,[MTJXDMD]
+        ,[KLJXL1]
+        ,[KLJXL2]
+        ,[KLJXL3]
+        ,[KLJXL4]
+        ,[KLJXL5]
+        ,[LQBHD1]
+        ,[LQBHD2]
+        ,[LQBHD3]
+        ,[LQBHD4]
+        ,[LQBHD5]
+        ,[BEIZHU1]
+        ,[BEIZHU2]
+        ,[BEIZHU3]
+        ,[BEIZHU4]
+        ,[BEIZHU5]
+        ,[XHR]
+        ,[SYR]
+        ,[JL]
+        ,[DWDM]
+        ,[SYXMDM]
+        ,[SYXMMC]
+        ,[SHIYBH]
+        ,[SYMC]
+        ,[WTDWBH]
+        ,[GCBH]
+        ,[JSFZRBH]
+        ,[JSFZR]
+        ,[XHRBH]
+        ,[XHBZ]
+        ,[XHYJ]
+        ,[QFBZ]
+        ,[QFYJ]
+        ,[SYRBH]
+        ,[BGRQ]
+        ,[ZXGC]
+        ,[ZXBZ]
+        ,[SYWTR]
+        ,[JZBZ]
+        ,[HGBZ]
+        ,[SYJG]
+        ,[CLYJ]
+        ,[WTZH]
+        ,[JLBBH]
+        ,[BGBBH]
+        FROM [CEES_LQMXE]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
     </select>
 
-    <select id="selectByBeanCount" resultType="java.lang.Integer">
+    <select id="selectByBeanCount"
+            parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo"
+            resultType="java.lang.Integer">
         SELECT
         COUNT(1)
         FROM
         [CEES_LQMXE]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
     </select>
 
     <delete id="delete" parameterType="int">
         DELETE FROM   [CEES_LQMXE]
         where
-        [gjycid] =  #{id}
-        AND  [state] == '录入'
+        [lqmxeid] =  #{id}
+        AND  [state] = '录入'
     </delete>
 
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo">
 
         UPDATE [CEES_LQMXE]
-        SET [cid] = #{cid}
-        ,[cnumber] = #{cnumber}
-        ,[pid] = #{pid}
-        ,[projectnumber] = #{projectnumber}
-        ,[client] = #{client}
-        ,[lqmxenumber] = #{lqmxenumber}
-        ,[testnumber] = #{testnumber}
-        ,[sn] = #{sn}
-        ,[sn_project] = #{sn_project}
-        ,[sn_test] = #{sn_test}
-        ,[state] = #{state}
-        ,[remarks] = #{remarks}
-        ,[edittime] = #{edittime}
-        ,[edituser] = #{edituser}
-        ,[readmark] = #{readmark}
-        ,[readtime] = #{readtime}
-        ,[WTDBH] = #{WTDBH}
-        ,[WTDWMC] = #{WTDWMC}
-        ,[CLCD] = #{CLCD}
-        ,[LYRQ] = #{LYRQ}
-        ,[SYZL] = #{SYZL}
-        ,[SYBH] = #{SYBH}
-        ,[GCMC] = #{GCMC}
-        ,[CLYT] = #{CLYT}
-        ,[SYRQ] = #{SYRQ}
-        ,[YQBH] = #{YQBH}
-        ,[LQXDMD] = #{LQXDMD}
-        ,[KLZLYL1] = #{KLZLYL1}
-        ,[KLZLYL2] = #{KLZLYL2}
-        ,[KLZLYL3] = #{KLZLYL3}
-        ,[KLZLYL4] = #{KLZLYL4}
-        ,[KLZLYL5] = #{KLZLYL5}
-        ,[KLZLYL6] = #{KLZLYL6}
-        ,[KLXDMD1] = #{KLXDMD1}
-        ,[KLXDMD2] = #{KLXDMD2}
-        ,[KLXDMD3] = #{KLXDMD3}
-        ,[KLXDMD4] = #{KLXDMD4}
-        ,[KLXDMD5] = #{KLXDMD5}
-        ,[KLXDMD6] = #{KLXDMD6}
-        ,[BHWD] = #{BHWD}
-        ,[CJCS] = #{CJCS}
-        ,[SJBH1] = #{SJBH1}
-        ,[SJHD11] = #{SJHD11}
-        ,[SJHD12] = #{SJHD12}
-        ,[SJHD13] = #{SJHD13}
-        ,[SJHD14] = #{SJHD14}
-        ,[SJHD21] = #{SJHD21}
-        ,[SJHD22] = #{SJHD22}
-        ,[SJHD23] = #{SJHD23}
-        ,[SJHD24] = #{SJHD24}
-        ,[SJHD31] = #{SJHD31}
-        ,[SJHD32] = #{SJHD32}
-        ,[SJHD33] = #{SJHD33}
-        ,[SJHD34] = #{SJHD34}
-        ,[SJHD1PJ] = #{SJHD1PJ}
-        ,[SJHD2PJ] = #{SJHD2PJ}
-        ,[SJHD3PJ] = #{SJHD3PJ}
-        ,[SJHD4PJ] = #{SJHD4PJ}
-        ,[LQHL1] = #{LQHL1}
-        ,[SJHD1] = #{SJHD1}
-        ,[JSWD1] = #{JSWD1}
-        ,[JSWDJQZ1] = #{JSWDJQZ1}
-        ,[KQZZ1] = #{KQZZ1}
-        ,[SZZL1] = #{SZZL1}
-        ,[BHMGZ1] = #{BHMGZ1}
-        ,[TJ451] = #{TJ451}
-        ,[TJ651] = #{TJ651}
-        ,[SJ471] = #{SJ471}
-        ,[BHMG1] = #{BHMG1}
-        ,[LL1] = #{LL1}
-        ,[LQTJBFL1] = #{LQTJBFL1}
-        ,[KXL1] = #{KXL1}
-        ,[LLJKXL1] = #{LLJKXL1}
-        ,[BHD1] = #{BHD1}
-        ,[WDD1] = #{WDD1}
-        ,[LZDW] = #{LZDW}
-        ,[LZ1] = #{LZ1}
-        ,[MXRDS1] = #{MXRDS1}
-        ,[SJBH2] = #{SJBH2}
-        ,[LQHL2] = #{LQHL2}
-        ,[SJHD2] = #{SJHD2}
-        ,[JSWD2] = #{JSWD2}
-        ,[JSWDJQZ2] = #{JSWDJQZ2}
-        ,[KQZZ2] = #{KQZZ2}
-        ,[SZZL2] = #{SZZL2}
-        ,[BHMGZ2] = #{BHMGZ2}
-        ,[TJ452] = #{TJ452}
-        ,[TJ652] = #{TJ652}
-        ,[SJ472] = #{SJ472}
-        ,[BHMG2] = #{BHMG2}
-        ,[LL2] = #{LL2}
-        ,[LQTJBFL2] = #{LQTJBFL2}
-        ,[KXL2] = #{KXL2}
-        ,[LLJKXL2] = #{LLJKXL2}
-        ,[BHD2] = #{BHD2}
-        ,[WDD2] = #{WDD2}
-        ,[LZ2] = #{LZ2}
-        ,[MXRDS2] = #{MXRDS2}
-        ,[SJBH3] = #{SJBH3}
-        ,[LQHL3] = #{LQHL3}
-        ,[SJHD3] = #{SJHD3}
-        ,[JSWD3] = #{JSWD3}
-        ,[JSWDJQZ3] = #{JSWDJQZ3}
-        ,[KQZZ3] = #{KQZZ3}
-        ,[SZZL3] = #{SZZL3}
-        ,[BHMGZ3] = #{BHMGZ3}
-        ,[TJ453] = #{TJ453}
-        ,[TJ653] = #{TJ653}
-        ,[SJ473] = #{SJ473}
-        ,[BHMG3] = #{BHMG3}
-        ,[LL3] = #{LL3}
-        ,[LQTJBFL3] = #{LQTJBFL3}
-        ,[KXL3] = #{KXL3}
-        ,[LLJKXL3] = #{LLJKXL3}
-        ,[BHD3] = #{BHD3}
-        ,[WDD3] = #{WDD3}
-        ,[LZ3] = #{LZ3}
-        ,[MXRDS3] = #{MXRDS3}
-        ,[SJBH4] = #{SJBH4}
-        ,[LQHL4] = #{LQHL4}
-        ,[SJHD4] = #{SJHD4}
-        ,[JSWD4] = #{JSWD4}
-        ,[JSWDJQZ4] = #{JSWDJQZ4}
-        ,[KQZZ4] = #{KQZZ4}
-        ,[SZZL4] = #{SZZL4}
-        ,[BHMGZ4] = #{BHMGZ4}
-        ,[TJ454] = #{TJ454}
-        ,[TJ654] = #{TJ654}
-        ,[SJ474] = #{SJ474}
-        ,[BHMG4] = #{BHMG4}
-        ,[LL4] = #{LL4}
-        ,[LQTJBFL4] = #{LQTJBFL4}
-        ,[KXL4] = #{KXL4}
-        ,[LLJKXL4] = #{LLJKXL4}
-        ,[BHD4] = #{BHD4}
-        ,[WDD4] = #{WDD4}
-        ,[LZ4] = #{LZ4}
-        ,[MXRDS4] = #{MXRDS4}
-        ,[BZ] = #{BZ}
-        ,[JQZ3] = #{JQZ3}
-        ,[JQZ4] = #{JQZ4}
-        ,[JQZ5] = #{JQZ5}
-        ,[JQZ6] = #{JQZ6}
-        ,[JQZ7] = #{JQZ7}
-        ,[JQZ8] = #{JQZ8}
-        ,[JQZ9] = #{JQZ9}
-        ,[JQZ10] = #{JQZ10}
-        ,[JQZ11] = #{JQZ11}
-        ,[JQZ12] = #{JQZ12}
-        ,[JQZ13] = #{JQZ13}
-        ,[JQZ14] = #{JQZ14}
-        ,[JQZ15] = #{JQZ15}
-        ,[JQZ16] = #{JQZ16}
-        ,[JQZ17] = #{JQZ17}
-        ,[JQZ18] = #{JQZ18}
-        ,[MTJMD1] = #{MTJMD1}
-        ,[MTJMD2] = #{MTJMD2}
-        ,[MTJMD3] = #{MTJMD3}
-        ,[MTJMD4] = #{MTJMD4}
-        ,[MTJMD5] = #{MTJMD5}
-        ,[KONGXL1] = #{KONGXL1}
-        ,[KONGXL2] = #{KONGXL2}
-        ,[KONGXL3] = #{KONGXL3}
-        ,[KONGXL4] = #{KONGXL4}
-        ,[KONGXL5] = #{KONGXL5}
-        ,[MTJXDMD] = #{MTJXDMD}
-        ,[KLJXL1] = #{KLJXL1}
-        ,[KLJXL2] = #{KLJXL2}
-        ,[KLJXL3] = #{KLJXL3}
-        ,[KLJXL4] = #{KLJXL4}
-        ,[KLJXL5] = #{KLJXL5}
-        ,[LQBHD1] = #{LQBHD1}
-        ,[LQBHD2] = #{LQBHD2}
-        ,[LQBHD3] = #{LQBHD3}
-        ,[LQBHD4] = #{LQBHD4}
-        ,[LQBHD5] = #{LQBHD5}
-        ,[BEIZHU1] = #{BEIZHU1}
-        ,[BEIZHU2] = #{BEIZHU2}
-        ,[BEIZHU3] = #{BEIZHU3}
-        ,[BEIZHU4] = #{BEIZHU4}
-        ,[BEIZHU5] = #{BEIZHU5}
-        ,[XHR] = #{XHR}
-        ,[SYR] = #{SYR}
-        ,[JL] = #{JL}
-        ,[DWDM] = #{DWDM}
-        ,[SYXMDM] = #{SYXMDM}
-        ,[SYXMMC] = #{SYXMMC}
-        ,[SHIYBH] = #{SHIYBH}
-        ,[SYMC] = #{SYMC}
-        ,[WTDWBH] = #{WTDWBH}
-        ,[GCBH] = #{GCBH}
-        ,[JSFZRBH] = #{JSFZRBH}
-        ,[JSFZR] = #{JSFZR}
-        ,[XHRBH] = #{XHRBH}
-        ,[XHBZ] = #{XHBZ}
-        ,[XHYJ] = #{XHYJ}
-        ,[QFBZ] = #{QFBZ}
-        ,[QFYJ] = #{QFYJ}
-        ,[SYRBH] = #{SYRBH}
-        ,[BGRQ] = #{BGRQ}
-        ,[ZXGC] = #{ZXGC}
-        ,[ZXBZ] = #{ZXBZ}
-        ,[SYWTR] = #{SYWTR}
-        ,[JZBZ] = #{JZBZ}
-        ,[HGBZ] = #{HGBZ}
-        ,[SYJG] = #{SYJG}
-        ,[CLYJ] = #{CLYJ}
-        ,[WTZH] = #{WTZH}
-        ,[JLBBH] = #{JLBBH}
-        ,[BGBBH] = #{BGBBH}
+       <set>
+           <if test="cid != null" >
+               [cid] = #{cid},
+           </if>
+           <if test="cnumber != null" >
+               [cnumber] = #{cnumber},
+           </if>
+           <if test="pid != null" >
+               [pid] = #{pid},
+           </if>
+           <if test="projectnumber != null" >
+               [projectnumber] = #{projectnumber},
+           </if>
+           <if test="client != null" >
+               [client] = #{client},
+           </if>
+           <if test="lqmxenumber != null" >
+               [lqmxenumber] = #{lqmxenumber},
+           </if>
+           <if test="testnumber != null" >
+               [testnumber] = #{testnumber},
+           </if>
+           <if test="sn != null" >
+               [sn] = #{sn},
+           </if>
+           <if test="sn_project != null" >
+               [sn_project] = #{sn_project},
+           </if>
+           <if test="sn_test != null" >
+               [sn_test] = #{sn_test},
+           </if>
+           <if test="state != null" >
+               [state] = #{state},
+           </if>
+           <if test="remarks != null" >
+               [remarks] = #{remarks},
+           </if>
+           <if test="edittime != null" >
+               [edittime] = #{edittime},
+           </if>
+           <if test="edituser != null" >
+               [edituser] = #{edituser},
+           </if>
+           <if test="readmark != null" >
+               [readmark] = #{readmark},
+           </if>
+           <if test="readtime != null" >
+               [readtime] = #{readtime},
+           </if>
+           <if test="WTDBH != null" >
+               [WTDBH] = #{WTDBH},
+           </if>
+           <if test="WTDWMC != null" >
+               [WTDWMC] = #{WTDWMC},
+           </if>
+           <if test="CLCD != null" >
+               [CLCD] = #{CLCD},
+           </if>
+           <if test="LYRQ != null" >
+               [LYRQ] = #{LYRQ},
+           </if>
+           <if test="SYZL != null" >
+               [SYZL] = #{SYZL},
+           </if>
+           <if test="SYBH != null" >
+               [SYBH] = #{SYBH},
+           </if>
+           <if test="GCMC != null" >
+               [GCMC] = #{GCMC},
+           </if>
+           <if test="CLYT != null" >
+               [CLYT] = #{CLYT},
+           </if>
+           <if test="SYRQ != null" >
+               [SYRQ] = #{SYRQ},
+           </if>
+           <if test="YQBH != null" >
+               [YQBH] = #{YQBH},
+           </if>
+           <if test="LQXDMD != null" >
+               [LQXDMD] = #{LQXDMD},
+           </if>
+           <if test="KLZLYL1 != null" >
+               [KLZLYL1] = #{KLZLYL1},
+           </if>
+           <if test="KLZLYL2 != null" >
+               [KLZLYL2] = #{KLZLYL2},
+           </if>
+           <if test="KLZLYL3 != null" >
+               [KLZLYL3] = #{KLZLYL3},
+           </if>
+           <if test="KLZLYL4 != null" >
+               [KLZLYL4] = #{KLZLYL4},
+           </if>
+           <if test="KLZLYL5 != null" >
+               [KLZLYL5] = #{KLZLYL5},
+           </if>
+           <if test="KLZLYL6 != null" >
+               [KLZLYL6] = #{KLZLYL6},
+           </if>
+           <if test="KLXDMD1 != null" >
+               [KLXDMD1] = #{KLXDMD1},
+           </if>
+           <if test="KLXDMD2 != null" >
+               [KLXDMD2] = #{KLXDMD2},
+           </if>
+           <if test="KLXDMD3 != null" >
+               [KLXDMD3] = #{KLXDMD3},
+           </if>
+           <if test="KLXDMD4 != null" >
+               [KLXDMD4] = #{KLXDMD4},
+           </if>
+           <if test="KLXDMD5 != null" >
+               [KLXDMD5] = #{KLXDMD5},
+           </if>
+           <if test="KLXDMD6 != null" >
+               [KLXDMD6] = #{KLXDMD6},
+           </if>
+           <if test="BHWD != null" >
+               [BHWD] = #{BHWD},
+           </if>
+           <if test="CJCS != null" >
+               [CJCS] = #{CJCS},
+           </if>
+           <if test="SJBH1 != null" >
+               [SJBH1] = #{SJBH1},
+           </if>
+           <if test="SJHD11 != null" >
+               [SJHD11] = #{SJHD11},
+           </if>
+           <if test="SJHD12 != null" >
+               [SJHD12] = #{SJHD12},
+           </if>
+           <if test="SJHD13 != null" >
+               [SJHD13] = #{SJHD13},
+           </if>
+           <if test="SJHD14 != null" >
+               [SJHD14] = #{SJHD14},
+           </if>
+           <if test="SJHD21 != null" >
+               [SJHD21] = #{SJHD21},
+           </if>
+           <if test="SJHD22 != null" >
+               [SJHD22] = #{SJHD22},
+           </if>
+           <if test="SJHD23 != null" >
+               [SJHD23] = #{SJHD23},
+           </if>
+           <if test="SJHD24 != null" >
+               [SJHD24] = #{SJHD24},
+           </if>
+           <if test="SJHD31 != null" >
+               [SJHD31] = #{SJHD31},
+           </if>
+           <if test="SJHD32 != null" >
+               [SJHD32] = #{SJHD32},
+           </if>
+           <if test="SJHD33 != null" >
+               [SJHD33] = #{SJHD33},
+           </if>
+           <if test="SJHD34 != null" >
+               [SJHD34] = #{SJHD34},
+           </if>
+           <if test="SJHD1PJ != null" >
+               [SJHD1PJ] = #{SJHD1PJ},
+           </if>
+           <if test="SJHD2PJ != null" >
+               [SJHD2PJ] = #{SJHD2PJ},
+           </if>
+           <if test="SJHD3PJ != null" >
+               [SJHD3PJ] = #{SJHD3PJ},
+           </if>
+           <if test="SJHD4PJ != null" >
+               [SJHD4PJ] = #{SJHD4PJ},
+           </if>
+           <if test="LQHL1 != null" >
+               [LQHL1] = #{LQHL1},
+           </if>
+           <if test="SJHD1 != null" >
+               [SJHD1] = #{SJHD1},
+           </if>
+           <if test="JSWD1 != null" >
+               [JSWD1] = #{JSWD1},
+           </if>
+           <if test="JSWDJQZ1 != null" >
+               [JSWDJQZ1] = #{JSWDJQZ1},
+           </if>
+           <if test="KQZZ1 != null" >
+               [KQZZ1] = #{KQZZ1},
+           </if>
+           <if test="SZZL1 != null" >
+               [SZZL1] = #{SZZL1},
+           </if>
+           <if test="BHMGZ1 != null" >
+               [BHMGZ1] = #{BHMGZ1},
+           </if>
+           <if test="TJ451 != null" >
+               [TJ451] = #{TJ451},
+           </if>
+           <if test="TJ651 != null" >
+               [TJ651] = #{TJ651},
+           </if>
+           <if test="SJ471 != null" >
+               [SJ471] = #{SJ471},
+           </if>
+           <if test="BHMG1 != null" >
+               [BHMG1] = #{BHMG1},
+           </if>
+           <if test="LL1 != null" >
+               [LL1] = #{LL1},
+           </if>
+           <if test="LQTJBFL1 != null" >
+               [LQTJBFL1] = #{LQTJBFL1},
+           </if>
+           <if test="KXL1 != null" >
+               [KXL1] = #{KXL1},
+           </if>
+           <if test="LLJKXL1 != null" >
+               [LLJKXL1] = #{LLJKXL1},
+           </if>
+           <if test="BHD1 != null" >
+               [BHD1] = #{BHD1},
+           </if>
+           <if test="WDD1 != null" >
+               [WDD1] = #{WDD1},
+           </if>
+           <if test="LZDW != null" >
+               [LZDW] = #{LZDW},
+           </if>
+           <if test="LZ1 != null" >
+               [LZ1] = #{LZ1},
+           </if>
+           <if test="MXRDS1 != null" >
+               [MXRDS1] = #{MXRDS1},
+           </if>
+           <if test="SJBH2 != null" >
+               [SJBH2] = #{SJBH2},
+           </if>
+           <if test="LQHL2 != null" >
+               [LQHL2] = #{LQHL2},
+           </if>
+           <if test="SJHD2 != null" >
+               [SJHD2] = #{SJHD2},
+           </if>
+           <if test="JSWD2 != null" >
+               [JSWD2] = #{JSWD2},
+           </if>
+           <if test="JSWDJQZ2 != null" >
+               [JSWDJQZ2] = #{JSWDJQZ2},
+           </if>
+           <if test="KQZZ2 != null" >
+               [KQZZ2] = #{KQZZ2},
+           </if>
+           <if test="SZZL2 != null" >
+               [SZZL2] = #{SZZL2},
+           </if>
+           <if test="BHMGZ2 != null" >
+               [BHMGZ2] = #{BHMGZ2},
+           </if>
+           <if test="TJ452 != null" >
+               [TJ452] = #{TJ452},
+           </if>
+           <if test="TJ652 != null" >
+               [TJ652] = #{TJ652},
+           </if>
+           <if test="SJ472 != null" >
+               [SJ472] = #{SJ472},
+           </if>
+           <if test="BHMG2 != null" >
+               [BHMG2] = #{BHMG2},
+           </if>
+           <if test="LL2 != null" >
+               [LL2] = #{LL2},
+           </if>
+           <if test="LQTJBFL2 != null" >
+               [LQTJBFL2] = #{LQTJBFL2},
+           </if>
+           <if test="KXL2 != null" >
+               [KXL2] = #{KXL2},
+           </if>
+           <if test="LLJKXL2 != null" >
+               [LLJKXL2] = #{LLJKXL2},
+           </if>
+           <if test="BHD2 != null" >
+               [BHD2] = #{BHD2},
+           </if>
+           <if test="WDD2 != null" >
+               [WDD2] = #{WDD2},
+           </if>
+           <if test="LZ2 != null" >
+               [LZ2] = #{LZ2},
+           </if>
+           <if test="MXRDS2 != null" >
+               [MXRDS2] = #{MXRDS2},
+           </if>
+           <if test="SJBH3 != null" >
+               [SJBH3] = #{SJBH3},
+           </if>
+           <if test="LQHL3 != null" >
+               [LQHL3] = #{LQHL3},
+           </if>
+           <if test="SJHD3 != null" >
+               [SJHD3] = #{SJHD3},
+           </if>
+           <if test="JSWD3 != null" >
+               [JSWD3] = #{JSWD3},
+           </if>
+           <if test="JSWDJQZ3 != null" >
+               [JSWDJQZ3] = #{JSWDJQZ3},
+           </if>
+           <if test="KQZZ3 != null" >
+               [KQZZ3] = #{KQZZ3},
+           </if>
+           <if test="SZZL3 != null" >
+               [SZZL3] = #{SZZL3},
+           </if>
+           <if test="BHMGZ3 != null" >
+               [BHMGZ3] = #{BHMGZ3},
+           </if>
+           <if test="TJ453 != null" >
+               [TJ453] = #{TJ453},
+           </if>
+           <if test="TJ653 != null" >
+               [TJ653] = #{TJ653},
+           </if>
+           <if test="SJ473 != null" >
+               [SJ473] = #{SJ473},
+           </if>
+           <if test="BHMG3 != null" >
+               [BHMG3] = #{BHMG3},
+           </if>
+           <if test="LL3 != null" >
+               [LL3] = #{LL3},
+           </if>
+           <if test="LQTJBFL3 != null" >
+               [LQTJBFL3] = #{LQTJBFL3},
+           </if>
+           <if test="KXL3 != null" >
+               [KXL3] = #{KXL3},
+           </if>
+           <if test="LLJKXL3 != null" >
+               [LLJKXL3] = #{LLJKXL3},
+           </if>
+           <if test="BHD3 != null" >
+               [BHD3] = #{BHD3},
+           </if>
+           <if test="WDD3 != null" >
+               [WDD3] = #{WDD3},
+           </if>
+           <if test="LZ3 != null" >
+               [LZ3] = #{LZ3},
+           </if>
+           <if test="MXRDS3 != null" >
+               [MXRDS3] = #{MXRDS3},
+           </if>
+           <if test="SJBH4 != null" >
+               [SJBH4] = #{SJBH4},
+           </if>
+           <if test="LQHL4 != null" >
+               [LQHL4] = #{LQHL4},
+           </if>
+           <if test="SJHD4 != null" >
+               [SJHD4] = #{SJHD4},
+           </if>
+           <if test="JSWD4 != null" >
+               [JSWD4] = #{JSWD4},
+           </if>
+           <if test="JSWDJQZ4 != null" >
+               [JSWDJQZ4] = #{JSWDJQZ4},
+           </if>
+           <if test="KQZZ4 != null" >
+               [KQZZ4] = #{KQZZ4},
+           </if>
+           <if test="SZZL4 != null" >
+               [SZZL4] = #{SZZL4},
+           </if>
+           <if test="BHMGZ4 != null" >
+               [BHMGZ4] = #{BHMGZ4},
+           </if>
+           <if test="TJ454 != null" >
+               [TJ454] = #{TJ454},
+           </if>
+           <if test="TJ654 != null" >
+               [TJ654] = #{TJ654},
+           </if>
+           <if test="SJ474 != null" >
+               [SJ474] = #{SJ474},
+           </if>
+           <if test="BHMG4 != null" >
+               [BHMG4] = #{BHMG4},
+           </if>
+           <if test="LL4 != null" >
+               [LL4] = #{LL4},
+           </if>
+           <if test="LQTJBFL4 != null" >
+               [LQTJBFL4] = #{LQTJBFL4},
+           </if>
+           <if test="KXL4 != null" >
+               [KXL4] = #{KXL4},
+           </if>
+           <if test="LLJKXL4 != null" >
+               [LLJKXL4] = #{LLJKXL4},
+           </if>
+           <if test="BHD4 != null" >
+               [BHD4] = #{BHD4},
+           </if>
+           <if test="WDD4 != null" >
+               [WDD4] = #{WDD4},
+           </if>
+           <if test="LZ4 != null" >
+               [LZ4] = #{LZ4},
+           </if>
+           <if test="MXRDS4 != null" >
+               [MXRDS4] = #{MXRDS4},
+           </if>
+           <if test="BZ != null" >
+               [BZ] = #{BZ},
+           </if>
+           <if test="JQZ3 != null" >
+               [JQZ3] = #{JQZ3},
+           </if>
+           <if test="JQZ4 != null" >
+               [JQZ4] = #{JQZ4},
+           </if>
+           <if test="JQZ5 != null" >
+               [JQZ5] = #{JQZ5},
+           </if>
+           <if test="JQZ6 != null" >
+               [JQZ6] = #{JQZ6},
+           </if>
+           <if test="JQZ7 != null" >
+               [JQZ7] = #{JQZ7},
+           </if>
+           <if test="JQZ8 != null" >
+               [JQZ8] = #{JQZ8},
+           </if>
+           <if test="JQZ9 != null" >
+               [JQZ9] = #{JQZ9},
+           </if>
+           <if test="JQZ10 != null" >
+               [JQZ10] = #{JQZ10},
+           </if>
+           <if test="JQZ11 != null" >
+               [JQZ11] = #{JQZ11},
+           </if>
+           <if test="JQZ12 != null" >
+               [JQZ12] = #{JQZ12},
+           </if>
+           <if test="JQZ13 != null" >
+               [JQZ13] = #{JQZ13},
+           </if>
+           <if test="JQZ14 != null" >
+               [JQZ14] = #{JQZ14},
+           </if>
+           <if test="JQZ15 != null" >
+               [JQZ15] = #{JQZ15},
+           </if>
+           <if test="JQZ16 != null" >
+               [JQZ16] = #{JQZ16},
+           </if>
+           <if test="JQZ17 != null" >
+               [JQZ17] = #{JQZ17},
+           </if>
+           <if test="JQZ18 != null" >
+               [JQZ18] = #{JQZ18},
+           </if>
+           <if test="MTJMD1 != null" >
+               [MTJMD1] = #{MTJMD1},
+           </if>
+           <if test="MTJMD2 != null" >
+               [MTJMD2] = #{MTJMD2},
+           </if>
+           <if test="MTJMD3 != null" >
+               [MTJMD3] = #{MTJMD3},
+           </if>
+           <if test="MTJMD4 != null" >
+               [MTJMD4] = #{MTJMD4},
+           </if>
+           <if test="MTJMD5 != null" >
+               [MTJMD5] = #{MTJMD5},
+           </if>
+           <if test="KONGXL1 != null" >
+               [KONGXL1] = #{KONGXL1},
+           </if>
+           <if test="KONGXL2 != null" >
+               [KONGXL2] = #{KONGXL2},
+           </if>
+           <if test="KONGXL3 != null" >
+               [KONGXL3] = #{KONGXL3},
+           </if>
+           <if test="KONGXL4 != null" >
+               [KONGXL4] = #{KONGXL4},
+           </if>
+           <if test="KONGXL5 != null" >
+               [KONGXL5] = #{KONGXL5},
+           </if>
+           <if test="MTJXDMD != null" >
+               [MTJXDMD] = #{MTJXDMD},
+           </if>
+           <if test="KLJXL1 != null" >
+               [KLJXL1] = #{KLJXL1},
+           </if>
+           <if test="KLJXL2 != null" >
+               [KLJXL2] = #{KLJXL2},
+           </if>
+           <if test="KLJXL3 != null" >
+               [KLJXL3] = #{KLJXL3},
+           </if>
+           <if test="KLJXL4 != null" >
+               [KLJXL4] = #{KLJXL4},
+           </if>
+           <if test="KLJXL5 != null" >
+               [KLJXL5] = #{KLJXL5},
+           </if>
+           <if test="LQBHD1 != null" >
+               [LQBHD1] = #{LQBHD1},
+           </if>
+           <if test="LQBHD2 != null" >
+               [LQBHD2] = #{LQBHD2},
+           </if>
+           <if test="LQBHD3 != null" >
+               [LQBHD3] = #{LQBHD3},
+           </if>
+           <if test="LQBHD4 != null" >
+               [LQBHD4] = #{LQBHD4},
+           </if>
+           <if test="LQBHD5 != null" >
+               [LQBHD5] = #{LQBHD5},
+           </if>
+           <if test="BEIZHU1 != null" >
+               [BEIZHU1] = #{BEIZHU1},
+           </if>
+           <if test="BEIZHU2 != null" >
+               [BEIZHU2] = #{BEIZHU2},
+           </if>
+           <if test="BEIZHU3 != null" >
+               [BEIZHU3] = #{BEIZHU3},
+           </if>
+           <if test="BEIZHU4 != null" >
+               [BEIZHU4] = #{BEIZHU4},
+           </if>
+           <if test="BEIZHU5 != null" >
+               [BEIZHU5] = #{BEIZHU5},
+           </if>
+           <if test="XHR != null" >
+               [XHR] = #{XHR},
+           </if>
+           <if test="SYR != null" >
+               [SYR] = #{SYR},
+           </if>
+           <if test="JL != null" >
+               [JL] = #{JL},
+           </if>
+           <if test="DWDM != null" >
+               [DWDM] = #{DWDM},
+           </if>
+           <if test="SYXMDM != null" >
+               [SYXMDM] = #{SYXMDM},
+           </if>
+           <if test="SYXMMC != null" >
+               [SYXMMC] = #{SYXMMC},
+           </if>
+           <if test="SHIYBH != null" >
+               [SHIYBH] = #{SHIYBH},
+           </if>
+           <if test="SYMC != null" >
+               [SYMC] = #{SYMC},
+           </if>
+           <if test="WTDWBH != null" >
+               [WTDWBH] = #{WTDWBH},
+           </if>
+           <if test="GCBH != null" >
+               [GCBH] = #{GCBH},
+           </if>
+           <if test="JSFZRBH != null" >
+               [JSFZRBH] = #{JSFZRBH},
+           </if>
+           <if test="JSFZR != null" >
+               [JSFZR] = #{JSFZR},
+           </if>
+           <if test="XHRBH != null" >
+               [XHRBH] = #{XHRBH},
+           </if>
+           <if test="XHBZ != null" >
+               [XHBZ] = #{XHBZ},
+           </if>
+           <if test="XHYJ != null" >
+               [XHYJ] = #{XHYJ},
+           </if>
+           <if test="QFBZ != null" >
+               [QFBZ] = #{QFBZ},
+           </if>
+           <if test="QFYJ != null" >
+               [QFYJ] = #{QFYJ},
+           </if>
+           <if test="SYRBH != null" >
+               [SYRBH] = #{SYRBH},
+           </if>
+           <if test="BGRQ != null" >
+               [BGRQ] = #{BGRQ},
+           </if>
+           <if test="ZXGC != null" >
+               [ZXGC] = #{ZXGC},
+           </if>
+           <if test="ZXBZ != null" >
+               [ZXBZ] = #{ZXBZ},
+           </if>
+           <if test="SYWTR != null" >
+               [SYWTR] = #{SYWTR},
+           </if>
+           <if test="JZBZ != null" >
+               [JZBZ] = #{JZBZ},
+           </if>
+           <if test="HGBZ != null" >
+               [HGBZ] = #{HGBZ},
+           </if>
+           <if test="SYJG != null" >
+               [SYJG] = #{SYJG},
+           </if>
+           <if test="CLYJ != null" >
+               [CLYJ] = #{CLYJ},
+           </if>
+           <if test="WTZH != null" >
+               [WTZH] = #{WTZH},
+           </if>
+           <if test="JLBBH != null" >
+               [JLBBH] = #{JLBBH},
+           </if>
+           <if test="BGBBH != null" >
+               [BGBBH] = #{BGBBH},
+           </if>
+       </set>
         WHERE
         lqmxeid = #{lqmxeid}
       </update>
@@ -475,7 +1129,7 @@
         from CEES_LQMXE
     </select>
 
-    <insert id="insert"  parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo">
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_LQMXEVo">
         INSERT INTO [CEES_LQMXE]
         ([cid]
         ,[cnumber]

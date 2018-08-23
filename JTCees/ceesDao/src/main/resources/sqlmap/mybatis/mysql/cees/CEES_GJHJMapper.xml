@@ -4,7 +4,130 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fancyx.cees.dao.busi.CEES_GJHJDao">
 
+    <sql id="query_time_where">
+        <if test="gjhjnumber != null">
+            AND #{gjhjnumber} = gjhjnumber
+        </if>
+    </sql>
+
+    <sql id="query_where">
+
+        <if test="queryIntStr != null">
+            OR cid = #{queryIntStr}
+            OR pid = #{queryIntStr}
+            OR sn = #{queryIntStr}
+            OR sn_project = #{queryIntStr}
+            OR sn_test = #{queryIntStr}
+            OR DWDM = #{queryIntStr}
+            OR JSFZRBH = #{queryIntStr}
+            OR XHRBH = #{queryIntStr}
+            OR SYRBH = #{queryIntStr}
+            OR WTZH = #{queryIntStr}
+        </if>
+
+        <if test="queryStr!=null and queryStr!=''">
+            OR cnumber LIKE '%${queryStr}%'
+            OR projectnumber LIKE '%${queryStr}%'
+            OR client LIKE '%${queryStr}%'
+            OR gjhjnumber LIKE '%${queryStr}%'
+            OR testnumber LIKE '%${queryStr}%'
+            OR state LIKE '%${queryStr}%'
+            OR remarks LIKE '%${queryStr}%'
+            OR edittime LIKE '%${queryStr}%'
+            OR edituser LIKE '%${queryStr}%'
+            OR readtime LIKE '%${queryStr}%'
+            OR WTDBH LIKE '%${queryStr}%'
+            OR WTDWMC LIKE '%${queryStr}%'
+            OR GJZL LIKE '%${queryStr}%'
+            OR GJCD LIKE '%${queryStr}%'
+            OR SYBH LIKE '%${queryStr}%'
+            OR GCMC LIKE '%${queryStr}%'
+            OR DBHJSL LIKE '%${queryStr}%'
+            OR YT LIKE '%${queryStr}%'
+            OR YQBH LIKE '%${queryStr}%'
+            OR PH LIKE '%${queryStr}%'
+            OR JB LIKE '%${queryStr}%'
+            OR GG LIKE '%${queryStr}%'
+            OR GG1 LIKE '%${queryStr}%'
+            OR HJMJ LIKE '%${queryStr}%'
+            OR HJMJ1 LIKE '%${queryStr}%'
+            OR HJLX LIKE '%${queryStr}%'
+            OR YCLSYBH LIKE '%${queryStr}%'
+            OR HTXH LIKE '%${queryStr}%'
+            OR HJR LIKE '%${queryStr}%'
+            OR SJBH1 LIKE '%${queryStr}%'
+            OR SJBH2 LIKE '%${queryStr}%'
+            OR SJBH3 LIKE '%${queryStr}%'
+            OR SJBH4 LIKE '%${queryStr}%'
+            OR SJBH5 LIKE '%${queryStr}%'
+            OR SJBH6 LIKE '%${queryStr}%'
+            OR LL1 LIKE '%${queryStr}%'
+            OR LL2 LIKE '%${queryStr}%'
+            OR LL3 LIKE '%${queryStr}%'
+            OR LL4 LIKE '%${queryStr}%'
+            OR LL5 LIKE '%${queryStr}%'
+            OR LL6 LIKE '%${queryStr}%'
+            OR QD1 LIKE '%${queryStr}%'
+            OR QD2 LIKE '%${queryStr}%'
+            OR QD3 LIKE '%${queryStr}%'
+            OR QD4 LIKE '%${queryStr}%'
+            OR QD5 LIKE '%${queryStr}%'
+            OR QD6 LIKE '%${queryStr}%'
+            OR BXHDLWZ1 LIKE '%${queryStr}%'
+            OR BXHDLWZ2 LIKE '%${queryStr}%'
+            OR BXHDLWZ3 LIKE '%${queryStr}%'
+            OR BXHDLWZ4 LIKE '%${queryStr}%'
+            OR BXHDLWZ5 LIKE '%${queryStr}%'
+            OR BXHDLWZ6 LIKE '%${queryStr}%'
+            OR WXZJ1 LIKE '%${queryStr}%'
+            OR WXZJ2 LIKE '%${queryStr}%'
+            OR WXZJ3 LIKE '%${queryStr}%'
+            OR WXZJ4 LIKE '%${queryStr}%'
+            OR WXZJ5 LIKE '%${queryStr}%'
+            OR WXZJ6 LIKE '%${queryStr}%'
+            OR JD1 LIKE '%${queryStr}%'
+            OR JD2 LIKE '%${queryStr}%'
+            OR JD3 LIKE '%${queryStr}%'
+            OR JD4 LIKE '%${queryStr}%'
+            OR JD5 LIKE '%${queryStr}%'
+            OR JD6 LIKE '%${queryStr}%'
+            OR PD1 LIKE '%${queryStr}%'
+            OR PD2 LIKE '%${queryStr}%'
+            OR PD3 LIKE '%${queryStr}%'
+            OR PD4 LIKE '%${queryStr}%'
+            OR PD5 LIKE '%${queryStr}%'
+            OR PD6 LIKE '%${queryStr}%'
+            OR HJ1 LIKE '%${queryStr}%'
+            OR HJ2 LIKE '%${queryStr}%'
+            OR JL LIKE '%${queryStr}%'
+            OR BZ LIKE '%${queryStr}%'
+            OR XHR LIKE '%${queryStr}%'
+            OR SYR LIKE '%${queryStr}%'
+            OR SYXMDM LIKE '%${queryStr}%'
+            OR SYXMMC LIKE '%${queryStr}%'
+            OR SHIYBH LIKE '%${queryStr}%'
+            OR SYMC LIKE '%${queryStr}%'
+            OR WTDWBH LIKE '%${queryStr}%'
+            OR GCBH LIKE '%${queryStr}%'
+            OR JSFZR LIKE '%${queryStr}%'
+            OR XHBZ LIKE '%${queryStr}%'
+            OR XHYJ LIKE '%${queryStr}%'
+            OR QFBZ LIKE '%${queryStr}%'
+            OR QFYJ LIKE '%${queryStr}%'
+            OR ZXGC LIKE '%${queryStr}%'
+            OR ZXBZ LIKE '%${queryStr}%'
+            OR SYWTR LIKE '%${queryStr}%'
+            OR JZBZ LIKE '%${queryStr}%'
+            OR HGBZ LIKE '%${queryStr}%'
+            OR SYJG LIKE '%${queryStr}%'
+            OR CLYJ LIKE '%${queryStr}%'
+            OR JLBBH LIKE '%${queryStr}%'
+            OR BGBBH LIKE '%${queryStr}%'
+        </if>
+    </sql>
+
     <select id="selectByBean"
+            parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo"
             resultType="com.fancyx.cees.domain.busi.CEES_GJHJ">
       SELECT [gjhjid]
           ,[cid]
@@ -119,135 +242,370 @@
           ,[JLBBH]
           ,[BGBBH]
       FROM [CEES_GJHJ]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
     </select>
 
-    <select id="selectByBeanCount" resultType="java.lang.Integer">
+    <select id="selectByBeanCount"
+            parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo"
+            resultType="java.lang.Integer">
         SELECT
         COUNT(1)
         FROM
         [CEES_GJHJ]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
     </select>
 
     <delete id="delete" parameterType="int">
         DELETE FROM [CEES_GJHJ]
         where
-        [gjycid] =  #{id}
-        AND  [state] == '录入'
+        [gjhjid] =  #{id}
+        AND  [state] = '录入'
     </delete>
 
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo">
         UPDATE [CEES_GJHJ]
-        SET [cid] = #{cid}
-        ,[cnumber] = #{cnumber}
-        ,[pid] = #{pid}
-        ,[projectnumber] = #{projectnumber}
-        ,[client] = #{client}
-        ,[gjhjnumber] = #{gjhjnumber}
-        ,[testnumber] = #{testnumber}
-        ,[sn] = #{sn}
-        ,[sn_project] = #{sn_project}
-        ,[sn_test] = #{sn_test}
-        ,[state] = #{state}
-        ,[remarks] = #{remarks}
-        ,[edittime] = #{edittime}
-        ,[edituser] = #{edituser}
-        ,[readmark] = #{readmark}
-        ,[readtime] = #{readtime}
-        ,[WTDBH] = #{WTDBH}
-        ,[WTDWMC] = #{WTDWMC}
-        ,[GJZL] = #{GJZL}
-        ,[GJCD] = #{GJCD}
-        ,[LYRQ] = #{LYRQ}
-        ,[SYBH] = #{SYBH}
-        ,[GCMC] = #{GCMC}
-        ,[DBHJSL] = #{DBHJSL}
-        ,[YT] = #{YT}
-        ,[SYRQ] = #{SYRQ}
-        ,[YQBH] = #{YQBH}
-        ,[PH] = #{PH}
-        ,[JB] = #{JB}
-        ,[GG] = #{GG}
-        ,[GG1] = #{GG1}
-        ,[HJMJ] = #{HJMJ}
-        ,[HJMJ1] = #{HJMJ1}
-        ,[HJLX] = #{HJLX}
-        ,[YCLSYBH] = #{YCLSYBH}
-        ,[HTXH] = #{HTXH}
-        ,[HJR] = #{HJR}
-        ,[SJBH1] = #{SJBH1}
-        ,[SJBH2] = #{SJBH2}
-        ,[SJBH3] = #{SJBH3}
-        ,[SJBH4] = #{SJBH4}
-        ,[SJBH5] = #{SJBH5}
-        ,[SJBH6] = #{SJBH6}
-        ,[LL1] = #{LL1}
-        ,[LL2] = #{LL2}
-        ,[LL3] = #{LL3}
-        ,[LL4] = #{LL4}
-        ,[LL5] = #{LL5}
-        ,[LL6] = #{LL6}
-        ,[QD1] = #{QD1}
-        ,[QD2] = #{QD2}
-        ,[QD3] = #{QD3}
-        ,[QD4] = #{QD4}
-        ,[QD5] = #{QD5}
-        ,[QD6] = #{QD6}
-        ,[BXHDLWZ1] = #{BXHDLWZ1}
-        ,[BXHDLWZ2] = #{BXHDLWZ2}
-        ,[BXHDLWZ3] = #{BXHDLWZ3}
-        ,[BXHDLWZ4] = #{BXHDLWZ4}
-        ,[BXHDLWZ5] = #{BXHDLWZ5}
-        ,[BXHDLWZ6] = #{BXHDLWZ6}
-        ,[WXZJ1] = #{WXZJ1}
-        ,[WXZJ2] = #{WXZJ2}
-        ,[WXZJ3] = #{WXZJ3}
-        ,[WXZJ4] = #{WXZJ4}
-        ,[WXZJ5] = #{WXZJ5}
-        ,[WXZJ6] = #{WXZJ6}
-        ,[JD1] = #{JD1}
-        ,[JD2] = #{JD2}
-        ,[JD3] = #{JD3}
-        ,[JD4] = #{JD4}
-        ,[JD5] = #{JD5}
-        ,[JD6] = #{JD6}
-        ,[PD1] = #{PD1}
-        ,[PD2] = #{PD2}
-        ,[PD3] = #{PD3}
-        ,[PD4] = #{PD4}
-        ,[PD5] = #{PD5}
-        ,[PD6] = #{PD6}
-        ,[HJ1] = #{HJ1}
-        ,[HJ2] = #{HJ2}
-        ,[JL] = #{JL}
-        ,[BZ] = #{BZ}
-        ,[XHR] = #{XHR}
-        ,[SYR] = #{SYR}
-        ,[DWDM] = #{DWDM}
-        ,[SYXMDM] = #{SYXMDM}
-        ,[SYXMMC] = #{SYXMMC}
-        ,[SHIYBH] = #{SHIYBH}
-        ,[SYMC] = #{SYMC}
-        ,[WTDWBH] = #{WTDWBH}
-        ,[GCBH] = #{GCBH}
-        ,[JSFZRBH] = #{JSFZRBH}
-        ,[JSFZR] = #{JSFZR}
-        ,[XHRBH] = #{XHRBH}
-        ,[XHBZ] = #{XHBZ}
-        ,[XHYJ] = #{XHYJ}
-        ,[QFBZ] = #{QFBZ}
-        ,[QFYJ] = #{QFYJ}
-        ,[SYRBH] = #{SYRBH}
-        ,[BGRQ] = #{BGRQ}
-        ,[ZXGC] = #{ZXGC}
-        ,[ZXBZ] = #{ZXBZ}
-        ,[SYWTR] = #{SYWTR}
-        ,[JZBZ] = #{JZBZ}
-        ,[HGBZ] = #{HGBZ}
-        ,[SYJG] = #{SYJG}
-        ,[CLYJ] = #{CLYJ}
-        ,[WTZH] = #{WTZH}
-        ,[JLBBH] = #{JLBBH}
-        ,[BGBBH] = #{BGBBH}
+      <set>
+
+          <if test="cid != null" >
+              [cid] = #{cid},
+          </if>
+          <if test="cnumber != null" >
+              [cnumber] = #{cnumber},
+          </if>
+          <if test="pid != null" >
+              [pid] = #{pid},
+          </if>
+          <if test="projectnumber != null" >
+              [projectnumber] = #{projectnumber},
+          </if>
+          <if test="client != null" >
+              [client] = #{client},
+          </if>
+          <if test="gjhjnumber != null" >
+              [gjhjnumber] = #{gjhjnumber},
+          </if>
+          <if test="testnumber != null" >
+              [testnumber] = #{testnumber},
+          </if>
+          <if test="sn != null" >
+              [sn] = #{sn},
+          </if>
+          <if test="sn_project != null" >
+              [sn_project] = #{sn_project},
+          </if>
+          <if test="sn_test != null" >
+              [sn_test] = #{sn_test},
+          </if>
+          <if test="state != null" >
+              [state] = #{state},
+          </if>
+          <if test="remarks != null" >
+              [remarks] = #{remarks},
+          </if>
+          <if test="edittime != null" >
+              [edittime] = #{edittime},
+          </if>
+          <if test="edituser != null" >
+              [edituser] = #{edituser},
+          </if>
+          <if test="readmark != null" >
+              [readmark] = #{readmark},
+          </if>
+          <if test="readtime != null" >
+              [readtime] = #{readtime},
+          </if>
+          <if test="WTDBH != null" >
+              [WTDBH] = #{WTDBH},
+          </if>
+          <if test="WTDWMC != null" >
+              [WTDWMC] = #{WTDWMC},
+          </if>
+          <if test="GJZL != null" >
+              [GJZL] = #{GJZL},
+          </if>
+          <if test="GJCD != null" >
+              [GJCD] = #{GJCD},
+          </if>
+          <if test="LYRQ != null" >
+              [LYRQ] = #{LYRQ},
+          </if>
+          <if test="SYBH != null" >
+              [SYBH] = #{SYBH},
+          </if>
+          <if test="GCMC != null" >
+              [GCMC] = #{GCMC},
+          </if>
+          <if test="DBHJSL != null" >
+              [DBHJSL] = #{DBHJSL},
+          </if>
+          <if test="YT != null" >
+              [YT] = #{YT},
+          </if>
+          <if test="SYRQ != null" >
+              [SYRQ] = #{SYRQ},
+          </if>
+          <if test="YQBH != null" >
+              [YQBH] = #{YQBH},
+          </if>
+          <if test="PH != null" >
+              [PH] = #{PH},
+          </if>
+          <if test="JB != null" >
+              [JB] = #{JB},
+          </if>
+          <if test="GG != null" >
+              [GG] = #{GG},
+          </if>
+          <if test="GG1 != null" >
+              [GG1] = #{GG1},
+          </if>
+          <if test="HJMJ != null" >
+              [HJMJ] = #{HJMJ},
+          </if>
+          <if test="HJMJ1 != null" >
+              [HJMJ1] = #{HJMJ1},
+          </if>
+          <if test="HJLX != null" >
+              [HJLX] = #{HJLX},
+          </if>
+          <if test="YCLSYBH != null" >
+              [YCLSYBH] = #{YCLSYBH},
+          </if>
+          <if test="HTXH != null" >
+              [HTXH] = #{HTXH},
+          </if>
+          <if test="HJR != null" >
+              [HJR] = #{HJR},
+          </if>
+          <if test="SJBH1 != null" >
+              [SJBH1] = #{SJBH1},
+          </if>
+          <if test="SJBH2 != null" >
+              [SJBH2] = #{SJBH2},
+          </if>
+          <if test="SJBH3 != null" >
+              [SJBH3] = #{SJBH3},
+          </if>
+          <if test="SJBH4 != null" >
+              [SJBH4] = #{SJBH4},
+          </if>
+          <if test="SJBH5 != null" >
+              [SJBH5] = #{SJBH5},
+          </if>
+          <if test="SJBH6 != null" >
+              [SJBH6] = #{SJBH6},
+          </if>
+          <if test="LL1 != null" >
+              [LL1] = #{LL1},
+          </if>
+          <if test="LL2 != null" >
+              [LL2] = #{LL2},
+          </if>
+          <if test="LL3 != null" >
+              [LL3] = #{LL3},
+          </if>
+          <if test="LL4 != null" >
+              [LL4] = #{LL4},
+          </if>
+          <if test="LL5 != null" >
+              [LL5] = #{LL5},
+          </if>
+          <if test="LL6 != null" >
+              [LL6] = #{LL6},
+          </if>
+          <if test="QD1 != null" >
+              [QD1] = #{QD1},
+          </if>
+          <if test="QD2 != null" >
+              [QD2] = #{QD2},
+          </if>
+          <if test="QD3 != null" >
+              [QD3] = #{QD3},
+          </if>
+          <if test="QD4 != null" >
+              [QD4] = #{QD4},
+          </if>
+          <if test="QD5 != null" >
+              [QD5] = #{QD5},
+          </if>
+          <if test="QD6 != null" >
+              [QD6] = #{QD6},
+          </if>
+          <if test="BXHDLWZ1 != null" >
+              [BXHDLWZ1] = #{BXHDLWZ1},
+          </if>
+          <if test="BXHDLWZ2 != null" >
+              [BXHDLWZ2] = #{BXHDLWZ2},
+          </if>
+          <if test="BXHDLWZ3 != null" >
+              [BXHDLWZ3] = #{BXHDLWZ3},
+          </if>
+          <if test="BXHDLWZ4 != null" >
+              [BXHDLWZ4] = #{BXHDLWZ4},
+          </if>
+          <if test="BXHDLWZ5 != null" >
+              [BXHDLWZ5] = #{BXHDLWZ5},
+          </if>
+          <if test="BXHDLWZ6 != null" >
+              [BXHDLWZ6] = #{BXHDLWZ6},
+          </if>
+          <if test="WXZJ1 != null" >
+              [WXZJ1] = #{WXZJ1},
+          </if>
+          <if test="WXZJ2 != null" >
+              [WXZJ2] = #{WXZJ2},
+          </if>
+          <if test="WXZJ3 != null" >
+              [WXZJ3] = #{WXZJ3},
+          </if>
+          <if test="WXZJ4 != null" >
+              [WXZJ4] = #{WXZJ4},
+          </if>
+          <if test="WXZJ5 != null" >
+              [WXZJ5] = #{WXZJ5},
+          </if>
+          <if test="WXZJ6 != null" >
+              [WXZJ6] = #{WXZJ6},
+          </if>
+          <if test="JD1 != null" >
+              [JD1] = #{JD1},
+          </if>
+          <if test="JD2 != null" >
+              [JD2] = #{JD2},
+          </if>
+          <if test="JD3 != null" >
+              [JD3] = #{JD3},
+          </if>
+          <if test="JD4 != null" >
+              [JD4] = #{JD4},
+          </if>
+          <if test="JD5 != null" >
+              [JD5] = #{JD5},
+          </if>
+          <if test="JD6 != null" >
+              [JD6] = #{JD6},
+          </if>
+          <if test="PD1 != null" >
+              [PD1] = #{PD1},
+          </if>
+          <if test="PD2 != null" >
+              [PD2] = #{PD2},
+          </if>
+          <if test="PD3 != null" >
+              [PD3] = #{PD3},
+          </if>
+          <if test="PD4 != null" >
+              [PD4] = #{PD4},
+          </if>
+          <if test="PD5 != null" >
+              [PD5] = #{PD5},
+          </if>
+          <if test="PD6 != null" >
+              [PD6] = #{PD6},
+          </if>
+          <if test="HJ1 != null" >
+              [HJ1] = #{HJ1},
+          </if>
+          <if test="HJ2 != null" >
+              [HJ2] = #{HJ2},
+          </if>
+          <if test="JL != null" >
+              [JL] = #{JL},
+          </if>
+          <if test="BZ != null" >
+              [BZ] = #{BZ},
+          </if>
+          <if test="XHR != null" >
+              [XHR] = #{XHR},
+          </if>
+          <if test="SYR != null" >
+              [SYR] = #{SYR},
+          </if>
+          <if test="DWDM != null" >
+              [DWDM] = #{DWDM},
+          </if>
+          <if test="SYXMDM != null" >
+              [SYXMDM] = #{SYXMDM},
+          </if>
+          <if test="SYXMMC != null" >
+              [SYXMMC] = #{SYXMMC},
+          </if>
+          <if test="SHIYBH != null" >
+              [SHIYBH] = #{SHIYBH},
+          </if>
+          <if test="SYMC != null" >
+              [SYMC] = #{SYMC},
+          </if>
+          <if test="WTDWBH != null" >
+              [WTDWBH] = #{WTDWBH},
+          </if>
+          <if test="GCBH != null" >
+              [GCBH] = #{GCBH},
+          </if>
+          <if test="JSFZRBH != null" >
+              [JSFZRBH] = #{JSFZRBH},
+          </if>
+          <if test="JSFZR != null" >
+              [JSFZR] = #{JSFZR},
+          </if>
+          <if test="XHRBH != null" >
+              [XHRBH] = #{XHRBH},
+          </if>
+          <if test="XHBZ != null" >
+              [XHBZ] = #{XHBZ},
+          </if>
+          <if test="XHYJ != null" >
+              [XHYJ] = #{XHYJ},
+          </if>
+          <if test="QFBZ != null" >
+              [QFBZ] = #{QFBZ},
+          </if>
+          <if test="QFYJ != null" >
+              [QFYJ] = #{QFYJ},
+          </if>
+          <if test="SYRBH != null" >
+              [SYRBH] = #{SYRBH},
+          </if>
+          <if test="BGRQ != null" >
+              [BGRQ] = #{BGRQ},
+          </if>
+          <if test="ZXGC != null" >
+              [ZXGC] = #{ZXGC},
+          </if>
+          <if test="ZXBZ != null" >
+              [ZXBZ] = #{ZXBZ},
+          </if>
+          <if test="SYWTR != null" >
+              [SYWTR] = #{SYWTR},
+          </if>
+          <if test="JZBZ != null" >
+              [JZBZ] = #{JZBZ},
+          </if>
+          <if test="HGBZ != null" >
+              [HGBZ] = #{HGBZ},
+          </if>
+          <if test="SYJG != null" >
+              [SYJG] = #{SYJG},
+          </if>
+          <if test="CLYJ != null" >
+              [CLYJ] = #{CLYJ},
+          </if>
+          <if test="WTZH != null" >
+              [WTZH] = #{WTZH},
+          </if>
+          <if test="JLBBH != null" >
+              [JLBBH] = #{JLBBH},
+          </if>
+          <if test="BGBBH != null" >
+              [BGBBH] = #{BGBBH},
+          </if>
+      </set>
         WHERE
           gjhjid = #{gjhjid}
     </update>
@@ -275,8 +633,8 @@
         ISNULL(MAX((gjhjnumber )),0)
         from CEES_GJHJ
     </select>
-    
-    <insert id="insert"  parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo">
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo">
 
         INSERT INTO [CEES_GJHJ]
         ([cid]

@@ -1592,12 +1592,12 @@
 
 
         <div class="layui-row top10">
-            <div class="layui-col-md12">
-                <div class="left">
-                    声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
-                </div>
+        <div class="layui-col-md12">
+            <div class="left">
+                声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
             </div>
         </div>
+    </div>
     </div>
 </form>
 

@@ -41,7 +41,7 @@ public class CEES_LQMXEDBUtil {
         synchronized (this) {
             String number = cees.getLqmxenumber();
             int kynumber = 1;
-            if (number.length() > 0) {
+            if (number != null && number.length() > 1) {
                 kynumber = Integer.parseInt(number.substring(6)) + 1;
             }
             String year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));

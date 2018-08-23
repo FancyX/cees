@@ -175,6 +175,7 @@ public class CEES_GJHJController {
         } catch (Exception ex) {
             Exception exception = new Exception("添加异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
     }

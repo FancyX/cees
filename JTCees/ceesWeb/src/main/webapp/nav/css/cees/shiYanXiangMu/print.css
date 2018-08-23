@@ -10,6 +10,9 @@
 .right {
     float: right;
 }
+.font-bold{
+    font-weight: 600;
+}
 
 /*去掉打印的页眉页脚*/
 @page {
@@ -37,7 +40,51 @@
     word-break: break-all;
 }
 
-.none-td-border td {
+.table .none-td-border  {
+    border-top: 0 !important;
+}
+
+.table .border-left-0  {
+    border-left: 0 !important;
+}
+
+.table .border-right-0  {
+    border-right: 0 !important;
+}
+
+.table .border-top-0  {
+    border-top: 0 !important;
+}
+
+.table .border-bottom-0  {
+    border-bottom: 0 !important;
+}
+
+.table .border-0 {
+    border: 0 !important;
+}
+
+.table .border-left-not-0 {
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.table .border-right-not-0 {
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.table .border-top-not-0 {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.table .border-bottom-not-0 {
+    border-left: 0 !important;
+    border-right: 0 !important;
     border-top: 0 !important;
 }
 
