@@ -9,16 +9,16 @@
         <div class="layui-form-item">
 
             <div class="layui-inline">
-                <label class="layui-form-label width-60">制模日期</label>
-                <div class="layui-input-inline width-150">
-                    <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
-                </div>
-
-                <label class="layui-form-label width-20">至</label>
-
-                <div class="layui-input-inline width-150">
-                    <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
-                </div>
+##                <label class="layui-form-label width-60">制模日期</label>
+##                <div class="layui-input-inline width-150">
+##                    <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+##                </div>
+##
+##                <label class="layui-form-label width-20">至</label>
+##
+##                <div class="layui-input-inline width-150">
+##                    <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+##                </div>
                 <div class="layui-input-inline width-150">
                     <input type="text" class="layui-input" id="queryStr">
                 </div>

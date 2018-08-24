@@ -302,9 +302,6 @@
           <if test="sn_test != null" >
               [sn_test] = #{sn_test},
           </if>
-          <if test="state != null" >
-              [state] = #{state},
-          </if>
           <if test="remarks != null" >
               [remarks] = #{remarks},
           </if>
