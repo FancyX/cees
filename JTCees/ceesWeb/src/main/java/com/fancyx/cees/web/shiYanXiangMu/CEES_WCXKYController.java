@@ -30,7 +30,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
  * 无限侧抗压
  * Created by 啊Q on 2018-07-21.
  */
@@ -51,8 +50,8 @@ public class CEES_WCXKYController {
     private CEES_WCXKYDBUtil dbUtil;
 
     /*
-    * 返回页面
-    * */
+     * 返回页面
+     * */
     @RequestMapping(value = "/page")
     public String page() {
         return "cees/shiYanXiangMu/CEES_WCXKY";
@@ -72,7 +71,7 @@ public class CEES_WCXKYController {
             return new ResultBean<List>(diplay.selectAll());
         } catch (Exception ex) {
             ex.printStackTrace();
-            Exception exception = new Exception("获取列异常",ex);
+            Exception exception = new Exception("获取列异常", ex);
             return new ResultBean<>(exception);
         }
     }
@@ -97,10 +96,11 @@ public class CEES_WCXKYController {
             return new PageResultBean(result.getUnderly(), result.getItemCount());
         } catch (Exception ex) {
             log.error(ex);
-            Exception exception = new Exception("查询异常",ex);
+            Exception exception = new Exception("查询异常", ex);
             return new PageResultBean(exception);
         }
     }
+
     /**
      * 删除
      *
@@ -180,6 +180,7 @@ public class CEES_WCXKYController {
         } catch (Exception ex) {
             Exception exception = new Exception("添加异常", ex);
             log.error(exception);
+            ex.printStackTrace();
             return new ResultBean(exception);
         }
     }
@@ -189,10 +190,10 @@ public class CEES_WCXKYController {
     @InitBinder
     public void initBinder(WebDataBinder binder, WebRequest request) {
         //转换日期格式
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
         //注册自定义的编辑器
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-
     }
 
 }

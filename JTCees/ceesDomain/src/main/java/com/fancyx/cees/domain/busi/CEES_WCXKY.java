@@ -244,6 +244,84 @@ public class CEES_WCXKY {
     private String SJQD;
     //达到设计强度
     private String DDQD;
+    //偏差系数
+    private String PCXS;
+    //标准差
+    private String BZC;
+    //95%保证率的强度值
+    private String QD95;
+    //制件日期标志
+    private String ZJQYBZ;
+    //压实度
+    private String YSD;
+    //压实度偏差
+    private String YSDPC;
+    //桩号部位
+    private String ZHBW;
+    //仪器编号
+    private String YQBH;
+    //备注
+    private String BZ;
+    //校核人
+    private String XHR;
+    //试验人
+    private String SYR;
+    //结论
+    private String JL;
+    //单位代码
+    private int DWDM;
+    //试验项目代码
+    private String SYXMDM;
+    //试验项目名称
+    private String SYXMMC;
+    //试样编号
+    private String SHIYBH;
+    //试样名称
+    private String SYMC;
+    //委托单位编号
+    private String WTDWBH;
+    //工程编号
+    private String GCBH;
+    //技术负责人编号
+    private int JSFZRBH;
+    //技术负责人
+    private String JSFZR;
+    //校核人编号
+    private int XHRBH;
+    //校核备注
+    private String XHBZ;
+    //校核意见
+    private String XHYJ;
+    //签发备注
+    private String QFBZ;
+    //签发意见
+    private String QFYJ;
+    //试验人编号
+    private int SYRBH;
+    //报告日期
+    private Date BGRQ;
+    //执行规程
+    private String ZXGC;
+    //执行标准
+    private String ZXBZ;
+    //试验委托人
+    private String SYWTR;
+    //见证标志
+    private String JZBZ;
+    //合格标志
+    private String HGBZ;
+    //试验结论
+    private String SYJG;
+    //处理意见
+    private String CLYJ;
+    //委托组号
+    private int WTZH;
+    //记录表编号
+    private String JLBBH;
+    //报告表编号
+    private String BGBBH;
+
+    private Date QYRQ;
 
     public int getWcxid() {
         return wcxid;
@@ -1508,83 +1586,4 @@ public class CEES_WCXKY {
     public void setQYRQ(Date QYRQ) {
         this.QYRQ = QYRQ;
     }
-
-    //偏差系数
-    private String PCXS;
-    //标准差
-    private String BZC;
-    //95%保证率的强度值
-    private String QD95;
-    //制件日期标志
-    private String ZJQYBZ;
-    //压实度
-    private String YSD;
-    //压实度偏差
-    private String YSDPC;
-    //桩号部位
-    private String ZHBW;
-    //仪器编号
-    private String YQBH;
-    //备注
-    private String BZ;
-    //校核人
-    private String XHR;
-    //试验人
-    private String SYR;
-    //结论
-    private String JL;
-    //单位代码
-    private int DWDM;
-    //试验项目代码
-    private String SYXMDM;
-    //试验项目名称
-    private String SYXMMC;
-    //试样编号
-    private String SHIYBH;
-    //试样名称
-    private String SYMC;
-    //委托单位编号
-    private String WTDWBH;
-    //工程编号
-    private String GCBH;
-    //技术负责人编号
-    private int JSFZRBH;
-    //技术负责人
-    private String JSFZR;
-    //校核人编号
-    private int XHRBH;
-    //校核备注
-    private String XHBZ;
-    //校核意见
-    private String XHYJ;
-    //签发备注
-    private String QFBZ;
-    //签发意见
-    private String QFYJ;
-    //试验人编号
-    private int SYRBH;
-    //报告日期
-    private Date BGRQ;
-    //执行规程
-    private String ZXGC;
-    //执行标准
-    private String ZXBZ;
-    //试验委托人
-    private String SYWTR;
-    //见证标志
-    private String JZBZ;
-    //合格标志
-    private String HGBZ;
-    //试验结论
-    private String SYJG;
-    //处理意见
-    private String CLYJ;
-    //委托组号
-    private int WTZH;
-    //记录表编号
-    private String JLBBH;
-    //报告表编号
-    private String BGBBH;
-    private Date QYRQ;
-
 }
