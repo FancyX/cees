@@ -19,10 +19,10 @@ public class Main {
 //                String str = "OR " + column_name + " = #{queryIntStr}";
 //                System.out.println(str);
 //            }
-            if (data_type.equals("varchar")) {
-                String str = "OR " + column_name + " LIKE '%${queryStr}%'";
-                System.out.println(str);
-            }
+//            if (data_type.equals("varchar")) {
+//                String str = "OR " + column_name + " LIKE '%${queryStr}%'";
+//                System.out.println(str);
+//            }
 
 
 //---------------------------------------------update--------------------------------------------------------
@@ -30,7 +30,12 @@ public class Main {
 //                    "  [" + column_name + "] = #{" + column_name + "},\n" +
 //                    "</if>";
 //            System.out.println(update);
+
+//---------------------------------------------console name--------------------------------------------------------
+
+            System.out.println(column_name + " ,");
         }
+
 
     }
 }
