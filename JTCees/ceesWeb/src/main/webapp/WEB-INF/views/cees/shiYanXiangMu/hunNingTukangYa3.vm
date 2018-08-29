@@ -1592,12 +1592,12 @@
 
 
         <div class="layui-row top10">
-        <div class="layui-col-md12">
-            <div class="left">
-                声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
+            <div class="layui-col-md12">
+                <div class="left">
+                    声明:1.本结果只对所检测样品有效。2.未经本中心同意不得复制试验报告。本表于2016年7月1日起实施
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </form>
 
@@ -1784,7 +1784,7 @@
         }
 
 
-        layer.open({
+        var index = layer.open({
             title: "添加",
             type: 1,
             area: ['980px', '560px'], //宽高
@@ -1837,6 +1837,7 @@
                 layer.close(index);
             }
         });
+        layer.full(index);
     }
 
     //显示修改弹窗
@@ -1848,7 +1849,7 @@
         //初始化数据
         initModelByData(data, modelId, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "修改",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1901,7 +1902,7 @@
             }
         });
 
-
+        layer.full(index);
     }
 
     //显示删除弹窗
@@ -1955,7 +1956,7 @@
         //初始化数据
         initModelByData(data, detailFormID, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1974,6 +1975,8 @@
                 layer.close(index);
             }
         });
+
+        layer.full(index);
     }
 
     //显示打印弹窗
@@ -1982,7 +1985,7 @@
         initPrintModel(formID, data)
 
 
-        layer.open({
+       var index =  layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -2004,6 +2007,8 @@
                 layer.close(index);
             }
         });
+
+        layer.full(index);
     }
 
     //初始化当前页面的弹窗默认数据

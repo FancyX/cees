@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        String tableName = "CEES_WCXKY";
+        String tableName = "CEES_Test";
         String sql = "select column_name,data_type from information_schema.columns where table_name = '" + tableName + "'";
         List<Map<String, String>> result = Dao_outside.getInstance().queryForList(sql);
         for (Map<String, String> map : result) {
@@ -26,14 +26,14 @@ public class Main {
 
 
 //---------------------------------------------update--------------------------------------------------------
-//            String update = "<if test=\"" + column_name + " != null\" >\n" +
-//                    "  [" + column_name + "] = #{" + column_name + "},\n" +
-//                    "</if>";
-//            System.out.println(update);
+            String update = "<if test=\"" + column_name + " != null\" >\n" +
+                    "  [" + column_name + "] = #{" + column_name + "},\n" +
+                    "</if>";
+            System.out.println(update);
 
 //---------------------------------------------console name--------------------------------------------------------
 
-            System.out.println(column_name + " ,");
+//            System.out.println(column_name + " ,");
         }
 
 

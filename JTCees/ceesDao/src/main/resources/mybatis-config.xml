@@ -39,6 +39,10 @@
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_WCXKYMapper.xml"/>
         <mapper resource="sqlmap/mybatis/mysql/cees/Display_WCXKYMapper.xml"/>
 
+        <!--提交-->
+        <mapper resource="sqlmap/mybatis/mysql/cees/CEES_TestMapper.xml"/>
+        <mapper resource="sqlmap/mybatis/mysql/cees/Display_TestMapper.xml"/>
+
 
         <!--工程-->
         <mapper resource="sqlmap/mybatis/mysql/cees/CEES_ProjectMapper.xml"/>

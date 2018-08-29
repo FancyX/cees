@@ -1,0 +1,482 @@
+<link rel="stylesheet" href="/nav/css/cees/shiYanXiangMu/print.css">
+<script src="/nav/jquery/jQuery.print.js"></script>
+<script src="/nav/js/iframe2.js"></script>
+
+##显示在右侧侧内容
+<div>
+##工具条
+    <div class="content-bar" id="queryWrapper">
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+            ##                <label class="layui-form-label width-60">制模日期</label>
+            ##                <div class="layui-input-inline width-150">
+            ##                    <input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+            ##                </div>
+            ##
+            ##                <label class="layui-form-label width-20">至</label>
+            ##
+            ##                <div class="layui-input-inline width-150">
+            ##                    <input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+            ##                </div>
+                <div class="layui-input-inline width-150">
+                    <input type="text" class="layui-input" id="queryStr">
+                </div>
+
+                <div class="layui-input-inline  width-64">
+                    <button class="layui-btn " onclick="initGetShowCol(initTable)">查询</button>
+                </div>
+
+                <div class="layui-input-inline width-64">
+                    <button class="layui-btn" lay-event="add" onclick="showAddModal()">新增</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+##表格
+    <table id="tableData" lay-filter="test"></table>
+
+    <div id="chk" class="none">
+        <div class="chk-wrapper">
+            <i is-selected="false" class="icon-check-empty"></i>
+        </div>
+    </div>
+##表格的工具条
+    <script type="text/html" id="barDemo">
+##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="print">打印</a>
+##        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+
+##弹窗
+
+##添加弹窗
+<form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
+
+
+</form>
+
+##修改弹窗
+<form id="updateModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
+
+</form>
+
+##查看
+<form id="detailModal" class="layui-form my-layer-modal none" lay-filter="detailModal" action=""></form>
+
+<script src="/nav/js/iframe2.js"></script>
+##全局变量
+<script>
+
+    //当前页面的请求的URL由各个页面定义此处为样本
+    var urls = {
+        showCol: '/tiJiao/TiJiao/getShowCol.action',
+        select: '/tiJiao/TiJiao/search',
+        add: '/tiJiao/TiJiao/add',
+        update: '/tiJiao/TiJiao/update',
+        delete: '/tiJiao/TiJiao/delete'
+    };
+</script>
+##页面初始化
+<script>
+    window.onload = function (ev) {
+        init();
+        initLayuiLaydate("queryWrapper");
+    };
+</script>
+
+<script>
+
+    //初始化表格
+    function initTable(displayCol) {
+
+        //获取表头
+        var getCols = function (json) {
+
+            var data = json.data;
+            var cols = [[]];
+            // cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left'};
+            // cols[0][0] = {field: 'checkbox', templet: '#chk', edit: false, title: '单选', fixed: 'left', event: 'chk'};
+            for (var i = 0; i < data.length; i++) {
+                var row = data[i];
+                var gridmc = row['gridmc'].toLocaleLowerCase();
+
+                var zw = row['zw'];
+                var width = 90;
+                if (zw.length > 4) {
+                    width = width + (zw.length - 4) * 10;
+                }
+                if (gridmc.length - zw.length > 2) {
+                    width += 24;
+                }
+                var col = {field: gridmc, title: zw, width: width, edit: false};
+                cols[0].push(col);
+            }
+            var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', edit: false, title: '操作', width: 200};
+            cols[0].push(toolbar);
+            return cols;
+        }
+
+        //表格初始化和查询参数绑定
+        var tableOptions = {
+            elem: '#tableData',
+            height: 510,
+            url: urls.select, //数据接口
+            page: true,//开启分页
+            request: {
+                pageName: 'page', //页码的参数名称，默认：page
+                limitName: 'limit' //每页数据量的参数名，默认：limit
+            },
+            response: {
+                statusName: 'code',//数据状态的字段名称，默认：code
+                statusCode: 0,//成功的状态码，默认：0
+                msgName: 'msg',//状态信息的字段名称，默认：msg
+                countName: 'count', //数据总数的字段名称，默认：count
+                dataName: 'data' //数据列表的字段名称，默认：data
+            },
+            where: {
+                zmrqstart: jQuery("#beginTime").val(), //制模日期开始
+                zmrqend: jQuery("#endTime").val(),  //制模日期结束
+                queryStr: jQuery("#queryStr").val(), //查询字符串
+                queryIntStr: jQuery("#queryStr").val()
+            },
+            skin: {
+                size: 'sm'
+            },
+            cols: getCols(displayCol)
+        };
+
+        //执行一个 table 实例
+        layui.use(['table'], function () {
+            var table = layui.table;//表格
+            table.render(tableOptions);
+
+            //监听工具条
+            //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            table.on('tool(test)', function (obj) {
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'del') {//删除
+                    deleteRow(obj, data);
+                } else if (layEvent === 'edit') {//编辑
+                    showUpdateModal(obj, data);
+                } else if (layEvent === 'detail') {//查看
+                    showDetailModal(obj, data);
+                } else if (layEvent === 'print') {//打印
+                    showPrintModal(obj, data);
+                } else if (layEvent === 'chk') {//单选
+
+                    var oldStates = $(this).find("i").attr("is-selected") == "false" ? false : true;
+                    //移除所有选中
+                    $('.chk-wrapper').each(function () {
+                        $(this).find("i").attr("is-selected", false);
+                        $(this).find("i").removeClass("icon-check");
+                        $(this).find("i").addClass("icon-check-empty");
+                    });
+
+                    if (oldStates) {//将当前选中移除
+                        $(this).find("i").addClass('icon-check-empty');
+                        $(this).find("i").removeClass("icon-check");
+                        $(this).find("i").attr("is-selected", false);
+
+                        selectCheckData = undefined;
+                        selectCheck = undefined;
+                    } else {//选中当前
+                        $(this).find("i").removeClass('icon-check-empty');
+                        $(this).find("i").addClass("icon-check");
+                        $(this).find("i").attr("is-selected", true);
+
+                        selectCheckData = obj.data;
+                        selectCheck = $(this);
+                    }
+                }
+            });
+        });
+    }
+
+    //粘贴编号事件
+    function getDataByTableNumber() {
+
+        var formID = "addModal";
+
+        var number = jQuery("#" + formID + " [name='kynumber']").val();
+
+        if (isNull(number)) {
+            failAlert("请先填写砂浆抗压编号");
+            return;
+        }
+
+        jQuery.ajax({
+            type: 'post',
+            url: urls.select,
+            dataType: 'json',
+            data: {'sjkynumber': number, 'page': 1, 'limit': 1},
+            async: false,
+            success: function (json) {
+
+                if (json.code == 0 &&
+                        json.data != null && json.data != undefined) {
+                    initModelByData(json.data[0], formID, moadlHtmls.add);
+                    console.log(json.data);
+
+                } else {
+                    failAlert(json.msg);
+                }
+
+            },
+            err: function (err) {
+                failAlert("连接服务器失败,请重试！");
+            }
+        });
+    }
+
+    //显示添加弹窗
+    function showAddModal() {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+
+        var formID = 'addModal';
+
+        if (selectCheck == undefined || selectCheckData == undefined) {
+            initAddModel(formID);
+        } else {
+            initModelByData(selectCheckData, formID, moadlHtmls.add);
+        }
+
+        var index = layer.open({
+            title: "添加",
+            type: 1,
+            area: ['980px', '560px'], //宽高
+            content: jQuery('#' + formID),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['保存', '取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+                if (!check("addModal")) {
+                    return false;
+                }
+                jQuery('#' + formID).ajaxSubmit({      //ajax方式提交表单
+
+                    url: urls.add,
+                    type: 'post',
+                    dataType: 'json',
+                    beforeSubmit: function (data, data2) {
+                        // console.log(data)
+                        // console.log(data2)
+                    },
+                    success: function (json) {
+
+                        if (json.code == 0) {
+                            var tips = layer.alert(json.msg, {
+                                icon: 1,
+                                skin: 'layer-ext-moon',
+                                closeBtn: 0
+
+                            }, function (thisIndex, layero) {
+                                initGetShowCol(initTable);
+                                layer.close(index);
+                                layer.close(thisIndex);
+                            });
+                        } else {
+                            console.log(json)
+                            failAlert(json.msg);
+                        }
+                    },
+                    clearForm: false,//禁止清楚表单
+                    resetForm: false //禁止重置表单
+                });
+                return false; //开启该代码可禁止点击该按钮关闭
+            },
+            btn2: function (index, layero) {//取消回调
+                layer.close(index);
+            }
+        });
+        layer.full(index);
+    }
+
+    //显示修改弹窗
+    function showUpdateModal(obj, data) {
+        var modelId = 'updateModal';
+        if (isNotPower(baseData.cees_user)) {
+            return false;
+        }
+        //初始化数据
+        initModelByData(data, modelId, moadlHtmls.update);
+
+        layer.open({
+            title: "修改",
+            type: 1,
+            area: ['1240px', '620px'], //宽高
+            content: jQuery('#' + modelId),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['保存', '取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {//保存回调
+                if (!check("updateModal")) {
+                    return false;
+                }
+                jQuery('#' + modelId).ajaxSubmit({      //ajax方式提交表单
+
+                    url: urls.update,
+                    type: 'post',
+                    dataType: 'json',
+                    beforeSubmit: function () {
+                    },
+                    success: function (json) {
+
+                        if (json.code == 0) {
+                            var tips = layer.alert(json.msg, {
+                                icon: 1,
+                                skin: 'layer-ext-moon',
+                                closeBtn: 0
+
+                            }, function (thisIndex, layero) {
+                                initGetShowCol(initTable);
+                                layer.close(index);
+                                layer.close(thisIndex);
+                            });
+                        } else {
+                            failAlert(json.msg);
+                        }
+                    },
+                    clearForm: false,//禁止清楚表单
+                    resetForm: false //禁止重置表单
+                });
+                return false; //开启该代码可禁止点击该按钮关闭
+            },
+            btn2: function (index, layero) {//取消回调
+                layer.close(index);
+            }
+        });
+    }
+
+    //显示删除弹窗
+    function deleteRow(obj, data) {
+        if (isNotPower(baseData.cees_user)) {
+            return false
+        }
+
+        if (data.state == "提交") {
+            failAlert("不能删除已提交数据！");
+            return;
+        }
+
+        layer.confirm('真的删除行么', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+            jQuery.ajax({
+                type: 'post',
+                url: urls.delete,
+                dataType: 'json',
+                data: {'id': data.tid},
+                async: false,
+                success: function (json) {
+                    if (json.code == 0) {
+                        initGetShowCol(initTable);
+                        successAlert(json.msg);
+                        obj.del();
+                    } else {
+                        failAlert(json.msg);
+                    }
+                },
+                err: function (err) {
+                    failAlert("连接服务器失败,请重试！");
+                }
+            });
+            layer.close(index);
+        });
+    }
+
+    //显示查看弹窗
+    function showDetailModal(obj, data) {
+
+        var detailFormID = 'detailModal';
+        var domStr = jQuery("#updateModal").html();
+        jQuery("#" + detailFormID).html(domStr);
+        jQuery("#" + detailFormID + " input,select").attr("disabled", "disabled");
+        //初始化数据
+        initModelByData(data, detailFormID, moadlHtmls.update);
+
+        layer.open({
+            title: "查看",
+            type: 1,
+            area: ['1240px', '620px'], //宽高
+            content: jQuery('#' + detailFormID),
+            success: function (layer) {
+                //这个函数就是在弹窗弹出成功后执行的函数
+                //这个layer包含了弹窗里面的所有的html内容
+                //有了这个就非常好办了，我用js调试了一下马上就定位到了弹窗框的位置然后改了他的class属性，     成功。
+                //这是我定位的第一个按钮的代码
+                //var btn0 = layer[0].childNodes[3].childNodes[0];
+            },
+            btn: ['取消'],
+            btnAlign: 'r', //按钮居右
+            //shade: 0 ,//不显示遮罩
+            btn1: function (index, layero) {
+                layer.close(index);
+            }
+        });
+    }
+
+
+    //初始化当前页面的弹窗默认数据
+    function initThisModalDefaultData(jqFormDom) {
+
+    }
+
+    //初始化修改和查看页面数据
+    function initModelDataByData(data, formID) {
+        var jqForm = jQuery("#" + formID);
+        //为普通输入框赋值
+        initModalInput(data, formID);
+        //为弹窗灌入一些基础的数据
+        initThisModalDefaultData(jqForm);
+
+    }
+
+    //添加 - 初始化弹窗
+    function initAddModel(formID) {
+        //为添加更新表单
+        var jqForm = jQuery("#" + formID);
+        jqForm.html(moadlHtmls.add);
+
+        //初始化弹窗的默认数据
+        initThisModalDefaultData(jqForm);
+
+        //初始化没有事件的时间空间
+        var initLaydateArr = jqForm.find("input[name='ZZRQ'],[name='QYRQ']");
+        initLayuiLaydateByArr(initLaydateArr);
+        //初始化select
+        initLayuiFormSelect();
+    }
+
+
+    //校验参数通过返回true
+    function check(formId) {
+        // if (isNull($("#" + formId + " input[name='SGBW']").val())) {
+        //     failAlert("请填写施工部位！");
+        //     return false;
+        // }
+        return true;
+    }
+</script>
+

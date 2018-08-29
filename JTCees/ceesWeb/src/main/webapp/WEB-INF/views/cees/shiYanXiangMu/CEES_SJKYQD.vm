@@ -1243,9 +1243,9 @@
                     <tr class="none-td-border">
                         <td colspan="15">技术负责人</td>
                         <td colspan="20" name="JSFZR"></td>
-                        <td colspan="12" >校核人</td>
+                        <td colspan="12">校核人</td>
                         <td colspan="21" name="XHR"></td>
-                        <td colspan="12" >试验人</td>
+                        <td colspan="12">试验人</td>
                         <td colspan="20" name="SYR"></td>
                     </tr>
                     <tr>
@@ -1446,7 +1446,7 @@
             initModelByData(selectCheckData, formID, moadlHtmls.add);
         }
 
-        layer.open({
+        var index = layer.open({
             title: "添加",
             type: 1,
             area: ['980px', '560px'], //宽高
@@ -1501,6 +1501,7 @@
                 layer.close(index);
             }
         });
+        layer.full(index);
     }
 
     //显示修改弹窗
@@ -1512,7 +1513,7 @@
         //初始化数据
         initModelByData(data, modelId, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "修改",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1564,6 +1565,7 @@
                 layer.close(index);
             }
         });
+        layer.full(index);
     }
 
     //显示删除弹窗
@@ -1616,7 +1618,7 @@
         //初始化数据
         initModelByData(data, detailFormID, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1635,6 +1637,7 @@
                 layer.close(index);
             }
         });
+        layer.full(index);
     }
 
     //显示打印弹窗
@@ -1643,7 +1646,7 @@
         initPrintModel(formID, data)
 
 
-        layer.open({
+        var index = layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1665,6 +1668,7 @@
                 layer.close(index);
             }
         });
+        layer.full(index);
     }
 
     //初始化当前页面的弹窗默认数据

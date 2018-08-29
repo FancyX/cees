@@ -1470,7 +1470,7 @@
         //初始化数据
         initModelByData(data, modelId, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "修改",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1522,6 +1522,8 @@
                 layer.close(index);
             }
         });
+
+        layer.full(index);
     }
 
     //显示删除弹窗
@@ -1572,7 +1574,7 @@
         //初始化数据
         initModelByData(data, detailFormID, moadlHtmls.update);
 
-        layer.open({
+        var index = layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1591,6 +1593,8 @@
                 layer.close(index);
             }
         });
+
+        layer.full(index);
     }
 
     //显示打印弹窗
@@ -1599,7 +1603,7 @@
         initPrintModel(formID, data)
 
 
-        layer.open({
+        var index = layer.open({
             title: "查看",
             type: 1,
             area: ['1240px', '620px'], //宽高
@@ -1621,6 +1625,8 @@
                 layer.close(index);
             }
         });
+
+        layer.full(index);
     }
 
     //初始化当前页面的弹窗默认数据

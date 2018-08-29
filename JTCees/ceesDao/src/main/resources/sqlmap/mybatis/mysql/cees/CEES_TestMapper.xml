@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fancyx.cees.dao.busi.CEES_TestDao">
+
+    <sql id="query_time_where">
+        <!--<if test="gjhjnumber != null">-->
+        <!--AND #{gjhjnumber} = gjhjnumber-->
+        <!--</if>-->
+    </sql>
+
+    <sql id="query_where">
+
+        <if test="queryIntStr != null">
+
+        </if>
+
+        <if test="queryStr!=null and queryStr!=''">
+
+        </if>
+    </sql>
+
+    <select id="selectByBean"
+            parameterType="com.fancyx.cees.domain.vo.CEES_TestVo"
+            resultType="com.fancyx.cees.domain.busi.CEES_Test">
+        SELECT [tid]
+        ,[cid]
+        ,[cnumber]
+        ,[construction]
+        ,[pid]
+        ,[projectnumber]
+        ,[project]
+        ,[client]
+        ,[sn]
+        ,[sn_project]
+        ,[testnumber]
+        ,[classification]
+        ,[testcount]
+        ,[testunit]
+        ,[editdate]
+        ,[testfile]
+        ,[payable]
+        ,[payment]
+        ,[arrears]
+        ,[paydate]
+        ,[CDLY]
+        ,[YTSM]
+        ,[SYMS]
+        ,[urgent]
+        ,[witness]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime]
+        FROM [CEES_Test]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
+    </select>
+
+    <select id="selectByBeanCount"
+            parameterType="com.fancyx.cees.domain.vo.CEES_TestVo"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(1)
+        FROM
+        [CEES_Test]
+        <where>
+            <include refid="query_time_where"></include>
+            <include refid="query_where"></include>
+        </where>
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM [CEES_Test]
+        where
+        [tid] =  #{id}
+    </delete>
+
+    <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_TestVo">
+        UPDATE [CEES_Test]
+        <set>
+
+            <if test="cid != null" >
+                [cid] = #{cid},
+            </if>
+            <if test="cnumber != null" >
+                [cnumber] = #{cnumber},
+            </if>
+            <if test="construction != null" >
+                [construction] = #{construction},
+            </if>
+            <if test="pid != null" >
+                [pid] = #{pid},
+            </if>
+            <if test="projectnumber != null" >
+                [projectnumber] = #{projectnumber},
+            </if>
+            <if test="project != null" >
+                [project] = #{project},
+            </if>
+            <if test="client != null" >
+                [client] = #{client},
+            </if>
+            <if test="sn != null" >
+                [sn] = #{sn},
+            </if>
+            <if test="sn_project != null" >
+                [sn_project] = #{sn_project},
+            </if>
+            <if test="testnumber != null" >
+                [testnumber] = #{testnumber},
+            </if>
+            <if test="classification != null" >
+                [classification] = #{classification},
+            </if>
+            <if test="testcount != null" >
+                [testcount] = #{testcount},
+            </if>
+            <if test="testunit != null" >
+                [testunit] = #{testunit},
+            </if>
+            <if test="editdate != null" >
+                [editdate] = #{editdate},
+            </if>
+            <if test="testfile != null" >
+                [testfile] = #{testfile},
+            </if>
+            <if test="payable != null" >
+                [payable] = #{payable},
+            </if>
+            <if test="payment != null" >
+                [payment] = #{payment},
+            </if>
+            <if test="arrears != null" >
+                [arrears] = #{arrears},
+            </if>
+            <if test="paydate != null" >
+                [paydate] = #{paydate},
+            </if>
+            <if test="CDLY != null" >
+                [CDLY] = #{CDLY},
+            </if>
+            <if test="YTSM != null" >
+                [YTSM] = #{YTSM},
+            </if>
+            <if test="SYMS != null" >
+                [SYMS] = #{SYMS},
+            </if>
+            <if test="urgent != null" >
+                [urgent] = #{urgent},
+            </if>
+            <if test="witness != null" >
+                [witness] = #{witness},
+            </if>
+            <if test="state != null" >
+                [state] = #{state},
+            </if>
+            <if test="remarks != null" >
+                [remarks] = #{remarks},
+            </if>
+            <if test="edittime != null" >
+                [edittime] = #{edittime},
+            </if>
+            <if test="edituser != null" >
+                [edituser] = #{edituser},
+            </if>
+            <if test="readmark != null" >
+                [readmark] = #{readmark},
+            </if>
+            <if test="readtime != null" >
+                [readtime] = #{readtime},
+            </if>
+        </set>
+        WHERE
+        [tid] =  #{tid}
+    </update>
+
+    <insert id="insert" parameterType="com.fancyx.cees.domain.vo.CEES_GJHJVo">
+        INSERT INTO [CEES_Test]
+        ([cid]
+        ,[cnumber]
+        ,[construction]
+        ,[pid]
+        ,[projectnumber]
+        ,[project]
+        ,[client]
+        ,[sn]
+        ,[sn_project]
+        ,[testnumber]
+        ,[classification]
+        ,[testcount]
+        ,[testunit]
+        ,[editdate]
+        ,[testfile]
+        ,[payable]
+        ,[payment]
+        ,[arrears]
+        ,[paydate]
+        ,[CDLY]
+        ,[YTSM]
+        ,[SYMS]
+        ,[urgent]
+        ,[witness]
+        ,[state]
+        ,[remarks]
+        ,[edittime]
+        ,[edituser]
+        ,[readmark]
+        ,[readtime])
+        VALUES
+        (#{cid}
+        ,#{cnumber}
+        ,#{construction}
+        ,#{pid}
+        ,#{projectnumber}
+        ,#{project}
+        ,#{client}
+        ,#{sn}
+        ,#{sn_project}
+        ,#{testnumber}
+        ,#{classification}
+        ,#{testcount}
+        ,#{testunit}
+        ,#{editdate}
+        ,#{testfile}
+        ,#{payable}
+        ,#{payment}
+        ,#{arrears}
+        ,#{paydate}
+        ,#{CDLY}
+        ,#{YTSM}
+        ,#{SYMS}
+        ,#{urgent}
+        ,#{witness}
+        ,#{state}
+        ,#{remarks}
+        ,#{edittime}
+        ,#{edituser}
+        ,#{readmark}
+        ,#{readtime})
+    </insert>
+
+</mapper>
