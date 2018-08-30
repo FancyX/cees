@@ -44,9 +44,9 @@
     </div>
 ##表格的工具条
     <script type="text/html" id="barDemo">
-##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="print">打印</a>
-##        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        ##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        ##        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="print">打印</a>
+        ##        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
 </div>
@@ -55,7 +55,132 @@
 
 ##添加弹窗
 <form id="addModal" class="layui-form my-layer-modal none" lay-filter="addModal" action="">
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-row">
+                        <div class="layui-col-md4">
+                            <div class="layui-row margin-bottom-20">
+                                <div class="blue-font">
+                                    <div class="layui-input-inline layui-col-md4 my-sm-lable">送检编号
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md8">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
 
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+                                <div class="blue-font">
+                                    <div class="layui-input-inline layui-col-md4 my-sm-lable">工程提交序号
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md8">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+                                <div class="blue-font">
+                                    <div class="layui-input-inline layui-col-md4 my-sm-lable">委托人
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md8">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">分类
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <select name="classification" lay-filter="classification" lay-search >
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+                                <div class="layui-input-inline layui-col-md4 my-sm-lable">提交日期
+                                </div>
+                                <div class="layui-input-inline layui-col-md8">
+                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-col-md8">
+                            <div class="layui-row margin-bottom-20">
+                                <div class="blue-font">
+                                    <div class="layui-input-inline layui-col-md2 my-sm-lable">施工单位
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md10">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+                                <div class="blue-font">
+                                    <div class="layui-input-inline layui-col-md2 my-sm-lable">工程名称
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md10">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-row margin-bottom-20">
+
+                                <div class="layui-input-inline layui-col-md2 my-sm-lable blue-font">试验数量
+                                </div>
+                                <div class="layui-input-inline layui-col-md6">
+                                    <div class="layui-input-inline layui-col-md10">
+                                        <input type="text" name="" autocomplete="off" class="layui-input blue-font">
+                                    </div>
+                                    <div class="layui-input-inline layui-col-md2">
+                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-input-inline layui-col-md2 my-sm-lable">状态
+                                </div>
+                                <div class="layui-input-inline layui-col-md2">
+                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-row margin-bottom-20">
+                                <div class="layui-input-inline layui-col-md2 my-sm-lable">备注
+                                </div>
+                                <div class="layui-input-inline layui-col-md10">
+                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="layui-row margin-bottom-20">
+        <table class="layui-table">
+            <tbody>
+            <tr>
+                <td style="overflow-x: auto">
+                    <div class="layui-row" style="overflow-x: auto">
+                        <div style="width: 100;overflow: auto">
+                            <table id="testTable" lay-filter="testTable"></table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </form>
 
@@ -79,6 +204,41 @@
         update: '/tiJiao/TiJiao/update',
         delete: '/tiJiao/TiJiao/delete'
     };
+
+    var shiYanXiangMuUrls = {
+        "混凝土抗压": {
+            display: '/shiYanXiangMu/hunNingTuKangYa/getShowCol.action',
+            getData: '/shiYanXiangMu/hunNingTuKangYa/search'
+        },
+        "混凝土抗折": {
+            display: '/shiYanXiangMu/Hntkz/getShowCol.action',
+            getData: '/shiYanXiangMu/Hntkz/search',
+        },
+        "砂浆抗压": {
+            display: '/shiYanXiangMu/SJKYQD/getShowCol.action',
+            getData: '/shiYanXiangMu/SJKYQD/search',
+        },
+        "净浆强度": {
+            display: '/shiYanXiangMu/SNJJ/getShowCol.action',
+            getData: '/shiYanXiangMu/SNJJ/search',
+        },
+        "钢筋原材": {
+            display: '/shiYanXiangMu/GJYC/getShowCol.action',
+            getData: '/shiYanXiangMu/GJYC/search',
+        },
+        "马歇尔稳定度": {
+            display: '/shiYanXiangMu/LQMXE/getShowCol.action',
+            getData: '/shiYanXiangMu/LQMXE/search',
+        },
+        "钢筋焊接": {
+            display: '/shiYanXiangMu/GJHJ/getShowCol.action',
+            getData: '/shiYanXiangMu/GJHJ/search',
+        },
+        "无线侧抗压强度": {
+            display: '/shiYanXiangMu/WCXKY/getShowCol.action',
+            getData: '/shiYanXiangMu/WCXKY/search',
+        }
+    };
 </script>
 ##页面初始化
 <script>
@@ -90,7 +250,98 @@
 
 <script>
 
-    //初始化表格
+    //获取列并回调
+    function initGetDataShowCol(url, callback) {
+        //请求列数据-成功后请求表数据
+        jQuery.ajax({
+            type: 'post',
+            url: url.display,
+            dataType: 'json',
+            data: {},
+            async: false,
+            success: function (json) {
+                if (json == null || json == undefined) {
+                    failAlert("获取数据失败！");
+                    return;
+                } else {
+                    if (json.code == 0) {
+                        callback(url, json);
+                    }
+                }
+            },
+            err: function (err) {
+                failAlert("连接服务器失败！");
+            }
+        });
+    }
+
+    ##初始化弹窗的table
+    function initModalTable(url, displayCol) {
+
+        //获取表头
+        var getCols = function (json) {
+
+            var data = json.data;
+            var cols = [[]];
+            cols[0][0] = {field: 'checkbox', type: 'checkbox', title: '单选', fixed: 'left'};
+            // cols[0][0] = {field: 'checkbox', templet: '#chk', edit: false, title: '单选', fixed: 'left', event: 'chk'};
+            for (var i = 0; i < data.length; i++) {
+                var row = data[i];
+                var gridmc = row['gridmc'].toLocaleLowerCase();
+
+                var zw = row['zw'];
+                var width = 90;
+                if (zw.length > 4) {
+                    width = width + (zw.length - 4) * 10;
+                }
+                if (gridmc.length - zw.length > 2) {
+                    width += 24;
+                }
+                var col = {field: gridmc, title: zw, width: width, edit: false};
+                cols[0].push(col);
+            }
+            // var toolbar = {fixed: 'right', align: 'center', toolbar: '#barDemo', edit: false, title: '操作', width: 200};
+            // cols[0].push(toolbar);
+            return cols;
+        }
+
+        //表格初始化和查询参数绑定
+        var tableOptions = {
+            elem: '#testTable',
+            height: 300,
+            url: url.getData, //数据接口
+            page: true,//开启分页
+            request: {
+                pageName: 'page', //页码的参数名称，默认：page
+                limitName: 'limit' //每页数据量的参数名，默认：limit
+            },
+            response: {
+                statusName: 'code',//数据状态的字段名称，默认：code
+                statusCode: 0,//成功的状态码，默认：0
+                msgName: 'msg',//状态信息的字段名称，默认：msg
+                countName: 'count', //数据总数的字段名称，默认：count
+                dataName: 'data' //数据列表的字段名称，默认：data
+            },
+            // where: {
+            //     zmrqstart: jQuery("#beginTime").val(), //制模日期开始
+            //     zmrqend: jQuery("#endTime").val(),  //制模日期结束
+            //     queryStr: jQuery("#queryStr").val(), //查询字符串
+            //     queryIntStr: jQuery("#queryStr").val()
+            // },
+            skin: {
+                size: 'sm'
+            },
+            cols: getCols(displayCol)
+        };
+
+        //执行一个 table 实例
+        layui.use(['table'], function () {
+            var table = layui.table;//表格
+            table.render(tableOptions);
+        });
+    }
+
+    //初始化分页表格
     function initTable(displayCol) {
 
         //获取表头
@@ -194,42 +445,6 @@
                     }
                 }
             });
-        });
-    }
-
-    //粘贴编号事件
-    function getDataByTableNumber() {
-
-        var formID = "addModal";
-
-        var number = jQuery("#" + formID + " [name='kynumber']").val();
-
-        if (isNull(number)) {
-            failAlert("请先填写砂浆抗压编号");
-            return;
-        }
-
-        jQuery.ajax({
-            type: 'post',
-            url: urls.select,
-            dataType: 'json',
-            data: {'sjkynumber': number, 'page': 1, 'limit': 1},
-            async: false,
-            success: function (json) {
-
-                if (json.code == 0 &&
-                        json.data != null && json.data != undefined) {
-                    initModelByData(json.data[0], formID, moadlHtmls.add);
-                    console.log(json.data);
-
-                } else {
-                    failAlert(json.msg);
-                }
-
-            },
-            err: function (err) {
-                failAlert("连接服务器失败,请重试！");
-            }
         });
     }
 
@@ -437,10 +652,30 @@
         });
     }
 
-
     //初始化当前页面的弹窗默认数据
     function initThisModalDefaultData(jqFormDom) {
+        var shiYanXiangMuHtml = "";
 
+        for (var key in shiYanXiangMuUrls) {
+            shiYanXiangMuHtml += '<option value="' + key + '">' + key + '</option>'
+        }
+        jqFormDom.find("[name='classification']").html(shiYanXiangMuHtml);
+
+        var keys = Object.keys(shiYanXiangMuUrls);
+        if (keys.length > 0) {
+            initGetDataShowCol(shiYanXiangMuUrls[keys[0]], initModalTable);
+        }
+        layui.use(['form'], function () {
+            var form = layui.form; //表单
+            form.render("select");
+            form.on('select(classification)', function (data) {
+                console.log(data.elem); //得到select原始DOM对象
+                console.log(data.value); //得到被选中的值
+                console.log(data.othis); //得到美化后的DOM对象
+
+                initGetDataShowCol(shiYanXiangMuUrls[data.value], initModalTable);
+            });
+        });
     }
 
     //初始化修改和查看页面数据
@@ -450,6 +685,15 @@
         initModalInput(data, formID);
         //为弹窗灌入一些基础的数据
         initThisModalDefaultData(jqForm);
+
+    }
+
+    //修改 - 初始化弹窗
+    function initModelByData(data, formID, html) {
+        var jqForm = jQuery("#" + formID);
+        jqForm.html(html);
+        initModelDataByData(data, formID);
+
 
     }
 
