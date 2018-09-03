@@ -67,16 +67,47 @@
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_UserVO">
         UPDATE
           [CEES_User]
-        SET
-           [cid] = #{cid}
-          ,[name] = #{name}
-          ,[post] = #{post}
-          ,[tel] = #{tel}
-          ,[part] = #{part}
-          ,[state] = #{state}
-          ,[remarks] = #{remarks}
-          ,[edittime] = #{edittime}
-          ,[edituser] = #{edituser}
+       <set>
+           <if test="uid != null" >
+               [uid] = #{uid},
+           </if>
+           <if test="cid != null" >
+               [cid] = #{cid},
+           </if>
+           <if test="sn != null" >
+               [sn] = #{sn},
+           </if>
+           <if test="loginuser != null" >
+               [loginuser] = #{loginuser},
+           </if>
+           <if test="password != null" >
+               [password] = #{password},
+           </if>
+           <if test="name != null" >
+               [name] = #{name},
+           </if>
+           <if test="post != null" >
+               [post] = #{post},
+           </if>
+           <if test="tel != null" >
+               [tel] = #{tel},
+           </if>
+           <if test="part != null" >
+               [part] = #{part},
+           </if>
+           <if test="state != null" >
+               [state] = #{state},
+           </if>
+           <if test="remarks != null" >
+               [remarks] = #{remarks},
+           </if>
+           <if test="edittime != null" >
+               [edittime] = #{edittime},
+           </if>
+           <if test="edituser != null" >
+               [edituser] = #{edituser},
+           </if>
+       </set>
         WHERE
           [uid] = #{uid}
     </update>

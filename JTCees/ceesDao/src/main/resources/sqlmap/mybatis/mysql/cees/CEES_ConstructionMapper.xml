@@ -88,17 +88,47 @@ SELECT [cid]
 
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_ConstructionVo">
         UPDATE [CEES_Construction]
-        SET
-        [construction] = #{construction},
-        [address] = #{address},
-        [client] = #{client},
-        [tel] = #{tel},
-        [anumber] = #{anumber},
-        [part] = #{part},
-        [state] = #{state},
-        [remarks] = #{remarks},
-        [edittime] = #{edittime},
-        [edituser] = #{edituser}
+       <set>
+           <if test="cid != null" >
+               [cid] = #{cid},
+           </if>
+           <if test="sn != null" >
+               [sn] = #{sn},
+           </if>
+           <if test="cnumber != null" >
+               [cnumber] = #{cnumber},
+           </if>
+           <if test="construction != null" >
+               [construction] = #{construction},
+           </if>
+           <if test="address != null" >
+               [address] = #{address},
+           </if>
+           <if test="client != null" >
+               [client] = #{client},
+           </if>
+           <if test="tel != null" >
+               [tel] = #{tel},
+           </if>
+           <if test="anumber != null" >
+               [anumber] = #{anumber},
+           </if>
+           <if test="part != null" >
+               [part] = #{part},
+           </if>
+           <if test="state != null" >
+               [state] = #{state},
+           </if>
+           <if test="remarks != null" >
+               [remarks] = #{remarks},
+           </if>
+           <if test="edittime != null" >
+               [edittime] = #{edittime},
+           </if>
+           <if test="edituser != null" >
+               [edituser] = #{edituser},
+           </if>
+       </set>
         WHERE
           cid = #{cid}
     </update>
@@ -119,7 +149,6 @@ SELECT [cid]
           ,[edituser]
       FROM [CEES_Construction]
     </select>
-
 
     <select id="maxSn" resultType="java.lang.Integer">
         select

@@ -139,13 +139,16 @@
                                         <input type="text" name="" autocomplete="off" class="layui-input blue-font">
                                     </div>
                                     <div class="layui-input-inline layui-col-md2">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <select name="">
+                                            <option value="组">组</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="layui-input-inline layui-col-md2 my-sm-lable">状态
                                 </div>
                                 <div class="layui-input-inline layui-col-md2">
-                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                    <select name="">
+                                    </select>
                                 </div>
                             </div>
 
@@ -322,12 +325,9 @@
                 countName: 'count', //数据总数的字段名称，默认：count
                 dataName: 'data' //数据列表的字段名称，默认：data
             },
-            // where: {
-            //     zmrqstart: jQuery("#beginTime").val(), //制模日期开始
-            //     zmrqend: jQuery("#endTime").val(),  //制模日期结束
-            //     queryStr: jQuery("#queryStr").val(), //查询字符串
-            //     queryIntStr: jQuery("#queryStr").val()
-            // },
+            where: {
+                state: '新建'
+            },
             skin: {
                 size: 'sm'
             },

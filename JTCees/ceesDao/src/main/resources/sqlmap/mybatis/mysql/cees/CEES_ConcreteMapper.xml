@@ -67,15 +67,38 @@
     <update id="update" parameterType="com.fancyx.cees.domain.vo.CEES_ConcreteVo">
         UPDATE
             [CEES_Concrete]
-        SET
-            [cid]=#{cid},
-            [concrete]=#{concrete},
-            [address]=#{address},
-            [tel]=#{tel},
-            [state]=#{state},
-            [remarks]=#{remarks},
-            [edittime]=#{edittime},
-            [edituser]=#{edituser}
+        <set>
+            <if test="ccid != null" >
+                [ccid] = #{ccid},
+            </if>
+            <if test="cid != null" >
+                [cid] = #{cid},
+            </if>
+            <if test="sn != null" >
+                [sn] = #{sn},
+            </if>
+            <if test="concrete != null" >
+                [concrete] = #{concrete},
+            </if>
+            <if test="address != null" >
+                [address] = #{address},
+            </if>
+            <if test="tel != null" >
+                [tel] = #{tel},
+            </if>
+            <if test="state != null" >
+                [state] = #{state},
+            </if>
+            <if test="remarks != null" >
+                [remarks] = #{remarks},
+            </if>
+            <if test="edittime != null" >
+                [edittime] = #{edittime},
+            </if>
+            <if test="edituser != null" >
+                [edituser] = #{edituser},
+            </if>
+        </set>
         WHERE
             ccid = #{ccid}
     </update>
