@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        String tableName = "CEES_Test";
+        String tableName = "CEES_Construction";
         String sql = "select column_name,data_type from information_schema.columns where table_name = '" + tableName + "'";
         List<Map<String, String>> result = Dao_outside.getInstance().queryForList(sql);
         for (Map<String, String> map : result) {
