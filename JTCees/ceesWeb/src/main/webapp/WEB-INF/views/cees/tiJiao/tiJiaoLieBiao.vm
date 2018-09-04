@@ -67,7 +67,7 @@
                                     <div class="layui-input-inline layui-col-md4 my-sm-lable">送检编号
                                     </div>
                                     <div class="layui-input-inline layui-col-md8">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <input type="text" name="testnumber" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
 
@@ -77,7 +77,7 @@
                                     <div class="layui-input-inline layui-col-md4 my-sm-lable">工程提交序号
                                     </div>
                                     <div class="layui-input-inline layui-col-md8">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <input type="text" name="sn_project" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
 
@@ -87,16 +87,15 @@
                                     <div class="layui-input-inline layui-col-md4 my-sm-lable">委托人
                                     </div>
                                     <div class="layui-input-inline layui-col-md8">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <input type="text" name="client" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
-
                             </div>
                             <div class="layui-row margin-bottom-20">
                                 <div class="layui-input-inline layui-col-md4 my-sm-lable">分类
                                 </div>
                                 <div class="layui-input-inline layui-col-md8">
-                                    <select name="classification" lay-filter="classification" lay-search >
+                                    <select name="classification" lay-filter="classification" lay-search>
 
                                     </select>
                                 </div>
@@ -105,7 +104,8 @@
                                 <div class="layui-input-inline layui-col-md4 my-sm-lable">提交日期
                                 </div>
                                 <div class="layui-input-inline layui-col-md8">
-                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                ##TODO 没有该字段
+                                    <input type="text" name="" class="layui-input none" placeholder="yyyy-MM-dd">
                                 </div>
                             </div>
                         </div>
@@ -116,17 +116,16 @@
                                     <div class="layui-input-inline layui-col-md2 my-sm-lable">施工单位
                                     </div>
                                     <div class="layui-input-inline layui-col-md10">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <input type="text" name="construction" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
-
                             </div>
                             <div class="layui-row margin-bottom-20">
                                 <div class="blue-font">
                                     <div class="layui-input-inline layui-col-md2 my-sm-lable">工程名称
                                     </div>
                                     <div class="layui-input-inline layui-col-md10">
-                                        <input type="text" name="" autocomplete="off" class="layui-input">
+                                        <input type="text" name="project" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
                             </div>
@@ -136,18 +135,26 @@
                                 </div>
                                 <div class="layui-input-inline layui-col-md6">
                                     <div class="layui-input-inline layui-col-md10">
-                                        <input type="text" name="" autocomplete="off" class="layui-input blue-font">
+                                        <input type="text" name="testcount" autocomplete="off"
+                                               class="layui-input blue-font">
                                     </div>
                                     <div class="layui-input-inline layui-col-md2">
-                                        <select name="">
+                                        <select name="testunit">
                                             <option value="组">组</option>
+                                            <option value="种">种</option>
+                                            <option value="块">块</option>
+                                            <option value="件">件</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="layui-input-inline layui-col-md2 my-sm-lable">状态
                                 </div>
                                 <div class="layui-input-inline layui-col-md2">
-                                    <select name="">
+                                    <select name="state">
+                                        <option value="新建">新建</option>
+                                        <option value="送检">送检</option>
+                                        <option value="报告可取">报告可取</option>
+                                        <option value="报告已取">报告已取</option>
                                     </select>
                                 </div>
                             </div>
@@ -156,7 +163,7 @@
                                 <div class="layui-input-inline layui-col-md2 my-sm-lable">备注
                                 </div>
                                 <div class="layui-input-inline layui-col-md10">
-                                    <input type="text" name="" autocomplete="off" class="layui-input">
+                                    <input type="text" name="remarks" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
