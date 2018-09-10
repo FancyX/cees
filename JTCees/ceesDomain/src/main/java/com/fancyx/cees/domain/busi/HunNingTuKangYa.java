@@ -1,7 +1,7 @@
 package com.fancyx.cees.domain.busi;
 
 import com.fancyx.cees.CustomDateSerializer;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -166,10 +166,8 @@ public class HunNingTuKangYa implements Serializable {
     //要求龄期
     private String YQLQ;
     //要求试验日期
-
     private Date YQSYRQ;
     //试块收到日期
-
     private Date SKSDRQ;
     //试块养护条件
     private String SKYHTJ;

@@ -15,7 +15,7 @@
 
     <properties>
         <jackson.version>1.9.13</jackson.version>
-        <jackson.core.version>2.4.2</jackson.core.version>
+        <jackson.core.version>2.6.2</jackson.core.version>
     </properties>
 
     <dependencies>
@@ -57,6 +57,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.core.version}</version>
         </dependency>
+
 
     </dependencies>
     <artifactId>ceesDomain</artifactId>
