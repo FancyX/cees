@@ -1,5 +1,8 @@
 package com.fancyx.cees.domain.busi;
 
+import com.fancyx.cees.CustomDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -466,6 +469,7 @@ public class CEES_GJYC  implements Serializable {
         this.SJDBSL = SJDBSL;
     }
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getLYRQ() {
         return LYRQ;
     }
@@ -506,6 +510,7 @@ public class CEES_GJYC  implements Serializable {
         this.YT = YT;
     }
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getSYRQ() {
         return SYRQ;
     }
@@ -1298,6 +1303,7 @@ public class CEES_GJYC  implements Serializable {
         this.SYRBH = SYRBH;
     }
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getBGRQ() {
         return BGRQ;
     }
